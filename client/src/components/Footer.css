@@ -1,0 +1,96 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    background: rgb(197, 197, 197);
+    padding-left: 2%;
+    padding-right: 2%;
+
+    /* For Spacing Purposes Only - Removed when complete */
+    border: 1px;
+    border-style: dotted;
+    border-color: blue;
+ }
+
+.top-area {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 90%;
+    margin: 1%;
+
+    /* For Spacing Purposes Only - Removed when complete */
+    border: 1px;
+    border-style: dotted;
+    border-color: rgb(249, 0, 220);
+ }
+
+ .footer-logo {
+    order: 1;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    /* For Spacing Purposes Only - Removed when complete */
+    border: 1px;
+    border-style: dotted;
+    border-color: chartreuse;
+ }
+
+ .footer-pages {
+    order: 2;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-grow: 2;
+
+    /* For Spacing Purposes Only - Removed when complete */
+    border: 1px;
+    border-style: dotted;
+    border-color: chartreuse;
+ }
+
+ .internal-pages {
+    padding:1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+
+    /* For Spacing Purposes Only - Removed when complete */
+    border: 1px;
+    border-style: dotted;
+    border-color: rgb(255, 179, 0);
+ }
+
+ .footer-link {
+    border: 1px;
+    border-style: dotted;
+    border-color: rgb(30, 0, 253);
+    width: fit-content;
+    height: fit-content;
+ }
+
+.admin-panel {
+    order: 3;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    /* For Spacing Purposes Only - Removed when complete */
+    border: 1px;
+    border-style: dotted;
+    border-color: chartreuse;
+}
+
+.bottom-area {
+    display: flex;
+
+
+ }
