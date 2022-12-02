@@ -17,8 +17,4 @@ create table files
     feedback_id integer references feedback (id)
 );
 
--- {
---     "firstName":"A",
---     "lastName": "B",
---     "emailAddress": "C"
--- }
+-- {"firstName":"A", "lastName": "B", "emailAddress": "C", "feedbackBody":"D", "bookName":"E", "bookLink": "F"}

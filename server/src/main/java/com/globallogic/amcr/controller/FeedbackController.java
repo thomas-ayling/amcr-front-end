@@ -3,6 +3,7 @@ package com.globallogic.amcr.controller;
 import com.globallogic.amcr.model.Feedback;
 import com.globallogic.amcr.payload.FeedbackResponse;
 import com.globallogic.amcr.service.FeedbackService;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,24 +12,20 @@ import org.springframework.web.multipart.MultipartFile;
 @CrossOrigin(origins = "*")
 public class FeedbackController {
 
-    private FeedbackService feedbackService;
+    private final FeedbackService feedbackService;
 
     public FeedbackController(FeedbackService feedbackService) {
         this.feedbackService = feedbackService;
     }
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST, consumes = {"multipart/form-data"})
-    public FeedbackResponse uploadFeedback(
+    public long uploadFeedback(
             @RequestPart("feedback") Feedback feedback,
             @RequestPart(value = "attachment", required = false) MultipartFile attachment
     ) {
-
-//        System.out.println(feedback.getFirstName());
-//        System.out.println(attachment.getContentType());
-
         if (attachment == null) {
             return feedbackService.saveWithNoAttachment(feedback);
         }
-        return feedbackService.saveWithAttachment(feedback, attachment);
+        else return feedbackService.saveWithAttachment(feedback, attachment);
     }
 }

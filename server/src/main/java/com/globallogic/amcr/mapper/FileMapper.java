@@ -12,8 +12,8 @@ import java.sql.SQLException;
 
 @Mapper
 public interface FileMapper {
-    @Insert("insert into files(file_name, data) values(#{fileName}, #{data})")
-    public int save(Attachment attachment);
+    @Insert("insert into files(file_name, data, feedback_id) values(#{fileName}, #{data}, #{feedbackId})")
+    public int save(Attachment attachment, long feedbackId);
 
     @Select("SELECT * FROM file where file_name = #{fileName}")
     public Attachment findByName(String fileName);
