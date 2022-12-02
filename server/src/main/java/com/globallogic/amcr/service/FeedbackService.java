@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
+import java.util.UUID;
 
 @Service
 public class FeedbackService {
@@ -25,7 +26,7 @@ public class FeedbackService {
         this.fileMapper = fileMapper;
     }
 
-    private int saveAttachment(MultipartFile incomingAttachment, long feedbackId) {
+    private int saveAttachment(MultipartFile incomingAttachment, UUID feedbackId) {
         String fileName = StringUtils.cleanPath(incomingAttachment.getOriginalFilename());
         String contentType = incomingAttachment.getContentType();
         try {
@@ -33,8 +34,11 @@ public class FeedbackService {
                 throw new FileStorageException("Filename contains invalid path sequence '..' " + fileName);
             }
 
-            Attachment attachment = new Attachment(fileName, contentType, incomingAttachment.getBytes());
-            return fileMapper.save(attachment, feedbackId);
+            // Generate random UUID for the file
+            UUID fileId = UUID.randomUUID();
+
+            Attachment attachment = new Attachment(fileId, fileName, contentType, incomingAttachment.getBytes(), feedbackId);
+            return fileMapper.save(attachment);
 //            String downloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/files/download/").path(fileName).toUriString();
         } catch (
                 IOException ioe) {
@@ -48,15 +52,21 @@ public class FeedbackService {
 
     }
 
-    public long saveWithNoAttachment(Feedback feedback) {
-        long id = feedbackMapper.save(feedback);
-        System.out.println(id);
-        return id;
+    public int saveWithNoAttachment(Feedback feedback) {
+        UUID feedbackId = UUID.randomUUID();
+        feedback.setId(feedbackId);
+        return feedbackMapper.save(feedback);
     }
 
-    public long saveWithAttachment(Feedback feedback, MultipartFile attachment) {
-        long feedbackId = feedbackMapper.save(feedback);
-        System.out.println(feedbackId);
+    public int saveWithAttachment(Feedback feedback, MultipartFile attachment) {
+        UUID feedbackId = UUID.randomUUID();
+        feedback.setId(feedbackId);
+        feedbackMapper.save(feedback);
         return saveAttachment(attachment, feedbackId);
+    }
+
+    public FeedbackResponse get() {
+        FeedbackResponse response = feedbackMapper.get();
+        return response;
     }
 }

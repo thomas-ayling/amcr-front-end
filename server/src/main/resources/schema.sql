@@ -1,6 +1,6 @@
 create table feedback
 (
-    id            serial primary key,
+    id            uuid primary key,
     first_name    text,
     last_name     text,
     email_address text,
@@ -11,7 +11,7 @@ create table feedback
 
 create table files
 (
-    id          serial primary key,
+    id          uuid primary key,
     file_name   text,
     data        bytea,
     feedback_id integer references feedback (id)

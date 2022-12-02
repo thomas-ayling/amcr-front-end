@@ -2,6 +2,7 @@ package com.globallogic.amcr.payload;
 
 public class FileResponse {
     private String fileName;
+
     private String downloadUri;
     private long size;
 

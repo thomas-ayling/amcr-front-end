@@ -2,8 +2,10 @@ package com.globallogic.amcr.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.UUID;
+
 public class Feedback {
-    private Long id;
+    private UUID id;
     private String feedbackType;
     private String firstName;
     private String lastName;
@@ -68,11 +70,11 @@ public class Feedback {
         this.bookLink = bookLink;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

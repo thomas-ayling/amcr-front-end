@@ -1,15 +1,37 @@
 package com.globallogic.amcr.payload;
 
 public class FeedbackResponse {
-//    private FileResponse fileResponse;
+    private String firstName;
+    private String lastName;
+    private String fileName;
 
-    private long id;
-
-    public FeedbackResponse() {
+    public FeedbackResponse(String firstName, String lastName, String fileName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fileName = fileName;
     }
 
-    public FeedbackResponse(long id) {
-        this.id = id;
-//        this.fileResponse = fileResponse;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 }

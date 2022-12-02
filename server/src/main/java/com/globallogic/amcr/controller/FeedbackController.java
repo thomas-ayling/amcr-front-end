@@ -28,4 +28,10 @@ public class FeedbackController {
         }
         else return feedbackService.saveWithAttachment(feedback, attachment);
     }
+
+    @GetMapping("/get")
+    public FeedbackResponse getFeedback () {
+        return feedbackService.get();
+    }
+
 }
