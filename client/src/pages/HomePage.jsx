@@ -1,12 +1,7 @@
-import React from 'react';
-import ContactComponent from '../components/ContactComponent';
+import React from 'react'
 
 const HomePage = () => {
   return (
-    <div>
-      <ContactComponent type='case-study' />
-    </div>
-  );
-};
-
-export default HomePage;
+    <div>HomePage</div>
+  )
+}

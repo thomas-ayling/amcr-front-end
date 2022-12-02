@@ -1,0 +1,28 @@
+#a-div {
+    border: 5px;
+    border-color: black;
+    border-style: dotted;
+    display: flex;
+    flex-wrap: wrap;
+}
+#b-div {
+    border:5px;
+    border-color: blue;
+    border-style: dotted;
+    display: flex;
+    flex-wrap: wrap;
+}
+#c-div {
+    border: 5px;
+    border-color: red;
+    border-style: dotted;
+    display: flex;
+    flex-wrap: wrap;
+}
+#d-div {
+    border: 5px;
+    border-color: greenyellow;
+    border-style: dotted;
+    display: flex;
+    flex-wrap: wrap;
+}
