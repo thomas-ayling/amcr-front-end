@@ -15,78 +15,89 @@ body {
     bottom: 0;
     width: 100% !important;
     height: fit-content;
-    background: rgb(188,190,192);
-    background: -moz-linear-gradient(180deg, rgba(188,190,192,1) 35%, rgba(109,110,113,1) 100%);
-    background: -webkit-linear-gradient(180deg, rgba(188,190,192,1) 35%, rgba(109,110,113,1) 100%);
-    background: linear-gradient(180deg, rgba(188,190,192,1) 35%, rgba(109,110,113,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bcbec0",endColorstr="#6d6e71",GradientType=1);
+    background: rgba(109,110,113, 0.95);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     
 
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+
+    /* border: 1px;
     border-style: dotted;
-    border-color: blue;
+    border-color: blue; */
  }
 
  .footer-divider {
    width: 95%;
    border: 1px solid rgb(209, 209, 209);
    border-radius: 5px;
+   /* box-shadow: 0 0 20px 1px black; */
+   margin-top: 2%;
  }
 
 .top-area {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap:calc(1vw + 1vh);
+    /* gap:calc(1vw + 1vh); */
     margin: 1%;
     font-size: 2.5vmin;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
     margin-bottom: 1%;
     margin-top: 1%;
 
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+
+    /* border: 1px;
     border-style: dotted;
-    border-color: rgb(249, 0, 220);
+    border-color: rgb(249, 0, 220); */
  }
 
  .footer-logo {
     order: 1;
     flex-grow: 1;
     min-width: 10%;
-    max-width: 15%;
+    max-width: 20%;
     height: auto;
 
+    padding-top: 1%;
+
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+
+    /* border: 1px;
     border-style: dotted;
-    border-color: chartreuse;
+    border-color: chartreuse; */
  }
 
  .gl-logo {
-   width: 20%;
-   height: auto;
+   display: block;
+   max-width:230px;
+   max-height:95px;
+   width: auto;
+  height: auto;
  }
 
 
  /* unvisited link */
 .footer-link:link {
    color: rgb(230, 231, 232);
+   text-shadow: #121212 1px 0 1px;
    text-decoration: none;
  }
  
  /* visited link */
  .footer-link:visited {
-   color: rgb(230,231,232);
+   color: #e6e7e8;
    text-decoration: none;
  }
  
  /* mouse over link */
  .footer-link:hover {
-   color: rgb(243, 122, 055);
-   text-decoration: underline;
+   text-shadow: #f37a37 1px 0 5px;
+   transition: .3s;
  }
  
  /* selected link */
@@ -100,14 +111,15 @@ body {
     align-content: center;
     justify-content: center;
     flex-grow: 2;
-    min-width: 40%;
-    max-width: 45%;
+    min-width: 25%;
+    max-width: 50%;
     height: auto;
 
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+
+    /* border: 1px;
     border-style: dotted;
-    border-color: chartreuse;
+    border-color: chartreuse; */
  }
 
  .internal-pages {
@@ -117,37 +129,46 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    gap: 0.25rem;
+    gap: 0.7rem;
 
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+
+    /* border: 1px;
     border-style: dotted;
-    border-color: rgb(255, 179, 0);
+    border-color: rgb(255, 179, 0); */
  }
 
  .footer-link {
-    border: 1px;
-    border-style: dotted;
-    border-color: rgb(30, 0, 253);
+
     min-width: 10%;
     height: auto;
-    font-size: 2.5vmin;
+    font-size: 2vmin;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+
+    /* For Spacing Purposes Only - Removed when complete */
+
+    /* border: 1px;
+    border-style: dotted;
+    border-color: rgb(30, 0, 253); */
  }
 
 .admin-panel {
     order: 3;
     height: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    padding-right: 1%;
     align-items: center;
-    width: 25%;
+    width: 20%;
     height: auto;
 
 
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+
+    /* border: 1px;
     border-style: dotted;
-    border-color: chartreuse;
+    border-color: chartreuse; */
 }
 
 .admin-link {
@@ -155,14 +176,17 @@ body {
    width: fit-content;
    font-size: 1em;
 
-   border: 1px;
+   /* For Spacing Purposes Only - Removed when complete */
+
+   /* border: 1px;
    border-style: dotted;
-   border-color: rgb(8, 16, 171);
+   border-color: rgb(8, 16, 171); */
 }
 
  /* unvisited link */
  .admin-link:link {
    color: rgb(230, 231, 232);
+   text-shadow: #121212 1px 0 1px;
    text-decoration: none;
  }
  
@@ -174,24 +198,54 @@ body {
  
  /* mouse over link */
  .admin-link:hover {
-   color: rgb(243, 122, 055);
-   text-decoration: underline;
+   text-shadow: #f37a37 1px 0 10px;
+   transition: .3s;
  }
 
 .bottom-area {
     display: flex;
-    display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 1%;
+    margin-bottom: 0;
     /* font-size: 1rem; */
 
     /* For Spacing Purposes Only - Removed when complete */
-    border: 1px;
+    /* border: 1px;
     border-style: dotted;
-    border-color: rgb(249, 0, 220);
+    border-color: rgb(249, 0, 220); */
 
 
  }
+
+ .footer-trademark {
+   color: rgb(230, 231, 232);
+   text-shadow: #121212 1px 0 1px;
+   text-decoration: none;
+   font-size: 2vmin;
+   font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+ }
+
+ .social-icons {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+}
+
+.social-icon {
+   border-radius: 50%;
+   background-color: #e6e7e8;
+   width: 36px;
+   height: 36px;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+   filter: grayscale(100%);
+}

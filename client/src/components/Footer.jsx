@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './Footer.css';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '/node_modules/font-awesome/css/font-awesome.min.css'; 
 
 const Footer = () => {
   return (
@@ -32,10 +34,26 @@ const Footer = () => {
         <section className="bottom-area">
           {/* Column for Social Media Links */}
           <div className="footer-social">
-            <link></link>
-            <link></link>
-            <link></link>
-            <link></link>
+            <div class="social-icons">
+					    <a href="https://www.linkedin.com/company/globallogic">
+                <div className="social-icon"><i className="fa fa-linkedin round fa-space"></i></div>
+              </a>
+              <a href="https://twitter.com/globallogic">
+                <div className="social-icon"><i className="fa fa-twitter round fa-space"></i></div>
+                </a>
+              <a href="https://www.facebook.com/GlobalLogic/">
+                <div className="social-icon"><i className="fa fa-facebook round fa-space"></i></div>
+                </a>
+              <a href="https://www.youtube.com/user/globallogic">
+                <div className="social-icon"><i className="fa fa-youtube round fa-space"></i></div>
+                </a>
+              <a href="https://www.instagram.com/globallogic_usa/">
+                <div className="social-icon"><i className="fa fa-instagram round fa-space"></i></div>
+                </a>				
+            </div>
+          </div>
+          <div className="footer-trademark">
+              <p>2023 Copyright GlobalLogic Inc. All rights reserved.</p>
           </div>
         </section>
       </div>
