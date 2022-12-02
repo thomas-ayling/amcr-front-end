@@ -3,6 +3,7 @@ package com.globallogic.amcr.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Feedback {
+    private long id;
     private String feedbackType;
     private String firstName;
     private String lastName;
@@ -67,6 +68,14 @@ public class Feedback {
         this.bookLink = bookLink;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getFeedbackType() {
         return feedbackType;
     }
@@ -75,7 +84,9 @@ public class Feedback {
         this.feedbackType = feedbackType;
     }
 
-    public String getFirstName() { return firstName; }
+    public String getFirstName() {
+        return firstName;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
