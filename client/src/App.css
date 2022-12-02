@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.contact-component {
+  display: flex;
+  width: 55vw;
+  border: 1px solid black;
+  padding: 5vmin;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contact-component > div {
+  width: 50%;
+  aspect-ratio: 2/1;
+}
+
+.contact-component-description > h1 {
+  margin: 0;
+}
+
+.contact-component-description > p {
+  padding-right: 5vmin;
+}
+
+.contact-component-form {
+}
+
+#first-name-input,
+#last-name-input {
+  width: 45%;
+  flex: 1;
+  /* background-color: rebeccapurple; */
+}
+
+#user-name-inputs {
+  gap: 3px;
+  width: 25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#email-address-input {
+  width: 25rem;
+}
+
+.contact-form-textarea {
+  width: 25rem ;
+  height: 15vh ;
+  resize: none;
+}
+
+.contact-form-input {
+  font-size: 2.3vmin;
+  padding: 0.5vmin;
+  border: 1px solid #bcbec0;
 }

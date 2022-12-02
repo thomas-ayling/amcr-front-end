@@ -1,0 +1,23 @@
+{
+    "family": FAMILY,
+    "containerDefinitions": [
+        {
+            "image": "REPOSITORY_URI:BUILD_NUMBER",
+            "name": NAME,
+	    "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3001,
+                    "hostPort": 3001
+                }
+            ]
+        }
+    ],
+    "cpu": "256",
+    "memory": "512",
+    "requiresCompatibilities": [
+             "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "executionRoleArn": ROLE_ARN 
+}
