@@ -1,7 +1,10 @@
 import React from 'react'
+import ContactComponent from '../components/ContactComponent';
 
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div><ContactComponent type="case-study"/></div>
   )
 }
+
+export default HomePage;
