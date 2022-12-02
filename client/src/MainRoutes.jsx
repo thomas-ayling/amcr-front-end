@@ -15,6 +15,7 @@ const MainRoutes = () => {
       <Route exact path='/contact' element={<Contacts />} />
       <Route exact path='/case-studies' element={<CaseStudies />} />
       <Route exact path='/library' element={<Library />} />
+      
     </Routes>
   );
 };
