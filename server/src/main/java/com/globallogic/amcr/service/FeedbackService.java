@@ -5,14 +5,21 @@ import com.globallogic.amcr.mapper.FeedbackMapper;
 import com.globallogic.amcr.mapper.FileMapper;
 import com.globallogic.amcr.model.Attachment;
 import com.globallogic.amcr.model.Feedback;
+import com.globallogic.amcr.payload.AttachmentResponse;
 import com.globallogic.amcr.payload.FeedbackResponse;
-import com.globallogic.amcr.payload.FileResponse;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -27,19 +34,19 @@ public class FeedbackService {
     }
 
     private int saveAttachment(MultipartFile incomingAttachment, UUID feedbackId) {
-        String fileName = StringUtils.cleanPath(incomingAttachment.getOriginalFilename());
-        String contentType = incomingAttachment.getContentType();
+        String fileName = StringUtils.cleanPath(Objects.requireNonNull(incomingAttachment.getOriginalFilename()));
+        String fileType = incomingAttachment.getContentType();
         try {
             if (fileName.contains("..")) {
                 throw new FileStorageException("Filename contains invalid path sequence '..' " + fileName);
             }
-
             // Generate random UUID for the file
-            UUID fileId = UUID.randomUUID();
-
-            Attachment attachment = new Attachment(fileId, fileName, contentType, incomingAttachment.getBytes(), feedbackId);
+            UUID fileUuid = UUID.randomUUID();
+            // Generate file download uri for the attachment
+            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/feedback/file-download/").path(fileUuid.toString()).toUriString();
+            // Create new Attachment object with generated params
+            Attachment attachment = new Attachment(fileUuid, fileName, fileType, incomingAttachment.getBytes(), fileDownloadUri, feedbackId);
             return fileMapper.save(attachment);
-//            String downloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/files/download/").path(fileName).toUriString();
         } catch (
                 IOException ioe) {
             try {
@@ -58,15 +65,29 @@ public class FeedbackService {
         return feedbackMapper.save(feedback);
     }
 
-    public int saveWithAttachment(Feedback feedback, MultipartFile attachment) {
+    public int saveWithAttachment(Feedback feedback, MultipartFile attachmentResponse) {
         UUID feedbackId = UUID.randomUUID();
         feedback.setId(feedbackId);
         feedbackMapper.save(feedback);
-        return saveAttachment(attachment, feedbackId);
+        return saveAttachment(attachmentResponse, feedbackId);
     }
 
+    //TODO: create proper functions for getting all feedback
     public FeedbackResponse get() {
-        FeedbackResponse response = feedbackMapper.get();
-        return response;
+        return feedbackMapper.get();
     }
+
+    public List<FeedbackResponse> getMany() {
+        return feedbackMapper.getMany();
+    }
+
+    public ResponseEntity<Resource> getFile(UUID id) {
+        AttachmentResponse attachmentResponse = fileMapper.getFile(id);
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType(attachmentResponse.getFileType()))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + attachmentResponse.getFileName() + "\"")
+                .body(new ByteArrayResource(attachmentResponse.getData()));
+    }
+
+
 }

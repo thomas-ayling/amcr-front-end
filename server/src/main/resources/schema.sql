@@ -11,10 +11,12 @@ create table feedback
 
 create table files
 (
-    id          uuid primary key,
-    file_name   text,
-    data        bytea,
-    feedback_id integer references feedback (id)
+    id           uuid primary key,
+    file_name    text,
+    file_type    text,
+    data         bytea,
+    download_uri text,
+    feedback_id  uuid references feedback (id) on delete cascade
 );
 
 -- {"firstName":"A", "lastName": "B", "emailAddress": "C", "feedbackBody":"D", "bookName":"E", "bookLink": "F"}

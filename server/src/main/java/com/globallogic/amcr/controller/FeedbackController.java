@@ -3,9 +3,15 @@ package com.globallogic.amcr.controller;
 import com.globallogic.amcr.model.Feedback;
 import com.globallogic.amcr.payload.FeedbackResponse;
 import com.globallogic.amcr.service.FeedbackService;
-import org.springframework.http.MediaType;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/feedback")
@@ -26,12 +32,22 @@ public class FeedbackController {
         if (attachment == null) {
             return feedbackService.saveWithNoAttachment(feedback);
         }
-        else return feedbackService.saveWithAttachment(feedback, attachment);
+        return feedbackService.saveWithAttachment(feedback, attachment);
     }
 
     @GetMapping("/get")
-    public FeedbackResponse getFeedback () {
+    public FeedbackResponse getFeedback() {
         return feedbackService.get();
+    }
+
+    @GetMapping("/get-many")
+    public List<FeedbackResponse> getManyFeedback() {
+        return feedbackService.getMany();
+    }
+
+    @GetMapping("/file-download/{id}")
+    public ResponseEntity<Resource> getFile(@PathVariable UUID id) {
+        return feedbackService.getFile(id);
     }
 
 }

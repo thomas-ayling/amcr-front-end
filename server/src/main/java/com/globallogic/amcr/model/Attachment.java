@@ -1,21 +1,21 @@
 package com.globallogic.amcr.model;
 
-import com.globallogic.amcr.typehandlers.UUIDTypeHandler;
-
 import java.util.UUID;
 
 public class Attachment {
     UUID id;
     String fileName;
-    String contentType;
+    String fileType;
     byte[] data;
+    String downloadUri;
     UUID feedbackId;
 
-    public Attachment(UUID id, String fileName, String contentType, byte[] data, UUID feedbackId) {
+    public Attachment(UUID id, String fileName, String fileType, byte[] data, String downloadUri, UUID feedbackId) {
         this.id = id;
         this.fileName = fileName;
-        this.contentType = contentType;
+        this.fileType = fileType;
         this.data = data;
+        this.downloadUri = downloadUri;
         this.feedbackId = feedbackId;
     }
 
@@ -35,12 +35,12 @@ public class Attachment {
         this.fileName = fileName;
     }
 
-    public String getContentType() {
-        return contentType;
+    public String getFileType() {
+        return fileType;
     }
 
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
     public byte[] getData() {
@@ -49,6 +49,14 @@ public class Attachment {
 
     public void setData(byte[] data) {
         this.data = data;
+    }
+
+    public String getDownloadUri() {
+        return downloadUri;
+    }
+
+    public void setDownloadUri(String downloadUri) {
+        this.downloadUri = downloadUri;
     }
 
     public UUID getFeedbackId() {

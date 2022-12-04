@@ -1,14 +1,26 @@
 package com.globallogic.amcr.payload;
 
+import com.globallogic.amcr.model.Attachment;
+
 public class FeedbackResponse {
     private String firstName;
     private String lastName;
-    private String fileName;
+    private String emailAddress;
+    private String feedbackBody;
+    private String bookName;
+    private String bookLink;
+    private String downloadUri;
 
-    public FeedbackResponse(String firstName, String lastName, String fileName) {
+    //TODO: Will need file name in response
+
+    public FeedbackResponse(String firstName, String lastName, String emailAddress, String feedbackBody, String bookName, String bookLink, String downloadUri) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fileName = fileName;
+        this.emailAddress = emailAddress;
+        this.feedbackBody = feedbackBody;
+        this.bookName = bookName;
+        this.bookLink = bookLink;
+        this.downloadUri = downloadUri;
     }
 
     public String getFirstName() {
@@ -27,11 +39,43 @@ public class FeedbackResponse {
         this.lastName = lastName;
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getFeedbackBody() {
+        return feedbackBody;
+    }
+
+    public void setFeedbackBody(String feedbackBody) {
+        this.feedbackBody = feedbackBody;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public String getBookLink() {
+        return bookLink;
+    }
+
+    public void setBookLink(String bookLink) {
+        this.bookLink = bookLink;
+    }
+
+    public String getDownloadUri() {
+        return downloadUri;
+    }
+
+    public void setDownloadUri(String downloadUri) {
+        this.downloadUri = downloadUri;
     }
 }
