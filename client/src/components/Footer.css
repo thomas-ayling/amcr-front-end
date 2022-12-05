@@ -255,7 +255,7 @@ body {
 }
 
 .last-item {
-   width: 100%;
+   width: fit-content;
    display: flex;
    z-index: 1;
    justify-content: flex-end;
