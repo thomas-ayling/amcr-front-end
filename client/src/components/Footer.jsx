@@ -1,11 +1,24 @@
 import React from 'react';
+
 import { Link } from "react-router-dom";
+import {FaArrowCircleUp} from 'react-icons/fa';
+import { Button } from './FooterScroll';
+
 import './Footer.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '/node_modules/font-awesome/css/font-awesome.min.css'; 
 
+
 const Footer = () => {
+  
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+    });
+  };
+
   return (
+    <>
     <div className="footer">
       <div className="container">
         <section className="top-area">
@@ -34,30 +47,38 @@ const Footer = () => {
         <section className="bottom-area">
           {/* Column for Social Media Links */}
           <div className="footer-social">
-            <div class="social-icons">
+            <div class="social-icons first-item">
 					    <a href="https://www.linkedin.com/company/globallogic">
-                <div className="social-icon"><i className="fa fa-linkedin round fa-space"></i></div>
+                <div className="social-icon" id="first-item"><i className="fa fa-linkedin round fa-space" alt="Link to Global Logic Linkedin"></i></div>
               </a>
               <a href="https://twitter.com/globallogic">
-                <div className="social-icon"><i className="fa fa-twitter round fa-space"></i></div>
+                <div className="social-icon"><i className="fa fa-twitter round fa-space" alt="Link to Global Logic Twitter"></i></div>
                 </a>
               <a href="https://www.facebook.com/GlobalLogic/">
-                <div className="social-icon"><i className="fa fa-facebook round fa-space"></i></div>
+                <div className="social-icon"><i className="fa fa-facebook round fa-space" alt="Link to Global Logic Facebook"></i></div>
                 </a>
               <a href="https://www.youtube.com/user/globallogic">
-                <div className="social-icon"><i className="fa fa-youtube round fa-space"></i></div>
+                <div className="social-icon"><i className="fa fa-youtube round fa-space" alt="Link to Global Logic Youtube"></i></div>
                 </a>
               <a href="https://www.instagram.com/globallogic_usa/">
-                <div className="social-icon"><i className="fa fa-instagram round fa-space"></i></div>
-                </a>				
+                <div className="social-icon"><i className="fa fa-instagram round fa-space" alt="Link to Global Logic Instagram"></i></div>
+                </a>
             </div>
           </div>
           <div className="footer-trademark">
-              <p>2023 Copyright GlobalLogic Inc. All rights reserved.</p>
+              <p>© GlobalLogic. 2023</p>
           </div>
+          
         </section>
-      </div>
+      </div>		
     </div>
+    <div className="last-item">
+        <Button>
+          <FaArrowCircleUp onClick={scrollToTop} 
+            className="footer-top-scroll"/>
+        </Button>
+      </div>	
+    </>
   )
 }
 

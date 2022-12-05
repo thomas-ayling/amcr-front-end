@@ -2,14 +2,6 @@ body {
    margin-left: 0;
 }
 
-/* @media only screen and (max-width: 320px) {
-
-   body { 
-      font-size: 2em; 
-   }
-
-} */
-
 .footer {
     position: absolute;
     bottom: 0;
@@ -31,7 +23,6 @@ body {
    width: 95%;
    border: 1px solid rgb(209, 209, 209);
    border-radius: 5px;
-   /* box-shadow: 0 0 20px 1px black; */
    margin-top: 2%;
  }
 
@@ -43,7 +34,7 @@ body {
     align-items: center;
     /* gap:calc(1vw + 1vh); */
     margin: 1%;
-    font-size: 2.5vmin;
+    font-size: 2vmin;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     margin-bottom: 1%;
@@ -74,12 +65,11 @@ body {
 
  .gl-logo {
    display: block;
-   max-width:230px;
-   max-height:95px;
+   max-width:calc(230px*0.75);
+   max-height:calc(95px*0.75);
    width: auto;
-  height: auto;
+   height: auto;
  }
-
 
  /* unvisited link */
 .footer-link:link {
@@ -174,7 +164,7 @@ body {
 .admin-link {
    height: fit-content;
    width: fit-content;
-   font-size: 1em;
+   font-size: 2vmin;
 
    /* For Spacing Purposes Only - Removed when complete */
 
@@ -209,6 +199,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 1%;
+    padding-top: 1%;
     margin-bottom: 0;
     /* font-size: 1rem; */
 
@@ -229,23 +220,44 @@ body {
     font-weight: 400;
  }
 
+.footer-social {
+   width: 100%;
+}
+
  .social-icons {
+   width: 100%;
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content: center;
    align-items: center;
+   justify-content: center;
    gap: 10px;
+
+   /* For Spacing Purposes Only - Removed when complete */
+
+    /* border: 1px;
+    border-style: dotted;
+    border-color: rgb(255, 179, 0); */
 }
 
 .social-icon {
    border-radius: 50%;
    background-color: #e6e7e8;
-   width: 36px;
-   height: 36px;
+   min-width: 8px;
+   min-height: 8px;
+   width: 30px;
+   height: 30px;
    display:flex;
    justify-content: center;
    align-items: center;
    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
    filter: grayscale(100%);
+}
+
+.last-item {
+   width: 100%;
+   display: flex;
+   z-index: 1;
+   justify-content: flex-end;
+   align-items: flex-end;
 }
