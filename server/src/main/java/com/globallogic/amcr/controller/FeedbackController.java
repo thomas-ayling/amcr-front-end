@@ -33,11 +33,6 @@ public class FeedbackController {
         return feedbackService.saveWithAttachment(feedback, attachment);
     }
 
-    @GetMapping("/get")
-    public FeedbackResponse getFeedback() {
-        return feedbackService.get();
-    }
-
     @GetMapping("/get-many")
     public List<FeedbackResponse> getManyFeedback() {
         return feedbackService.getMany();

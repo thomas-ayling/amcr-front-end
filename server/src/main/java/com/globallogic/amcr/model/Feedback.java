@@ -14,7 +14,8 @@ public class Feedback {
     private String bookName;
     private String bookLink;
 
-    public Feedback(String firstName, String lastName, String emailAddress, String feedbackBody, String bookName, String bookLink) {
+    public Feedback(String feedbackType, String firstName, String lastName, String emailAddress, String feedbackBody, String bookName, String bookLink) {
+        this.feedbackType = feedbackType;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;

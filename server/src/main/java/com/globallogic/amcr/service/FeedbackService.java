@@ -70,11 +70,6 @@ public class FeedbackService {
         return saveAttachment(attachmentResponse, feedbackId);
     }
 
-    //TODO: create proper functions for getting all feedback
-    public FeedbackResponse get() {
-        return feedbackMapper.get();
-    }
-
     public List<FeedbackResponse> getMany() {
         return feedbackMapper.getMany();
     }
@@ -83,6 +78,4 @@ public class FeedbackService {
         AttachmentResponse attachmentResponse = fileMapper.getFile(id);
         return ResponseEntity.ok().contentType(MediaType.parseMediaType(attachmentResponse.getFileType())).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + attachmentResponse.getFileName() + "\"").body(new ByteArrayResource(attachmentResponse.getData()));
     }
-
-
 }

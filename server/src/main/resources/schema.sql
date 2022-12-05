@@ -1,12 +1,14 @@
 create table feedback
 (
-    id            uuid primary key,
-    first_name    text,
-    last_name     text,
-    email_address text,
-    feedback_body text,
-    book_name     text,
-    book_link     text
+    id             uuid primary key,
+    feedback_order serial,
+    feedback_type  text,
+    first_name     text,
+    last_name      text,
+    email_address  text,
+    feedback_body  text,
+    book_name      text,
+    book_link      text
 );
 
 create table files

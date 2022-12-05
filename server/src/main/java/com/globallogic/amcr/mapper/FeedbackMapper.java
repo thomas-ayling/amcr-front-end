@@ -11,12 +11,9 @@ import java.util.List;
 @Alias(value = "UUIDTypeHandler")
 public interface FeedbackMapper {
 
-    @Insert("insert into feedback(id, first_name, last_name, email_address, feedback_body, book_name, book_link) values (#{id, javaType=java.util.UUID, jdbcType=OTHER, typeHandler=UUIDTypeHandler}, #{firstName}, #{lastName}, #{emailAddress}, #{feedbackBody}, #{bookName}, #{bookLink})")
+    @Insert("INSERT INTO feedback(id, feedback_type, first_name, last_name, email_address, feedback_body, book_name, book_link) VALUES (#{id, javaType=java.util.UUID, jdbcType=OTHER, typeHandler=UUIDTypeHandler}, #{feedbackType}, #{firstName}, #{lastName}, #{emailAddress}, #{feedbackBody}, #{bookName}, #{bookLink})")
     public int save(Feedback feedback);
 
-    @Select("select first_name, last_name, email_address, feedback_body, book_name, book_link, files.download_uri from files join feedback on feedback_id = feedback.id limit 1")
-    public FeedbackResponse get();
-
-    @Select("select first_name, last_name, email_address, feedback_body, book_name, book_link, files.download_uri from files join feedback on feedback_id = feedback.id")
+    @Select("SELECT feedback_type, first_name, last_name, email_address, feedback_body, book_name, book_link, download_uri FROM feedback LEFT OUTER JOIN files ON feedback.id = files.feedback_id")
     List<FeedbackResponse> getMany();
 }

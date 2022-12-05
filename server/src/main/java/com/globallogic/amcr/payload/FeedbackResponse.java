@@ -3,6 +3,7 @@ package com.globallogic.amcr.payload;
 import com.globallogic.amcr.model.Attachment;
 
 public class FeedbackResponse {
+    private String feedbackType;
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -13,7 +14,8 @@ public class FeedbackResponse {
 
     //TODO: Will need file name in response
 
-    public FeedbackResponse(String firstName, String lastName, String emailAddress, String feedbackBody, String bookName, String bookLink, String downloadUri) {
+    public FeedbackResponse(String feedbackType, String firstName, String lastName, String emailAddress, String feedbackBody, String bookName, String bookLink, String downloadUri) {
+        this.feedbackType = feedbackType;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
@@ -21,6 +23,14 @@ public class FeedbackResponse {
         this.bookName = bookName;
         this.bookLink = bookLink;
         this.downloadUri = downloadUri;
+    }
+
+    public String getFeedbackType() {
+        return feedbackType;
+    }
+
+    public void setFeedbackType(String feedbackType) {
+        this.feedbackType = feedbackType;
     }
 
     public String getFirstName() {
