@@ -9,23 +9,26 @@ const Footer = () => {
         <section className="top-area">
           {/* Column for Global Logic Logo */}
           <div className="footer-logo">
-            <h1>Logo here</h1>
+            <Link className="gl-logo" to={'/home'}><img alt="Global Logic Logo" src="https://www.globallogic.com/wp-content/uploads/2021/07/Logo_GL-Hitachi_White-web.svg"></img></Link>
           </div>
           {/* Column for internal page links */}
           <div className="footer-pages">
             <div className="internal-pages">
-              <div className="footer-link"><Link to={`/onboarding/profile`}>Case Studies</Link></div>
-              <div className="footer-link"><Link to={`/Wiki`}>Wiki</Link></div>
-              <div className="footer-link"><Link to={`/Designs`}>Design Systems</Link></div>
-              <div className="footer-link"><Link to={`/library`}>Reference Library</Link></div>
-              <div className="footer-link"><Link to={`/contacts`}>Contacts</Link></div>
+              <div><Link className="footer-link" to={`/onboarding/profile`}>Case Studies</Link></div>
+              <div><Link className="footer-link" to={`/Wiki`}>Wiki</Link></div>
+              <div><Link className="footer-link" to={`/Designs`}>Design Systems</Link></div>
+              <div><Link className="footer-link" to={`/library`}>Reference Library</Link></div>
+              <div><Link className="footer-link" to={`/contacts`}>Contacts</Link></div>
             </div>
           </div>
           {/* Column for admin panel */}
           <div className="admin-panel">
-            <Link to={`/admin`}>Admin Panel</Link>
+            <div>
+              <Link  className="admin-link" to={`/admin`}>Admin Panel</Link>
+            </div>
           </div>
         </section>
+        <hr className="footer-divider" />
         <section className="bottom-area">
           {/* Column for Social Media Links */}
           <div className="footer-social">
@@ -35,7 +38,6 @@ const Footer = () => {
             <link></link>
           </div>
         </section>
-        <hr />
       </div>
     </div>
   )
