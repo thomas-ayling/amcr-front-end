@@ -101,7 +101,7 @@ button:focus {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgb(109, 110, 113, 0.95);
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
@@ -109,9 +109,8 @@ button:focus {
 }
 
 .logo-menu {
-  filter: invert(48%) sepia(80%) saturate(1725%) hue-rotate(341deg) brightness(104%) contrast(91%);
-  height: 4.1em !important;
-  width: 12.3em !important;
+  height: 2.9em !important;
+  width: auto !important;
 }
 
 .navbar-nav .nav-link {
