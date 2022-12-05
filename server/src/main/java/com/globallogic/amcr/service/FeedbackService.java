@@ -70,12 +70,18 @@ public class FeedbackService {
         return saveAttachment(attachmentResponse, feedbackId);
     }
 
-    public List<FeedbackResponse> getMany() {
-        return feedbackMapper.getMany();
+    public List<FeedbackResponse> getAll() {
+        return feedbackMapper.getAll();
     }
+
+    public List<FeedbackResponse> getLatest() { return feedbackMapper.getLatest(); }
 
     public ResponseEntity<Resource> getFile(UUID id) {
         AttachmentResponse attachmentResponse = fileMapper.getFile(id);
         return ResponseEntity.ok().contentType(MediaType.parseMediaType(attachmentResponse.getFileType())).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + attachmentResponse.getFileName() + "\"").body(new ByteArrayResource(attachmentResponse.getData()));
+    }
+
+    public List<FeedbackResponse> getOlder(Integer last) {
+        return feedbackMapper.getOlder(last);
     }
 }

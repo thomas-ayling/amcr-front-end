@@ -35,7 +35,17 @@ public class FeedbackController {
 
     @GetMapping("/get-many")
     public List<FeedbackResponse> getManyFeedback() {
-        return feedbackService.getMany();
+        return feedbackService.getAll();
+    }
+
+    @GetMapping("/get-latest")
+    public List<FeedbackResponse> getLatestFeedback() {
+        return feedbackService.getLatest();
+    }
+
+    @GetMapping("/get-older/{last}")
+    public List<FeedbackResponse> getLatestFeedback(@PathVariable Integer last) {
+        return feedbackService.getOlder(last);
     }
 
     @GetMapping("/file-download/{id}")

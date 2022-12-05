@@ -15,5 +15,12 @@ public interface FeedbackMapper {
     public int save(Feedback feedback);
 
     @Select("SELECT feedback_type, first_name, last_name, email_address, feedback_body, book_name, book_link, download_uri FROM feedback LEFT OUTER JOIN files ON feedback.id = files.feedback_id")
-    List<FeedbackResponse> getMany();
+    List<FeedbackResponse> getAll();
+
+    @Select("SELECT feedback_order, feedback_type, first_name, last_name, email_address, feedback_body, book_name, book_link, download_uri FROM feedback LEFT OUTER JOIN files ON feedback.id = files.feedback_id ORDER BY feedback_order DESC LIMIT 10")
+    List<FeedbackResponse> getLatest();
+
+    @Select("SELECT feedback_order, feedback_type, first_name, last_name, email_address, feedback_body, book_name, book_link, download_uri FROM feedback LEFT OUTER JOIN files ON feedback.id = files.feedback_id WHERE feedback_order < #{last} ORDER BY feedback_order DESC LIMIT 10")
+    List<FeedbackResponse> getOlder(int last);
+
 }
