@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: rgb(188, 190, 192) !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Side scroll bar colour */
+::-webkit-scrollbar-track {
+  background: rgb(109, 110, 113);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(243, 122, 055);
+  border-radius: 12px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(109, 110, 113);
+  border-radius: 12px;
+}
