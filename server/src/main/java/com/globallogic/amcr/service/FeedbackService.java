@@ -35,20 +35,18 @@ public class FeedbackService {
 
     private int saveAttachment(MultipartFile incomingAttachment, UUID feedbackId) {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(incomingAttachment.getOriginalFilename()));
-        String fileType = incomingAttachment.getContentType();
         try {
-            if (fileName.contains("..")) {
-                throw new FileStorageException("Filename contains invalid path sequence '..' " + fileName);
-            }
             // Generate random UUID for the file
             UUID fileUuid = UUID.randomUUID();
             // Generate file download uri for the attachment
             String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/feedback/file-download/").path(fileUuid.toString()).toUriString();
             // Create new Attachment object with generated params
-            Attachment attachment = new Attachment(fileUuid, fileName, fileType, incomingAttachment.getBytes(), fileDownloadUri, feedbackId);
+            Attachment attachment = new Attachment(fileUuid, fileName, incomingAttachment.getContentType(), incomingAttachment.getBytes(), fileDownloadUri, feedbackId);
             return fileMapper.save(attachment);
-        } catch (
-                IOException ioe) {
+        } catch (IOException ioe) {
+            if (fileName.contains("..")) {
+                throw new FileStorageException("Filename contains invalid path sequence '..' " + fileName);
+            }
             try {
                 throw new FileStorageException(fileName + " could not be saved.");
             } catch (FileStorageException fse) {
@@ -83,10 +81,7 @@ public class FeedbackService {
 
     public ResponseEntity<Resource> getFile(UUID id) {
         AttachmentResponse attachmentResponse = fileMapper.getFile(id);
-        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(attachmentResponse.getFileType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + attachmentResponse.getFileName() + "\"")
-                .body(new ByteArrayResource(attachmentResponse.getData()));
+        return ResponseEntity.ok().contentType(MediaType.parseMediaType(attachmentResponse.getFileType())).header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + attachmentResponse.getFileName() + "\"").body(new ByteArrayResource(attachmentResponse.getData()));
     }
 
 

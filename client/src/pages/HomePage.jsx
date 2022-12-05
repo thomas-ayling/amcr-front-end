@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import ContactComponent from '../components/contact-component/ContactComponent';
 
 const HomePage = () => {
-  
-    
   return (
-    <div>HomePage</div>
-  )
-}
+    <div>
+      <ContactComponent feedbackType='case-study' />
+    </div>
+  );
+};
 
 export default HomePage;
