@@ -10,6 +10,7 @@ import '/node_modules/font-awesome/css/font-awesome.min.css';
 
 const Footer = () => {
   
+  /* Function that sends the user to the top of the page */
   const scrollToTop = () =>{
     window.scrollTo({
       top: 0, 
@@ -24,15 +25,14 @@ const Footer = () => {
         <section className="top-area">
           {/* Column for Global Logic Logo */}
           <div className="footer-logo">
-            <Link className="gl-logo" to={'/home'}><img alt="Global Logic Logo" src="https://www.globallogic.com/wp-content/uploads/2021/07/Logo_GL-Hitachi_White-web.svg"></img></Link>
+            <Link className="gl-logo" to={'/'}><img alt="Global Logic Logo" src="https://www.globallogic.com/wp-content/uploads/2021/07/Logo_GL-Hitachi_White-web.svg"></img></Link>
           </div>
           {/* Column for internal page links */}
           <div className="footer-pages">
             <div className="internal-pages">
-              <div><Link className="footer-link" to={`/onboarding/profile`}>Case Studies</Link></div>
+              <div><Link className="footer-link" to={`/case-studies`}>Case Studies</Link></div>
               <div><Link className="footer-link" to={`/Wiki`}>Wiki</Link></div>
-              <div><Link className="footer-link" to={`/Designs`}>Design Systems</Link></div>
-              <div><Link className="footer-link" to={`/library`}>Reference Library</Link></div>
+              <div><Link className="footer-link" to={`/library`}>Library</Link></div>
               <div><Link className="footer-link" to={`/contacts`}>Contacts</Link></div>
             </div>
           </div>
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="footer-social">
             <div class="social-icons first-item">
 					    <a href="https://www.linkedin.com/company/globallogic">
-                <div className="social-icon" id="first-item"><i className="fa fa-linkedin round fa-space" alt="Link to Global Logic Linkedin"></i></div>
+                <div className="social-icon"><i className="fa fa-linkedin round fa-space" alt="Link to Global Logic Linkedin"></i></div>
               </a>
               <a href="https://twitter.com/globallogic">
                 <div className="social-icon"><i className="fa fa-twitter round fa-space" alt="Link to Global Logic Twitter"></i></div>
@@ -65,6 +65,7 @@ const Footer = () => {
                 </a>
             </div>
           </div>
+          {/* Column for Global Logic trademark */}
           <div className="footer-trademark">
               <p>© GlobalLogic. 2023</p>
           </div>

@@ -21,7 +21,7 @@ body {
 
  .footer-divider {
    width: 95%;
-   border: 1px solid rgb(209, 209, 209);
+   border: 1px solid #e6e7e8;
    border-radius: 5px;
    margin-top: 2%;
  }
@@ -252,6 +252,13 @@ body {
    align-items: center;
    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
    filter: grayscale(100%);
+}
+
+.social-icon:hover{
+   filter: grayscale(0);
+   color:#f37a37;
+   /* text-shadow: #f37a37 1px 0 5px; */
+   transition: .3s;
 }
 
 .last-item {
