@@ -1,22 +1,16 @@
 body {
    margin-left: 0;
+   margin-bottom: 0;
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
+    position: relative !important;
+    bottom: 0 !important;
     width: 100% !important;
     height: fit-content;
     background: rgba(109,110,113, 0.95);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: blue; */
  }
 
  .footer-divider {
@@ -32,19 +26,12 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    /* gap:calc(1vw + 1vh); */
     margin: 1%;
     font-size: 2vmin;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
     margin-bottom: 1%;
     margin-top: 1%;
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: rgb(249, 0, 220); */
  }
 
  .footer-logo {
@@ -53,14 +40,7 @@ body {
     min-width: 10%;
     max-width: 20%;
     height: auto;
-
     padding-top: 1%;
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: chartreuse; */
  }
 
  .gl-logo {
@@ -71,29 +51,21 @@ body {
    height: auto;
  }
 
- /* unvisited link */
 .footer-link:link {
    color: rgb(230, 231, 232);
    text-shadow: #121212 1px 0 1px;
    text-decoration: none;
  }
  
- /* visited link */
  .footer-link:visited {
    color: #e6e7e8;
    text-decoration: none;
  }
  
- /* mouse over link */
  .footer-link:hover {
    text-shadow: #f37a37 1px 0 5px;
    transition: .3s;
  }
- 
- /* selected link */
- /* .footer-link:active {
-   color: blue;
- } */
 
  .footer-pages {
     order: 2;
@@ -104,12 +76,6 @@ body {
     min-width: 25%;
     max-width: 50%;
     height: auto;
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: chartreuse; */
  }
 
  .internal-pages {
@@ -120,12 +86,6 @@ body {
     align-items: center;
     align-content: center;
     gap: 0.7rem;
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: rgb(255, 179, 0); */
  }
 
  .footer-link {
@@ -135,12 +95,6 @@ body {
     font-size: 2vmin;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: rgb(30, 0, 253); */
  }
 
 .admin-panel {
@@ -152,41 +106,25 @@ body {
     align-items: center;
     width: 20%;
     height: auto;
-
-
-    /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: chartreuse; */
 }
 
 .admin-link {
    height: fit-content;
    width: fit-content;
    font-size: 2vmin;
-
-   /* For Spacing Purposes Only - Removed when complete */
-
-   /* border: 1px;
-   border-style: dotted;
-   border-color: rgb(8, 16, 171); */
 }
 
- /* unvisited link */
  .admin-link:link {
    color: rgb(230, 231, 232);
    text-shadow: #121212 1px 0 1px;
    text-decoration: none;
  }
  
- /* visited link */
  .admin-link:visited {
    color: rgb(230,231,232);
    text-decoration: none;
  }
  
- /* mouse over link */
  .admin-link:hover {
    text-shadow: #f37a37 1px 0 10px;
    transition: .3s;
@@ -201,17 +139,10 @@ body {
     margin: 1%;
     padding-top: 1%;
     margin-bottom: 0;
-    /* font-size: 1rem; */
-
-    /* For Spacing Purposes Only - Removed when complete */
-    /* border: 1px;
-    border-style: dotted;
-    border-color: rgb(249, 0, 220); */
-
-
  }
 
  .footer-trademark {
+   margin-top: 1%;
    color: rgb(230, 231, 232);
    text-shadow: #121212 1px 0 1px;
    text-decoration: none;
@@ -232,12 +163,6 @@ body {
    align-items: center;
    justify-content: center;
    gap: 10px;
-
-   /* For Spacing Purposes Only - Removed when complete */
-
-    /* border: 1px;
-    border-style: dotted;
-    border-color: rgb(255, 179, 0); */
 }
 
 .social-icon {
@@ -257,14 +182,12 @@ body {
 .social-icon:hover{
    filter: grayscale(0);
    color:#f37a37;
-   /* text-shadow: #f37a37 1px 0 5px; */
    transition: .3s;
 }
 
 .last-item {
+   position: relative;
    width: fit-content;
    display: flex;
    z-index: 1;
-   justify-content: flex-end;
-   align-items: flex-end;
 }
