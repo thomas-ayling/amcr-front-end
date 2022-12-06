@@ -2,6 +2,7 @@ package com.globallogic.amcr.controller;
 
 import com.globallogic.amcr.model.Feedback;
 import com.globallogic.amcr.payload.FeedbackResponse;
+import com.globallogic.amcr.service.EmailService;
 import com.globallogic.amcr.service.FeedbackService;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,11 @@ import java.util.UUID;
 @CrossOrigin(origins = "*")
 public class FeedbackController {
 
+    private final EmailService emailService;
     private final FeedbackService feedbackService;
 
-    public FeedbackController(FeedbackService feedbackService) {
+    public FeedbackController(EmailService emailService, FeedbackService feedbackService) {
+        this.emailService = emailService;
         this.feedbackService = feedbackService;
     }
 
@@ -28,7 +31,8 @@ public class FeedbackController {
             @RequestPart(value = "attachment", required = false) MultipartFile attachment
     ) {
         if (attachment == null) {
-            return feedbackService.saveWithNoAttachment(feedback);
+        emailService.sendMail(feedback);
+        return feedbackService.saveWithNoAttachment(feedback);
         }
         return feedbackService.saveWithAttachment(feedback, attachment);
     }
