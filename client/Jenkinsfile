@@ -39,6 +39,7 @@ pipeline {
     stage('Unit Tests') {
       steps{
         script {
+	  sh 'cd client'
           sh 'npm install'
 	  sh 'npm test -- --watchAll=false'
         }
