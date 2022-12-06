@@ -1,44 +1,35 @@
-/* REMOVE LATER - Text is white so I cannot see anything (: */
 body {
   background-color: rgb(188, 190, 192) !important;
 }
-/* REMOVE LATER - Text is white so I cannot see anything (: */
 
 button:focus {
   box-shadow: none !important;
 }
 
-/* Thickness of scrollbar */
 ::-webkit-scrollbar {
   width: 7px;
 }
 
-/* Side scroll bar colour */
 ::-webkit-scrollbar-track {
   background: rgb(109, 110, 113);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(243, 122, 055);
   border-radius: 12px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(109, 110, 113);
   border-radius: 12px;
 }
 
-/* Navbar at the top, once you start scrolling */
 .navbar-sticky {
   background-color: rgb(109, 110, 113, 0.95) !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
-  /* backdrop-filter: blur(15px) !important; */
 }
 
-/* Static navbar, when it's not moving */
 .navbar {
   position: fixed !important;
   transition: all 0.3s ease-out 0s !important;
@@ -51,7 +42,7 @@ button:focus {
   background-color: transparent !important;
   border-color: transparent !important;
 }
-/* The icon for expanding the navbar */
+
 .navbar-toggler span {
   display: block !important;
   background-color: rgb(243, 122, 055) !important;
@@ -123,7 +114,6 @@ button:focus {
   padding: 0.8rem 1rem !important;
 }
 
-/* Mini Menu */
 @media (max-width: 767px) {
   .nav-link {
     text-align: right;
@@ -168,7 +158,6 @@ button:focus {
   background-color: rgb(243, 122, 055);
 }
 
-/* EVERY PAGE - AGAIN CAN BE REMOVED WHEN WE START WORKING ON THE PAGES */
 .page-section {
   position: relative !important;
   padding-top: 150px !important;
