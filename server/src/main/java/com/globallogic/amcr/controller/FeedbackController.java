@@ -30,9 +30,9 @@ public class FeedbackController {
             @RequestPart("feedback") Feedback feedback,
             @RequestPart(value = "attachment", required = false) MultipartFile attachment
     ) {
+        emailService.sendMail(feedback, attachment);
         if (attachment == null) {
-        emailService.sendMail(feedback);
-        return feedbackService.saveWithNoAttachment(feedback);
+            return feedbackService.saveWithNoAttachment(feedback);
         }
         return feedbackService.saveWithAttachment(feedback, attachment);
     }

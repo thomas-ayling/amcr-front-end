@@ -1,14 +1,10 @@
 import './styles/ContactComponent.css';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { create } from '../../service/FeedbackService';
 import DescriptionBox from './description-component/DescriptionBox';
 import Inputs from './input-components/Inputs';
 
 const ContactComponent = ({ feedbackType }) => {
-  // Initialize state hooks
-  const [descriptionTitle, setDescriptionTitle] = useState(<></>);
-  const [descriptionText, setDescriptionText] = useState(<></>);
-
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
@@ -24,7 +20,6 @@ const ContactComponent = ({ feedbackType }) => {
     let feedback = {};
 
     feedback['feedbackType'] = feedbackType;
-    // NEED TO ADD ISANON
     feedback['firstName'] = firstName;
     feedback['lastName'] = lastName;
     feedback['emailAddress'] = emailAddress;

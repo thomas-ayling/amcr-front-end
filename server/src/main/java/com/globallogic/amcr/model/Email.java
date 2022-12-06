@@ -1,25 +1,20 @@
 package com.globallogic.amcr.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Email {
     private String sender;
     private String recipient;
     private String subject;
     private String messageBody;
-    private String attachment;
+    private MultipartFile attachment;
 
-    public Email(String sender, String subject, String messageBody, String attachment) {
+    public Email(String sender, String recipient, String subject, String messageBody, MultipartFile attachment) {
         this.sender = sender;
-        this.recipient = "engineeringcenterbot@globallogic.com";
+        this.recipient = recipient;
         this.subject = subject;
         this.messageBody = messageBody;
         this.attachment = attachment;
-    }
-
-    public Email(String sender, String subject, String messageBody) {
-        this.sender = sender;
-        this.recipient = "engineeringcenterbot@globallogic.com";
-        this.subject = subject;
-        this.messageBody = messageBody;
     }
 
     public Email() {
@@ -57,11 +52,11 @@ public class Email {
         this.messageBody = messageBody;
     }
 
-    public String getAttachment() {
+    public MultipartFile getAttachment() {
         return attachment;
     }
 
-    public void setAttachment(String attachment) {
+    public void setAttachment(MultipartFile attachment) {
         this.attachment = attachment;
     }
 }
