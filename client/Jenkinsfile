@@ -35,15 +35,15 @@ pipeline {
 	
     stages {
 
-    // Tests
-    //stage('Unit Tests') {
-    //  steps{
-    //    script {
-	//  sh 'cd client && npm install'
-	//  sh 'cd client && npm test -- --watchAll=false'
-        //}
-      //}
-    //}
+    Tests
+    stage('Unit Tests') {
+      steps{
+        script {
+	  sh 'cd client && npm install'
+	  sh 'cd client && npm test -- --watchAll=false'
+        }
+      }
+    }
         // Building Docker image
     stage('Building image') {
       steps{
