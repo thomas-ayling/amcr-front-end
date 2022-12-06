@@ -5,7 +5,7 @@ import {FaArrowCircleUp} from 'react-icons/fa';
 import { Button } from './FooterScroll';
 
 import './Footer.css';
-import '/node_modules/font-awesome/css/font-awesome.min.css'; 
+// import '/node_modules/font-awesome/css/font-awesome.min.css'; 
 
 
 const Footer = () => {
