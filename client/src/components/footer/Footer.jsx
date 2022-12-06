@@ -32,8 +32,8 @@ const Footer = () => {
             <div className="internal-pages">
               <div><Link className="footer-link" to={`/case-studies`}>Case Studies</Link></div>
               <div><Link className="footer-link" to={`/Wiki`}>Wiki</Link></div>
-              <div><Link className="footer-link" to={`/library`}>Library</Link></div>
               <div><Link className="footer-link" to={`/contacts`}>Contacts</Link></div>
+              <div><Link className="footer-link" to={`/library`}>Library</Link></div>
             </div>
           </div>
           {/* Column for admin panel */}

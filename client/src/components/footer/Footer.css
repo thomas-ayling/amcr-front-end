@@ -14,7 +14,7 @@ body {
  }
 
  .footer-divider {
-   width: 95%;
+   width: 100%;
    border: 1px solid #e6e7e8;
    border-radius: 5px;
    margin-top: 2%;
@@ -53,7 +53,7 @@ body {
 
 .footer-link:link {
    color: rgb(230, 231, 232);
-   text-shadow: #121212 1px 0 1px;
+   text-shadow: #121212 1px 0 5px;
    text-decoration: none;
  }
  
@@ -63,7 +63,7 @@ body {
  }
  
  .footer-link:hover {
-   text-shadow: #f37a37 1px 0 5px;
+   color: #f37a37;
    transition: .3s;
  }
 
@@ -116,7 +116,7 @@ body {
 
  .admin-link:link {
    color: rgb(230, 231, 232);
-   text-shadow: #121212 1px 0 1px;
+   text-shadow: #121212 1px 0 5px;
    text-decoration: none;
  }
  
@@ -126,7 +126,7 @@ body {
  }
  
  .admin-link:hover {
-   text-shadow: #f37a37 1px 0 10px;
+   color: #f37a37;
    transition: .3s;
  }
 
@@ -190,4 +190,19 @@ body {
    width: fit-content;
    display: flex;
    z-index: 1;
+}
+
+.footer-top-scroll {
+   position: absolute;
+    left: 7.5px; bottom: 10px;
+    width: fit-content;
+    height:40px;
+    font-size: 2rem;
+    z-index: 1;
+    cursor: pointer;
+    color: white;
+}
+
+.footer-top-scroll:hover {
+   color: #f37a37;
 }
