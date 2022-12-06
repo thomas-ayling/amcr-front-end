@@ -10,6 +10,9 @@ pipeline {
      CLUSTER_NAME="ec-acad-user-01"
      SERVICE_NAME="ec-acad-ecs-svc-fe01"
      TASK_DEFINITION_NAME="ec-acad-ecs-tsk-fe01"
+	    
+     //SET CEILING DIRECTORY AS CLIENT
+     GIT_CEILING_DIRECTORIES ${HOME}/client
 
      //DO NOT MODIFY!//
      DESIRED_COUNT="1"
