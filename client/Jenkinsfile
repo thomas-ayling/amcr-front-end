@@ -12,7 +12,7 @@ pipeline {
      TASK_DEFINITION_NAME="ec-acad-ecs-tsk-fe01"
 	    
      //SET CEILING DIRECTORY AS CLIENT
-     GIT_CEILING_DIRECTORIES ${HOME}/client
+     GIT_CEILING_DIRECTORIES=${HOME}/client
 
      //DO NOT MODIFY!//
      DESIRED_COUNT="1"
