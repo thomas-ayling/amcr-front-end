@@ -1,20 +1,20 @@
 body {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   align-items: center;
 }
 
 .contact-component {
-  display: flex;
-  width: 55vw;
-  border: 1px solid black;
-  padding: 5vmin;
+  display: flex; 
+  width: 55vw; 
+   border: 1px solid black; 
+   padding: 5vmin;
 }
 
 .contact-component > div {
-  width: 50%;
+  width: 50%; 
   aspect-ratio: 2/1;
 }
 
@@ -31,9 +31,9 @@ body {
 
 #first-name-input,
 #last-name-input {
-  width: 45%;
+  width: 45%; 
   flex: 1;
-  /* background-color: rebeccapurple; */
+   background-color: rebeccapurple;
 }
 
 #user-name-inputs {
