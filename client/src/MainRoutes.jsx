@@ -12,7 +12,7 @@ const MainRoutes = () => {
     <Routes>
       <Route exact path='/' element={<HomePage />} />
       <Route exact path='/wiki' element={<Wiki />} />
-      <Route exact path='/contact' element={<Contacts />} />
+      <Route exact path='/contacts' element={<Contacts />} />
       <Route exact path='/case-studies' element={<CaseStudies />} />
       <Route exact path='/library' element={<Library />} />
       <Route exact path='/config' element={<Configuration />} />
