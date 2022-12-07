@@ -31,27 +31,29 @@ const ContactComponent = ({ feedbackType }) => {
   };
 
   return (
-    <div className='contact-component'>
-      <DescriptionBox feedbackType={feedbackType} />
-      <Inputs
-        feedbackType={feedbackType}
-        firstName={firstName}
-        setFirstName={setFirstName}
-        lastName={lastName}
-        setLastName={setLastName}
-        emailAddress={emailAddress}
-        setEmailAddress={setEmailAddress}
-        feedbackBody={feedbackBody}
-        setFeedbackBody={setFeedbackBody}
-        setAttachment={setAttachment}
-        isAnonymous={isAnonymous}
-        setIsAnonymous={setIsAnonymous}
-        bookName={bookName}
-        setBookName={setBookName}
-        bookLink={bookLink}
-        setBookLink={setBookLink}
-        handleSubmit={handleSubmit}
-      />
+    <div className='contact-component-container'>
+      <div className='contact-component'>
+        <DescriptionBox feedbackType={feedbackType} />
+        <Inputs
+          feedbackType={feedbackType}
+          firstName={firstName}
+          setFirstName={setFirstName}
+          lastName={lastName}
+          setLastName={setLastName}
+          emailAddress={emailAddress}
+          setEmailAddress={setEmailAddress}
+          feedbackBody={feedbackBody}
+          setFeedbackBody={setFeedbackBody}
+          setAttachment={setAttachment}
+          isAnonymous={isAnonymous}
+          setIsAnonymous={setIsAnonymous}
+          bookName={bookName}
+          setBookName={setBookName}
+          bookLink={bookLink}
+          setBookLink={setBookLink}
+          handleSubmit={handleSubmit}
+        />
+      </div>
     </div>
   );
 };

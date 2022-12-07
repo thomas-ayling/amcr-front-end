@@ -1,10 +1,28 @@
 import React from 'react';
-import CaseStudyInputs from './CaseStudyInputs';
-import FeedbackInputs from './FeedbackInputs';
-import ImprovementInputs from './ImprovementInputs';
-import LibraryInputs from './LibraryInputs';
+import CaseStudyInputs from './input-component-types/CaseStudyInputs';
+import FeedbackInputs from './input-component-types/FeedbackInputs';
+import ImprovementInputs from './input-component-types/ImprovementInputs';
+import LibraryInputs from './input-component-types/LibraryInputs';
 
-const Inputs = ({ feedbackType, firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, feedbackBody, setFeedbackBody, setAttachment, isAnonymous, setIsAnonymous, bookName, setBookName, bookLink, setBookLink, handleSubmit }) => {
+const Inputs = ({
+  feedbackType,
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  emailAddress,
+  setEmailAddress,
+  feedbackBody,
+  setFeedbackBody,
+  setAttachment,
+  isAnonymous,
+  setIsAnonymous,
+  bookName,
+  setBookName,
+  bookLink,
+  setBookLink,
+  handleSubmit,
+}) => {
   switch (feedbackType) {
     case 'feedback':
       return (
@@ -72,7 +90,7 @@ const Inputs = ({ feedbackType, firstName, setFirstName, lastName, setLastName, 
         />
       );
     default:
-      return <h1>This component does not exist. Type options are 'feedback', 'library', 'case-study' or 'improvement'</h1>;
+      return <h1>Component type {feedbackType} does not exist. Type options are 'feedback', 'library', 'case-study' or 'improvement'</h1>;
   }
 };
 

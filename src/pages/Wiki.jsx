@@ -1,8 +1,9 @@
 import React from 'react'
+import ContactComponent from '../components/contact-component/ContactComponent'
 
 const Wiki = () => {
   return (
-    <div>Wiki</div>
+    <div><ContactComponent feedbackType={'improvement'}/></div>
   )
 }
 

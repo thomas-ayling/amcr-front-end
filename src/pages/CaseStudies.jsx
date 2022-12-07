@@ -1,8 +1,9 @@
 import React from 'react'
+import ContactComponent from '../components/contact-component/ContactComponent'
 
 const CaseStudies = () => {
   return (
-    <div>CaseStudies</div>
+    <div><ContactComponent feedbackType={'case-study'} /></div>
   )
 }
 

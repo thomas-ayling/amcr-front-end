@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b641d15a-08eb-42f5-8d35-5cb8e8b13e8f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/FromHomepage 2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/FromHomepage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/Header 2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/Layout 2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/contact-component/ContactComponent 2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/contact-component/description-component/DescriptionBox 2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/contact-component/input-components/CaseStudyInputs 2.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/contact-component/input-components/Inputs.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/components/contact-component/input-components/Inputs.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/contact-component/styles/ContactComponent 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/components/layout 2.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/logo 2.svg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
