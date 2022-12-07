@@ -1,0 +1,33 @@
+Index: client/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"name\": \"client\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@fortawesome/fontawesome-svg-core\": \"^6.2.1\",\n    \"@fortawesome/free-solid-svg-icons\": \"^6.2.1\",\n    \"@fortawesome/react-fontawesome\": \"^0.2.0\",\n    \"@testing-library/jest-dom\": \"^5.16.5\",\n    \"@testing-library/react\": \"^13.4.0\",\n    \"@testing-library/user-event\": \"^13.5.0\",\n    \"bootstrap\": \"^5.2.3\",\n    \"react\": \"^18.2.0\",\n    \"react-bootstrap\": \"^2.6.0\",\n    \"react-dom\": \"^18.2.0\",\n    \"react-icons\": \"^4.6.0\",\n    \"react-router-dom\": \"^6.4.3\",\n    \"react-scripts\": \"5.0.1\",\n    \"styled-components\": \"^5.3.6\",\n    \"web-vitals\": \"^2.1.4\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": [\n      \"react-app\",\n      \"react-app/jest\"\n    ]\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/package.json b/client/package.json
+--- a/client/package.json	(revision a5c561b584a6fe6a368400a619a1c18111f40939)
++++ b/client/package.json	(date 1670321960128)
+@@ -10,6 +10,7 @@
+     "@testing-library/react": "^13.4.0",
+     "@testing-library/user-event": "^13.5.0",
+     "bootstrap": "^5.2.3",
++    "font-awesome": "^4.7.0",
+     "react": "^18.2.0",
+     "react-bootstrap": "^2.6.0",
+     "react-dom": "^18.2.0",
+Index: client/src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import './App.css';\nimport { BrowserRouter as Router } from 'react-router-dom';\nimport NavBar from './components/navbar/NavBar';\nimport MainRoutes from './MainRoutes';\nimport Footer from './components/footer/Footer';\n\nfunction App() {\n  return (\n    <Router>\n      <NavBar />\n      <MainRoutes />\n      <Footer />\n    </Router>\n  );\n}\n\nexport default App;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/App.js b/client/src/App.js
+--- a/client/src/App.js	(revision a5c561b584a6fe6a368400a619a1c18111f40939)
++++ b/client/src/App.js	(date 1670321960134)
+@@ -1,4 +1,3 @@
+-import './App.css';
+ import { BrowserRouter as Router } from 'react-router-dom';
+ import NavBar from './components/navbar/NavBar';
+ import MainRoutes from './MainRoutes';
