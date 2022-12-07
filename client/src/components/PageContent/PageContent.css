@@ -1,0 +1,18 @@
+.pc--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pc--container > button {
+    margin-bottom: 2vh;
+    width: 50%;
+    padding: 2vh 0 2vh 0;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    background-color:white;
+}
+
+.pc--container > button:hover {
+    background-color: rgb(255, 230, 206);
+}
