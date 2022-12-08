@@ -8,7 +8,7 @@ body {
     bottom: 0 !important;
     width: 100% !important;
     height: fit-content;
-    background: rgba(109,110,113, 0.95);
+    background: rgba(109,110,113);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
  }
@@ -79,20 +79,27 @@ body {
  }
 
  .internal-pages {
-    padding:3%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    gap: 0.7rem;
+   padding:3%;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+   gap: 1rem;
+ }
+
+ @media (max-width: 600px) {
+   .internal-pages {
+      gap: 0.75rem;
+      flex-basis: calc(50% - 20px);
+   }
  }
 
  .footer-link {
 
     min-width: 10%;
     height: auto;
-    font-size: 2vmin;
+    font-size: 2.25vmin;
     font-family: 'DM Sans', sans-serif;
     font-weight: 400;
  }
@@ -168,22 +175,32 @@ body {
 .social-icon {
    border-radius: 50%;
    background-color: #e6e7e8;
-   min-width: 8px;
-   min-height: 8px;
-   width: 30px;
-   height: 30px;
+   width: 4vmin;
+   height: 4vmin;
    display:flex;
    justify-content: center;
    align-items: center;
-   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-   filter: grayscale(100%);
 }
 
-.social-icon:hover{
-   filter: grayscale(0);
-   color:#f37a37;
+.social-icon:hover {
+   background-color:#f37a37 !important;
    transition: .3s;
 }
+
+.social-icon:hover .social-icon-individual:hover{
+      filter: invert(1);
+      color:#f37a37 !important;
+      transition: .3s;
+   
+}
+
+.social-icon-individual {
+   display: block;
+   max-width: 60%;
+   max-height: 60%;
+}
+
+
 
 .last-item {
    position: relative;
@@ -194,13 +211,13 @@ body {
 
 .footer-top-scroll {
    position: absolute;
-    left: 7.5px; bottom: 10px;
-    width: fit-content;
-    height:40px;
-    font-size: 2rem;
-    z-index: 1;
-    cursor: pointer;
-    color: white;
+   left: 7.5px; bottom: 10px;
+   width: fit-content;
+   height:40px;
+   font-size: 2rem;
+   z-index: 1;
+   cursor: pointer;
+   color: white;
 }
 
 .footer-top-scroll:hover {
