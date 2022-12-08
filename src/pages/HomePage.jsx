@@ -6,8 +6,12 @@ const HomePage = () => {
   return (
     <div>
       <Link to={'/library'}>Library page</Link>
+      <br />
       <Link to={'/case-studies'}>Case study page</Link>
+      <br />
       <Link to={'/wiki'}>Wiki page</Link>
+      <br />
+      <ContactComponent feedbackType={'feedback'} />
     </div>
   );
 };

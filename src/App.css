@@ -1,0 +1,18 @@
+:root {
+  --gl-light-orange: #ee9f41;
+  --gl-orange: #f37037;
+  --gl-dark-orange: #d45e2b;
+  --gl-light-gray: #e6e7e8;
+  --gl-gray: #bcbec0;
+  --gl-medium-gray: #6d6e71;
+  --gl-dark-gray: #414042;
+  --gl-error: #ac2c2c;
+  --gl-lime: #8ec549;
+  --gl-canary: #f4d034;
+  --gl-teal: #53bdbe;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
