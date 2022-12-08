@@ -1,31 +1,40 @@
 body {
-  background-color: rgb(188, 190, 192) !important;
+  background-color: var(--gl-gray) !important;
 }
 
 button:focus {
   box-shadow: none !important;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
+body::-webkit-scrollbar {
+  position: absolute;
+  z-index: 1;
+  width: 8px;
+  overflow-y:visible;
 }
 
-::-webkit-scrollbar-track {
-  background: rgb(109, 110, 113);
+body::-webkit-scrollbar-track {
+  background: var(--gl-gray);
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-track:hover {
+  background-color: white;
+  box-shadow: 0px 20px 10px 0px rgba(9, 5, 29, 0.171) !important;
+
+}
+
+body::-webkit-scrollbar-thumb {
   background: rgb(243, 122, 055);
   border-radius: 12px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(109, 110, 113);
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--gl-dark-orange);
   border-radius: 12px;
 }
 
 .navbar-sticky {
-  background-color: rgb(109, 110, 113, 0.95) !important;
+  background-color: var(--gl-medium-gray) !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
 }
@@ -34,7 +43,9 @@ button:focus {
   position: fixed !important;
   transition: all 0.3s ease-out 0s !important;
   padding: 0.3rem 2rem !important;
-  font-size: 1.05rem !important;
+  font-size: 1.2rem !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .navbar-toggler {
@@ -92,7 +103,7 @@ button:focus {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    background-color: rgb(109, 110, 113, 0.95);
+    background-color: var(--gl-medium-gray);
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
