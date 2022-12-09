@@ -7,7 +7,11 @@ const HomePage = () => {
   
     
   return (
-    <Container fluid className='page-section'>
+    <Container>
+       <div className='page'>
+        <MainCarousel
+        images ={images}/>
+      </div>
       <div>
         <h1>
           Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus
@@ -40,7 +44,7 @@ const HomePage = () => {
           inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
         </h1>
       </div>
-      <MainCarousel images ={images}/>
+      {/* <MainCarousel images ={images}/> */}
     </Container>
   );
 };
