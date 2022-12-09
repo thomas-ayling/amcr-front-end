@@ -1,0 +1,47 @@
+.markdown--container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.markdown--textbox {
+    width: 70%;
+    height: 30vh;
+    font-size: 2rem;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.markdown--preview--title {
+    margin: auto;
+    font-size: 40px;
+    margin-top: 5vh;
+}
+
+.markdown--preview {
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.react--markdown {
+    font-size: 1.5rem;
+}
+
+.optional--display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .markdown--textbox {
+        width: 95%;
+        height: 30vh;
+        font-size: 2rem;
+        margin: auto;
+        border-radius: 5px;
+    }
+}
