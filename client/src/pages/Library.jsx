@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const Library = () => {
   return (
-    <div>Library</div>
-  )
-}
+    <Container fluid className='page-section'>
+      <div>Library</div>
+    </Container>
+  );
+};
 
-export default Library
+export default Library;
