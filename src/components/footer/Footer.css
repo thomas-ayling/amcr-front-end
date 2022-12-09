@@ -223,3 +223,11 @@ body {
 .footer-top-scroll:hover {
    color: #f37a37;
 }
+
+.pointer-container {
+   position: absolute;
+   left: 7.5px;
+   bottom: 10px;
+   font-size: 2rem;
+   z-index: 1;
+}
