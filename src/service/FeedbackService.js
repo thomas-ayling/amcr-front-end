@@ -1,5 +1,5 @@
-import axios from 'axios';
-
+import axios, * as others from 'axios';
+// const axios = require('axios');
 // Get from environment
 const baseUrl = 'http://localhost:3001/feedback';
 

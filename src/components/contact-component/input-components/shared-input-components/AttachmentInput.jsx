@@ -3,12 +3,11 @@ import FileIcon from '../../../../resources/icons/file-icon.png';
 
 const AttachmentInput = ({ setAttachment }) => {
   const [fileName, setFileName] = useState('No file');
-  const handleChange = (e) => {};
 
   return (
     <div className='attachment-input-container'>
-      <label for='attachment-input' className='attachment-input-label'>
-        Choose file
+      <label htmlFor='attachment-input' className='attachment-input-label'>
+        Choose file&nbsp;
         <img src={FileIcon} alt='' id='file-icon' />
       </label>
       <span id='chosen-file' className='chosen-file'>
