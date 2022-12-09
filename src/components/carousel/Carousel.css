@@ -1,322 +1,191 @@
 .carousel {
-    display: flex;
-    height: 85%;
-    width: 100%;
-    right: 20rem;
-    position: absolute;
+  display: flex;
+  height: 90%;
+  width: 100%;
+  position: absolute;
 }
-
-
 .carousel-background {
-    
-    /* background-color: aqua; */
-    height: 90%;
-    width: 100%;
-    top: 20%;
-    left: 20rem;
-    position: absolute;
+  height: 90%;
+  width: 100%;
+  top: 15%;
+  right: 0rem;
+  position: absolute;
 }
 .carousel-background:hover {
+  display: flex;
+  height: 90%;
+  width: 100%;
+  position: absolute;
+}
+.carousel_wrapper {
+  position: auto;
+  width: auto;
+  height: auto;
+}
+.carousel_card {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  bottom: 10%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-350px, 0);
+  transition: 0.5s ease-in-out;
+}
+.carousel_card:hover {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+@media screen and (max-width: 992px) {
+  .carousel_wrapper_second {
+    background-color: rgba(188, 190, 192, 0);
+    position: absolute;
+    width: 70%;
+    max-width: 80%;
+    height: 10%;
+    max-height: 10%;
+    top: 60%;
+    left: 01%;
+    transition: 0.4s ease-in-out;
+  }
+  .carousel_pagination {
+    position: absolute;
+    top: 15%;
+    left: 65%;
+    transition: 0.4s ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
+  .carousel_wrapper_second {
+    background-color: rgba(188, 190, 192, 0);
+    position: absolute;
     display: flex;
-    /* background-color: aqua; */
     height: 90%;
-    width: 100%;
-   
-    position: absolute;
-    
+    width: 50%;
+    left: 0rem;
+    top: 35%;
+    transition: 0.4s ease-in-out;
+  }
 }
-.circle {
-    fill: firebrick;
-    stroke-width: 15px;
-    stroke-dasharray: 450;
-    stroke: rgb(255, 0, 0);
-    position: relative;
-    transform: translate(30px, 30px);
+.carousel_card_textbox {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  /* border-radius: 20px, 20px; */
+  top: 40%;
+  opacity: 0;
+  left: auto;
+  pointer-events: none;
+  transform: translate(-350px, 0);
+  transition: 0.6s ease-in-out;
 }
-
-/* .carousel_timer {
-    display: flex;
-    flex: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 20px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    opacity: 1;
-    pointer-events: none;
-   
-    transition: 0.5s ease-in-out;
-} */
-
-
-.carousel_wrapper{
-    position: auto;
-  
-    /* width: 70rem;
-    height: 25rem; */
-    width: 100%;
-    height: auto;
-    bottom: 01pc;
-    
+.carousel_card-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: visible;
 }
-
-
-
-
-.carousel_card{
-    display: flex;
-    flex: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /* border-radius: 20px; */
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    opacity: 0;
-    pointer-events: none;
-    transform: translate(-350px,0);
-    transition: 0.5s ease-in-out;
+.card_image {
+  width: 100%;
+  height: 100%;
+  position: auto;
+  object-fit: cover;
 }
-.carousel_card:hover{
-    display: flex;
-    flex: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /* border-radius: 20px; */
-    /* -webkit-box-shadow: 5px 5px 12.5px 12.5px rgba(190, 124, 1, 0.8);
-    -moz-box-shadow: 5px 5px 12.5px 12.5px rgba(190, 124, 1, 0.8);
-    box-shadow: 5px 5px 12.5px 12.5px rgba(190, 124, 1, 0.8); */
-    
-    
-
-
+.card_image:hover {
+  transform: scale(2);
+  position: fixed;
+  transform: translate(-50%, 0);
+  opacity: 0;
 }
-
-@media screen and (max-width: 992px){
-    .carousel_wrapper_second{
-        background-color: rgba(145, 145, 145, 0);
-        position: absolute;
-        /* padding: 20px 20px; */
-        width: 70%;
-        height: auto;
-        top: 60%;
-        left: 01%;
-        transition: 0.4s ease-in-out;
-        /* display: flex; */
-        
-        
-        
-    }
-    .carousel_pagination{
-        position: absolute;
-        top: 40px;
-        right: 40%;
-        transition: 0.4s ease-in-out;
-    }
-    
+.card_overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  padding: 40px 30px;
+  align-items: flex-end;
 }
-
-
-
-@media screen and (min-width: 992px){
-    .carousel_wrapper_second{
-        background-color: rgba(145, 145, 145, 0);
-        position: absolute;
-      
-        width: 50%;
-        height: 100%;
-        top: 70%;
-        left: 10%;
-        transition: 0.4s ease-in-out;
-        
-        
-        
-        
-    }
+.card_overlay:hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  padding: 40px 30px;
+  align-items: flex-end;
+  transition: 0.6s ease-in-out;
 }
-.carousel_card_textbox{
-
-    position: absolute;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    /* border-radius: 20px, 20px; */
-
-    opacity: 0;
-    left: auto;
-    pointer-events: none;
-    transform: translate(-350px,0);
-    transition: 0.6s ease-in-out;
-    
+.card_title {
+  color: rgba(251, 178, 61, 0.935);
+  font-size: 60px;
+  position: absolute;
+  top: 10px;
+  left: 2px;
 }
-
-.carousel_card-active{
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: visible;
+.card_title2 {
+  color: rgba(251, 178, 61, 0.935);
+  font-size: 2rem;
 }
-
-.card_image{
-    width:100%;
-    height:100%;
-    position:auto;
-    object-fit:cover;
+.card_text {
+  color: rgba(255, 255, 255, 2);
+  background-color: rgba(109, 110, 113, 0.6);
+  position: auto;
+  top: 5rem;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 30px 25px;
 }
-
-.card_image:hover{
-    transform: scale(2);
-    position:fixed;
-    transform: translate(-50%, 0);
-    opacity: 0;
-}
-
-.card_overlay{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    padding: 40px 30px;
-    align-items: flex-end;
-}
-
-.card_overlay:hover{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.2);
-    display: flex;
-    padding: 40px 30px;
-    align-items: flex-end;
-    
-    transition: 0.6s ease-in-out;
-}
-.card_title{
-    color: rgba(251, 178, 61, 0.935);
-    font-size: 60px;
-    position: absolute;
-    top: 10px;
-    left: 2px;
-
-
-  
-
- 
-
-}
-
-.card_title2{
-    color: rgba(251, 178, 61, 0.935);
-    font-size: 2rem;
-
-
-
-  
-
- 
-
-}
-
-.card_text{
-    color: rgba(255, 255, 255, 2);
-    
-
-    background-color: rgba(120, 120, 120, 0.7);
-        position: auto;
-        top: 0;
-        left: 10px;
-        width: auto;
-        height: auto;
-        padding: 30px 25px;
-    
-}
-
-/* .card_text2{
-    color: rgba(255, 255, 255, 2);
-
-    background-color: rgba(0, 0, 0, 0.4);
-        position: absolute;
-        top: 105px;
-        left: 2px;
-        width: 100px;
-        height: 100x;
-        padding: 20px 20px;
-    
-     
-}  */
-
-h3 {
-    display:inline;
-}
-h3:after {
-    content:"\a";
-    white-space: pre;
-}
-
-.carousel_pagination{
-    position: fixed;
-    bottom: 5px;
-    right: 1%;
-    transform: translate(-50%, 0);
+.carousel_pagination {
+  position: fixed;
+  bottom: 5px;
+  right: 1%;
+  transform: translate(-50%, 0);
 }
 .pagination_dot {
-    height: 15px;
-    width: 15px;
-    background-color: rgba(200,200,200, 0.8);
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: 0.5s ease-in-out;
-
+  height: 15px;
+  width: 15px;
+  background-color: rgba(200, 200, 200, 0.8);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
 }
-.pagination_dot:hover{
-    transform: scale(1.2);
-    background-color: rgb(241, 158, 5);
+.pagination_dot:hover {
+  transform: scale(1.2);
+  background-color: rgb(241, 158, 5);
 }
-
-.pagination_dot-active{
-    background-color: rgb(190, 124, 1);
-    -moz-box-shadow: 2.5px 2.5px 5px 0px rgba(0,0,0,0.9);
-    box-shadow: 2.5px 2.5px 5px 0px rgba(0,0,0,0.9);
-    border-radius: 40%;
+.pagination_dot-active {
+  background-color: rgb(190, 124, 1);
+  -moz-box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.9);
+  box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.9);
+  border-radius: 40%;
 }
-.link_text{
- 
-    
-    color: rgb(190, 124, 1);
-  
-        
-
-     
-        
-    
-
+.link_text {
+  align-items: flex-end;
+  color: rgb(83, 189, 190);
+  text-decoration-line: underline;
 }
-
-
-.page{
-    
-    padding-top: 150px !important;
-    padding-bottom: 30px !important;
-  
-    min-height: 100vh; 
-    z-index : -1 !important;
-    
-    
-    
-  }
-
+.page {
+  padding-top: 150px !important;
+  padding-bottom: 30px !important;
+  min-height: 100vh;
+  z-index: -1 !important;
+}
 .page-section2 {
-    position: auto;
-    min-height: 100vh; 
-    z-index : 0;
-  
-  }
+  position: auto;
+  min-height: 100vh;
+  z-index: 0;
+}
