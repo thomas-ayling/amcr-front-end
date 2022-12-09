@@ -1,11 +1,10 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import MainCarousel from '../components/carousel/MainCarousel'
-import images from '../components/carousel/Images'
+import MainCarousel from '../components/carousel/MainCarousel';
+import images from '../components/carousel/Images';
+import '../components/carousel/Carousel.css';
 
 const HomePage = () => {
-  
-    
   return (
     <Container fluid className='page-section'>
       <div>
@@ -40,7 +39,9 @@ const HomePage = () => {
           inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
         </h1>
       </div>
-      <MainCarousel images ={images}/>
+      <div className='page'>
+        <MainCarousel images={images} />
+      </div>{' '}
     </Container>
   );
 };
