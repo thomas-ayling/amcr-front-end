@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 
 
+
 function MainCarousel({images}) {
     const[current, setCurrent] = useState(0);
 
@@ -16,12 +17,16 @@ function MainCarousel({images}) {
             slideRight();
 
             }, 5000);
-        } //timer function- disables error as timer doesn't need to be stored
+        },
+           
+   
+        //timer function- disables error as timer doesn't need to be stored
     )
 
     const slideRight = () => {
         setCurrent(current === images.length - 1 ? 0 : current + 1);
     } // slide right and current checks what image it is on - it will go back to one if it reaches the end
+
     
     
     console.log(current, timeOut); //for testing purposes
@@ -36,7 +41,7 @@ function MainCarousel({images}) {
     
             <div className="carousel_wrapper">
              {images.map((image, index)=>{
-                return( <div key={index} className={index===current ? "carousel_card carousel_card-active" : "carousel_card"} >
+                return( <div key={index}  className={index===current ? "carousel_card carousel_card-active" : "carousel_card"} >
                 <img className="card_image"src={image.image} alt =""/>
                 <div className="card_overlay">
                     </div>
@@ -68,7 +73,7 @@ function MainCarousel({images}) {
                 
                     <div className="card_text"> 
                     <h1>{image.title}</h1>
-                    <h2 className ="card_title2">{image.overview.substring(0, 300)}</h2>
+                    <h2 className ="card_title2">{image.overview.substring(0, 200)}</h2>
                     <a className="link_text" href={image.target} rel="noreferrer">Find out more </a>
               
                 

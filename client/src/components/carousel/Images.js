@@ -1,22 +1,22 @@
 export const images =[
     {   
         image: "/images/City1.jpeg",
-        title: "Sky1",
+        title: "Global Logic",
         target: "/wiki",
-        overview: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." , 
+        overview: "This is Global Logic, we strive to adhere to our 4 behaviours " , 
     },
     {   
         image: "/images/City2.jpeg",
-        title: "Sky2",
-        overview: "Hello and welcome to blah",
-        target: "https://www.google.co.uk/",
+        title: "Welcome to Global Logic Manchester",
+        overview: "Come see the talent at this new facility and check the progress of the egineering academy",
+        target: "/library",
        
     },
     {   
         image: "/images/City3.jpeg",
-        title: "Sky3",
+        title: "Have an idea?",
         target: "https://www.google.co.uk/",
-        overview: "Hello and welcome to blah",
+        overview: "Contact us to suggest an idea and see it implemented",
     },
     
 
