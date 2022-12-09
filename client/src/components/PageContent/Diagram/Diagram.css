@@ -69,9 +69,9 @@
     height: 40px;
     width: 40px;
     border: none;
-    background-color: rgb(252, 98, 27);
+    background-color: #f37037;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid #D45E2B;
 }
 
 .arrow--line {
@@ -107,6 +107,7 @@
 .popup-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .popup-title {
@@ -162,11 +163,11 @@
 
 .title--input, .body--input {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
 .title--input {
-    align-items: center;
+    align-items: flex-start;
 }
 
 .body--input{
@@ -174,18 +175,90 @@
 }
 
 .builder--textarea {
-    margin-left: 5px;
     margin-top: 10px;
 }
 
 .builder--textarea-title {
     height: 25px;
     font-size: 20px;
-    width: 40vw;
+    width: 50vw;
+    text-align: center;
 }
 
 .builder--textarea-body {
     height: 20vh;
     font-size: 20px;
-    width: 40vw;
+    width: 50vw;
+    text-align: center;
+}
+
+.dropdown--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown--container > div {
+    display: flex;
+    align-items:stretch;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+
+.dropdown--label {
+    font-size: 1.5rem;
+    margin-right: 1vw;
+}
+
+.dropdown--select {
+    background-color:#f37037;
+    border: 1px solid #BCBEC0;
+    color: #E6E7E8;
+    border-radius: 5px;
+    min-width: 50px;
+    max-width: 100px;
+    text-align: center;
+    padding-left: 5px;
+}
+
+.submit--button {
+    width: 25vw;
+    min-width: 200px;
+    font-size: 1.2rem;
+    height: 7vh;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    border: 1px solid #BCBEC0;
+    text-align: center;
+    background-color: #f37037;
+    color: #E6E7E8;
+    box-shadow: 2px 2px 4px rgba(170, 170, 170, 0.497569);
+}
+
+.submit--button:hover {
+    background-color: #D45E2B;
+}
+
+.grid--component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .submit--button {
+        min-height: 60px;
+        max-height: 180px;
+        min-width: 300px;
+        height: 7.5vh;
+    }
+
+    .builder--textarea {
+        width: 70vw;
+        min-width: 300px;
+    }
+    .grid--ta-lr, .grid--ta-rl, .grid--ba-lr, .grid--ba-rl {
+        width: 10px;
+    }
+    
 }
