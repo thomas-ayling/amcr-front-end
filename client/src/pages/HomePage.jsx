@@ -39,6 +39,7 @@ const HomePage = () => {
           inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
         </h1>
       </div>
+      <MainCarousel images ={images}/>
     </Container>
   );
 };
