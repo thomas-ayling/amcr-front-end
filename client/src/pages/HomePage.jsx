@@ -1,7 +1,10 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';;
+import Grid from '../components/Layout';
 
 const HomePage = () => {
+  
+    
   return (
     <Container fluid className='page-section'>
       <div>

@@ -4,6 +4,8 @@ import NavBar from './components/navbar/NavBar';
 import MainRoutes from './MainRoutes';
 import Footer from './components/footer/Footer';
 
+
+
 function App() {
   return (
     <Router>

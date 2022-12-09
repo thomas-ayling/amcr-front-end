@@ -10,7 +10,7 @@ import InstagramIcon from '../../resources/icons/instagram-icon.svg';
 import FacebookIcon from '../../resources/icons/facebook-icon.svg';
 
 import './Footer.css';
-import '/node_modules/font-awesome/css/font-awesome.min.css'; 
+// import '/node_modules/font-awesome/css/font-awesome.min.css'; 
 
 
 const Footer = () => {

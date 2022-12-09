@@ -1,0 +1,25 @@
+#a-div {
+    border: 5px;
+    border-color: black;
+    border-style: dotted;
+    
+    
+}
+#b-div {
+    border:5px;
+    border-color: blue;
+    border-style: dotted;
+    
+}
+#c-div {
+    border: 5px;
+    border-color: red;
+    border-style: dotted;
+
+}
+#d-div {
+    border: 5px;
+    border-color: greenyellow;
+    border-style: dotted;
+    
+}
