@@ -9,7 +9,7 @@ function App() {
   return (
     <React.StrictMode>
       <Router>
-        <Header />
+        <Navbar />
         <MainRoutes />
         <Footer />
       </Router>
