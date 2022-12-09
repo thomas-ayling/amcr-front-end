@@ -1,6 +1,6 @@
 .carousel {
     display: flex;
-    height: 85%;
+    height: 90%;
     width: 100%;
     right: 20rem;
     position: absolute;
@@ -12,7 +12,7 @@
     /* background-color: aqua; */
     height: 90%;
     width: 100%;
-    top: 20%;
+    top: 15%;
     left: 20rem;
     position: absolute;
 }
@@ -34,22 +34,7 @@
     transform: translate(30px, 30px);
 }
 
-/* .carousel_timer {
-    display: flex;
-    flex: 1;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 20px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    opacity: 1;
-    pointer-events: none;
-   
-    transition: 0.5s ease-in-out;
-} */
+
 
 
 .carousel_wrapper{
@@ -57,7 +42,7 @@
   
     /* width: 70rem;
     height: 25rem; */
-    width: 100%;
+    width: auto;
     height: auto;
     bottom: 01pc;
     
@@ -89,10 +74,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* border-radius: 20px; */
-    /* -webkit-box-shadow: 5px 5px 12.5px 12.5px rgba(190, 124, 1, 0.8);
-    -moz-box-shadow: 5px 5px 12.5px 12.5px rgba(190, 124, 1, 0.8);
-    box-shadow: 5px 5px 12.5px 12.5px rgba(190, 124, 1, 0.8); */
+   
     
     
 
@@ -103,21 +85,21 @@
     .carousel_wrapper_second{
         background-color: rgba(145, 145, 145, 0);
         position: absolute;
-        /* padding: 20px 20px; */
+      
         width: 70%;
         height: auto;
         top: 60%;
         left: 01%;
         transition: 0.4s ease-in-out;
-        /* display: flex; */
+        
         
         
         
     }
     .carousel_pagination{
         position: absolute;
-        top: 40px;
-        right: 40%;
+        top: 15%;
+        left: 65%;
         transition: 0.4s ease-in-out;
     }
     
@@ -130,10 +112,11 @@
         background-color: rgba(145, 145, 145, 0);
         position: absolute;
       
-        width: 50%;
-        height: 100%;
-        top: 70%;
-        left: 10%;
+        display: flex;
+        height: 90%;
+        width: 80%;
+        right: 20rem;
+        top: 40%;
         transition: 0.4s ease-in-out;
         
         
@@ -144,11 +127,11 @@
 .carousel_card_textbox{
 
     position: absolute;
-    width: 100%;
+    width: auto;
     height: auto;
     overflow: hidden;
     /* border-radius: 20px, 20px; */
-
+    top:40%;
     opacity: 0;
     left: auto;
     pointer-events: none;
@@ -230,7 +213,7 @@
 
     background-color: rgba(120, 120, 120, 0.7);
         position: auto;
-        top: 0;
+        top: 5rem;
         left: 10px;
         width: auto;
         height: auto;
@@ -240,7 +223,6 @@
 
 /* .card_text2{
     color: rgba(255, 255, 255, 2);
-
     background-color: rgba(0, 0, 0, 0.4);
         position: absolute;
         top: 105px;

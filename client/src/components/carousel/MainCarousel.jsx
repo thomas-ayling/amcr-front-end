@@ -54,7 +54,7 @@ function MainCarousel({images}) {
                                 )
                         })}
                         </div>
-                   
+
                     </div>
   
 
