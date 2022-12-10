@@ -204,20 +204,18 @@ body {
 
 .last-item {
    position: relative;
-   width: fit-content;
    display: flex;
    z-index: 1;
+   width: auto;
+   height: auto;
 }
 
 .footer-top-scroll {
-   position: absolute;
-   left: 7.5px; bottom: 10px;
-   width: fit-content;
-   height:40px;
-   font-size: 2rem;
-   z-index: 1;
    cursor: pointer;
    color: white;
+   width: 5vmin;
+   height: auto;
+
 }
 
 .footer-top-scroll:hover {
@@ -226,8 +224,6 @@ body {
 
 .pointer-container {
    position: absolute;
-   left: 7.5px;
-   bottom: 10px;
-   font-size: 2rem;
-   z-index: 1;
+   bottom: 5px;
+   right: 1%;
 }
