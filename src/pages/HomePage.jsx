@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import MainCarousel from '../components/carousel/MainCarousel';
+import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
 import images from '../components/carousel/Images';
 import '../components/carousel/Carousel.css';
 
@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <Container>
        <div className='page'>
-        <MainCarousel
+        <HomepageHeaderCarousel
         images ={images}/>
       </div>
       <div>
@@ -43,7 +43,6 @@ const HomePage = () => {
           inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
         </h1>
       </div>
-      {/* <MainCarousel images ={images}/> */}
     </Container>
   );
 };
