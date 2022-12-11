@@ -22,6 +22,8 @@ const Inputs = ({
   bookLink,
   setBookLink,
   handleSubmit,
+  awaitingResponse,
+  submitStatus,
 }) => {
   switch (feedbackType) {
     case 'feedback':
@@ -39,6 +41,8 @@ const Inputs = ({
           isAnonymous={isAnonymous}
           setIsAnonymous={setIsAnonymous}
           handleSubmit={handleSubmit}
+          awaitingResponse={awaitingResponse}
+          submitStatus={submitStatus}
         />
       );
     case 'improvement':
@@ -56,6 +60,8 @@ const Inputs = ({
           isAnonymous={isAnonymous}
           setIsAnonymous={setIsAnonymous}
           handleSubmit={handleSubmit}
+          awaitingResponse={awaitingResponse}
+          submitStatus={submitStatus}
         />
       );
     case 'case-study':
@@ -71,6 +77,8 @@ const Inputs = ({
           setFeedbackBody={setFeedbackBody}
           setAttachment={setAttachment}
           handleSubmit={handleSubmit}
+          awaitingResponse={awaitingResponse}
+          submitStatus={submitStatus}
         />
       );
     case 'library':
@@ -87,6 +95,8 @@ const Inputs = ({
           bookName={bookName}
           bookLink={bookLink}
           handleSubmit={handleSubmit}
+          awaitingResponse={awaitingResponse}
+          submitStatus={submitStatus}
         />
       );
     default:

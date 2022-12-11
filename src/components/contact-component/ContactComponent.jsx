@@ -13,6 +13,8 @@ const ContactComponent = ({ feedbackType }) => {
   const [bookLink, setBookLink] = useState('');
   const [attachment, setAttachment] = useState();
   const [isAnonymous, setIsAnonymous] = useState(false);
+  const [awaitingResponse, setAwaitingResponse] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('idle');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +29,9 @@ const ContactComponent = ({ feedbackType }) => {
     feedback['bookName'] = bookName;
     feedback['bookLink'] = bookLink;
 
-    create(feedback, attachment);
+    setAwaitingResponse(true);
+
+    create(feedback, attachment, setAwaitingResponse, setSubmitStatus);
   };
 
   return (
@@ -52,6 +56,8 @@ const ContactComponent = ({ feedbackType }) => {
           bookLink={bookLink}
           setBookLink={setBookLink}
           handleSubmit={handleSubmit}
+          awaitingResponse={awaitingResponse}
+          submitStatus={submitStatus}
         />
       </div>
     </div>

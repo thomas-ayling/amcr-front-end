@@ -1,3 +1,5 @@
+@import 'Loader.css';
+
 * {
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
@@ -149,20 +151,49 @@ hr {
   align-self: center;
 }
 
-.submit-button {
+.submit-button-container {
   grid-area: submit;
-  text-align: center;
-  background-color: var(--gl-orange);
-  color: var(--gl-light-gray);
-  padding: 0.25vmin 0.5vmin 0.25vmin 0.5vmin !important;
   justify-self: end;
   align-self: center;
-  width: 50%;
-  border-color: var(--gl-dark-orange) !important;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.submit-button:hover {
-  background: var(--gl-dark-orange);
+.submit-button {
+  text-align: center;
+  padding: 0.25vmin 0.5vmin 0.25vmin 0.5vmin !important;
+  width: 50%;
+  color: var(--gl-light-gray);
+}
+
+.submit-button.idle {
+  background-color: var(--gl-orange);
+  border-color: var(--gl-dark-orange);
+}
+
+.submit-button.success {
+ background-color: var(--gl-lime);
+ border-color: var(--gl-dark-lime);
+}
+
+.submit-button.error {
+  background-color: var(--gl-error);
+  border-color: var(--gl-dark-error);
+}
+
+.submit-button.idle:hover {
+  background-color: var(--gl-dark-orange);
+}
+
+.submit-button.success:hover {
+  background-color: var(--gl-dark-lime);
+}
+
+.submit-button.error:hover {
+  background-color: var(--gl-dark-error);
 }
 
 .first-name-input,
@@ -225,7 +256,7 @@ hr {
 .chosen-file {
   grid-area: span;
   height: 50%;
-  width: 170%;
+  width: 160%;
   overflow: scroll;
   white-space: nowrap;
   border-right: 1px round black;

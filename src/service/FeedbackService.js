@@ -1,9 +1,7 @@
-import axios, * as others from 'axios';
-// const axios = require('axios');
-// Get from environment
+import axios from 'axios';
 const baseUrl = 'http://localhost:3001/feedback';
 
-const create = (feedback, attachment) => {
+const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
   const formData = new FormData();
 
   const feedbackBlob = new Blob([JSON.stringify(feedback)], {
@@ -20,7 +18,19 @@ const create = (feedback, attachment) => {
     .post(baseUrl + '/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
-    .then((res) => console.dir(res.data));
+    .then((res) => {
+      if (res.status === 200) {
+        setSubmitStatus('success');
+        setAwaitingResponse(false);
+      }
+    })
+    .catch((err) => {
+      err.status === 500
+        ? alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.')
+        : alert('An unknown error has occurred. Please try again or contact an administrator if this continues to happen.');
+      setSubmitStatus('error');
+      setAwaitingResponse(false);
+    });
 };
 
 export { create };

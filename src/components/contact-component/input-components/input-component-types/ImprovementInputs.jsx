@@ -4,14 +4,14 @@ import FeedbackBodyTextarea from '../shared-input-components/FeedbackBodyTextare
 import UserInfoInputs from '../shared-input-components/UserInfoInputs';
 import SubmitButton from '../shared-input-components/SubmitButton';
 
-const ImprovementInputs = ({ firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, feedbackBody, setFeedbackBody, setAttachment, handleSubmit }) => {
+const ImprovementInputs = ({ firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, feedbackBody, setFeedbackBody, setAttachment, handleSubmit, awaitingResponse, submitStatus }) => {
   return (
     <div className='contact-form-container'>
       <form onSubmit={handleSubmit} className='improvements-form contact-form'>
         <UserInfoInputs setFirstName={setFirstName} setLastName={setLastName} setEmailAddress={setEmailAddress} firstName={firstName} lastName={lastName} emailAddress={emailAddress} />
         <FeedbackBodyTextarea id='improvements-textarea' placeholder='Enter details about your proposed improvements to the engineering center' setFeedbackBody={setFeedbackBody} value={feedbackBody} />
         <AttachmentInput setAttachment={setAttachment} />
-        <SubmitButton />
+        <SubmitButton awaiting={awaitingResponse} status={submitStatus} />
       </form>
     </div>
   );

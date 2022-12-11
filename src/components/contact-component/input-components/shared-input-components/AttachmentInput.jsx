@@ -7,7 +7,7 @@ const AttachmentInput = ({ setAttachment }) => {
   return (
     <div className='attachment-input-container'>
       <label htmlFor='attachment-input' className='attachment-input-label'>
-        Choose file&nbsp;
+        Choose file &nbsp;
         <img src={FileIcon} alt='' id='file-icon' />
       </label>
       <span id='chosen-file' className='chosen-file'>
@@ -18,7 +18,10 @@ const AttachmentInput = ({ setAttachment }) => {
         name='attachment-input'
         id='attachment-input'
         className='attachment-input contact-form-input'
-        onChange={(e) => (setAttachment(e.target.files[0]), setFileName(e.target.files[0].name))}
+        onChange={(e) => {
+          setAttachment(e.target.files[0]);
+          setFileName(e.target.files[0].name);
+        }}
         hidden
       />
     </div>
