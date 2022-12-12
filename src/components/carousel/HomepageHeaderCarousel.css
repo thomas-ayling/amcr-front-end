@@ -1,0 +1,161 @@
+.hph-carousel {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+.hph-carousel-background {
+    height: auto;
+    width: 100%;
+    top:auto;
+    margin-top: 7.5%;
+    margin-bottom: 2.5%;
+}
+.hph-carousel-background:hover {
+    height: auto;
+    width: 100%;
+
+}
+.hph-carousel_wrapper {
+    width: 100%;
+    height: auto;
+}
+.hph-carousel_card {
+    display: none;
+    flex: 1;
+    overflow: hidden;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    opacity: 0 !important;
+    pointer-events: none;
+    transform: translate(-350px, 0);
+    transition: 0.5s ease-in-out;
+}
+.hph-carousel_card:hover {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+@media screen and (max-width: 992px) {
+    .hph-carousel_wrapper_second {
+      background-color: rgba(188, 190, 192, 0);
+      width: 70%;
+      max-width: 80%;
+      height: 10%;
+      max-height: 10%;
+      left: 01%;
+      transition: 0.4s ease-in-out;
+    }
+    .hph-carousel_pagination {
+      left: 65%;
+      transition: 0.4s ease-in-out;
+    }
+  }
+@media screen and (min-width: 992px) {
+    .hph-carousel_wrapper_second {
+      background-color: rgba(188, 190, 192, 0);
+      display: flex;
+      height: 90%;
+      width: 50%;
+      left: 0rem;
+      transition: 0.4s ease-in-out;
+    }
+}
+.hph-carousel_card_textbox {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    /* border-radius: 20px, 20px; */
+    opacity: 0;
+    left: auto;
+    pointer-events: none;
+    transform: translate(-350px, 0);
+    transition: 0.6s ease-in-out;
+}
+.hph-carousel_card-active {
+    display: flex;
+    opacity: 1 !important;
+    transform: scale(1);
+    pointer-events: visible;
+    width: 100%;
+    height: fit-content;
+}
+.hph-card_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.hph-card_image:hover {
+    opacity: 1;
+    filter:brightness(1);
+}
+.hph-card_overlay {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    padding: 40px 30px;
+    align-items: flex-end;
+}
+.hph-card_overlay:hover {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    padding: 40px 30px;
+    align-items: flex-end;
+    transition: 0.6s ease-in-out;
+}
+.hph-card_title {
+    color: rgba(251, 178, 61, 0.935);
+    font-size: 60px;
+    top: 10px;
+    left: 2px;
+}
+.hph-card_title2 {
+    color: rgba(251, 178, 61, 0.935);
+    font-size: 2rem;
+}
+.hph-card_text {
+    color: rgba(255, 255, 255, 2);
+    background-color: rgba(109, 110, 113, 0.6);
+    top: 5rem;
+    left: 10px;
+    width: auto;
+    height: auto;
+    padding: 30px 25px;
+}
+.hph-carousel_pagination {
+    position: fixed;
+    bottom: 5px;
+    right: 1%;
+    transform: translate(-50%, 0);
+}
+.hph-pagination_dot {
+    height: 15px;
+    width: 15px;
+    background-color: rgba(200, 200, 200, 0.8);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+.hph-pagination_dot:hover {
+    transform: scale(1.2);
+    background-color: rgb(241, 158, 5);
+}
+.hph-pagination_dot-active {
+    background-color: rgb(190, 124, 1);
+    -moz-box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.9);
+    box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.9);
+    border-radius: 40%;
+}
+.hph-link_text {
+    align-items: flex-end;
+    color: rgb(83, 189, 190);
+    text-decoration-line: underline;
+}
+  
