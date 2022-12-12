@@ -24,9 +24,6 @@ function HomepageHeaderCarousel({images}) {
     
     return (
         <div className="hph-carousel-background">
-          {/* <div className="homepage-header-carouselTitle">
-            <p className="homepage-header-carouselTitle-text">Globallogic</p>
-          </div> */}
           <div className="hph-carousel"  onMouseEnter={() => {setAutoPlay(false); //checks 
             clearTimeout(timeOut);  
 
@@ -36,6 +33,7 @@ function HomepageHeaderCarousel({images}) {
             <div className="hph-carousel_wrapper">
              {images.map((image, index)=>{
                 return( <div key={index} className={index===current ? "hph-carousel_card hph-carousel_card-active" : "hph-carousel_card"} >
+                <div className="homepage-header-carouselTitle"><p className="homepage-header-carouselTitle-text">GlobalLogic UK&I</p></div>
                 <img className="hph-card_image"src={image.image} alt =""/>
                 <div className="hph-card_overlay">
                     </div>
