@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
-// import MainCarousel from '../components/carousel/MainCarousel';
-// import images from '../components/carousel/Images';
+import MainCarousel from '../components/carousel/MainCarousel';
+import MainCarouselImages from '../components/carousel/MainCarouselImages';
 import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 
 
@@ -14,17 +14,17 @@ const HomePage = () => {
   return (
     <Container>
 
-      {/* <div className='page'>
-        <MainCarousel images={images} />
-      </div> */}
+      <div className='page'>
+        <MainCarousel images={MainCarouselImages} />
+      </div>
 
-      <div className='b-page'>
+      {/* <div className='b-page'>
         <BehaviourCarousel images={behaviouralImages} />
       </div>
 
       <div>
         <HomepageHeaderCarousel images ={HomepageHeaderImages}/>
-      </div>
+      </div> */}
       
       {/* <div>
         <h1>
