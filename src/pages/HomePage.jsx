@@ -4,13 +4,22 @@ import MainCarousel from '../components/carousel/MainCarousel';
 import images from '../components/carousel/Images';
 import '../components/carousel/Carousel.css';
 
+import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
+import '../components/behavioural-carousel/BehaviourCarousel.css';
+import behaviouralImages from '../components/behavioural-carousel/BehaviouralImages';
+
 const HomePage = () => {
   return (
     <Container>
-       <div className='page'>
-        <MainCarousel
-        images ={images}/>
+
+      {/* <div className='page'>
+        <MainCarousel images={images} />
+      </div> */}
+
+      <div className='b-page'>
+        <BehaviourCarousel images={behaviouralImages} />
       </div>
+
       <div>
         <h1>
           Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus
@@ -43,7 +52,7 @@ const HomePage = () => {
           inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
         </h1>
       </div>
-      {/* <MainCarousel images ={images}/> */}
+
     </Container>
   );
 };
