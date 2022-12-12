@@ -1,10 +1,6 @@
 import "../carousel/HomepageHeaderCarousel.css"
 import { useEffect, useState } from "react";
 
-
-
-
-
 function HomepageHeaderCarousel({images}) {
     const[current, setCurrent] = useState(0);
 
@@ -27,27 +23,27 @@ function HomepageHeaderCarousel({images}) {
     console.log(current, timeOut); //for testing purposes
     
     return (
-        <div className="carousel-background">
+        <div className="hph-carousel-background">
           {/* <div className="homepage-header-carouselTitle">
             <p className="homepage-header-carouselTitle-text">Globallogic</p>
           </div> */}
-          <div className="carousel"  onMouseEnter={() => {setAutoPlay(false); //checks 
+          <div className="hph-carousel"  onMouseEnter={() => {setAutoPlay(false); //checks 
             clearTimeout(timeOut);  
 
      
             }} onMouseLeave={() => {setAutoPlay(true)}}> 
     
-            <div className="carousel_wrapper">
+            <div className="hph-carousel_wrapper">
              {images.map((image, index)=>{
-                return( <div key={index} className={index===current ? "carousel_card carousel_card-active" : "carousel_card"} >
-                <img className="card_image"src={image.image} alt =""/>
-                <div className="card_overlay">
+                return( <div key={index} className={index===current ? "hph-carousel_card hph-carousel_card-active" : "hph-carousel_card"} >
+                <img className="hph-card_image"src={image.image} alt =""/>
+                <div className="hph-card_overlay">
                     </div>
-                         <div className="carousel_pagination">
+                         <div className="hph-carousel_pagination">
                              {images.map((_,index)=>{
                                 return(
                                 <div key={index}
-                                    className={index === current ? "pagination_dot pagination_dot-active" : "pagination_dot"
+                                    className={index === current ? "hph-pagination_dot hph-pagination_dot-active" : "hph-pagination_dot"
                                     }
                                     
                                 onClick={() => setCurrent(index) && clearTimeout(timeOut)}
