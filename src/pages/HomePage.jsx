@@ -6,12 +6,26 @@ import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarouse
 import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 
 
+import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
+import '../components/behavioural-carousel/BehaviourCarousel.css';
+import behaviouralImages from '../components/behavioural-carousel/BehaviouralImages';
+
 const HomePage = () => {
   return (
     <Container>
+
+      {/* <div className='page'>
+        <MainCarousel images={images} />
+      </div> */}
+
+      <div className='b-page'>
+        <BehaviourCarousel images={behaviouralImages} />
+      </div>
+
       <div>
         <HomepageHeaderCarousel images ={HomepageHeaderImages}/>
       </div>
+      
       {/* <div>
         <h1>
           Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus
