@@ -5,13 +5,16 @@ import MainRoutes from './MainRoutes';
 import Footer from './components/footer/Footer';
 import React from 'react';
 
+import PageContent from './components/page-content/PageContent';
+
 function App() {
   return (
-      <Router>
-        <NavBar />
-        <MainRoutes />
-        <Footer />
-      </Router>
+      // <Router>
+      //   <NavBar />
+      //   <MainRoutes />
+      //   <Footer />
+      // </Router>
+      <PageContent/>
   );
 }
 

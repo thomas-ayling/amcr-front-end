@@ -12,7 +12,7 @@
 }
 
 .grid--row {
-    justify-self: end;
+    justify-self: start;
 }
 
 .grid--row-rev {
@@ -68,7 +68,6 @@
 .round--btn {
     height: 40px;
     width: 40px;
-    border: none;
     background-color: #f37037;
     border-radius: 50%;
     border: 1px solid #D45E2B;
@@ -179,7 +178,7 @@
 }
 
 .builder--textarea-title {
-    height: 25px;
+    height: 10vh;
     font-size: 20px;
     width: 50vw;
     text-align: center;
@@ -257,8 +256,23 @@
         width: 70vw;
         min-width: 300px;
     }
+
     .grid--ta-lr, .grid--ta-rl, .grid--ba-lr, .grid--ba-rl {
         width: 10px;
+        height: 100px;
     }
-    
+
+    .grid--container {
+        grid-template-columns: 50px 310px 50px;
+        grid-template-rows: 150px 150px 150px;
+    }
+
+    .arrow--line {
+        width: 50px;
+    }  
+
+    .round--btn {
+        height: 50px;
+        width: 50px;
+    }
 }

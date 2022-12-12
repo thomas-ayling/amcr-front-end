@@ -2,130 +2,33 @@ import React, { useState, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import './Diagram.css';
-import diagramArray from './diagramArray';
+import Grid from './DiagramPages/Grid';
+import Popover from './DiagramPages/Popover';
 
-function Diagram() {
-  const [nodeNum, setNodeNum] = useState(3);
-  const [nodes, setNodes] = useState({ id: undefined, title: undefined, body: undefined });
-  const [diagramInputs, setDiagramInputs] = useState();
+export default function Diagram() {
+  const [totalNum, setTotalNum] = useState(3);
+  const [currentNode, setCurrentNode] = useState(1);
+  const [nodeTitle, setNodeTitle] = useState('');
+  const [nodeBody, setNodeBody] = useState('');
 
-  useEffect(() => {
-    console.log('UseEffect');
-
-    const tempNodes = diagramArray.map((node) => ({
-      id: node.id,
-      title: node.title,
-      body: node.body,
-    }));
-
-    console.dir(tempNodes);
-
-    setNodes(tempNodes);
-
-    console.log(nodes);
-
-    setDiagramInputs(
-      diagramArray.map((element, i) => (
-        <div className='popup-container' key={i}>
-          <div className='title--input'>
-            <textarea className='builder--textarea builder--textarea-title' placeholder='Title' name='title' value={element.title} onChange={(e) => handleTitleChange(e, i)} />
-          </div>
-          <div className='body--input'>
-            <textarea className='builder--textarea builder--textarea-body' placeholder='Content' name='body' value={element.body} onChange={(e) => handleBodyChange(e, i)} />
-          </div>
-        </div>
-      ))
-    );
-  }, []);
-
-  const handleTitleChange = (e, i) => {
-    console.log(nodes);
-    const node = nodes[i];
-    setNodes((node.title = e.target.value));
-  };
-
-  const handleBodyChange = (e, i) => {
-    const node = nodes[i];
-    setNodes((node.body = e.target.value));
-  };
-
-  const popupItem = (
-    <Popup trigger={<button className='round--btn'></button>} position='bottom center' on={['hover', 'focus']} contentStyle={{ width: '350px' }}>
-      <div className='popup-container'>
-        <div className='popup-title'>{nodes.title}</div>
-        <div className='popup-body'>{nodes.body}</div>
-      </div>
-    </Popup>
-  );
-
-  const arrowLR = (
-    <>
-      <div className='arrow--line' />
-      <div className='triangle--lr' />
-    </>
-  );
-
-  const arrowRL = (
-    <>
-      <div className='arrow--line' />
-      <div className='triangle--rl' />
-    </>
-  );
-
-  const row = (
-    <div className='row--component'>
-      {popupItem}
-      {arrowLR}
-      {popupItem}
-      {arrowLR}
-      {popupItem}
-    </div>
-  );
-
-  const reverseRow = (
-    <div className='reverse--row--component'>
-      {popupItem}
-      {arrowRL}
-      {popupItem}
-      {arrowRL}
-      {popupItem}
-    </div>
-  );
-
-  const empty = <div className='grid--item grid--empty'></div>;
-
-  // function handleChange(e) {
-  //     const {name, value} = e.target;
-  //     setNode(prevNode =>{
-  //         return {
-  //             ...prevNode,
-  //             [name]: value
-  //         }
-  //     })
+  // function changeNodeNumber(number) {
+  //   setTotalNum(number);
+  //   let tempArray = [];
+  //   for (let i = 1; i <= totalNum; i++) {
+  //     tempArray.push(i);
+  //   }
+  //   const test = [...array, 3];
+  //   tempArray.map((e) => setArray((prevArray) => [...prevArray, e]));
   // }
 
-  const finalInputs = (
-    <div className='popup-container'>
-      <div className='title--input'>
-        <textarea className='builder--textarea builder--textarea-title' placeholder='Title' />
-      </div>
-      <div className='body--input'>
-        <textarea className='builder--textarea builder--textarea-body' placeholder='Content' />
-      </div>
-    </div>
-  );
-
-  function changeDiagramInputs(e) {
-    console.log(e.target.value);
-    setNodeNum(e.target.value);
-  }
-
   return (
-    <>
-      <div className='builder--container'>
-        <div className='number--dropdown'>
-          <label htmlFor='nodeNum'>Choose number of nodes</label>
-          <select id='nodeNum' value={nodeNum} name='nodeNum' onChange={changeDiagramInputs}>
+    <div>
+      <div className='dropdown--container'>
+        <div>
+          <label className='dropdown--label' htmlFor='nodetotalNumber'>
+            Total number of nodes:
+          </label>
+          <select id='nodetotalNumber' className='dropdown--select' name='nodetotalNumber' value={totalNum} onChange={(e) => setTotalNum(e.target.value)}>
             <option value='3'>3</option>
             <option value='4'>4</option>
             <option value='5'>5</option>
@@ -135,21 +38,29 @@ function Diagram() {
             <option value='9'>9</option>
           </select>
         </div>
-        {diagramInputs}
+        <div>
+          <label className='dropdown--label' htmlFor='currentNode'>
+            Currently editing node:
+          </label>
+          <select id='currentNode' className='dropdown--select' name='currentNode' value={currentNode} onChange={(e) => setCurrentNode(e.target.value)}>
+            {Array(Number(totalNum))
+              .fill()
+              .map((_, i) => (
+                <option value={i+1} key={i}>{i+1}</option>
+              ))}
+          </select>
+        </div>
       </div>
-      <div className='grid--container'>
-        {empty}
-        {<div className='grid--item grid--row'>{row}</div>}
-        <div className='grid--item grid--ta-lr'></div>
-        <div className='grid--item grid--ta-rl'></div>
-        <div className='grid--item grid--row-rev'>{reverseRow}</div>
-        <div className='grid--item grid--ba-lr'></div>
-        <div className='grid--item grid--ba-rl'></div>
-        <div className='grid--item grid--row'>{row}</div>
-        {empty}
+
+      <div className='popup-container'>
+        <div className='title--input'>
+          <textarea className='builder--textarea builder--textarea-title' value={nodeTitle} placeholder='Title' onChange={(e) => setNodeTitle(e.target.value)} />
+        </div>
+        <div className='body--input'>
+          <textarea className='builder--textarea builder--textarea-body' value={nodeBody} placeholder='Content' onChange={(e) => setNodeBody(e.target.value)} />
+        </div>
       </div>
-    </>
+      <Grid totalNum={totalNum} currentNode={currentNode} title={nodeTitle} body={nodeBody}/>
+    </div>
   );
 }
-
-export default Diagram;
