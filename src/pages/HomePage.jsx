@@ -1,22 +1,17 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
-import MainCarousel from '../components/carousel/MainCarousel';
-import images from '../components/carousel/Images';
+// import MainCarousel from '../components/carousel/MainCarousel';
+// import images from '../components/carousel/Images';
 import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 
 
 const HomePage = () => {
   return (
     <Container>
-       <div className='page'>
-        <HomepageHeaderCarousel
-        images ={HomepageHeaderImages}/>
+      <div>
+        <HomepageHeaderCarousel images ={HomepageHeaderImages}/>
       </div>
-      {/* <div className='page'>
-        <MainCarousel
-        images ={images}/>
-      </div> */}
       {/* <div>
         <h1>
           Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus

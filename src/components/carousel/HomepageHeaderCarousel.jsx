@@ -28,9 +28,9 @@ function HomepageHeaderCarousel({images}) {
     
     return (
         <div className="carousel-background">
-          <div className="homepage-header-carouselTitle">
+          {/* <div className="homepage-header-carouselTitle">
             <p className="homepage-header-carouselTitle-text">Globallogic</p>
-          </div>
+          </div> */}
           <div className="carousel"  onMouseEnter={() => {setAutoPlay(false); //checks 
             clearTimeout(timeOut);  
 
