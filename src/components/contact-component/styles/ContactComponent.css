@@ -18,19 +18,18 @@ hr {
     flex-direction: column;
     padding: 1 0.75rem 1 0.75rem !important;
     align-items: center;
-    /* width: 75% !important; */
     width: 530px !important;
   }
 
   .description-container {
-    width: 92% !important;
+    width: 94% !important ;
     aspect-ratio: 8/7 !important;
     margin: 0 !important;
     margin-bottom: 0.5rem !important;
   }
 
   .contact-form-container {
-    width: 92% !important;
+    width: 94% !important;
     aspect-ratio: 8/7 !important;
     margin: 0 !important;
     margin-top: 0.5rem !important;
