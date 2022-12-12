@@ -254,3 +254,7 @@ hr.vertical {
   transform: rotate(90);
   height: 10px;
 }
+
+.chosen-file::-webkit-scrollbar, textarea::-webkit-scrollbar {
+  display: none;
+}
