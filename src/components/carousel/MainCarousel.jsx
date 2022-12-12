@@ -1,4 +1,4 @@
-import "../carousel/Carousel.css"
+import "../carousel/MainCarousel.css"
 import { useEffect, useState } from "react";
 
 
