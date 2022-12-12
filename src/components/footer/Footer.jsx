@@ -50,7 +50,7 @@ const Footer = () => {
           {/* Column for admin panel */}
           <div className="admin-panel">
             <div>
-              <Link  className="admin-link" to={`/admin`}>Admin Panel</Link>
+              <Link  className="admin-link" to={`/admin-panel`}>Admin Panel</Link>
             </div>
           </div>
         </section>
