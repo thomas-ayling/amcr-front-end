@@ -1,17 +1,18 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import MainCarousel from '../components/carousel/MainCarousel';
-import images from '../components/carousel/Images';
-import '../components/carousel/Carousel.css';
+import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
+// import MainCarousel from '../components/carousel/MainCarousel';
+// import images from '../components/carousel/Images';
+import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
+
 
 const HomePage = () => {
   return (
     <Container>
-       <div className='page'>
-        <MainCarousel
-        images ={images}/>
-      </div>
       <div>
+        <HomepageHeaderCarousel images ={HomepageHeaderImages}/>
+      </div>
+      {/* <div>
         <h1>
           Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus
           inventore et ullam galisum quo porro rerum eum quia assumenda est illo laudantium! Eos galisum rerum sit quod voluptas in cumque natus et odit omnis. Non nulla nulla quo
@@ -42,8 +43,7 @@ const HomePage = () => {
           mollitia et culpa deserunt. Qui provident modi eum sint asperiores ut quod excepturi. Et eius quasi in explicabo galisum qui blanditiis tempore. Ea galisum autem sit
           inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
         </h1>
-      </div>
-      {/* <MainCarousel images ={images}/> */}
+      </div> */}
     </Container>
   );
 };
