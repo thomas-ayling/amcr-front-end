@@ -18,6 +18,7 @@
 .hph-carousel_wrapper {
     width: 100%;
     height: auto;
+    overflow-y: hidden;
 }
 .hph-carousel_card {
     display: none;

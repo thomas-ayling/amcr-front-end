@@ -6,6 +6,7 @@ import Contacts from './pages/Contacts';
 import CaseStudies from './pages/CaseStudies';
 import Library from './pages/Library';
 import Configuration from './pages/ConfigurationPage';
+import AdminPanel from './pages/AdminPanel';
 
 const MainRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const MainRoutes = () => {
       <Route exact path='/case-studies' element={<CaseStudies />} />
       <Route exact path='/library' element={<Library />} />
       <Route exact path='/config' element={<Configuration />} />
+      <Route exact path='/admin-panel' element={<AdminPanel />} />
     </Routes>
   );
 };
