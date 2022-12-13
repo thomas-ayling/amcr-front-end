@@ -216,6 +216,12 @@
  
   }
 
+  .page {
+
+    min-height: 95vh;
+    z-index: -1 !important;
+  }
+
 
 }
 
