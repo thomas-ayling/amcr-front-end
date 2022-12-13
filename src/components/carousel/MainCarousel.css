@@ -46,8 +46,7 @@
 
 .carousel_card_textbox {
   position: absolute;
-  width: auto;
-  height: auto;
+
   overflow: hidden;
   top:60%;
   opacity: 0;
@@ -144,8 +143,34 @@
   z-index: 0;
 }
 
+.carousel_card_textbox2 {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  bottom: 10%;
+  opacity: 0;
+  top: 15rem;
+  pointer-events: none;
+  transform: translate(-350px, 0);
+  transition: 0.5s ease-in-out;
+ 
+  
+
+}
+
+.carousel_card_textbox-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: visible;
+}
+
+
+
 @media screen and (max-width: 992px) {
-  .carousel_wrapper_second {
+  /* .carousel_wrapper_second {
     background-color: rgba(188, 190, 192, 0);
     
     width: 70%;
@@ -155,41 +180,35 @@
     top: 60%;
     left: 01%;
     transition: 0.4s ease-in-out;
-  }
+  } */
   .card_text {
     color: rgba(255, 255, 255, 2);
     background-color: rgba(109, 110, 113, 0.8);
    
 
-    width: 60;
-    height: 90%;
+
   
-    padding: 50px 25px;
+    padding: 20px 25px;
   }
   .carousel_pagination {
     position: absolute;
     transition: 0.4s ease-in-out;
   }
-  .carousel_card_textbox {
+  .carousel_card_textbox2 {
    
     width: 70%;
     height: auto;
- 
+    max-height: 65%;
+    top: 5rem;
     left: 0%;
  
   }
 
+
 }
 
 @media screen and (min-width: 992px) {
-  .carousel_wrapper_second {
-    
-    display: flex;
-    height: 70%;
-    width: 50%;
 
-    position: sticky;
-  }
 
   .card_text {
     color: rgba(255, 255, 255, 2);
@@ -200,8 +219,9 @@
     width: 60%;
     height: 90%;
   
-    padding: 50px 25px;
+    padding: 20px 12px;
   }
 
 
 }
+
