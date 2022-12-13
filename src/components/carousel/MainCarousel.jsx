@@ -70,7 +70,7 @@ function MainCarousel({images}) {
                     <div className="card_text"> 
                     <h1>{image.title}</h1>
                     <h2 className ="card_title2">{image.overview.substring(0, 300)}</h2>
-                    <h3>+44 (0)161 407 0069</h3>
+                    <h2>+44 (0)161 407 0069</h2>
                     <a className="link_text" href={image.target} rel="noreferrer">View Map </a>
               
                 

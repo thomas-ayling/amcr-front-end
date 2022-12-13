@@ -68,6 +68,7 @@
   height: 100%;
   position: auto;
   object-fit: cover;
+ 
 }
 .card_image:hover {
   transform: scale(2);
@@ -156,13 +157,13 @@
   display: flex;
   flex: 1;
   position: absolute;
-  width: 50%;
+  width: 30%;
   background-color: rgba(109, 110, 113, 0.75);
-  height: 20%;
+  height: auto;
   overflow: hidden;
-  bottom: 10%;
+  bottom: 015%;
   opacity: 0;
-  top: 50rem;
+
   pointer-events: none;
   transform: translate(-350px, 0);
   transition: 0.5s ease-in-out;
@@ -195,13 +196,11 @@
     transition: 0.4s ease-in-out;
   } */
   .card_text {
-    color: rgba(255, 255, 255, 2);
-    background-color: rgba(109, 110, 113, 0.7);
-   
-
-
+    color: rgba(255, 255, 255, 1);
   
-    padding: 20px 25px;
+    max-height: 35%;
+  
+  
   }
   .carousel_pagination {
     position: absolute;
@@ -210,9 +209,9 @@
   .carousel_card_textbox2 {
    
     width: 70%;
-    height: auto;
-    max-height: 65%;
-    top: 5rem;
+    max-height: 40%;
+    
+    top: 14rem;
     left: 0%;
  
   }
