@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 
 function MainCarousel({images}) {
+
     const[current, setCurrent] = useState(0);
 
     const [autoPlay, setAutoPlay] = useState(true);

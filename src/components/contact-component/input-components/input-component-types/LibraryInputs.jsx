@@ -7,8 +7,8 @@ const LibraryInputs = ({ firstName, setFirstName, lastName, setLastName, emailAd
     <div className='contact-form-container'>
       <form onSubmit={handleSubmit} className='improvements-form contact-form'>
         <UserInfoInputs setFirstName={setFirstName} setLastName={setLastName} setEmailAddress={setEmailAddress} firstName={firstName} lastName={lastName} emailAddress={emailAddress} mandatory={true} />
-        <input type='text' name='book-name' className='contact-form-input book-name-input' placeholder='Book name...' onChange={(e) => setBookName(e.target.value)} value={bookName} required />
-        <input type='text' name='book-link' className='contact-form-input book-link-input' placeholder='Book link... (optional)' onChange={(e) => setBookLink(e.target.value)} value={bookLink} />
+        <input type='text' name='book-name' className='contact-form-input book-name-input' placeholder='Book name*' onChange={(e) => setBookName(e.target.value)} value={bookName} required />
+        <input type='text' name='book-link' className='contact-form-input book-link-input' placeholder='Book link (optional)' onChange={(e) => setBookLink(e.target.value)} value={bookLink} />
         <SubmitButton awaiting={awaitingResponse} status={submitStatus} />
       </form>
     </div>
