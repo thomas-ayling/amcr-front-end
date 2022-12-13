@@ -144,7 +144,7 @@
 .page {
   padding-top: 175px !important;
   padding-bottom: 10px !important;
-  min-height: 110vh;
+  min-height: 100vh;
   z-index: -1 !important;
 }
 .page-section2 {
