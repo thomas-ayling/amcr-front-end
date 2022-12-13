@@ -5,9 +5,9 @@ import MainCarousel from "../components/carousel/MainCarousel";
 import MainCarouselImages from "../components/carousel/MainCarouselImages";
 import HomepageHeaderImages from "../components/carousel/HomepageHeaderImages";
 
-import BehaviourCarousel from "../components/behavioural-carousel/BehaviourCarousel";
-import "../components/behavioural-carousel/BehaviourCarousel.css";
-import behaviouralImages from "../components/behavioural-carousel/BehaviouralImages";
+import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
+import '../components/behavioural-carousel/BehaviourCarousel.css';
+import behaviourImages from '../components/behavioural-carousel/BehaviourImages';
 
 const HomePage = () => {
   return (
@@ -40,10 +40,9 @@ const HomePage = () => {
       </div>
 
       <div className='b-page'>
-        <BehaviourCarousel images={behaviouralImages} />
+        <BehaviourCarousel images={behaviourImages} />
       </div>
 
-      
     </Container>
   );
 };
