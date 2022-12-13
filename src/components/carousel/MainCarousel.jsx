@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 
 
+
 function MainCarousel({images}) {
     const[current, setCurrent] = useState(0);
 
@@ -69,7 +70,8 @@ function MainCarousel({images}) {
                     <div className="card_text"> 
                     <h1>{image.title}</h1>
                     <h2 className ="card_title2">{image.overview.substring(0, 300)}</h2>
-                    <a className="link_text" href={image.target} rel="noreferrer">Find out more </a>
+                    <h2>+44 (0)161 407 0069</h2>
+                    <a className="link_text" href={image.target} rel="noreferrer">View Map </a>
               
                 
                 </div>
