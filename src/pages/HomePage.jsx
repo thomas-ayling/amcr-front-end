@@ -6,9 +6,9 @@ import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarouse
 import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 
 
-import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
-import '../components/behavioural-carousel/BehaviourCarousel.css';
-import behaviouralImages from '../components/behavioural-carousel/BehaviouralImages';
+import BehaviourCarousel from '../components/behaviour-carousel/BehaviourCarousel';
+import '../components/behaviour-carousel/BehaviourCarousel.css';
+import BImages from '../components/behaviour-carousel/BImages';
 
 const HomePage = () => {
   return (
@@ -18,46 +18,14 @@ const HomePage = () => {
         <MainCarousel images={images} />
       </div> */}
 
-      <div className='b-page'>
-        <BehaviourCarousel images={behaviouralImages} />
-      </div>
-
       <div>
         <HomepageHeaderCarousel images ={HomepageHeaderImages}/>
       </div>
+
+      <div className='b-page'>
+        <BehaviourCarousel images={BImages} />
+      </div>
       
-      {/* <div>
-        <h1>
-          Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus
-          inventore et ullam galisum quo porro rerum eum quia assumenda est illo laudantium! Eos galisum rerum sit quod voluptas in cumque natus et odit omnis. Non nulla nulla quo
-          galisum facilis et neque alias aut fugiat beatae? Et internos fugit nam voluptatem sequi ut voluptas rerum id ipsa minima? Ut laboriosam deserunt a dicta nihil ea quis
-          totam ab odit sequi. Ut quos debitis est harum rerum eos velit quis est obcaecati voluptas sed neque adipisci eum assumenda cupiditate qui voluptas velit? Lorem ipsum
-          dolor sit amet. Qui deserunt repellat qui esse ipsum est consequatur inventore in vero corporis ut quos saepe. Et deserunt dolores vel enim dignissimos aut iusto ipsa sit
-          quibusdam tenetur qui asperiores consequatur. Qui modi obcaecati ut rerum soluta et mollitia dolorem ea consequatur numquam sed dolorem dicta eum eligendi earum vel
-          facere voluptates. Qui dicta asperiores qui autem architecto sed obcaecati officia ut perferendis molestiae est animi odit. Est porro quia ut dignissimos quis eos earum
-          nihil. Et nostrum necessitatibus est quos tempore ab voluptate possimus ut consequuntur mollitia et culpa deserunt. Qui provident modi eum sint asperiores ut quod
-          excepturi. Et eius quasi in explicabo galisum qui blanditiis tempore. Ea galisum autem sit inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur
-          et unde consectetur et inventore fugiat. Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia neque nam officiis illum? Hic libero
-          consectetur et deserunt sint ut voluptatibus inventore et ullam galisum quo porro rerum eum quia assumenda est illo laudantium! Eos galisum rerum sit quod voluptas in
-          cumque natus et odit omnis. Non nulla nulla quo galisum facilis et neque alias aut fugiat beatae? Et internos fugit nam voluptatem sequi ut voluptas rerum id ipsa minima?
-          Ut laboriosam deserunt a dicta nihil ea quis totam ab odit sequi. Ut quos debitis est harum rerum eos velit quis est obcaecati voluptas sed neque adipisci eum assumenda
-          cupiditate qui voluptas velit? Lorem ipsum dolor sit amet. Qui deserunt repellat qui esse ipsum est consequatur inventore in vero corporis ut quos saepe. Et deserunt
-          dolores vel enim dignissimos aut iusto ipsa sit quibusdam tenetur qui asperiores consequatur. Qui modi obcaecati ut rerum soluta et mollitia dolorem ea consequatur
-          numquam sed dolorem dicta eum eligendi earum vel facere voluptates. Qui dicta asperiores qui autem architecto sed obcaecati officia ut perferendis molestiae est animi
-          odit. Est porro quia ut dignissimos quis eos earum nihil. Et nostrum necessitatibus est quos tempore ab voluptate possimus ut consequuntur mollitia et culpa deserunt. Qui
-          provident modi eum sint asperiores ut quod excepturi. Et eius quasi in explicabo galisum qui blanditiis tempore. Ea galisum autem sit inventore aliquid ex cumque quia est
-          eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat. Lorem ipsum dolor sit amet. Sed quam repellendus est tempora consequatur nam officia
-          neque nam officiis illum? Hic libero consectetur et deserunt sint ut voluptatibus inventore et ullam galisum quo porro rerum eum quia assumenda est illo laudantium! Eos
-          galisum rerum sit quod voluptas in cumque natus et odit omnis. Non nulla nulla quo galisum facilis et neque alias aut fugiat beatae? Et internos fugit nam voluptatem
-          sequi ut voluptas rerum id ipsa minima? Ut laboriosam deserunt a dicta nihil ea quis totam ab odit sequi. Ut quos debitis est harum rerum eos velit quis est obcaecati
-          voluptas sed neque adipisci eum assumenda cupiditate qui voluptas velit? Lorem ipsum dolor sit amet. Qui deserunt repellat qui esse ipsum est consequatur inventore in
-          vero corporis ut quos saepe. Et deserunt dolores vel enim dignissimos aut iusto ipsa sit quibusdam tenetur qui asperiores consequatur. Qui modi obcaecati ut rerum soluta
-          et mollitia dolorem ea consequatur numquam sed dolorem dicta eum eligendi earum vel facere voluptates. Qui dicta asperiores qui autem architecto sed obcaecati officia ut
-          perferendis molestiae est animi odit. Est porro quia ut dignissimos quis eos earum nihil. Et nostrum necessitatibus est quos tempore ab voluptate possimus ut consequuntur
-          mollitia et culpa deserunt. Qui provident modi eum sint asperiores ut quod excepturi. Et eius quasi in explicabo galisum qui blanditiis tempore. Ea galisum autem sit
-          inventore aliquid ex cumque quia est eaque inventore et distinctio consequatur et unde consectetur et inventore fugiat.
-        </h1>
-      </div> */}
     </Container>
   );
 };
