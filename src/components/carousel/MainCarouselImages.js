@@ -5,22 +5,22 @@ import Slide3 from '../../resources/main-carousel-images/Image3.jpeg';
 const MainCarouselImages =[
     {   
         image: Slide1,
-        title: "Sky1",
-        target: "/wiki",
-        overview: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." , 
+        title: "Global Logic, Manchester",
+        target: "https://www.google.com/maps/place/19th+Floor,+Manchester+One,+53+Portland+St,+Manchester+M1+3LD,+UK/@53.4781733,-2.2381423,17z/data=!3m1!4b1!4m5!3m4!1s0x487bb1bff8a01245:0x6c4635b9b3558dce!8m2!3d53.4781733!4d-2.2381423?sa=X&ved=2ahUKEwi397-m9Ov7AhX91zgGHZXUD8QQ8gF6BAgIEAE&coh=164777&entry=tt&shorturl=1",
+        overview: "19th Floor, Manchester One, 53 Portland Street, Manchester, M1 3LD" , 
     },
     {   
         image: Slide2,
-        title: "Sky2",
-        overview: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-        target: "/Library",
+        title: "Global Logic, Manchester",
+        target: "https://www.google.com/maps/place/19th+Floor,+Manchester+One,+53+Portland+St,+Manchester+M1+3LD,+UK/@53.4781733,-2.2381423,17z/data=!3m1!4b1!4m5!3m4!1s0x487bb1bff8a01245:0x6c4635b9b3558dce!8m2!3d53.4781733!4d-2.2381423?sa=X&ved=2ahUKEwi397-m9Ov7AhX91zgGHZXUD8QQ8gF6BAgIEAE&coh=164777&entry=tt&shorturl=1",
+        overview: "19th Floor, Manchester One, 53 Portland Street, Manchester, M1 3LD" , 
        
     },
     {   
         image: Slide3,
-        title: "Sky3",
-        target: "/",
-        overview: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        title: "Global Logic, Manchester",
+        target: "https://www.google.com/maps/place/19th+Floor,+Manchester+One,+53+Portland+St,+Manchester+M1+3LD,+UK/@53.4781733,-2.2381423,17z/data=!3m1!4b1!4m5!3m4!1s0x487bb1bff8a01245:0x6c4635b9b3558dce!8m2!3d53.4781733!4d-2.2381423?sa=X&ved=2ahUKEwi397-m9Ov7AhX91zgGHZXUD8QQ8gF6BAgIEAE&coh=164777&entry=tt&shorturl=1",
+        overview: "19th Floor, Manchester One, 53 Portland Street, Manchester, M1 3LD" , 
     },
     
 

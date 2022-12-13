@@ -34,6 +34,9 @@
   pointer-events: none;
   transform: translate(-350px, 0);
   transition: 0.5s ease-in-out;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 .carousel_card:hover {
   display: flex;
@@ -131,10 +134,16 @@
   border-radius: 40%;
 }
 
+.link_text {
+  align-items: flex-end;
+  color: rgb(83, 189, 190);
+  text-decoration-line: underline;
+}
+
 .page {
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
-  min-height: 100vh;
+  padding-top: 175px !important;
+  padding-bottom: 10px !important;
+  min-height: 110vh;
   z-index: -1 !important;
 }
 .page-section2 {
@@ -148,14 +157,18 @@
   flex: 1;
   position: absolute;
   width: 50%;
-  height: 50%;
+  background-color: rgba(109, 110, 113, 0.75);
+  height: 20%;
   overflow: hidden;
   bottom: 10%;
   opacity: 0;
-  top: 15rem;
+  top: 50rem;
   pointer-events: none;
   transform: translate(-350px, 0);
   transition: 0.5s ease-in-out;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
  
   
 
@@ -183,7 +196,7 @@
   } */
   .card_text {
     color: rgba(255, 255, 255, 2);
-    background-color: rgba(109, 110, 113, 0.8);
+    background-color: rgba(109, 110, 113, 0.7);
    
 
 
@@ -212,13 +225,14 @@
 
   .card_text {
     color: rgba(255, 255, 255, 2);
-    background-color: rgba(109, 110, 113, 0.8);
+    
     position: auto;
-    bottom: 10rem;
-    left: 2rem;
-    width: 60%;
-    height: 90%;
   
+    left: 2rem;
+    width: auto;
+    height: auto;
+    max-height: 45%;
+    max-width: fit-content;
     padding: 20px 12px;
   }
 

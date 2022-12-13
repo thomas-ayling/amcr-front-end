@@ -16,6 +16,7 @@ const HomePage = () => {
 
       <div className='page'>
         <MainCarousel images={MainCarouselImages} />
+        
       </div>
 
       {/* <div className='b-page'>
@@ -28,11 +29,10 @@ const HomePage = () => {
       
       <div>
         <h1>
-          Welcome to Global Logic!
+          We are Global Logic!
         </h1>
-        <h2>We are here to provide you the best experience in finding what you are looking for.
-          This could be anything in our library or perhaps a case study that you are interested in. 
-          If there isn't something that you are looking for. Please feel free to contact us and propose an improvement.
+        <h2>A digital product engineering company. We integrate experience design and complex
+          engineering to help our clients imagine what's possible and accelerate their transition into tomorrow's digital businesses.
         </h2>
       </div>
       <div >
