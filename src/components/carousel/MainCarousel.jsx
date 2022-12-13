@@ -1,4 +1,4 @@
-import "../carousel/Carousel.css"
+import "../carousel/MainCarousel.css"
 import { useEffect, useState } from "react";
 
 
@@ -64,7 +64,7 @@ function MainCarousel({images}) {
             </div>
                 <div className="carousel_wrapper_second">
                     {images.map((image, index)=>{
-                    return(<div key={index} className={index===current ? "carousel_card_textbox carousel_card-active" : "carousel_card_textbox"}>
+                    return(<div key={index} className={index===current ? "carousel_card_textbox2 carousel_card_textbox-active" : "carousel_card_textbox2"}>
                 
                     <div className="card_text"> 
                     <h1>{image.title}</h1>
