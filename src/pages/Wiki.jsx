@@ -1,10 +1,12 @@
-import React from 'react'
-import ContactComponent from '../components/contact-component/ContactComponent'
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const Wiki = () => {
   return (
-    <div><ContactComponent feedbackType={'improvement'}/></div>
-  )
-}
+    <Container fluid className='page-section'>
+      <div>Wiki</div>
+    </Container>
+  );
+};
 
-export default Wiki
+export default Wiki;

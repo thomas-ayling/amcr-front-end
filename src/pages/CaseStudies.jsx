@@ -1,10 +1,14 @@
-import React from 'react'
-import ContactComponent from '../components/contact-component/ContactComponent'
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const CaseStudies = () => {
   return (
-    <div><ContactComponent feedbackType={'case-study'} /></div>
-  )
-}
+    <Container fluid className='page-section'>
+      <div>CaseStudies</div>
+    </Container>
+  );
+};
+
+export default CaseStudies;
 
 export default CaseStudies

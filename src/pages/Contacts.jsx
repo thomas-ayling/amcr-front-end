@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const Contacts = () => {
   return (
-    <div>Contacts</div>
-  )
-}
+    <Container fluid className='page-section'>
+      <div>Contacts</div>
+    </Container>
+  );
+};
 
-export default Contacts
+export default Contacts;
