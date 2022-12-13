@@ -37,7 +37,7 @@ export const DescriptionBox = ({ feedbackType }) => {
           <h1>Request a new book</h1>
           <hr />
           <p>
-            If there's a book that you'd like to read and think other members of your team would be enjoy, leave us with the name of the book and a link to the book (just in case we can't find it) and
+            If there's a book that you'd like to read and think other members of your team would enjoy, leave us with the name of the book and a link to the book (just in case we can't find it) and
             we'll get it added to the library
           </p>
         </div>
