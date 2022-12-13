@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 import {FaArrowCircleUp} from 'react-icons/fa';
-import { Button } from './FooterScroll';
 import TwitterIcon from '../../resources/icons/twitter-icon.svg';
 import LinkedinIcon from '../../resources/icons/linkedin-icon.svg';
 import YoutubeIcon from '../../resources/icons/youtube-icon.svg';
@@ -51,7 +50,7 @@ const Footer = () => {
           {/* Column for admin panel */}
           <div className="admin-panel">
             <div>
-              <Link  className="admin-link" to={`/admin`}>Admin Panel</Link>
+              <Link  className="admin-link" to={`/admin-panel`}>Admin Panel</Link>
             </div>
           </div>
         </section>
@@ -86,10 +85,10 @@ const Footer = () => {
       </div>		
     </div>
     <div className="last-item">
-        <Button>
+        <div className="pointer-container">
           <FaArrowCircleUp onClick={scrollToTop} 
             className="footer-top-scroll"/>
-        </Button>
+        </div>
       </div>	
     </>
   )
