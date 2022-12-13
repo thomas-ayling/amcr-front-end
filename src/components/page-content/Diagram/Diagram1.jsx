@@ -21,32 +21,14 @@ export default function Diagram1() {
     for (let i = 1; i <= nodeNumber; i++) {
         nodeArray.push(`${i}`);
     }
-    console.log(nodeArray);
     allNodeOptions = nodeArray.map((node) => <h1 key={node} value={node}>{node}</h1>);
-    console.log(allNodeOptions);
 }, [nodeNumber])
 
-// const boxElements = boxes.map(element => (
-//     <Box key={element.id} id={element.id} toggle={toggle} on={element.on}/> 
-// ));
   
   function changeNodeNumber(e) {
     setNodeNumber(e.target.value);
     //go back to init
   }
-
-//   function handleNodeNumberChange(e) {
-//     setNodeNumber(e.target.value);
-//     nodeArray = [];
-//     for (let i = 1; i <= nodeNumber; i++) {
-//         nodeArray.push(i);
-//     }
-//     console.log(nodeArray);
-//     allNodeOptions = nodeArray.map((node) => <option value={node}>{node}</option>);
-//     console.log(allNodeOptions);
-//   }
-
-   
 
   return (
     <>

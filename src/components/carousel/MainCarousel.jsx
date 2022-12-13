@@ -25,7 +25,7 @@ function MainCarousel({images}) {
     } // slide right and current checks what image it is on - it will go back to one if it reaches the end
     
     
-    console.log(current, timeOut); //for testing purposes
+    // console.log(current, timeOut); //for testing purposes
     
     return (
         <div className="carousel-background">

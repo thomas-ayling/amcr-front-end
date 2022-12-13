@@ -58,7 +58,7 @@ const Footer = () => {
         <section className="bottom-area">
           {/* Column for Social Media Links */}
           <div className="footer-social">
-            <div class="social-icons first-item">
+            <div className="social-icons first-item">
 					    <a href="https://www.linkedin.com/company/globallogic">
                 <div className="social-icon"><img src={LinkedinIcon} alt="Link to Global Logic Linkedin" className="social-icon-individual"></img></div>
               </a>

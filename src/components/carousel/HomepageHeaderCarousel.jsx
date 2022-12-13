@@ -19,9 +19,7 @@ function HomepageHeaderCarousel({images}) {
         setCurrent(current === images.length - 1 ? 0 : current + 1);
     } // slide right and current checks what image it is on - it will go back to one if it reaches the end
     
-    
-    console.log(current, timeOut); //for testing purposes
-    
+        
     return (
         <div className="hph-carousel-background">
           <div className="hph-carousel"  onMouseEnter={() => {setAutoPlay(false); //checks 

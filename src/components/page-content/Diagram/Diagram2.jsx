@@ -24,11 +24,11 @@ export default function Diagram2() {
   useEffect(() => {
     document.getElementById('currentNode').innerHTML = '';
     add(num);
-    console.log(`Number of nodes: ${num}`);
+    // console.log(`Number of nodes: ${num}`);
   }, [num]);
 
   useEffect(() => {
-    console.log(`Current node: ${currentNode}`);
+    // console.log(`Current node: ${currentNode}`);
   }, [currentNode]);
 
   function add(node) {
@@ -38,7 +38,7 @@ export default function Diagram2() {
       tempArray.push(i);
     }
     tempArray.map((e) => setArray((prevArray) => [...prevArray, e]));
-    console.log(tempArray);
+    // console.log(tempArray);
   }
 
   const arrayElements = array.map((node) => (

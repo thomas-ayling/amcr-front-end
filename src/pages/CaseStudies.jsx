@@ -4,9 +4,8 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 
 const CaseStudies = () => {
   return (
-    <Container fluid className='page-section'>
-      <div>CaseStudies</div>
-      <ContactComponent type='case-study' />
+    <Container fluid>
+      <ContactComponent feedbackType='case-study' />
     </Container>
   );
 };
