@@ -196,10 +196,10 @@
     transition: 0.4s ease-in-out;
   } */
   .card_text {
-    color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 2);
   
     max-height: 35%;
-  
+    padding: 20px 12px;
   
   }
   .carousel_pagination {
@@ -209,9 +209,9 @@
   .carousel_card_textbox2 {
    
     width: 70%;
-    max-height: 40%;
+    max-height: 20%;
     
-    top: 14rem;
+    top: 37rem;
     left: 0%;
  
   }
