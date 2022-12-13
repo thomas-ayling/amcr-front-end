@@ -8,7 +8,7 @@ import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 
 import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
 import '../components/behavioural-carousel/BehaviourCarousel.css';
-import behaviouralImages from '../components/behavioural-carousel/BehaviouralImages';
+import behaviourImages from '../components/behavioural-carousel/BehaviourImages';
 
 const HomePage = () => {
   return (
@@ -18,10 +18,7 @@ const HomePage = () => {
         <MainCarousel images={MainCarouselImages} />
       </div>
 
-      {/* <div className='b-page'>
-        <BehaviourCarousel images={behaviouralImages} />
-      </div>
-
+      {/* 
       <div>
         <HomepageHeaderCarousel images ={HomepageHeaderImages}/>
       </div> */}
@@ -44,6 +41,11 @@ const HomePage = () => {
       <div className='page'>
         <MainCarousel images={MainCarouselImages} />
       </div>
+
+      <div className='b-page'>
+        <BehaviourCarousel images={behaviourImages} />
+      </div>
+
     </Container>
   );
 };

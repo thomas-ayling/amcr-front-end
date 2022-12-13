@@ -1,4 +1,4 @@
-import '../behavioural-carousel/BehaviourCarousel.css';
+import '../carousel/MainCarousel.css';
 import { useEffect, useState } from 'react';
 
 function MainCarousel({ images }) {
@@ -28,7 +28,7 @@ function MainCarousel({ images }) {
       <div
         className='b-carousel'
         onMouseEnter={() => {
-          setAutoPlay(false);
+          setAutoPlay(false); 
           clearTimeout(timeOut);
         }}
         onMouseLeave={() => {
@@ -59,10 +59,11 @@ function MainCarousel({ images }) {
         <div className='b-carousel_wrapper_second'>
           {images.map((image, index) => {
             return (
-              <div key={index} className={index === current ? 'b-carousel_card_textbox b-carousel_card-active' : 'b-carousel_card_textbox'}>
+              <div key={index} className={index === current ? 'b-carousel_card_textbox2 b-carousel_card_textbox-active' : 'b-carousel_card_textbox2'}>
                 <div className='b-card_text'>
                   <h1 className='b-card_title'>{image.title}</h1>
                   <h2 className='b-card_title2'>{image.overview.substring(0, 300)}</h2>
+                  <h3 className='b-card_title2'>{image.description}</h3>
                 </div>
               </div>
             );
