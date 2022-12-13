@@ -148,9 +148,9 @@
   width: 30.19%;
   height: 90%;
   overflow: hidden;
-  bottom: 20%;
+  bottom: 15%;
   opacity: 0;
-  left: 62.5rem;
+  left: 0rem;
   pointer-events: none;
   transform: translate(-350px, 0);
   transition: 0.5s ease-in-out;
@@ -163,12 +163,12 @@
   pointer-events: visible;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 873px) {
   .b-card_text {
     color: rgba(255, 255, 255, 2);
     background-color: rgba(109, 110, 113, 0.8);
     padding: 20px 25px;
-    
+    left: 60rem;
   }
   .b-carousel_pagination {
     position: absolute;
@@ -183,7 +183,7 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 676px) {
   .b-card_text {
     color: rgba(255, 255, 255, 2);
     background-color: rgba(109, 110, 113, 0.8);
@@ -191,5 +191,11 @@
     bottom: 10rem;
     left: 62rem;
     padding: 20px 12px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .b-carousel_card_textbox2 {
+    left: 62.5rem;
   }
 }
