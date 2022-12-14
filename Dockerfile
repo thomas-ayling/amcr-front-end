@@ -1,5 +1,5 @@
 #Base Image node:12.18.4-alpine
-FROM node:12.18.4-alpine
+FROM node:16.19-alpine3.16
 #Set working directory to /app
 WORKDIR /app
 #Set PATH /app/node_modules/.bin
