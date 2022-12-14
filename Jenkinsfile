@@ -37,7 +37,7 @@ pipeline {
       steps{
         script {
 	  sh 'npm install'
-	  sh 'npm test -- --watchAll=false'
+	  sh 'npm test -- --passWithNoTests'
         }
       }
     }
