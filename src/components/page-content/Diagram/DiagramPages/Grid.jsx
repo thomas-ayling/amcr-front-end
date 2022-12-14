@@ -54,7 +54,6 @@ export default function Grid(props) {
         {props.totalNum > 6 ? <RowThree totalNum={props.totalNum} title={props.title} body ={props.body} currentNode = {props.currentNode}/> : <Empty/>}
         <Empty/>
       </div>
-      <button className='submit--button'>Confirm Changes</button>
     </div>
   );
 }
