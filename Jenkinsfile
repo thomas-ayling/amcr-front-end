@@ -7,7 +7,7 @@ pipeline {
      AWS_DEFAULT_REGION="eu-west-2"
 
      //MODIFY THE FOLLOWING ITEMS WITH THE ALLOCATED STUDENT NUMBER XX e.g. 03//
-     CLUSTER_NAME="ec-acad-user-01"
+     CLUSTER_NAME="ec-acad-ecs-cl01"
      SERVICE_NAME="ec-acad-ecs-svc-fe01"
      TASK_DEFINITION_NAME="ec-acad-ecs-tsk-fe01"
 
