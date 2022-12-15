@@ -11,7 +11,6 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 
 const HomePage = () => {
   return (
-    // <Container>
     <>
       <div className='page'>
         <HomepageHeaderCarousel images={HomepageHeaderImages} />
@@ -35,13 +34,11 @@ const HomePage = () => {
       <div className='page'>
         <MainCarousel images={MainCarouselImages} />
       </div>
-
       <div className='b-page'>
         <BehaviourCarousel images={behaviourImages} />
       </div>
       <ContactComponent feedbackType='feedback' />
     </>
-    // </Container>
   );
 };
 
