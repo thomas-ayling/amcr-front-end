@@ -126,13 +126,14 @@
   z-index: 0;
 }
 .b-carousel_card_textbox2 {
+  top: -35px; /* Here */
   display: flex;
   flex: 1;
   position: absolute;
   width: 30%;
   right: 0px;
   background-color: rgb(109, 110, 113);
-  height: 90%;
+  height: 85%;
   overflow: hidden;
   bottom: 015%;
   opacity: 0;
