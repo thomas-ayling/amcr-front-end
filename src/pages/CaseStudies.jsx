@@ -1,12 +1,12 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import ContactComponent from '../components/contact-component/ContactComponent';
 
 const CaseStudies = () => {
   return (
-    <Container fluid>
+    // <Container fluid>
       <ContactComponent feedbackType='case-study' />
-    </Container>
+    // </Container>
   );
 };
 

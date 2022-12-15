@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
 import MainCarousel from '../components/carousel/MainCarousel';
 import MainCarouselImages from '../components/carousel/MainCarouselImages';
@@ -7,11 +7,12 @@ import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
 import '../components/behavioural-carousel/BehaviourCarousel.css';
 import behaviourImages from '../components/behavioural-carousel/BehaviourImages';
-import ContactComponent from '../components/contact-component/ContactComponent'
+import ContactComponent from '../components/contact-component/ContactComponent';
 
 const HomePage = () => {
   return (
-    <Container>
+    // <Container>
+    <>
       <div className='page'>
         <HomepageHeaderCarousel images={HomepageHeaderImages} />
       </div>
@@ -26,7 +27,6 @@ const HomePage = () => {
           height='600'
           src='https://www.youtube.com/embed/HII9KGHSGYE'
           title='YouTube video player'
-          frameBorder='0'
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; 
       gyroscope; picture-in-picture'
           allowFullScreen
@@ -40,7 +40,8 @@ const HomePage = () => {
         <BehaviourCarousel images={behaviourImages} />
       </div>
       <ContactComponent feedbackType='feedback' />
-    </Container>
+    </>
+    // </Container>
   );
 };
 
