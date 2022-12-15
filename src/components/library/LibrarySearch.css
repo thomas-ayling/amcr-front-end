@@ -1,0 +1,78 @@
+/* Top tier parent wrapper for whole component */
+.Library-Container{
+    width:100%;
+    height:auto;
+    margin-top: 10%;
+    padding: 1rem;
+
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: flex-start;
+
+    background-color: var(--gl-light-gray);
+    border-radius: 17.5px;
+}
+
+.Library-SearchBar-Wrapper {
+    width: 50%;
+    height: auto;
+}
+
+.Library-Search-Input {
+    width: 100%;
+    height: auto;
+}
+
+.Library-SearchResults-Wrapper {
+    width: 80%;
+    height: auto;
+}
+
+/* CSS for list wrapper */
+.Library-BookList {
+    width: 100%;
+    height:auto;
+    padding: 1%;
+    list-style: none;
+}
+
+/* Overall CSS for each Book entry from the DB */
+.Library-Book {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Library-Book-Cover {
+    width: 30%;
+    height:auto;
+}
+
+.Library-Book-Content {
+    width: 70%;
+}
+
+/* CSS for row of book author, title and genre information */
+.Library-Book-Data {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.Library-vl {
+    border-left: 6px var(--gl-dark-orange);
+    height: 100%;
+}
+
+/* Font Styling CSS */
+.Library-Orange {
+    color: var(--gl-orange) !important;
+}
