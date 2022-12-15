@@ -14,18 +14,32 @@
     border-radius: 17.5px;
 }
 
+.Library-Wrapper {
+    width:100%;
+    height:auto;
+    padding: 2%;
+
+    background-color: white;
+    border-radius: 17.5px;
+}
+
 .Library-SearchBar-Wrapper {
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: auto;
+    margin-bottom: 2%;
 }
 
 .Library-Search-Input {
-    width: 100%;
+    border-radius: 10px;
+    width: 30rem;
     height: auto;
 }
 
 .Library-SearchResults-Wrapper {
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
@@ -37,22 +51,37 @@
     list-style: none;
 }
 
+.Library-Item {
+    width: 100%;
+    height: auto;
+}
+
 /* Overall CSS for each Book entry from the DB */
 .Library-Book {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
 .Library-Book-Cover {
-    width: 30%;
-    height:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+.Library-Book-Cover-Image {
+    max-width: 7rem;
+    width: 5rem;
+    height: auto;
 }
 
 .Library-Book-Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 70%;
 }
 
@@ -64,12 +93,34 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
-    gap: 10px;
+
+    border-bottom: 1px solid var(--gl-orange);
+
+    font-size: 1rem;
 }
 
-.Library-vl {
+/* .Library-vl {
     border-left: 6px var(--gl-dark-orange);
     height: 100%;
+} */
+
+.Library-Reservation-Wrapper {
+    width: 100%;
+    height: fit-content;
+}
+
+.Library-Reader {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.Library-Reserve-Unavailable {
+    color: red !important;
+}
+
+.Library-Reserve-Available {
+    color: green !important;
 }
 
 /* Font Styling CSS */
