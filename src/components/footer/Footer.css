@@ -213,7 +213,7 @@ body {
 .footer-top-scroll {
    cursor: pointer;
    color: white;
-   width: 5vmin;
+   width: 6vmin;
    height: auto;
 
 }
@@ -224,6 +224,6 @@ body {
 
 .pointer-container {
    position: absolute;
-   bottom: 5px;
-   right: 1%;
+   bottom: 1.6rem;
+   right: 1.7rem;
 }
