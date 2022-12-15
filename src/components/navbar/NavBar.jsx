@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
 import logo from '../../resources/logo/GLLogo.png';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-// import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const NavBar = () => {
   const [expand, updateExpanded] = useState(false);

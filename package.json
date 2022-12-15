@@ -6,6 +6,7 @@
   "dependencies": {
     "@akebifiky/remark-simple-plantuml": "^1.0.2",
     "axios": "^1.2.1",
+    "bootstrap": "^5.2.3",
     "material": "^0.4.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -18,12 +19,14 @@
     "react-scripts": "5.0.1",
     "reactjs-popup": "^2.0.5",
     "remark-gfm": "^3.0.1",
+    "serve": "^14.1.2",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
