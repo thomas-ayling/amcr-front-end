@@ -1,15 +1,11 @@
 #Base Image node:12.18.4-alpine
-FROM node:16.19-alpine3.16
-#Set working directory to /app
-WORKDIR /app
-#Set PATH /app/node_modules/.bin
-ENV PATH /app/node_modules/.bin:$PATH
+FROM node:16.18.1-alpine3.16
 #Copy package.json in the image
-COPY package.json ./
+COPY ["package.json", "package-lock.json*", "./"]
 #Run npm install command
 RUN npm install
 #Copy the app
-COPY . ./
+COPY . .
 EXPOSE 3000
 #Start the app
-CMD ["node", "./src/index.js"]
+CMD ["npm", "start"]
