@@ -25,7 +25,7 @@
 
 .Library-SearchBar-Wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: auto;
@@ -107,11 +107,13 @@
 .Library-Reservation-Wrapper {
     width: 100%;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .Library-Reader {
-    display: flex;
-    justify-content: center;
     
 }
 
@@ -121,6 +123,10 @@
 
 .Library-Reserve-Available {
     color: green !important;
+}
+
+.Library-Reservation-Dropdown {
+    color: orange !important;
 }
 
 /* Font Styling CSS */

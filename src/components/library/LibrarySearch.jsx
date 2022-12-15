@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import axios from "axios";
 import BookCover from "./TestBookCover.png";
 import "./LibrarySearch.css";
+// import {BsFillArrowDownCircleFill} from 'react-icons/bs';
 
 // *** future axios implementation - Once database is populated *** //
 // const getData = async () => {
@@ -13,6 +14,7 @@ import "./LibrarySearch.css";
 const LibrarySearch = () => {
 //   const [books, setBooks] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+//   const [dropDownStatus, setDropDownStatus] = useState(false);
 //   const [searchParam] = useState(["name", "author", "genre"]);
 
   // Testing Library sudo Database
@@ -28,10 +30,10 @@ const LibrarySearch = () => {
     { id: 9, name: "book Nine", genre: "Buisness", author: "Jab", reader: "Saitama", out: false, cover: { BookCover } },
   ];
 
-  useEffect(() => {
-    // getData();
-    // setBooks(fakebooks);
-  });
+//   useEffect(() => {
+//     getData();
+//     setBooks(fakebooks);
+//   });
 
   return (
     <div className='Library-Container'>
@@ -80,6 +82,7 @@ const LibrarySearch = () => {
                             return (
                                 <div className="Library-Reader">
                                     <p className="Library-Reserve-Unavailable">Unavailable. {book.reader} is currently reading the book.</p>
+                                    {/* <BsFillArrowDownCircleFill value={{color:'orange'}} onClick={!this.dropDownStatus}/> */}
                                 </div>)
                         else
                             return (
