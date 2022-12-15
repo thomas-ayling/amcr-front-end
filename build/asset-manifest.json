@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7c639f7e.css",
+    "main.js": "/static/js/main.8bd1cad3.js",
+    "static/media/Teamwork.jpg": "/static/media/Teamwork.036b9f610d8536e0c627.jpg",
+    "static/media/Openness.jpg": "/static/media/Openness.a92a14857fb698dc9a86.jpg",
+    "static/media/Image1.jpeg": "/static/media/Image1.587d46271b5a0a62d6f9.jpeg",
+    "static/media/Image3.jpeg": "/static/media/Image3.613dfa2c82a7ba619eb4.jpeg",
+    "static/media/Innovation.avif": "/static/media/Innovation.5d449ceb1a0ed1c6f2f0.avif",
+    "static/media/Image2.jpeg": "/static/media/Image2.2fd016739fd2b94481a2.jpeg",
+    "static/media/Integrity.avif": "/static/media/Integrity.4a951b52262619ee0d26.avif",
+    "static/media/GLLogo.png": "/static/media/GLLogo.94ac5d7d5e0bd9da2329.png",
+    "static/media/instagram-icon.svg": "/static/media/instagram-icon.c2056460bbbf6c051f72df6d7c2fa6dc.svg",
+    "static/media/twitter-icon.svg": "/static/media/twitter-icon.24b5e33e4a893814f68bccd04edbb97f.svg",
+    "static/media/youtube-icon.svg": "/static/media/youtube-icon.dff237b6324a617a4f07ffdc2d9b9b7b.svg",
+    "index.html": "/index.html",
+    "static/media/linkedin-icon.svg": "/static/media/linkedin-icon.887ba25dd002b7c7844a48f8c4407750.svg",
+    "static/media/facebook-icon.svg": "/static/media/facebook-icon.8e47c916446c95cbcf1d5b933be6d9d1.svg",
+    "main.7c639f7e.css.map": "/static/css/main.7c639f7e.css.map",
+    "main.8bd1cad3.js.map": "/static/js/main.8bd1cad3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c639f7e.css",
+    "static/js/main.8bd1cad3.js"
+  ]
+}
