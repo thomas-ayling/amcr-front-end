@@ -4,8 +4,6 @@ import Teamwork from '../../resources/behaviour-carousel-images/Teamwork.jpg';
 import Innovation from '../../resources/behaviour-carousel-images/Innovation.avif';
 
 const IntegrityDescription = [
-  <br />,
-  <br />,
   '\u2022 We do what we say we will do',
   <br />,
   <br />,
@@ -19,8 +17,6 @@ const IntegrityDescription = [
 ];
 
 const OpennessDescription = [
-  <br />,
-  <br />,
   '\u2022 We can always explain our decisions',
   <br />,
   <br />,
@@ -34,8 +30,6 @@ const OpennessDescription = [
 ];
 
 const TeamworkDescription = [
-  <br />,
-  <br />,
   '\u2022 We work to build an inclusive environment',
   <br />,
   <br />,
@@ -55,8 +49,6 @@ const TeamworkDescription = [
 ];
 
 const InnovationDescription = [
-  <br />,
-  <br />,
   '\u2022 Efficiency',
   <br />,
   <br />,
