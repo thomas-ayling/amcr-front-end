@@ -21,7 +21,7 @@ function MainCarousel({ images }) {
     setCurrent(current === images.length - 1 ? 0 : current + 1);
   }; 
 
-  console.log(current, timeOut); 
+  // console.log(current, timeOut); 
 
   return (
     <div className='b-carousel-background'>
