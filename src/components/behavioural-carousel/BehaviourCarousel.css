@@ -44,25 +44,14 @@
   overflow: hidden;
 }
 
-.b-carousel_card_textbox {
-  position: absolute;
-  overflow: hidden;
-  top: 60%;
-  opacity: 0;
-  left: 0%;
-  pointer-events: none;
-  transform: translate(-350px, 0);
-  transition: 0.6s ease-in-out;
-}
 .b-carousel_card-active {
   opacity: 1;
   transform: scale(1);
   pointer-events: visible;
 }
-
 .b-card_image {
-  width: 1000px;
-  height: auto;
+  width: 100%;
+  height: 100%;
   position: auto;
   object-fit: cover;
 }
@@ -91,17 +80,16 @@
   align-items: flex-end;
   transition: 0.6s ease-in-out;
 }
-
 .b-card_title {
   color: rgb(243, 122, 055);
-  font-size: 50px;
-  padding-top: 0px;
+  font-size: 40px;
+  position: absolute;
+  top: 0px;
 }
-
 .b-card_title2 {
   font-size: 1rem;
+  padding-top: 10%;
 }
-
 .b-carousel_pagination {
   position: fixed;
   bottom: 5px;
@@ -111,7 +99,7 @@
 .b-pagination_dot {
   height: 15px;
   width: 15px;
-  background-color: rgba(200, 200, 200, 0.8);
+  background-color: rgb(188, 190, 192);
   border-radius: 50%;
   display: inline-block;
   margin-left: 10px;
@@ -124,14 +112,11 @@
 }
 .b-pagination_dot-active {
   background-color: rgb(243, 122, 055);
-  -moz-box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.9);
-  box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.9);
   border-radius: 40%;
 }
-
 .b-page {
-  padding-top: 150px !important;
-  padding-bottom: 30px !important;
+  padding-top: 175px !important;
+  padding-bottom: 10px !important;
   min-height: 100vh;
   z-index: -1 !important;
 }
@@ -140,62 +125,69 @@
   min-height: 100vh;
   z-index: 0;
 }
-
 .b-carousel_card_textbox2 {
+  top: -35px; /* Here */
   display: flex;
   flex: 1;
   position: absolute;
-  width: 30.19%;
-  height: 90%;
+  width: 30%;
+  right: 0px;
+  background-color: rgb(109, 110, 113);
+  height: 85%;
   overflow: hidden;
-  bottom: 15%;
+  bottom: 015%;
   opacity: 0;
-  left: 0rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   pointer-events: none;
   transform: translate(-350px, 0);
   transition: 0.5s ease-in-out;
-  background-color: rgba(0, 0, 0, 0.5);
 }
-
 .b-carousel_card_textbox-active {
   opacity: 1;
   transform: scale(1);
   pointer-events: visible;
 }
 
-@media screen and (max-width: 873px) {
+@media screen and (max-width: 992px) {
   .b-card_text {
-    color: rgba(255, 255, 255, 2);
-    background-color: rgba(109, 110, 113, 0.8);
-    padding: 20px 25px;
-    left: 60rem;
+    color: white;
+    max-height: 35%;
+    padding: 30px 15px;
   }
   .b-carousel_pagination {
     position: absolute;
     transition: 0.4s ease-in-out;
   }
   .b-carousel_card_textbox2 {
-    width: 70%;
-    height: auto;
-    max-height: 100%;
-    top: 0rem;
+    width: 50%;
+    max-height: 60%;
+    top: 4rem;
     left: 0%;
   }
-}
-
-@media screen and (min-width: 676px) {
-  .b-card_text {
-    color: rgba(255, 255, 255, 2);
-    background-color: rgba(109, 110, 113, 0.8);
-    position: auto;
-    bottom: 10rem;
-    left: 62rem;
-    padding: 20px 12px;
+  .b-card_title {
+    color: rgb(243, 122, 055);
+    font-size: 20px;
+    position: absolute;
+    top: 2%;
+  }
+  .b-card_title2 {
+    font-size: 0.8rem;
+    padding-top: 10%;
   }
 }
 
-@media screen and (min-width: 1440px) {
-  .b-carousel_card_textbox2 {
-    left: 62.5rem;
+@media screen and (min-width: 992px) {
+  .b-card_text {
+    color: white;
+    position: auto;
+    left: 2rem;
+    width: auto;
+    height: auto;
+    max-height: 45%;
+    max-width: fit-content;
+    padding: 20px 12px;
   }
 }

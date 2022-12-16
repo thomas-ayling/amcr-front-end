@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/feedback';
+const baseUrl = 'ec-acad-be-elb-a7e408ca999f09dd.elb.eu-west-2.amazonaws.com:3001/feedback';
 
 const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
   const formData = new FormData();
