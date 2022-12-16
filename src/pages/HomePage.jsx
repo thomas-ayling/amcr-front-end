@@ -1,13 +1,12 @@
 import React from 'react';
-// import { Container } from 'react-bootstrap';
+import '../components/behavioural-carousel/BehaviourCarousel.css';
 import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
 import MainCarousel from '../components/carousel/MainCarousel';
-import MainCarouselImages from '../components/carousel/MainCarouselImages';
 import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
 import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
-import '../components/behavioural-carousel/BehaviourCarousel.css';
-import behaviourImages from '../components/behavioural-carousel/BehaviourImages';
 import ContactComponent from '../components/contact-component/ContactComponent';
+import mainCarouselImages from '../components/carousel/MainCarouselImages';
+import behaviourCarouselImages from '../components/behavioural-carousel/BehaviourImages';
 
 const HomePage = () => {
   return (
@@ -32,10 +31,10 @@ const HomePage = () => {
         ></iframe>
       </div>
       <div className='page'>
-        <MainCarousel images={MainCarouselImages} />
+        <MainCarousel images={mainCarouselImages} />
       </div>
       <div className='b-page'>
-        <BehaviourCarousel images={behaviourImages} />
+        <BehaviourCarousel images={behaviourCarouselImages} />
       </div>
       <ContactComponent feedbackType='feedback' />
     </>

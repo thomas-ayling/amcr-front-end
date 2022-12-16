@@ -10,7 +10,7 @@ const IntegrityDescription = [
   '\u2022 We tell the truth',
   <br />,
   <br />,
-  "\u2022 We don't make em promises",
+  "\u2022 We don't make empty promises",
   <br />,
   <br />,
   '\u2022 We align to business value',

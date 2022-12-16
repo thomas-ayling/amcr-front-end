@@ -7,28 +7,24 @@ function MainCarousel({ images }) {
   const [autoPlay, setAutoPlay] = useState(true);
   let timeOut = null;
 
-  useEffect(
-    () => {
-      timeOut =
-        autoPlay &&
-        setTimeout(() => {
-          slideRight();
-        }, 5000);
-    } 
-  );
+  useEffect(() => {
+    timeOut =
+      autoPlay &&
+      setTimeout(() => {
+        slideRight();
+      }, 5000);
+  });
 
   const slideRight = () => {
     setCurrent(current === images.length - 1 ? 0 : current + 1);
-  }; 
-
-  // console.log(current, timeOut); 
+  };
 
   return (
     <div className='b-carousel-background'>
       <div
         className='b-carousel'
         onMouseEnter={() => {
-          setAutoPlay(false); 
+          setAutoPlay(false);
           clearTimeout(timeOut);
         }}
         onMouseLeave={() => {
@@ -43,13 +39,7 @@ function MainCarousel({ images }) {
                 <div className='b-card_overlay'></div>
                 <div className='b-carousel_pagination'>
                   {images.map((_, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className={index === current ? 'b-pagination_dot b-pagination_dot-active' : 'b-pagination_dot'}
-                        onClick={() => setCurrent(index) && clearTimeout(timeOut)}
-                      ></div>
-                    );
+                    return <div key={index} className={index === current ? 'b-pagination_dot b-pagination_dot-active' : 'b-pagination_dot'} onClick={() => setCurrent(index) && clearTimeout(timeOut)}></div>;
                   })}
                 </div>
               </div>
