@@ -1,0 +1,193 @@
+.b-carousel {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: auto;
+}
+.b-carousel-background {
+  height: 80%;
+  width: 100%;
+  top: auto;
+  right: 0rem;
+  position: absolute;
+}
+.b-carousel-background:hover {
+  display: flex;
+  height: 80%;
+  width: 100%;
+  position: absolute;
+}
+.b-carousel_wrapper {
+  position: auto;
+  width: auto;
+  height: auto;
+}
+.b-carousel_card {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  bottom: 10%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-350px, 0);
+  transition: 0.5s ease-in-out;
+}
+.b-carousel_card:hover {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.b-carousel_card-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: visible;
+}
+.b-card_image {
+  width: 100%;
+  height: 100%;
+  position: auto;
+  object-fit: cover;
+}
+.b-card_image:hover {
+  transform: scale(2);
+  position: fixed;
+  transform: translate(-50%, 0);
+  opacity: 0;
+}
+.b-card_overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  padding: 40px 30px;
+  align-items: flex-end;
+}
+.b-card_overlay:hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  padding: 40px 30px;
+  align-items: flex-end;
+  transition: 0.6s ease-in-out;
+}
+.b-card_title {
+  color: rgb(243, 122, 055);
+  font-size: 40px;
+  position: absolute;
+  top: 0px;
+}
+.b-card_title2 {
+  font-size: 1rem;
+  padding-top: 10%;
+}
+.b-carousel_pagination {
+  position: fixed;
+  bottom: 5px;
+  right: 1%;
+  transform: translate(-50%, 0);
+}
+.b-pagination_dot {
+  height: 15px;
+  width: 15px;
+  background-color: rgb(188, 190, 192);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.b-pagination_dot:hover {
+  transform: scale(1.2);
+  background-color: rgb(243, 122, 055);
+}
+.b-pagination_dot-active {
+  background-color: rgb(243, 122, 055);
+  border-radius: 40%;
+}
+.b-page {
+  padding-top: 175px !important;
+  padding-bottom: 10px !important;
+  min-height: 100vh;
+  z-index: -1 !important;
+}
+.b-page-section2 {
+  position: auto;
+  min-height: 100vh;
+  z-index: 0;
+}
+.b-carousel_card_textbox2 {
+  top: -35px; /* Here */
+  display: flex;
+  flex: 1;
+  position: absolute;
+  width: 30%;
+  right: 0px;
+  background-color: rgb(109, 110, 113);
+  height: 85%;
+  overflow: hidden;
+  bottom: 015%;
+  opacity: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  pointer-events: none;
+  transform: translate(-350px, 0);
+  transition: 0.5s ease-in-out;
+}
+.b-carousel_card_textbox-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: visible;
+}
+
+@media screen and (max-width: 992px) {
+  .b-card_text {
+    color: white;
+    max-height: 35%;
+    padding: 30px 15px;
+  }
+  .b-carousel_pagination {
+    position: absolute;
+    transition: 0.4s ease-in-out;
+  }
+  .b-carousel_card_textbox2 {
+    width: 50%;
+    max-height: 60%;
+    top: 4rem;
+    left: 0%;
+  }
+  .b-card_title {
+    color: rgb(243, 122, 055);
+    font-size: 20px;
+    position: absolute;
+    top: 2%;
+  }
+  .b-card_title2 {
+    font-size: 0.8rem;
+    padding-top: 10%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .b-card_text {
+    color: white;
+    position: auto;
+    left: 2rem;
+    width: auto;
+    height: auto;
+    max-height: 45%;
+    max-width: fit-content;
+    padding: 20px 12px;
+  }
+}

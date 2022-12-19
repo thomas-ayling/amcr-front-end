@@ -10,8 +10,6 @@ function Diagram() {
   const [diagramInputs, setDiagramInputs] = useState();
 
   useEffect(() => {
-    console.log('UseEffect');
-
     const tempNodes = diagramArray.map((node) => ({
       id: node.id,
       title: node.title,
@@ -21,8 +19,6 @@ function Diagram() {
     console.dir(tempNodes);
 
     setNodes(tempNodes);
-
-    console.log(nodes);
 
     setDiagramInputs(
       diagramArray.map((element, i) => (
@@ -39,7 +35,6 @@ function Diagram() {
   }, []);
 
   const handleTitleChange = (e, i) => {
-    console.log(nodes);
     const node = nodes[i];
     setNodes((node.title = e.target.value));
   };
@@ -116,7 +111,6 @@ function Diagram() {
   );
 
   function changeDiagramInputs(e) {
-    console.log(e.target.value);
     setNodeNum(e.target.value);
   }
 

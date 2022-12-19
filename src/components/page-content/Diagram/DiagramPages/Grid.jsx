@@ -51,7 +51,7 @@ export default function Grid(props) {
         body: props.body,
       },
     }));
-    console.log(output);
+    // console.log(output);
   }, [props.title, props.body]);
 
   useEffect(() => {
