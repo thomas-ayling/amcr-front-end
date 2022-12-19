@@ -23,32 +23,28 @@ const MainCarousel = ({ images }) => {
         }, 5000);
         return () => clearTimeout(timeOut);
     }
-    //timer function- disables error as timer doesn't need to be stored
   );
 
   const slideRight = () => {
     setCurrent(current === images.length - 1 ? 0 : current + 1);
-  }; // slide right and current checks what image it is on - it will go back to one if it reaches the end
+  }; 
 
   const slideLeft = () => {
     setCurrent(current === 0 ? images.length - 1 : current - 1);
-  }
+  }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
-  const minSwipeDistance = 100
+  const minSwipeDistance = 100 //distance on when a user swipes
 
   const onTouchStart = (e) => {
-    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+    setTouchEnd(null) 
     setTouchStart(e.targetTouches[0].clientX)
     clearTimeout(timeOut)
-    setAutoPlay(false)
+    setAutoPlay(false) //clears timer/autoplay when user touches the carousel 
   
   }
-  
-  const onTouchMove = (e) =>{ setTouchEnd(e.targetTouches[0].clientX)
-      
-      
+  const onTouchMove = (e) =>{ setTouchEnd(e.targetTouches[0].clientX) 
   }
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) 
@@ -62,17 +58,11 @@ const MainCarousel = ({ images }) => {
 
     if (isLeftSwipe){
       slideLeft();
-      
-     
-    }
-
+      }
 
     if (isRightSwipe){
       slideRight();
     }
-
-
-   
   }
   
 
