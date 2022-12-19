@@ -3,7 +3,7 @@ import '../shared-components/CarouselTextbox.css';
 
 const CarouselTextbox = ({ images, current }) => {
   const carouselTextbox = images.map((carousel, index) => (
-    <div images details={index} key={index.uniqueID} className={index === current ? 'carousel_card_textbox2 carousel_card_textbox-active' : 'carousel_card_textbox2'}>
+    <div images details={index} key={index} className={index === current ? 'carousel_card_textbox2 carousel_card_textbox-active' : 'carousel_card_textbox2'}>
      
       <div className='card_text'>
         <h1>{carousel.title}</h1>
