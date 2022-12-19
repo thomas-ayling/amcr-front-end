@@ -4,10 +4,10 @@ import BodyCarousel from '../components/case-studies-carousel/BodyCarousel';
 
 const CaseStudies = () => {
   return (
-    <Container fluid>
+    <>
       <BodyCarousel/>
       <ContactComponent feedbackType='case-study' />
-    </Container>
+    </>
   );
 };
 

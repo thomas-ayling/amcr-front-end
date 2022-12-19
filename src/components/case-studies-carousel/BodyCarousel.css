@@ -24,14 +24,14 @@
   margin-top: 20vh;
 }
 
-.page-title {
+.body-carousel-page-title {
   color: var(--gl-orange);
   font-weight: 500;
   margin-bottom: 15px;
   margin-left: 5px;
 }
 
-.case-study-container {
+.body-carousel-case-study-container {
   display: flex;
   justify-content: space-between;
 }
@@ -69,7 +69,7 @@
   transition: 0.5s;
 }
 
-.case-study-content {
+.body-carousel-case-study-content {
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -98,7 +98,7 @@
   align-items: center;
 }
 
-.case-study-scrollable-description:hover > .case-study-scroll-arrows {
+.case-study-scrollable-description:hover > .body-carousel-case-study-scroll-arrows {
   visibility: visible;
   transition: 1s;
 }
@@ -120,14 +120,14 @@
   display: none;
 }
 
-.case-study-scroll-arrows {
+.body-carousel-case-study-scroll-arrows {
   display: flex;
   flex-direction: column;
   visibility: hidden;
 }
 
-.case-study-scroll-up,
-.case-study-scroll-down {
+.body-carousel-case-study-scroll-up,
+.body-carousel-case-study-scroll-down {
   height: 12px;
   width: 12px;
   border: 2px solid var(--gl-light-gray);
@@ -135,12 +135,12 @@
   margin: 5px 0 5px 0;
 }
 
-.case-study-scroll-up {
+.body-carousel-case-study-scroll-up {
   border-bottom: none;
   border-right: none;
 }
 
-.case-study-scroll-down {
+.body-carousel-case-study-scroll-down {
   border-top: none;
   border-left: none;
 }
@@ -179,7 +179,7 @@
   align-items: center;
 }
 
-.case-study-page {
+.body-carousel-case-study-page {
   font-size: 15px;
 }
 
@@ -222,7 +222,7 @@
 }
 
 @media (max-width: 1000px) {
-  .page-title {
+  .body-carousel-page-title {
     font-size: 45px;
     margin-left: 0px;
   }
@@ -235,7 +235,7 @@
     align-items: center;
   }
 
-  .case-study-container {
+  .body-carousel-case-study-container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -269,7 +269,7 @@
     margin-bottom: 5px;
   }
 
-  .case-study-content {
+  .body-carousel-case-study-content {
     width: 80%;
     margin: auto;
     display: flex;
@@ -303,7 +303,7 @@
     border-left: 0;
   }
 
-  .case-study-page {
+  .body-carousel-case-study-page {
     display: none;
   }
 

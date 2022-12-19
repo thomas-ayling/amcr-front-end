@@ -2,64 +2,28 @@ import './BodyCarousel.css';
 import bodyCarouselData from './bodyCarouselData';
 import { useState, useEffect } from 'react';
 
-export default function BodyCarousel() {
+import ImageSlider from './sub-components/ImageSlider';
+import TitleSlider from './sub-components/TitleSlider';
+import DescriptionSlider from './sub-components/DescriptionSlider';
+import ButtonSlider from './sub-components/ButtonSlider';
+
+const BodyCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    function watchWidth() {
-      setWindowWidth(window.innerWidth);
-    }
-
     window.addEventListener('resize', watchWidth);
 
-    return function () {
+    return () => {
       window.removeEventListener('resize', watchWidth);
     };
   }, []);
 
-  const currentUrl = `case-studies${bodyCarouselData[current].url}`;
+  const watchWidth = () => {
+    setWindowWidth(window.innerWidth);
+  };
+  const currentUrl = `case-studies/${bodyCarouselData[current].url}`;
   const length = bodyCarouselData.length;
-
-  const imageSlider = bodyCarouselData.map((element, index) => {
-    return (
-      <div className={index === current ? 'case-study-image-slide case-study-image-active' : 'case-study-image-slide'} key={index}>
-        {index === current && (
-          <a className='case-study-image-anchor' href={windowWidth >= 1000 ? currentUrl : null}>
-            <img className='case-study-image' src={element.image} />
-          </a>
-        )}
-      </div>
-    );
-  });
-
-  const titleSlider = bodyCarouselData.map((element, index) => {
-    return (
-      <div className={index === current ? 'case-study-title-slide case-study-title-active' : 'case-study-title-slide'} key={index}>
-        {index === current && <h3 className='case-study-title'>{element.title}</h3>}
-      </div>
-    );
-  });
-
-  const descriptionSlider = bodyCarouselData.map((element, index) => {
-    return (
-      <div className={index === current ? 'case-study-description-slide case-study-description-active' : 'case-study-description-slide'} key={index}>
-        {index === current && <div className='case-study-description'>{element.description}</div>}
-      </div>
-    );
-  });
-
-  const buttonSlider = bodyCarouselData.map((element, index) => {
-    return (
-      <div className={index === current ? 'case-study-button-slide case-study-button-active' : 'case-study-button-slide'} key={index}>
-        {index === current && (
-          <a className='case-study-button-anchor' href={currentUrl}>
-            <button className='case-study-button'>Find out more</button>
-          </a>
-        )}
-      </div>
-    );
-  });
 
   const clickLeft = () => {
     current === 0 ? setCurrent(length - 1) : setCurrent((prevCurrent) => prevCurrent - 1);
@@ -71,28 +35,32 @@ export default function BodyCarousel() {
 
   return (
     <div className='body-carousel-wrapper'>
-      <h1 className='page-title'>Case Studies</h1>
-      <div className='case-study-container'>
-        <div className='image-slider-container'>{imageSlider}</div>
-        <div className='case-study-content'>
-          {titleSlider}
+      <h1 className='body-carousel-page-title'>Case Studies</h1>
+      <div className='body-carousel-case-study-container'>
+        <div className='body-carousel-image-slider-container'>
+          <ImageSlider current={current} currentUrl={currentUrl} windowWidth={windowWidth} dataArray={bodyCarouselData} />
+        </div>
+        <div className='body-carousel-case-study-content'>
+          <TitleSlider current={current} dataArray={bodyCarouselData} />
           <div className='case-study-scrollable-description'>
-            {descriptionSlider}
-            <div className='case-study-scroll-arrows'>
-              <div className='case-study-scroll-up'></div>
-              <div className='case-study-scroll-down'></div>
+            <DescriptionSlider current={current} dataArray={bodyCarouselData} />
+            <div className='body-carousel-case-study-scroll-arrows'>
+              <div className='body-carousel-case-study-scroll-up'></div>
+              <div className='body-carousel-case-study-scroll-down'></div>
             </div>
           </div>
-          {buttonSlider}
+          <ButtonSlider current={current} currentUrl={currentUrl} dataArray={bodyCarouselData} />
         </div>
       </div>
       <div className='body-carousel-arrows'>
         <div className='body-carousel-arrow-left' onClick={clickLeft}></div>
-        <div className='case-study-page'>
+        <div className='body-carousel-case-study-page'>
           {current + 1} / {length}
         </div>
         <div className='body-carousel-arrow-right' onClick={clickRight}></div>
       </div>
     </div>
   );
-}
+};
+
+export default BodyCarousel;
