@@ -1,21 +1,18 @@
-import { useState } from 'react';
 import '../Diagram.css';
 import Popover from './Popover';
 
-import Titles from './Titles';
-
-export default function RowOne(props) {
+const RowOne = (props) => {
 
   const arrowLR = (
     <>
-      <div className='arrow--line' />
-      <div className='triangle--lr' />
+      <div className='diagram-arrow-line' />
+      <div className='diagram-arrow-lr-triangle' />
     </>
   );
 
   return (
-    <div className='grid--item grid--row'>
-      <div className='row--component'>
+    <div className='diagram-grid-item diagram-grid-row'>
+      <div className='diagram-row-component'>
         <Popover title={props.title} body={props.body} currentNode = {props.currentNode} id={1}/>
         {arrowLR}
         <Popover title={props.title} body={props.body} currentNode = {props.currentNode} currentTitle={props.currentTitle} currentBody={props.currentBody} id={2}/>
@@ -25,3 +22,5 @@ export default function RowOne(props) {
     </div>
   );
 }
+
+export default RowOne;

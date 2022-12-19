@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'reactjs-popup/dist/index.css';
 import './Diagram.css';
-import Grid from './DiagramPages/Grid';
-import TitleGrid from './DiagramPages/TitleGrid';
+import GridDisplay from './DiagramPages/GridDisplay';
 
 const baseUrl = 'http://localhost:3001';
 
-export default function Diagram() {
+const Diagram = () => {
   const [totalNum, setTotalNum] = useState(3);
   const [currentNode, setCurrentNode] = useState(1);
   const [nodeTitle, setNodeTitle] = useState({
@@ -54,7 +53,7 @@ export default function Diagram() {
     body: ""
   };
 
-  function updateContent() {
+  const updateContent = () => {
     for(let i = 1; i <= 9; i++) {
       const output = {
         nodeId: i,
@@ -73,12 +72,12 @@ export default function Diagram() {
 
   return (
     <div>
-      <div className='dropdown--container'>
+      <div className='diagram-dropdown-container'>
         <div>
-          <label className='dropdown--label' htmlFor='nodetotalNumber'>
+          <label className='diagram-dropdown-label' htmlFor='nodeTotalNumber'>
             Total number of nodes:
           </label>
-          <select id='nodetotalNumber' className='dropdown--select' name='nodetotalNumber' value={totalNum} onChange={(e) => setTotalNum(e.target.value)}>
+          <select id='nodeTotalNumber' className='diagram-dropdown-select' name='nodeTotalNumber' value={totalNum} onChange={(e) => setTotalNum(e.target.value)}>
             <option value='3'>3</option>
             <option value='4'>4</option>
             <option value='5'>5</option>
@@ -89,10 +88,10 @@ export default function Diagram() {
           </select>
         </div>
         <div>
-          <label className='dropdown--label' htmlFor='currentNode'>
+          <label className='diagram-dropdown-label' htmlFor='currentNode'>
             Currently editing node:
           </label>
-          <select id='currentNode' className='dropdown--select' name='currentNode' value={currentNode} onChange={(e) => setCurrentNode(e.target.value)}>
+          <select id='currentNode' className='diagram-dropdown-select' name='currentNode' value={currentNode} onChange={(e) => setCurrentNode(e.target.value)}>
             {Array(Number(totalNum))
               .fill()
               .map((_, i) => (
@@ -102,19 +101,20 @@ export default function Diagram() {
         </div>
       </div>
 
-      <div className='popup-container'>
-        <div className='title--input'>
-          <textarea className='builder--textarea builder--textarea-title' value={nodeTitle[currentNode]} placeholder='Title' onChange={(e) => setNodeTitle((prevTitle) => ({...prevTitle, [currentNode]: e.target.value}))} />
+      <div className='diagram-popup-inputs'>
+        <div className='diagram-title-input'>
+          <textarea className='diagram-builder-textarea diagram-builder-textarea-title' value={nodeTitle[currentNode]} placeholder='Title' onChange={(e) => setNodeTitle((prevTitle) => ({...prevTitle, [currentNode]: e.target.value}))} />
         </div>
-        <div className='body--input'>
-          <textarea className='builder--textarea builder--textarea-body' value={nodeBody[currentNode]} placeholder='Content' onChange={(e) => setNodeBody((prevBody) => ({...prevBody, [currentNode]: e.target.value}))} />
+        <div className='diagram-body-input'>
+          <textarea className='diagram-builder-textarea diagram-builder-textarea-body' value={nodeBody[currentNode]} placeholder='Content' onChange={(e) => setNodeBody((prevBody) => ({...prevBody, [currentNode]: e.target.value}))} />
         </div>
       </div>
-      <Grid totalNum={totalNum} currentNode={currentNode} title={nodeTitle} body={nodeBody}/>
-      <TitleGrid totalNum={totalNum} currentNode={currentNode} title={nodeTitle} body={nodeBody}/>
-      <div className='submit--button-container'>
-        <button className='submit--button' onClick={updateContent}>Confirm Changes</button>
+      <GridDisplay totalNum={totalNum} currentNode={currentNode} title={nodeTitle} body={nodeBody}/>
+      <div className='diagram-submit-button-container'>
+        <button className='diagram-submit-button' onClick={updateContent}>Confirm Changes</button>
       </div>
     </div>
   );
 }
+
+export default Diagram;

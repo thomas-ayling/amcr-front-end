@@ -7,7 +7,7 @@ import RowTwo from './RowTwo';
 import RowThree from './RowThree';
 import Empty from './Empty'
 
-export default function Grid(props) {
+const Grid = (props) => {
 
   // useEffect(() => {
   //   setOutput((prevOutput) => ({
@@ -42,15 +42,15 @@ export default function Grid(props) {
   };
 
   return (
-    <div className='grid--component'>
-      <div className='grid--container' style={gridStyle}>
+    <div className='diagram-grid-component'>
+      <div className='diagram-grid-container' style={gridStyle}>
         <Empty/>
         <RowOne title={props.title} body={props.body} currentNode = {props.currentNode}/>
-        {props.totalNum > 3 ? <div className='grid--item grid--ta-lr'></div> : <Empty/>}
-        {props.totalNum > 6 ? <div className='grid--item grid--ta-rl'></div> : <Empty/>}
+        {props.totalNum > 3 ? <div className='diagram-grid-item diagram-grid-lr-arrow-top'></div> : <Empty/>}
+        {props.totalNum > 6 ? <div className='diagram-grid-item diagram-grid-rl-arrow-top'></div> : <Empty/>}
         {props.totalNum > 3 ? <RowTwo totalNum={props.totalNum} title={props.title} body={props.body} currentNode = {props.currentNode}/> : <Empty/>}
-        {props.totalNum > 3 ? <div className='grid--item grid--ba-lr'></div> : <Empty/>}
-        {props.totalNum > 6 ? <div className='grid--item grid--ba-rl'></div> : <Empty/>}
+        {props.totalNum > 3 ? <div className='diagram-grid-item diagram-grid-lr-arrow-bottom'></div> : <Empty/>}
+        {props.totalNum > 6 ? <div className='diagram-grid-item diagram-grid-rl-arrow-bottom'></div> : <Empty/>}
         {props.totalNum > 6 ? <RowThree totalNum={props.totalNum} title={props.title} body ={props.body} currentNode = {props.currentNode}/> : <Empty/>}
         <Empty/>
       </div>
@@ -65,18 +65,19 @@ export default function Grid(props) {
 //   ))}
 
 // return (
-//   <div className='grid--component'>
-//     <div className='grid--container'>
+//   <div className='diagram-grid-component'>
+//     <div className='diagram-grid-container'>
 //       {empty}
-//       {<div className='grid--item grid--row'>{row}</div>}
-//       <div className='grid--item grid--ta-lr'></div>
-//       <div className='grid--item grid--ta-rl'></div>
-//       <div className='grid--item grid--row-rev'>{reverseRow}</div>
-//       <div className='grid--item grid--ba-lr'></div>
-//       <div className='grid--item grid--ba-rl'></div>
-//       <div className='grid--item grid--row'>{row}</div>
+//       {<div className='diagram-grid-item grid--row'>{row}</div>}
+//       <div className='diagram-grid-item diagram-grid-lr-arrow-top'></div>
+//       <div className='diagram-grid-item diagram-grid-rl-arrow-top'></div>
+//       <div className='diagram-grid-item grid--row-rev'>{reverseRow}</div>
+//       <div className='diagram-grid-item diagram-grid-lr-arrow-bottom'></div>
+//       <div className='diagram-grid-item diagram-grid-rl-arrow-bottom'></div>
+//       <div className='diagram-grid-item grid--row'>{row}</div>
 //       {empty}
 //     </div>
 //     <button className='submit--button'>Confirm Changes</button>
 //   </div>
 // );
+export default Grid;

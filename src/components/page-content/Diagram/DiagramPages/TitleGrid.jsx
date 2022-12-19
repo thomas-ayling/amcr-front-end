@@ -1,30 +1,23 @@
-import RowOne from './RowOne';
-import TitleRow from './TitleRow';
-import RowTwo from './RowTwo';
-import RowThree from './RowThree';
-import Empty from './Empty'
+import TitleRowOne from './TitleRowOne';
+import TitleRowTwo from './TitleRowTwo';
+import TitleRowThree from './TitleRowThree';
+import Empty from './Empty';
 
-export default function TitleGrid(props) {
+const TitleGrid = (props) => {
+  const gridStyle = {
+    gridTemplateRows: props.totalNum < 4 ? '200px 0px 0px' : props.totalNum < 7 ? '200px 200px 0px' : '200px 200px 200px',
+    marginTop: props.totalNum < 4 ? '-240px' : props.totalNum < 7 ? '-440px' : '-640px'
+  };
 
-  
-    const gridStyle = {
-      gridTemplateRows: props.totalNum < 4 ? '200px 0px 0px' : props.totalNum < 7 ? '200px 200px 0px' : '200px 200px 200px',
-      border: '2px solid black'
-    };
-  
-    return (
-      <div className='grid--component'>
-        <div className='title--grid' style={gridStyle}>
-          <Empty/>
-          <TitleRow title={props.title} body={props.body} currentNode = {props.currentNode}/>
-          <Empty/>
-          <Empty/>
-          {props.totalNum > 3 ? <RowTwo totalNum={props.totalNum} title={props.title} body={props.body} currentNode = {props.currentNode}/> : <Empty/>}
-          <Empty/>
-          <Empty/>
-          {props.totalNum > 6 ? <TitleRow totalNum={props.totalNum} title={props.title} body ={props.body} currentNode = {props.currentNode}/> : <Empty/>}
-          <Empty/>
-        </div>
+  return (
+    <div className='diagram-grid-component'>
+      <div className='diagram-title-grid' style={gridStyle}>
+        <TitleRowOne title={props.title} body={props.body} currentNode={props.currentNode} />
+        {props.totalNum > 3 ? <TitleRowTwo totalNum={props.totalNum} title={props.title} body={props.body} currentNode={props.currentNode} /> : <Empty />}
+        {props.totalNum > 6 ? <TitleRowThree totalNum={props.totalNum} title={props.title} body={props.body} currentNode={props.currentNode} /> : <Empty />}
       </div>
-    );
-  }
+    </div>
+  );
+};
+
+export default TitleGrid;

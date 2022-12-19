@@ -1,5 +1,7 @@
-export default function Empty() {
+const Empty = () => {
     return (
-        <div className='grid--item grid--empty'></div>
+        <div className='diagram-grid-item  diagram-grid-empty'></div>
     )
 }
+
+export default Empty;

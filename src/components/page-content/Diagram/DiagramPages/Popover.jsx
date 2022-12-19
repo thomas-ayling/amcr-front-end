@@ -1,21 +1,18 @@
 import Popup from 'reactjs-popup';
-import { useState, useEffect } from 'react';
 
-import Titles from './Titles';
+const Popover = (props) => {
 
-export default function Popover(props) {
-
-  const hoverable = props.title[props.id] === "" && props.body[props.id] === "" ? "" : "hover";
-  const popupPosition = props.id === 4 || props.id === 7 ? "bottom center" : "top center";
+  const hoverable = props.body[props.id] === " "|| props.body[props.id] === "" ? "" : "hover";
     return (
       <>
-        <Popup trigger={<button className='round--btn'></button>} position={popupPosition} on={[hoverable]} contentStyle={{ width: '350px' }}>
-        <div className='popup-container'>
-          <div className='popup-title'><u>{props.title[props.id]}</u></div>
-          <div className='popup-body'>{props.body[props.id]}</div>
+        <Popup trigger={<button className='diagram-popup-button'></button>} position='bottom center' on={hoverable} contentStyle={{ width: '350px' }}>
+        <div className='diagram-popup-container'>
+          <div className='diagram-popup-title'><u>{props.title[props.id]}</u></div>
+          <div className='diagram-popup-body'>{props.body[props.id]}</div>
         </div>
       </Popup>
       </>
     )
-
 }
+
+export default Popover;
