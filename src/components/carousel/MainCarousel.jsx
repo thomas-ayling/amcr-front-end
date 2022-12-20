@@ -1,8 +1,7 @@
 import "../carousel/MainCarousel.css";
-import { useEffect, useState, Component } from "react";
+import { useEffect, useState } from "react";
 import CarouselCards from "./shared-components/CarouselCards";
 import CarouselTextbox from "./shared-components/CarouselTextbox";
-
 
 //main functionality for the carasousel and touch controls
 
@@ -20,6 +19,14 @@ const MainCarousel = ({ images }) => {
     setCurrent(current === 0 ? images.length - 1 : current - 1);
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
+  useEffect(() => {
+    let timeOut =
+      autoPlay &&
+      setTimeout(() => {
+        slideRight();
+      }, 5000);
+    return () => clearTimeout(timeOut);
+  });
 
   let timeOut = null;
   const handleClick = (index) => {
@@ -29,15 +36,6 @@ const MainCarousel = ({ images }) => {
   const paginationDots = images.map((img, index) => (
     <div className={index === current ? "pagination_dot pagination_dot-active" : "pagination_dot"} onClick={() => handleClick(index)}></div>
   ));
-
-  useEffect(() => {
-    let timeOut =
-      autoPlay &&
-      setTimeout(() => {
-        slideRight();
-      }, 5000);
-    return () => clearTimeout(timeOut);
-  });
 
   const onTouchStart = (e) => {
     setTouchEnd(null);
