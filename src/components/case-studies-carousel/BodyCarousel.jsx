@@ -11,19 +11,14 @@ const BodyCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    window.addEventListener('resize', watchWidth);
-
-    return () => {
-      window.removeEventListener('resize', watchWidth);
-    };
-  }, []);
-
-  const watchWidth = () => {
-    setWindowWidth(window.innerWidth);
-  };
   const currentUrl = `case-studies/${bodyCarouselData[current].url}`;
   const length = bodyCarouselData.length;
+
+  const resizeObserver = new ResizeObserver((entries) => {
+    setWindowWidth(entries[0].contentRect.width);
+  });
+
+  resizeObserver.observe(document.body);
 
   const clickLeft = () => {
     current === 0 ? setCurrent(length - 1) : setCurrent((prevCurrent) => prevCurrent - 1);

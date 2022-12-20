@@ -221,7 +221,7 @@
   transition: 0.4s;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .body-carousel-page-title {
     font-size: 45px;
     margin-left: 0px;
