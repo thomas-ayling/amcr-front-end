@@ -29,12 +29,9 @@ const MainCarousel = ({ images }) => {
   });
 
   let timeOut = null;
-  const handleClick = (index) => {
-    setCurrent(index);
-    clearTimeout(timeOut);
-  };
+
   const paginationDots = images.map((img, index) => (
-    <div className={index === current ? "pagination_dot pagination_dot-active" : "pagination_dot"} onClick={() => handleClick(index)}></div>
+    <div className={index === current ? "pagination_dot pagination_dot-active" : "pagination_dot"} onClick={() => setCurrent(index)}></div>
   ));
 
   const onTouchStart = (e) => {
