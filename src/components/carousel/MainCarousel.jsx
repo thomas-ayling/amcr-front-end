@@ -20,7 +20,7 @@ const MainCarousel = ({ images }) => {
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
   useEffect(() => {
-    let timeOut =
+    const timeOut =
       autoPlay &&
       setTimeout(() => {
         slideRight();
@@ -37,7 +37,6 @@ const MainCarousel = ({ images }) => {
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
-    clearTimeout(timeOut);
     setAutoPlay(false); //clears timer/autoplay when user touches the carousel
   };
   const onTouchMove = (e) => {
