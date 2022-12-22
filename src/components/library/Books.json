@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "book One",
+        "genre": "Python",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    },
+    {
+        "id": 2,
+        "name": "book Two",
+        "genre": "Java",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    },
+    {
+        "id": 3,
+        "name": "book Three",
+        "genre": "Devops",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    },
+    {
+        "id": 4,
+        "name": "book Four",
+        "genre": "Management",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    },
+    {
+        "id": 5,
+        "name": "book Five",
+        "genre": "Buisness",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    },
+    {
+        "id": 6,
+        "name": "book Six",
+        "genre": "Java",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    },
+    {
+        "id": 7,
+        "name": "book Seven",
+        "genre": "Devops",
+        "author": "Charles",
+        "reader": "John",
+        "out": false,
+        "cover": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium"
+    }
+]

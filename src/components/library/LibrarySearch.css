@@ -30,11 +30,12 @@
     width: 100%;
     height: auto;
     margin-bottom: 2%;
+    padding: 0% 1% 0% 1%;
 }
 
 .Library-Search-Input {
     border-radius: 10px;
-    width: 30rem;
+    width: 35vmin;
     height: auto;
 }
 
@@ -72,8 +73,8 @@
 }
 
 .Library-Book-Cover-Image {
-    max-width: 7rem;
-    width: 5rem;
+    max-width: 10vmin;
+    width: 7vmin;
     height: auto;
 }
 
@@ -91,7 +92,6 @@
     height: auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-evenly;
 
     border-bottom: 1px solid var(--gl-orange);
