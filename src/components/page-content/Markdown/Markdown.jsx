@@ -8,7 +8,7 @@ import './Markdown.css';
 
 const baseUrl = 'http://localhost:3001';
 
-function Markdown() {
+const Markdown = () => {
   const [input, setInput] = useState('');
   const [id, setId] = useState(0);
 
@@ -58,7 +58,9 @@ function Markdown() {
       {input !== '' ? preview : null}
       <div className='optional--display'>
         <div style={markdownStyles} className='markdown--preview'>
+          <div className='markdown-display'>
           <ReactMarkdown className='react--markdown' children={input} style={markdownStyles} remarkPlugins={[remarkGfm, remarkPlantUml]} />
+          </div>
         </div>
         {input !== '' ? button : null}
       </div>
