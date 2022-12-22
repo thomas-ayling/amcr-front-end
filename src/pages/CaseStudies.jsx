@@ -1,8 +1,14 @@
 import React from 'react';
 import ContactComponent from '../components/contact-component/ContactComponent';
+import BodyCarousel from '../components/case-studies-carousel/BodyCarousel';
 
 const CaseStudies = () => {
-  return <ContactComponent feedbackType='case-study' />;
+  return (
+    <>
+      <BodyCarousel/>
+      <ContactComponent feedbackType='case-study' />
+    </>
+  );
 };
 
 export default CaseStudies;
