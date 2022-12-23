@@ -9,7 +9,7 @@ const AttachmentInput = ({ attachment, setAttachment }) => {
       alert('This file is too large. Files must be under 5MB to be uploaded.');
       return;
     }
-    let replace = attachment ? confirm('You can only send one attachment, do you want to overwrite the previously attached file?') : true;
+    let replace = attachment ? window.confirm('You can only send one attachment, do you want to overwrite the previously attached file?') : true;
     if (replace) {
       setAttachment(file);
       setFileName(file.name);
