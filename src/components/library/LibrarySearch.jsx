@@ -9,7 +9,6 @@ const LibrarySearch = () => {
   const [dropDownStatus] = useState(false);
 
   function search(items) {
-    console.log(dataMock);
     return items.filter((item) => {
         if (item.genre === filterParam) {
             return searchParam.some((newItem) => {
@@ -36,6 +35,15 @@ const LibrarySearch = () => {
   return (
     <div className='Library-Container'>
       <div className='Library-Wrapper'>
+        <div className="Library-Genre-Select-Wrapper">
+          <div className="Library-Genre-Select-Options">
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Java")}}>Java</button>
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Python")}}>Python</button>
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Devops")}}>DevOps</button>
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Mangement")}}>Management</button>
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Buisness")}}>Buisness</button>
+          </div>
+        </div>
         <div className='Library-SearchBar-Wrapper'>
           <label htmlFor='search-bar'>
             <input
@@ -47,7 +55,7 @@ const LibrarySearch = () => {
               onChange={(e) => setSearchInput(e.target.value)}
             />
           </label>
-          <div className='Library-Genre-Select'>
+          {/* <div className='Library-Genre-Select-Dropdown'>
             <select
               value={filterParam}
               onChange={(e) => {setFitlerParam(e.target.value)}}
@@ -62,7 +70,7 @@ const LibrarySearch = () => {
               <option value="Buisness">Buisness</option>
             </select>
             <span className='focus'></span>
-          </div>
+          </div> */}
         </div>
 
         <div className='Library-SearchResults-Wrapper'>

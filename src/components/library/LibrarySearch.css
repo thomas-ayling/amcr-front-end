@@ -23,12 +23,35 @@
     border-radius: 17.5px;
 }
 
+.Library-Genre-Select-Wrapper {
+    width: 100%;
+}
+
+.Library-Genre-Select-Options {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.Library-Genre-Selector-Button {
+    width: 20% !important;
+    height: auto !important;
+    border-top-right-radius: 30%;
+    border-top-left-radius: 30%;
+    border-color: var(--gl-light-gray);
+    border-width: 1px;
+
+
+}
+
 .Library-SearchBar-Wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
+    margin-top: 2%;
     margin-bottom: 2%;
     padding: 0% 1% 0% 1%;
 }
