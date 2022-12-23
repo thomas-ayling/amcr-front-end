@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import BookCover from "./TestBookCover.png";
 import "./LibrarySearch.css";
 import dataMock from "./Books.json";
 
@@ -7,8 +6,10 @@ const LibrarySearch = () => {
   const [searchInput, setSearchInput] = useState("");
   const [searchParam] = useState(["name", "author", "genre"]);
   const [filterParam, setFitlerParam] = useState("");
+  const [dropDownStatus] = useState(false);
 
   function search(items) {
+    console.log(dataMock);
     return items.filter((item) => {
         if (item.genre === filterParam) {
             return searchParam.some((newItem) => {
@@ -70,7 +71,7 @@ const LibrarySearch = () => {
               <li className='Library-Item' key={book.name}>
                 <article className='Library-Book'>
                   <div className='Library-Book-Cover'>
-                    <img className='Library-Book-Cover-Image' src={BookCover} alt={book.name} />
+                    <img className='Library-Book-Cover-Image' src={book.cover} alt={book.name} />
                   </div>
                   <div className='Library-Book-Content'>
                     <div className='Library-Book-Data'>
@@ -90,17 +91,31 @@ const LibrarySearch = () => {
                     </div>
                     <div className="Library-Reservation-Wrapper">{
                     (() => {
-                        if (book.out === true)
+                        if (book.out === false)
                             return (
                                 <div className="Library-Reader">
-                                    <p className="Library-Reserve-Unavailable">Unavailable. {book.reader} is currently reading the book.</p>
-                                    {/* <BsFillArrowDownCircleFill value={{color:'orange'}} onClick={!this.dropDownStatus}/> */}
-                                </div>)
+                                  <p className="Library-Reserve-Available">Available. Reserve Below.</p>
+                                </div>
+                                )
                         else
                             return (
-                                <div className="Library-Reader">
-                                    <p className="Library-Reserve-Available">Available. Reserve Below.</p>
-                                </div>)
+                              <div className='Library-Reserve-Wrapper'>
+                                <p className='Library-Reserve-Unavailable'>Unavailable. {book.reader} is currently reading the book.</p>
+                                <div>
+                                  <div className='Library-Reservation-Wrapper'>
+                                    {() => {
+                                      if (dropDownStatus === true) return (
+                                      <div>
+                                        <button onClick={!dropDownStatus}>DropDown</button>
+                                        <p>testing dropped dropDownStatus</p>
+                                      </div>
+                                      )
+                                      else return (<button onClick={!dropDownStatus}>DropDown</button>);
+                                    }}
+                                  </div>
+                                </div>
+                              </div>
+                            );
                     })()
                     }
                 </div>
