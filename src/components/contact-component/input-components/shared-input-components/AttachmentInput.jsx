@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FileIcon from '../../../../resources/icons/file-icon.png';
 
-const AttachmentInput = ({ setAttachment }) => {
+const AttachmentInput = ({ attachment, setAttachment }) => {
   const [fileName, setFileName] = useState('Add file');
 
   const setAttachmentWithChecks = (file) => {
@@ -9,8 +9,11 @@ const AttachmentInput = ({ setAttachment }) => {
       alert('This file is too large. Files must be under 5MB to be uploaded.');
       return;
     }
-    setAttachment(file);
-    setFileName(file.name);
+    let replace = attachment ? confirm('You can only send one attachment, do you want to overwrite the previously attached file?') : true;
+    if (replace) {
+      setAttachment(file);
+      setFileName(file.name);
+    }
   };
 
   return (
