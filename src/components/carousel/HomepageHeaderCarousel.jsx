@@ -7,13 +7,17 @@ function HomepageHeaderCarousel({images}) {
     const [autoPlay, setAutoPlay] = useState(true);
     let timeOut = null;
     
-    useEffect(() =>{ // eslint-disable-next-line 
-     timeOut =  autoPlay && setTimeout(() => {
-            slideRight();
-
+    useEffect(
+        () => {
+         let timeOut =
+            autoPlay &&
+            setTimeout(() => {
+              slideRight();
             }, 5000);
-        } //timer function- disables error as timer doesn't need to be stored
-    )
+            return () => clearTimeout(timeOut);
+        }
+        //timer function- disables error as timer doesn't need to be stored
+      );
 
     const slideRight = () => {
         setCurrent(current === images.length - 1 ? 0 : current + 1);

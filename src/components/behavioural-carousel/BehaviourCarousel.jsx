@@ -7,17 +7,23 @@ function MainCarousel({ images }) {
   const [autoPlay, setAutoPlay] = useState(true);
   let timeOut = null;
 
-  useEffect(() => {
-    timeOut =
-      autoPlay &&
-      setTimeout(() => {
-        slideRight();
-      }, 5000);
-  });
+  useEffect(
+    () => {
+     let timeOut =
+        autoPlay &&
+        setTimeout(() => {
+          slideRight();
+        }, 5000);
+        return () => clearTimeout(timeOut);
+    }
+   
+  );
 
   const slideRight = () => {
     setCurrent(current === images.length - 1 ? 0 : current + 1);
   };
+
+  
 
   return (
     <div className='b-carousel-background'>

@@ -50,6 +50,7 @@ const ContactComponent = ({ feedbackType }) => {
           setEmailAddress={setEmailAddress}
           feedbackBody={feedbackBody}
           setFeedbackBody={setFeedbackBody}
+          attachment={attachment}
           setAttachment={setAttachment}
           isAnonymous={isAnonymous}
           setIsAnonymous={setIsAnonymous}
