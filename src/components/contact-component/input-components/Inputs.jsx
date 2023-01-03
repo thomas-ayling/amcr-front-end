@@ -4,7 +4,7 @@ import FeedbackInputs from './input-component-types/FeedbackInputs';
 import ImprovementInputs from './input-component-types/ImprovementInputs';
 import LibraryInputs from './input-component-types/LibraryInputs';
 
-const Inputs = ({ feedbackType, firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, feedbackBody, setFeedbackBody, setAttachment, isAnonymous, setIsAnonymous, bookName, setBookName, bookLink, setBookLink, handleSubmit, awaitingResponse, submitStatus }) => {
+const Inputs = ({ feedbackType, firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, feedbackBody, setFeedbackBody, attachment, setAttachment, isAnonymous, setIsAnonymous, bookName, setBookName, bookLink, setBookLink, handleSubmit, awaitingResponse, submitStatus }) => {
   switch (feedbackType) {
     case 'feedback':
       return (
@@ -36,6 +36,7 @@ const Inputs = ({ feedbackType, firstName, setFirstName, lastName, setLastName, 
           setEmailAddress={setEmailAddress}
           feedbackBody={feedbackBody}
           setFeedbackBody={setFeedbackBody}
+          attachment={attachment}
           setAttachment={setAttachment}
           isAnonymous={isAnonymous}
           setIsAnonymous={setIsAnonymous}
@@ -55,6 +56,7 @@ const Inputs = ({ feedbackType, firstName, setFirstName, lastName, setLastName, 
           setEmailAddress={setEmailAddress}
           feedbackBody={feedbackBody}
           setFeedbackBody={setFeedbackBody}
+          attachment={attachment}
           setAttachment={setAttachment}
           handleSubmit={handleSubmit}
           awaitingResponse={awaitingResponse}

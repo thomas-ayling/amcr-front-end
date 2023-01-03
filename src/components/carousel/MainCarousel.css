@@ -210,9 +210,9 @@
   .carousel_card_textbox2 {
    
     width: 70%;
-    max-height: 20%;
-    
-    top: 37rem;
+   
+    max-height: fit-content;
+    top: 20rem;
     left: 0%;
  
   }
@@ -246,3 +246,16 @@
 
 }
 
+
+@media screen and (max-width: 341px) {
+  .carousel_card_textbox2 {
+   
+    width: 70%;
+   
+    max-height: fit-content;
+    top: 10rem;
+    left: 0%;
+ 
+  }
+
+}
