@@ -71,7 +71,7 @@ const InnovationDescription = [
   '\u2022 Experimentation',
 ];
 
-const BehaviourImages = [
+const behaviourImages = [
   {
     image: Integrity,
     title: 'Integrity',
@@ -95,4 +95,4 @@ const BehaviourImages = [
   },
 ];
 
-export default BehaviourImages;
+export default behaviourImages;

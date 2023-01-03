@@ -1,9 +1,7 @@
 import './BehaviourCarousel.css';
 import BehaviourImages from './BehaviourImages';
 import { useState, useEffect } from 'react';
-import BehaviourImage from './behaviour-carousel-components/BehaviourImage';
-import BehaviourTitle from './behaviour-carousel-components/BehaviourTitle';
-import BehaviourDescription from './behaviour-carousel-components/BehaviourDescription';
+import BehaviourCarouselDescription from './behaviour-carousel-components/BehaviourCarouselDescription';
 
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
@@ -31,10 +29,8 @@ const BodyCarousel = () => {
     <div className='behaviour-body-carousel-wrapper'>
       <h1 className='behaviour-body-carousel-page-title'>GlobalLogic UK&I Behaviours</h1>
       <div className='behaviour-carousel-container'>
-        <BehaviourImage current={current} windowWidth={windowWidth} dataArray={BehaviourImages} />
         <div className='behaviour-carousel-content'>
-          <BehaviourTitle current={current} dataArray={BehaviourImages} />
-          <BehaviourDescription current={current} dataArray={BehaviourImages} />
+          <BehaviourCarouselDescription current={current} windowWidth={windowWidth} dataArray={BehaviourImages} />
         </div>
       </div>
       <div className='behaviour-carousel-arrows'>
