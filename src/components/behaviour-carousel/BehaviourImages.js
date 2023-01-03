@@ -1,9 +1,10 @@
 import Integrity from '../../resources/behaviour-carousel-images/Integrity.avif';
+import Innovation from '../../resources/behaviour-carousel-images/Innovation.avif';
 import Openness from '../../resources/behaviour-carousel-images/Openness.jpg';
 import Teamwork from '../../resources/behaviour-carousel-images/Teamwork.jpg';
-import Innovation from '../../resources/behaviour-carousel-images/Innovation.avif';
 
 const IntegrityDescription = [
+  <br />,
   '\u2022 We do what we say we will do',
   <br />,
   <br />,
@@ -17,6 +18,7 @@ const IntegrityDescription = [
 ];
 
 const OpennessDescription = [
+  <br />,
   '\u2022 We can always explain our decisions',
   <br />,
   <br />,
@@ -30,6 +32,7 @@ const OpennessDescription = [
 ];
 
 const TeamworkDescription = [
+  <br />,
   '\u2022 We work to build an inclusive environment',
   <br />,
   <br />,
@@ -49,6 +52,7 @@ const TeamworkDescription = [
 ];
 
 const InnovationDescription = [
+  <br />,
   '\u2022 Efficiency',
   <br />,
   <br />,
@@ -67,31 +71,28 @@ const InnovationDescription = [
   '\u2022 Experimentation',
 ];
 
-const behaviourImages = [
+const BehaviourImages = [
   {
     image: Integrity,
     title: 'Integrity',
-    overview: 'We have values at GlobalLogic that we all uphold on our day-to-day routine.',
     description: IntegrityDescription,
+  },
+  {
+    image: Innovation,
+    title: 'Innovation',
+    description: InnovationDescription,
   },
   {
     image: Openness,
     title: 'Openness',
-    overview: 'In the UK&I Engineering Center, we need to define the behaviours that embody the GlobalLogic values.',
     description: OpennessDescription,
   },
   {
     image: Teamwork,
     title: 'Teamwork',
-    overview: 'How we demonstrate these values in our day-to-day work and interactions, with customers and each other.',
     description: TeamworkDescription,
-  },
-  {
-    image: Innovation,
-    title: 'Innovation',
-    overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
-    description: InnovationDescription,
+    url: 'another-entry',
   },
 ];
 
-export default behaviourImages;
+export default BehaviourImages;
