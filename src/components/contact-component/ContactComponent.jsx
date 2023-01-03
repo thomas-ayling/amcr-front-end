@@ -32,6 +32,8 @@ const ContactComponent = ({ feedbackType }) => {
     setAwaitingResponse(true);
 
     create(feedback, attachment, setAwaitingResponse, setSubmitStatus);
+
+    if (submitStatus === 'error') alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.');
   };
 
   return (
@@ -48,6 +50,7 @@ const ContactComponent = ({ feedbackType }) => {
           setEmailAddress={setEmailAddress}
           feedbackBody={feedbackBody}
           setFeedbackBody={setFeedbackBody}
+          attachment={attachment}
           setAttachment={setAttachment}
           isAnonymous={isAnonymous}
           setIsAnonymous={setIsAnonymous}
