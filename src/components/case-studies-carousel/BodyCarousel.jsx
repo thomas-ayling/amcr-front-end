@@ -1,6 +1,7 @@
 import './BodyCarousel.css';
 import bodyCarouselData from './bodyCarouselData';
 import { useState, useEffect } from 'react';
+import $ from 'jquery';
 
 import ImageSlider from './sub-components/ImageSlider';
 import TitleSlider from './sub-components/TitleSlider';
