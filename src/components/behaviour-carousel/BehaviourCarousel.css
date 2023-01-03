@@ -121,7 +121,7 @@
 @media (max-width: 1220px) {
   .behaviour-body-carousel-page-title {
     font-size: 45px;
-    margin-left: 0px;
+    margin-left: 0;
   }
 
   .behaviour-body-carousel-wrapper {
@@ -189,7 +189,7 @@
 
   .behaviour-title {
     text-align: center;
-    margin-left: 0px;
+    margin-left: 0;
     margin-top: -310px;
   }
 
@@ -197,7 +197,7 @@
     width: 100%;
     min-width: 300px;
     max-width: 550px;
-    margin-left: 0px;
+    margin-left: 0;
     margin-top: 100px;
   }
 
