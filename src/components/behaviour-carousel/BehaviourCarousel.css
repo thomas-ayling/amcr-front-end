@@ -28,7 +28,7 @@
   color: var(--gl-orange);
   font-weight: 500;
   margin-bottom: 15px;
-  margin-left: 5px;
+  margin-left: 80px; /* Here */
 }
 
 .behaviour-carousel-container {
@@ -58,7 +58,7 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   object-fit: cover;
-  width: 765px;
+  width: 600px; /* Here */
   height: auto;
   border-radius: 5px;
   box-shadow: 2px 2px 4px var(--gl-orange);
@@ -83,7 +83,7 @@
   width: 350px;
   height: 38px;
   margin-left: -328px;
-  margin-top: 80px;
+  margin-top: 30px; /* Here */
 }
 
 .behaviour-description {
@@ -93,12 +93,12 @@
   border-radius: 5%;
   background: var(--gl-gray);
   margin-left: 88px;
-  margin-top: 150px;
+  margin-top: 70px; /* Here */
 }
 
 .behaviour-carousel-arrows {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px; /* Here */
   justify-content: center;
   align-items: center;
 }
