@@ -1,12 +1,11 @@
 import React from 'react';
-import '../components/behavioural-carousel/BehaviourCarousel.css';
+import '../components/behaviour-carousel/BehaviourCarousel.css';
 import HomepageHeaderCarousel from '../components/carousel/HomepageHeaderCarousel';
 import MainCarousel from '../components/carousel/MainCarousel';
 import HomepageHeaderImages from '../components/carousel/HomepageHeaderImages';
-import BehaviourCarousel from '../components/behavioural-carousel/BehaviourCarousel';
+import BehaviourCarousel from '../components/behaviour-carousel/BehaviourCarousel';
 import ContactComponent from '../components/contact-component/ContactComponent';
 import mainCarouselImages from '../components/carousel/MainCarouselImages';
-import behaviourCarouselImages from '../components/behavioural-carousel/BehaviourImages';
 
 const HomePage = () => {
   return (
@@ -17,7 +16,10 @@ const HomePage = () => {
 
       <div>
         <h1>We are Global Logic!</h1>
-        <h2>A digital product engineering company. We integrate experience design and complex engineering to help our clients imagine what's possible and accelerate their transition into tomorrow's digital businesses.</h2>
+        <h2>
+          A digital product engineering company. We integrate experience design and complex engineering to help our clients imagine what's possible and accelerate their transition
+          into tomorrow's digital businesses.
+        </h2>
       </div>
       <div>
         <iframe
@@ -33,9 +35,7 @@ const HomePage = () => {
       <div className='page'>
         <MainCarousel images={mainCarouselImages} />
       </div>
-      <div className='b-page'>
-        <BehaviourCarousel images={behaviourCarouselImages} />
-      </div>
+      <BehaviourCarousel />
       <ContactComponent feedbackType='feedback' />
     </>
   );
