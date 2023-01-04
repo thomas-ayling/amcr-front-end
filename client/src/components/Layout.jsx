@@ -1,7 +1,7 @@
 import { Responsive, WidthProvider } from 'react-grid-layout';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './layout.css';
-
+import axios from 'axios';
 
 
 
@@ -13,18 +13,21 @@ const ResponsiveGridLayout = WidthProvider(Responsive);
 function Grid ()  {
   const [layout, setLayout] = useState([
   ]);
+  const [isLoaded, setIsLoaded] = useState([ false
+  ]);
+  
   
   const [breakpoint, setBreakpoint] = useState({ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 })
 
-  const addItem =(div) => {
-    setLayout([...layout, div].map())
+  const addItem =() => {
+    axios.post('hhtp://localhost:3001/page-layout/add'))
   }
   const removeItem =(square) => {
     setLayout(layout.filter(item => item !== square))
   }
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/page-layout/getLayout/${page}`)
+    axios.get(`http://localhost:3001/page-layout/get`)
       .then((res) => {
         setLayout(res.data);
         setIsLoaded(true);
