@@ -5,6 +5,7 @@ const Configuration = () => {
   return (
     <div>
       <div>Configurations</div>
+      
     </div>
   );
 };

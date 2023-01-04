@@ -16,7 +16,7 @@
     "react-icons": "^4.6.0",
     "react-markdown": "^8.0.4",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "reactjs-popup": "^2.0.5",
     "remark-gfm": "^3.0.1",
     "serve": "^14.1.2",
