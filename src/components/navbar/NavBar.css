@@ -1,40 +1,37 @@
 body {
-  background-color: var(--gl-gray) !important;
+  background-color: rgb(188, 190, 192) !important;
 }
 
 button:focus {
   box-shadow: none !important;
 }
 
-body::-webkit-scrollbar {
-  position: absolute;
-  z-index: 1;
-  width: 8px;
-  overflow-y:visible;
+::-webkit-scrollbar {
+  width: 7px;
 }
 
-body::-webkit-scrollbar-track {
-  background: var(--gl-gray);
+::-webkit-scrollbar-track {
+  background: white;
 }
 
-body::-webkit-scrollbar-track:hover {
-  background-color: white;
-  box-shadow: 0px 20px 10px 0px rgba(9, 5, 29, 0.171) !important;
-
+::-webkit-scrollbar-track:hover {
+  background: white;
 }
 
-body::-webkit-scrollbar-thumb {
-  background: var(--gl-orange);
+::-webkit-scrollbar-thumb {
+  background: rgb(243, 122, 055);
   border-radius: 12px;
 }
 
-body::-webkit-scrollbar-thumb:hover {
-  background: var(--gl-dark-orange);
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(243, 122, 055);
   border-radius: 12px;
 }
 
 .navbar-sticky {
-  background-color: var(--gl-medium-gray) !important;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: rgb(109, 110, 113) !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
 }
@@ -43,9 +40,7 @@ body::-webkit-scrollbar-thumb:hover {
   position: fixed !important;
   transition: all 0.3s ease-out 0s !important;
   padding: 0.3rem 2rem !important;
-  font-size: 1.2rem !important;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  font-size: 1.05rem !important;
 }
 
 .navbar-toggler {
@@ -56,7 +51,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .navbar-toggler span {
   display: block !important;
-  background-color: var(--gl-orange) !important;
+  background-color: rgb(243, 122, 055) !important;
   height: 4px !important;
   width: 27px !important;
   margin-top: 5px !important;
@@ -103,7 +98,7 @@ body::-webkit-scrollbar-thumb:hover {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    background-color: var(--gl-medium-gray);
+    background-color: rgb(109, 110, 113, 0.95);
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
@@ -134,7 +129,7 @@ body::-webkit-scrollbar-thumb:hover {
 
   .nav-link:hover {
     padding: 10px;
-    color: var(--gl-orange) !important;
+    color: rgb(243, 122, 055) !important;
   }
 }
 
@@ -157,7 +152,7 @@ body::-webkit-scrollbar-thumb:hover {
   height: 5px;
   width: 0;
   border-radius: 16px;
-  background: var(--gl-light-gray);
+  background: rgb(188, 190, 192);
   bottom: 1px;
   left: 0;
   z-index: -1;
@@ -166,7 +161,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .navbar-nav .nav-item a:hover::after {
   width: 100%;
-  background-color: var(--gl-orange);
+  background-color: rgb(243, 122, 055);
 }
 
 .page-section {

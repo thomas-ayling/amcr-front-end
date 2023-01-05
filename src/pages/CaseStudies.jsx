@@ -1,11 +1,13 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import ContactComponent from '../components/contact-component/ContactComponent';
+import BodyCarousel from '../components/case-studies-carousel/BodyCarousel';
 
 const CaseStudies = () => {
   return (
-    <Container fluid className='page-section'>
-      <div>CaseStudies</div>
-    </Container>
+    <>
+      <BodyCarousel/>
+      <ContactComponent feedbackType='case-study' />
+    </>
   );
 };
 

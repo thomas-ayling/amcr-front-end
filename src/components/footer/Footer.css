@@ -204,22 +204,26 @@ body {
 
 .last-item {
    position: relative;
-   width: fit-content;
    display: flex;
    z-index: 1;
+   width: auto;
+   height: auto;
 }
 
 .footer-top-scroll {
-   position: absolute;
-   left: 7.5px; bottom: 10px;
-   width: fit-content;
-   height:40px;
-   font-size: 2rem;
-   z-index: 1;
    cursor: pointer;
    color: white;
+   width: 6vmin;
+   height: auto;
+
 }
 
 .footer-top-scroll:hover {
    color: #f37a37;
+}
+
+.pointer-container {
+   position: absolute;
+   bottom: 1.6rem;
+   right: 1.7rem;
 }

@@ -1,11 +1,17 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import MainCarousel from '../components/carousel/MainCarousel';
+import ContactComponent from '../components/contact-component/ContactComponent';
+import mainCarouselImages from '../components/carousel/MainCarouselImages';
+
 
 const Library = () => {
   return (
-    <Container fluid className='page-section'>
-      <div>Library</div>
-    </Container>
+    <>
+      <div className='page'>
+        <MainCarousel images={mainCarouselImages} />
+      </div>
+      <ContactComponent feedbackType='library' />
+    </>
   );
 };
 
