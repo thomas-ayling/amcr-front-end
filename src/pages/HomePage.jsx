@@ -15,11 +15,8 @@ const HomePage = () => {
       </div>
 
       <div>
-        <h1>We are Global Logic!</h1>
-        <h2>
-          A digital product engineering company. We integrate experience design and complex engineering to help our clients imagine what's possible and accelerate their transition
-          into tomorrow's digital businesses.
-        </h2>
+        <h1 className='homepage_text'>We are Global Logic!</h1>
+        <h2 className='homepage_text_info'>A digital product engineering company. We integrate experience design and complex engineering to help our clients imagine what's possible and accelerate their transition into tomorrow's digital businesses.</h2>
       </div>
       <div>
         <iframe

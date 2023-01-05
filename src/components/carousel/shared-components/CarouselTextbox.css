@@ -12,19 +12,20 @@
     transition: 0.6s ease-in-out;
   }
 
-  .card_title {
-    color: rgb(243, 122, 055);
-    font-size: 30px;
-    position: absolute;
-    top: 0px;
-    left: 22px;
-  }
+
   
   .card_title2 {
-    font-size: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  .card_overview {
+    font-size: 1.4rem;
   }
   
-  
+  .card_number {
+    font-size: 1rem;
+  }
 
   
   .link_text {
@@ -74,16 +75,17 @@
       padding: 20px 12px;
     
     }
-
     .carousel_card_textbox2 {
      
-      width: 70%;
+      width: 60%;
+      max-width: 50%;
      
       max-height: fit-content;
-      top: 20rem;
-      left: 0%;
+      bottom: 3rem;
+     
    
     }
+
   
 
   
@@ -110,13 +112,29 @@
   }
   
   
-  @media screen and (max-width: 341px) {
+  @media screen and (max-width: 370px) {
+    .carousel_card_textbox2 {
+     
+      width:  40%;
+     
+      max-height: fit-content;
+      bottom: 6rem;
+     
+   
+    }
+  
+  }
+
+  @media screen and (max-width: 556px) {
+ 
+    
+
     .carousel_card_textbox2 {
      
       width: 70%;
      
       max-height: fit-content;
-      top: 10rem;
+      bottom: 3rem;
       left: 0%;
    
     }

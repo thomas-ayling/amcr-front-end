@@ -50,10 +50,11 @@ const MainCarousel = ({ images }) => {
     const distance = touchStart - touchEnd;
 
     const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
 
     if (isLeftSwipe) {
       slideLeft();
-    } else {
+    } else if (isRightSwipe){
       slideRight();
     }
   };

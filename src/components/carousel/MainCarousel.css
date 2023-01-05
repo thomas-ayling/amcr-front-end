@@ -47,17 +47,7 @@
   overflow: hidden;
 }
 
-.carousel_card_textbox {
-  position: absolute;
 
-  overflow: hidden;
-  top:60%;
-  opacity: 0;
-  left: 0%;
-  pointer-events: none;
-  transform: translate(-350px, 0);
-  transition: 0.6s ease-in-out;
-}
 .carousel_card-active {
   opacity: 1;
   transform: scale(1);
@@ -115,8 +105,8 @@
   transform: translate(-50%, 0);
 }
 .pagination_dot {
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
   background-color: #bcbec0;
   border-radius: 50%;
   display: inline-block;
@@ -154,27 +144,23 @@
   z-index: 0;
 }
 
-.carousel_card_textbox2 {
-  display: flex;
-  flex: 1;
-  position: absolute;
-  width: 30%;
-  background-color: #414042e6;
-  height: auto;
-  overflow: hidden;
-  bottom: 015%;
-  opacity: 0;
-
-  pointer-events: none;
-  transform: translate(-350px, 0);
-  transition: 0.5s ease-in-out;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
- 
+.homepage_text {
+  padding-top: 1vh !important;
+  padding-bottom: 2vh !important;
   
-
+  z-index: 0 !important;
+  font-size: 7vw;
 }
+
+.homepage_text_info {
+  padding-top: 1vh !important;
+  padding-bottom: 5vh !important;
+  
+  z-index: 0 !important;
+  font-size: 4vw;
+}
+
+
 
 .carousel_card_textbox-active {
   opacity: 1;
@@ -185,7 +171,7 @@
 
 
 @media screen and (max-width: 992px) {
-  /* .carousel_wrapper_second {
+  .carousel_wrapper_second {
     background-color: rgba(188, 190, 192, 0);
     
     width: 70%;
@@ -195,27 +181,14 @@
     top: 60%;
     left: 01%;
     transition: 0.4s ease-in-out;
-  } */
-  .card_text {
-    color: #e6e7e8;
-  
-    max-height: 35%;
-    padding: 20px 12px;
-  
   }
+ 
   .carousel_pagination {
     position: absolute;
     transition: 0.4s ease-in-out;
+    display:none
   }
-  .carousel_card_textbox2 {
-   
-    width: 70%;
-   
-    max-height: fit-content;
-    top: 20rem;
-    left: 0%;
- 
-  }
+
 
   .page {
 
@@ -224,38 +197,47 @@
     padding-top: 187px !important;
   }
 
-
-}
-
-@media screen and (min-width: 992px) {
-
-
-  .card_text {
-    color: #e6e7e8;
+  .homepage_text {
+    padding-top: 8vh !important;
+    padding-bottom: 1vh !important;
     
-    position: auto;
-  
-    left: 2rem;
-    width: auto;
-    height: auto;
-    max-height: 45%;
-    max-width: fit-content;
-    padding: 20px 12px;
+    z-index: 0 !important;
+    font-size: 7vw;
+  }
+
+  .homepage_text_info {
+    padding-top: 0vh !important;
+    padding-bottom: 5vh !important;
+    
+    z-index: 0 !important;
+    font-size: 5vw;
   }
 
 
 }
 
 
-@media screen and (max-width: 341px) {
-  .carousel_card_textbox2 {
-   
-    width: 70%;
-   
-    max-height: fit-content;
-    top: 10rem;
-    left: 0%;
+
+@media screen and (max-width: 556px) {
  
+    
+
+  .homepage_text {
+    padding-top: 8vh !important;
+    padding-bottom: 1vh !important;
+    
+    z-index: 0 !important;
+    font-size: 7vw;
+  }
+
+  .homepage_text_info {
+    padding-top: 0vh !important;
+    padding-bottom: 5vh !important;
+    
+    z-index: 0 !important;
+    font-size: 4vw;
   }
 
 }
+
+
