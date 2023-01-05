@@ -9,7 +9,7 @@ const CaseStudies = () => {
     <>
     <div >
     <div className='page' ><CaseStudiesHeaderCarousel images={CaseStudyHeaderCarouselImages} /></div>;
-      
+
       <div><ContactComponent feedbackType='case-study' />;</div>
       </div>
     </>

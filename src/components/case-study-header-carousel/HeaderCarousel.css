@@ -6,14 +6,32 @@
     right: 0rem;
     position: absolute;
     display: block;
-    padding-top: 3%;
+    padding-top: 4%;
   }
+
+  @media only screen and (max-width: 600px) {
+    .cs-header-carousel-container { padding-top: 23%;}
+  } 
+
+  @media only screen and (min-width: 600px) { .cs-header-carousel-container { padding-top: 10%;}} 
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) { .cs-header-carousel-container { padding-top: 10%;}} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) { .cs-header-carousel-container { padding-top: 7%;}} 
+
+/* @media only screen and (min-width: 1000px) and (min-height:1200) { .cs-header-carousel-container { padding-top: 7%;}}  */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) { .cs-header-carousel-container { padding-top: 4%;}}
 .cs-header-carousel {
     display: inline-block;
     height: 100%;
     width: 100%;
     position: relative;
-    /* padding: 10%; */
+   
+  
   }
 
   .cs-header-carousel-background:hover {
@@ -26,6 +44,7 @@
     position: auto;
     width: auto;
     height: auto;
+   
   }
   .cs-header-carousel_card {
     display: flex;
@@ -39,9 +58,9 @@
     pointer-events: none;
     transform: translate(-350px, 0);
     transition: 0.5s ease-in-out;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    /* -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); */
   }
   .cs-header-carousel_card:hover {
     display: flex;
@@ -52,17 +71,8 @@
     overflow: hidden;
   }
   
-  .cs-header-carousel_card_textbox {
-    position: absolute;
   
-    overflow: hidden;
-    top:60%;
-    opacity: 0;
-    left: 0%;
-    pointer-events: none;
-    transform: translate(-350px, 0);
-    transition: 0.6s ease-in-out;
-  }
+  
   .cs-header-carousel_card-active {
     opacity: 1;
     transform: scale(1);
@@ -100,7 +110,7 @@
     align-items: flex-end;
     transition: 0.6s ease-in-out;
   }
-  .cs-header-carousel-card_title {
+  /* .cs-header-carousel-card_title {
     color: rgb(243, 122, 055);
     font-size: 30px;
     position: absolute;
@@ -110,7 +120,7 @@
   
   .cs-header-carousel-card_title2 {
     font-size: 1rem;
-  }
+  } */
   
   
   .cs-header-carousel_pagination {
@@ -140,11 +150,11 @@
     border-radius: 40%;
   }
   
-  .cs-header-carousel-link_text {
+  /* .cs-header-carousel-link_text {
     align-items: flex-end;
     color: rgb(83, 189, 190);
     text-decoration-line: underline;
-  }
+  } */
   
   .page {
     padding-top: 100px !important;
@@ -157,7 +167,7 @@
     z-index: 0;
   }
   
-  .cs-header-carousel_card_textbox2 {
+  /* .cs-header-carousel_card_textbox2 {
     display: flex;
     flex: 1;
     position: absolute;
@@ -177,13 +187,13 @@
    
     
   
-  }
+  } */
   
-  .cs-header-carousel_card_textbox-active {
+  /* .cs-header-carousel_card_textbox-active {
     opacity: 1;
     transform: scale(1);
     pointer-events: visible;
-  }
+  } */
   
   
   
@@ -198,14 +208,14 @@
       top: 60%;
       left: 01%;
       transition: 0.4s ease-in-out;
-    } */
+    }
     .cs-header-carousel-card_text {
       color: rgba(255, 255, 255, 1);
     
       max-height: 35%;
     
     
-    }
+    } */
     .cs-header-carousel_pagination {
       position: absolute;
       transition: 0.4s ease-in-out;
@@ -223,7 +233,7 @@
   
   }
   
-  @media screen and (min-width: 992px) {
+  /* @media screen and (min-width: 992px) {
   
   
     .cs-header-carousel_text {
@@ -240,7 +250,7 @@
     }
   
   
-  }
+  } */
   
   
 
@@ -251,20 +261,26 @@
     color: white;
     width: 100%;
     height: auto;
-    position: fixed;
     top:42.5%;
     z-index: 1;
     font-size: 6vmin;
     text-shadow: #121212 1px 0 5px;
+    position: absolute;
+    
 }
 
-.cs-header-carousel-card_title2 {
+.cs-header-carousel_title:hover{
+  color:rgb(241, 158, 5);
+
+}
+
+/* .cs-header-carousel-card_title2 {
   opacity: 0;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
   color: #fff;
-}
+} */
 
-.cs-header-carousel_card:hover .cs-header-carousel-card_title2{
+/* .cs-header-carousel_card:hover .cs-header-carousel-card_title2{
   opacity: 1;
-}
+} */

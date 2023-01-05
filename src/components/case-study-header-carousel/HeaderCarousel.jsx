@@ -2,8 +2,7 @@
 import '../case-study-header-carousel/HeaderCarousel.css';
 
 import { useEffect, useState } from 'react';
-import ImageLink from './ImageComponent';
-import CarouselTextbox from '../carousel/shared-components/CarouselTextbox';
+
 
 function CaseStudiesHeaderCarousel({ images }) {
   const [current, setCurrent] = useState(0);
@@ -12,7 +11,7 @@ function CaseStudiesHeaderCarousel({ images }) {
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 100; //distance on when a user swipes
 
-  const currentUrl = images.link;
+  
   const slideRight = () => {
     setCurrent(current === images.length - 1 ? 0 : current + 1);
   };
@@ -84,15 +83,12 @@ function CaseStudiesHeaderCarousel({ images }) {
               
               <div key={index} className={index === current ? 'cs-header-carousel_card cs-header-carousel_card-active' : 'cs-header-carousel_card'}>
                 <h1 className='cs-header-carousel-card_image:hover'></h1>
-                <a href={currentUrl} >
-                  <img className='cs-header-carousel_image' src={image.image} alt=''/></a>
+                
+                  <img className='cs-header-carousel_image' src={image.image} alt=''/>
                   
-                  <a href={image.page} >
+                  <a href={image.page} className='cs-header-carousel_title'>
                   <h1>{image.title}</h1>
                   </a>
-                  
-                  
-                  {/* <ImageLink current={current} currentUrl={currentUrl} dataArray={CaseStudyHeaderCarouselImages}/> */}
                 <div className='cs-header-carousel_overlay' ></div>
                 <div className='cs-header-carousel_pagination'>
                   {images.map((_, index) => {
