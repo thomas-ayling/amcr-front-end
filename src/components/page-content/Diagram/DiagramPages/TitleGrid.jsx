@@ -3,18 +3,18 @@ import TitleRowTwo from './TitleRowTwo';
 import TitleRowThree from './TitleRowThree';
 import Empty from './Empty';
 
-const TitleGrid = (props) => {
+const TitleGrid = ({ totalNum, currentNode, title, body }) => {
   const gridStyle = {
-    gridTemplateRows: props.totalNum < 4 ? '200px 0px 0px' : props.totalNum < 7 ? '200px 200px 0px' : '200px 200px 200px',
-    marginTop: props.totalNum < 4 ? '-240px' : props.totalNum < 7 ? '-440px' : '-640px'
+    gridTemplateRows: totalNum < 4 ? '200px 0px 0px' : totalNum < 7 ? '200px 200px 0px' : '200px 200px 200px',
+    marginTop: totalNum < 4 ? '-240px' : totalNum < 7 ? '-440px' : '-640px'
   };
 
   return (
     <div className='diagram-grid-component'>
       <div className='diagram-title-grid' style={gridStyle}>
-        <TitleRowOne title={props.title} body={props.body} currentNode={props.currentNode} />
-        {props.totalNum > 3 ? <TitleRowTwo totalNum={props.totalNum} title={props.title} body={props.body} currentNode={props.currentNode} /> : <Empty />}
-        {props.totalNum > 6 ? <TitleRowThree totalNum={props.totalNum} title={props.title} body={props.body} currentNode={props.currentNode} /> : <Empty />}
+        <TitleRowOne title={title} body={body} currentNode={currentNode} />
+        {totalNum > 3 ? <TitleRowTwo totalNum={totalNum} title={title} body={body} currentNode={currentNode} /> : <Empty />}
+        {totalNum > 6 ? <TitleRowThree totalNum={totalNum} title={title} body={body} currentNode={currentNode} /> : <Empty />}
       </div>
     </div>
   );
