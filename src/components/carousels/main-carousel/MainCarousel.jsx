@@ -1,22 +1,23 @@
-import "../carousel/MainCarousel.css";
-import { useEffect, useState } from "react";
-import CarouselCards from "./shared-components/CarouselCards";
-import CarouselTextbox from "./shared-components/CarouselTextbox";
+import './MainCarousel.css';
+import { useEffect, useState } from 'react';
+import CarouselCards from '../shared-carousel-components/CarouselCards';
+import CarouselTextbox from '../shared-carousel-components/CarouselTextbox';
 
 //main functionality for the carasousel and touch controls
 
-const MainCarousel = ({ images }) => {
+const MainCarousel = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 100; //distance on when a user swipes
+
   const slideRight = () => {
-    setCurrent(current === images.length - 1 ? 0 : current + 1);
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
   };
 
   const slideLeft = () => {
-    setCurrent(current === 0 ? images.length - 1 : current - 1);
+    setCurrent(current === 0 ? slides.length - 1 : current - 1);
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
   useEffect(() => {
@@ -30,18 +31,16 @@ const MainCarousel = ({ images }) => {
 
   let timeOut = null;
 
-  const paginationDots = images.map((img, index) => (
-    <div className={index === current ? "pagination_dot pagination_dot-active" : "pagination_dot"} onClick={() => setCurrent(index)}></div>
-  ));
-
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
     setAutoPlay(false); //clears timer/autoplay when user touches the carousel
   };
+
   const onTouchMove = (e) => {
     setTouchEnd(e.targetTouches[0].clientX);
   };
+
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd)
       //makes sure only swipes are registered
@@ -51,11 +50,7 @@ const MainCarousel = ({ images }) => {
 
     const isLeftSwipe = distance > minSwipeDistance;
 
-    if (isLeftSwipe) {
-      slideLeft();
-    } else {
-      slideRight();
-    }
+    isLeftSwipe ? slideLeft() : slideRight();
   };
 
   const handleMouseEnter = () => {
@@ -64,21 +59,20 @@ const MainCarousel = ({ images }) => {
   };
 
   return (
-    <div className='carousel-background'>
-      <div
-        className='carousel'
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={() => setAutoPlay(true)}
-      >
-        <div className='carousel_wrapper'>
-          <CarouselCards images={images} current={current} paginationDots={paginationDots} />
+    <div className='carousel-container'>
+      {/* <div className='carousel-background'> */}
+      <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
+        {/* <div className='carousel-wrapper'> */}
+        <div className='slide-wrapper'>
+          <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
+          {/* </div> */}
         </div>
-        <div className='carousel_wrapper_second'>
-          <CarouselTextbox images={images} current={current} />
+        <div className='textbox-wrapper'>
+          {/* <div className='carousel-wrapper-second'> */}
+          <CarouselTextbox slides={slides} current={current} />
+          {/* </div> */}
         </div>
+        {/* </div> */}
       </div>
     </div>
   );

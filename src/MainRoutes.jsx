@@ -7,6 +7,7 @@ import CaseStudies from './pages/CaseStudies';
 import Library from './pages/Library';
 import Configuration from './pages/ConfigurationPage';
 import AdminPanel from './pages/AdminPanel';
+import { CaseStudySingle } from './pages/case-study-single/CaseStudySingle';
 
 const MainRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const MainRoutes = () => {
       <Route exact path='/library' element={<Library />} />
       <Route exact path='/config' element={<Configuration />} />
       <Route exact path='/admin-panel' element={<AdminPanel />} />
+      <Route exact path='/case-studies/:id' element={<CaseStudySingle />} />
     </Routes>
   );
 };

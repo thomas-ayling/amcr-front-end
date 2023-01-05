@@ -1,7 +1,7 @@
-import Integrity from '../../resources/behaviour-carousel-images/Integrity.avif';
-import Openness from '../../resources/behaviour-carousel-images/Openness.jpg';
-import Teamwork from '../../resources/behaviour-carousel-images/Teamwork.jpg';
-import Innovation from '../../resources/behaviour-carousel-images/Innovation.avif';
+import IntegrityImage from '../assets/images/behaviour-carousel/Integrity.avif';
+import OpennessImage from '../assets/images/behaviour-carousel/Openness.jpg';
+import TeamworkImage from '../assets/images/behaviour-carousel/Teamwork.jpg';
+import InnovationImage from '../assets/images/behaviour-carousel/Innovation.avif';
 
 const IntegrityDescription = [
   '\u2022 We do what we say we will do',
@@ -67,31 +67,31 @@ const InnovationDescription = [
   '\u2022 Experimentation',
 ];
 
-const behaviourImages = [
+const behaviourSlides = [
   {
-    image: Integrity,
+    image: IntegrityImage,
     title: 'Integrity',
     overview: 'We have values at GlobalLogic that we all uphold on our day-to-day routine.',
     description: IntegrityDescription,
   },
   {
-    image: Openness,
+    image: OpennessImage,
     title: 'Openness',
     overview: 'In the UK&I Engineering Center, we need to define the behaviours that embody the GlobalLogic values.',
     description: OpennessDescription,
   },
   {
-    image: Teamwork,
+    image: TeamworkImage,
     title: 'Teamwork',
     overview: 'How we demonstrate these values in our day-to-day work and interactions, with customers and each other.',
     description: TeamworkDescription,
   },
   {
-    image: Innovation,
+    image: InnovationImage,
     title: 'Innovation',
     overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
     description: InnovationDescription,
   },
 ];
 
-export default behaviourImages;
+export default behaviourSlides;

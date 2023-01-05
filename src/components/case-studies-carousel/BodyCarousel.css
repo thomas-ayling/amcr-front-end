@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --gl-light-orange: #ee9f41;
   --gl-orange: #f37037;
   --gl-dark-orange: #d45e2b;
@@ -112,9 +112,9 @@
   overflow-x: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  background: rgb(188, 190, 192);
+  background: rgb(188, 190, 192); */
   /* -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */
-}
+/* }
 
 .case-study-description::-webkit-scrollbar {
   display: none;
@@ -348,4 +348,4 @@
     padding-top: 15px;
     padding-bottom: 15px;
   }
-}
+} */
