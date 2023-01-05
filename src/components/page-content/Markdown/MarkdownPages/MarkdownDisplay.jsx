@@ -5,7 +5,7 @@ import remarkPlantUml from '@akebifiky/remark-simple-plantuml';
 const MarkdownDisplay = ({content, markdownStyles}) => {
   return (
     <div className='markdown-display'>
-      <ReactMarkdown className='react--markdown' children={content} style={markdownStyles} remarkPlugins={[remarkGfm, remarkPlantUml]} />
+      <ReactMarkdown className='react-markdown' children={content} style={markdownStyles} remarkPlugins={[remarkGfm, remarkPlantUml]} />
     </div>
   );
 };

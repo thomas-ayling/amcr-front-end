@@ -1,4 +1,4 @@
-.markdown--container {
+.markdown-container {
     display: flex;
     flex-direction: column;
     margin-top: 5vh;
@@ -58,7 +58,7 @@
     height: 32px;
 }
 
-.markdown--textbox {
+.markdown-textbox {
     width: 70%;
     height: 30vh;
     font-size: 2rem;
@@ -67,13 +67,13 @@
     margin-top: 10px;
 }
 
-.markdown--preview--title {
-    margin: auto;
-    font-size: 40px;
-    margin-top: 5vh;
+.optional-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.markdown--preview {
+.markdown-preview {
     margin: auto;
     margin-top: 2vh;
     margin-bottom: 2vh;
@@ -81,30 +81,30 @@
     border-radius: 5px;
 }
 
-.react--markdown {
-    font-size: 1.5rem;
+.markdown-preview-title {
+    margin: auto;
+    font-size: 40px;
+    margin-top: 5vh;
 }
 
-.optional--display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.submit--button {
+.markdown-submit-button {
     border-radius: 5px;
-    border: 1px solid #BCBEC0;
+    border: 1px solid var(--gl-gray);
     text-align: center;
-    background-color: #f37037;
-    color: #E6E7E8;
+    background-color: var(--gl-orange);
+    color: var(--gl-light-gray);
     box-shadow: 2px 2px 4px rgba(170, 170, 170, 0.497569);
     width: 250px;
     height: 50px;
     font-size: 25px;
 }
 
+.react-markdown {
+    font-size: 1.5rem;
+}
+
 @media (max-width: 767px) {
-    .markdown--textbox {
+    .markdown-textbox {
         width: 95%;
         height: 30vh;
         font-size: 2rem;

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import MarkdownDisplay from './MarkdownDisplay';
+import MarkdownDisplay from './MarkdownPages/MarkdownDisplay';
+import MarkdownPreviewTitle from './MarkdownPages/MarkdownPreviewTitle';
+import MarkdownButton from './MarkdownPages/MarkdownButton';
 import './Markdown.css';
 
 const baseUrl = 'http://localhost:3001';
@@ -36,7 +38,7 @@ const Markdown = () => {
     border: content !== '' ? '1px solid #f37037' : 'none',
   };
 
-  function updateContent() {
+  const updateContent = () => {
     axios
       .put(`${baseUrl}/page-content/markdown/update/${id}`, output)
       .then((res) => {
@@ -47,16 +49,18 @@ const Markdown = () => {
       });
   }
 
+  // delete this 
   const preview = (
-    <div className='markdown--preview--title'>
+    <div className='markdown-preview-title'>
       <u>Preview</u>
     </div>
   );
 
   const nameList = ['Markdown 1', 'Another Markdown Right Here', 'Case Studies Page'];
 
+ //delete this
   const button = (
-    <button className='submit--button' onClick={updateContent}>
+    <button className='submit-button' onClick={updateContent}>
       Confirm Changes
     </button>
   );
@@ -75,7 +79,7 @@ const Markdown = () => {
   }
 
   return (
-    <div className='markdown--container'>
+    <div className='markdown-container'>
       <div className='markdown-name-select-container'>
         <label className='markdown-name-select-label' htmlFor='markdownNameSelector'>
           Choose saved markdown text:
@@ -96,13 +100,13 @@ const Markdown = () => {
         <textarea className='markdown-new-name-textbox' value={newName} name='name' placeholder='Enter name here' onChange={(e) => setNewName(e.target.value)}/>
         <button className='markdown-confirm-new-name-button' onClick={confirmSave}>Confirm save</button>
       </div>
-      <textarea autoFocus className='markdown--textbox' value={content} name='content' onChange={(e) => setContent(e.target.value)} />
-      {content !== '' ? preview : null}
-      <div className='optional--display'>
-        <div style={markdownStyles} className='markdown--preview'>
+      <textarea autoFocus className='markdown-textbox' value={content} name='content' onChange={(e) => setContent(e.target.value)} />
+      {content !== '' ? <MarkdownPreviewTitle/> : null}
+      <div className='optional-display'>
+        <div style={markdownStyles} className='markdown-preview'>
           <MarkdownDisplay content={content} markdownStyles={markdownStyles} />
         </div>
-        {content !== '' ? button : null}
+        {content !== '' ? <MarkdownButton baseUrl = {baseUrl} id = {id} output = {output}/> : null}
       </div>
     </div>
   );
