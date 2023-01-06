@@ -1,0 +1,113 @@
+.carousel-container {
+  width: 100%;
+  aspect-ratio: 64/25;
+  z-index: -1 !important;
+  margin: 50px 0 50px 0;
+}
+.carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+.slide-wrapper {
+  width: 100%;
+  aspect-ratio: 64/22;
+}
+.carousel-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  bottom: 10%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(100%, 0);
+  transition: 1s ease-in-out;
+}
+.carousel-card:hover {
+  flex: 1;
+  position: absolute;
+  height: 100%;
+  overflow: hidden;  
+}
+.carousel-card-active {
+  opacity: 1;
+  /* transform: translate(-100%); */
+  transform: scale(1);
+  pointer-events: visible;
+}
+.card-image {
+  width: 100%;
+  aspect-ratio: 64/25;
+  position: auto;
+  object-fit: cover;
+}
+.card-overlay {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  padding: 40px 30px;
+  align-items: flex-end;
+}
+.card-overlay:hover {
+  position: absolute;
+  /* width: 100%; */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 40px 30px;
+  align-items: flex-end;
+  transition: 0.6s ease-in-out;
+}
+.slide-dots {
+  position: fixed;
+  bottom: 10px;
+  right: 1%;
+  transform: translate(-50%, 0);
+}
+.pagination-dot {
+  height: 15px;
+  width: 15px;
+  background-color: var(--gl-light-gray);
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+  -moz-box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 2.5px 2.5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+.pagination-dot:hover {
+  transform: scale(1.2);
+  background-color: var(--gl-dark-orange);
+}
+.pagination-dot-active {
+  background-color: var(--gl-orange);
+}
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  right: 2%;
+  height: auto;
+  position: absolute;
+  top: 42.5%;
+  z-index: 1;
+  font-size: 8vmin;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  .slide-dots {
+    display: none;
+  }
+  .page {
+    z-index: -1 !important;
+    padding-top: 187px !important;
+  }
+  .title-wrapper{
+    font-size: 5vmin;
+  }
+}
