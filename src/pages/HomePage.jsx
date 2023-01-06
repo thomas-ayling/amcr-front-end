@@ -1,16 +1,10 @@
 import React from 'react';
 import './styles/HomePage.css';
 
-import HomepageCarousel from '../components/carousels/homepage-carousel/HomepageCarousel';
-import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
-
-
 import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
-
+import BehaviourCarousel from '../components/behaviour-carousel/BehaviourCarousel';
 import MainCarouselSlides from '../service/MainCarouselMockService';
-
-// import BehaviourCarousel from '../components/carousels/behaviour-carousel/BehaviourCarousel';
-// import BehaviourCarouselSlides from '../service/BehaviourCarouselMockService';
+import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
 
 import ContactComponent from '../components/contact-component/ContactComponent';
 
@@ -26,6 +20,7 @@ const HomePage = () => {
         </div>
       </div>
       <MainCarousel slides={MainCarouselSlides} />
+      <BehaviourCarousel />
       <ContactComponent feedbackType='feedback' />
     </div>
   );
