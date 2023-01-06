@@ -18,7 +18,7 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
   const headers = { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
 
   axios
-    .post(baseUrl + '/upload', formData, {
+    .post(baseUrl + '/', formData, {
       headers: headers,
     })
     .then((res) => {
