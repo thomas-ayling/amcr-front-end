@@ -24,6 +24,25 @@
     background-color: #D45E2B;
 }
 
+.markdown-component-container {
+  border: 2px solid black;
+  /* change width and height accordingly */
+  width: 50%;
+  height: 200px;
+  /* change width and height accordingly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.markdown-component-container::-webkit-scrollbar {
+  display: none;
+}
+
 @media (max-width: 767px) {
     .pc--container {
         display: flex;

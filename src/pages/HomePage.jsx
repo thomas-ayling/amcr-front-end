@@ -13,7 +13,6 @@ const HomePage = () => {
       <div className='page'>
         <HomepageHeaderCarousel images={HomepageHeaderImages} />
       </div>
-
       <div>
         <h1>We are Global Logic!</h1>
         <h2>
