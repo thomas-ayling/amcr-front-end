@@ -280,15 +280,15 @@
   .body-carousel-arrows {
     width: 100%;
     position: absolute;
-    transform: translate(0, 200px);
+    transform: translate(0, 205px);
     display: flex;
     justify-content: space-between;
   }
 
   .body-carousel-arrow-left,
   .body-carousel-arrow-right {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius: 5px;
     border: 10px solid var(--gl-dark-orange);
   }
@@ -348,4 +348,4 @@
     padding-top: 15px;
     padding-bottom: 15px;
   }
-} */
+

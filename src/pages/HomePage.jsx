@@ -1,17 +1,11 @@
 import React from 'react';
 import './styles/HomePage.css';
-
 import HomepageCarousel from '../components/carousels/homepage-carousel/HomepageCarousel';
 import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
-
-
 import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
-
 import MainCarouselSlides from '../service/MainCarouselMockService';
-
 // import BehaviourCarousel from '../components/carousels/behaviour-carousel/BehaviourCarousel';
 // import BehaviourCarouselSlides from '../service/BehaviourCarouselMockService';
-
 import ContactComponent from '../components/contact-component/ContactComponent';
 
 const HomePage = () => {
@@ -30,6 +24,7 @@ const HomePage = () => {
       {/* <div className='b-page'>
         <BehaviourCarousel images={BehaviourCarouselSlides} />
       </div> */}
+
       <ContactComponent feedbackType='feedback' />
     </div>
   );
