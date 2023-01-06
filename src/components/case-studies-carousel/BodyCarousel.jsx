@@ -1,4 +1,4 @@
-import './BodyCarousel.css';
+// import './BodyCarousel.css';
 import bodyCarouselData from './bodyCarouselData';
 import { useState } from 'react';
 
