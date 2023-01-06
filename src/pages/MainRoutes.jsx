@@ -22,7 +22,7 @@ const MainRoutes = () => {
         <Route exact path='/library' element={<Library />} />
         <Route exact path='/config' element={<Configuration />} />
         <Route exact path='/admin-panel' element={<AdminPanel />} />
-        <Route exact path='/case-studies/:id' element={<CaseStudySingle />} />
+        <Route exact path='/case-study/:id' element={<CaseStudySingle />} />
       </Routes>
     </div>
   );

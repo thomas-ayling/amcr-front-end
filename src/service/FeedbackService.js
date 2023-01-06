@@ -18,11 +18,11 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
   const headers = { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
 
   axios
-    .post(baseUrl + '/', formData, {
+    .post(`${baseUrl}/`, formData, {
       headers: headers,
     })
-    .then((res) => {
-      if (res.status === 200) {
+    .then((response) => {
+      if (response.status === 200) {
         setSubmitStatus('success');
         setAwaitingResponse(false);
       }
