@@ -1,14 +1,8 @@
-<<<<<<<< HEAD:src/service/BehaviourCarouselMockService.js
-import IntegrityImage from '../assets/images/behaviour-carousel/Integrity.avif';
-import OpennessImage from '../assets/images/behaviour-carousel/Openness.jpg';
-import TeamworkImage from '../assets/images/behaviour-carousel/Teamwork.jpg';
-import InnovationImage from '../assets/images/behaviour-carousel/Innovation.avif';
-========
-import Integrity from '../../resources/behaviour-carousel-images/Integrity.avif';
-import Innovation from '../../resources/behaviour-carousel-images/Innovation.avif';
-import Openness from '../../resources/behaviour-carousel-images/Openness.jpg';
-import Teamwork from '../../resources/behaviour-carousel-images/Teamwork.jpg';
->>>>>>>> dev:src/components/behaviour-carousel/BehaviourImages.js
+
+import Integrity from '../assets/images/behaviour-carousel/Integrity.avif';
+import Innovation from '../assets/images/behaviour-carousel/Innovation.avif';
+import Openness from '../assets/images/behaviour-carousel/Openness.jpg';
+import Teamwork from '../assets/images/behaviour-carousel/Teamwork.jpg';
 
 const IntegrityDescription = [
   <br />,
@@ -80,39 +74,32 @@ const InnovationDescription = [
 
 const behaviourSlides = [
   {
-    image: IntegrityImage,
+    image: Integrity,
     title: 'Integrity',
     description: IntegrityDescription,
   },
   {
-<<<<<<<< HEAD:src/service/BehaviourCarouselMockService.js
-    image: OpennessImage,
-========
     image: Innovation,
     title: 'Innovation',
     description: InnovationDescription,
   },
   {
     image: Openness,
->>>>>>>> dev:src/components/behaviour-carousel/BehaviourImages.js
     title: 'Openness',
     description: OpennessDescription,
   },
   {
-    image: TeamworkImage,
+    image: Teamwork,
     title: 'Teamwork',
     description: TeamworkDescription,
-<<<<<<<< HEAD:src/service/BehaviourCarouselMockService.js
   },
-  {
-    image: InnovationImage,
-    title: 'Innovation',
-    overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
-    description: InnovationDescription,
-========
-    url: 'another-entry',
->>>>>>>> dev:src/components/behaviour-carousel/BehaviourImages.js
-  },
+  // {
+  //   image: InnovationImage,
+  //   title: 'Innovation',
+  //   overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
+  //   description: InnovationDescription,
+  //   url: 'another-entry',
+  // },
 ];
 
 export default behaviourSlides;

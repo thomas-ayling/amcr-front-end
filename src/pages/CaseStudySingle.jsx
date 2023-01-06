@@ -13,7 +13,6 @@ const CaseStudySingle = () => {
     <div className='case-study-single-page'>
       <Headline headline={data.headline} />
       <Explanation explanation={data.explanation} />
-      <button onClick={printThing}>Button</button>
       <ContactComponent feedbackType='case-study' />
     </div>
   );
