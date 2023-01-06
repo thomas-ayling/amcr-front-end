@@ -9,17 +9,6 @@ const CaseStudySingle = () => {
   const { id } = useParams();
   const data = getCaseStudyData(1);
 
-  const printThing = () => {
-    const obj = [
-      { name: 'tom', occupation: 'coder' },
-      { name: 'alex', occupation: 'coder too' },
-    ];
-    const stringyObject = JSON.stringify(obj)
-    const unstringyObject = JSON.parse(stringyObject)
-    console.dir(stringyObject);
-    console.dir(unstringyObject);
-  };
-
   return (
     <div className='case-study-single-page'>
       <Headline headline={data.headline} />
