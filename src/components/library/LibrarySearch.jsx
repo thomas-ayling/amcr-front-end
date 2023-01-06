@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import "./LibrarySearch.css";
 import dataMock from "./Books.json";
+// import { useEffect } from "react";
+// import axios from "axios";
+import {BsFillArrowDownCircleFill} from 'react-icons/bs';
+<BsFillArrowDownCircleFill className='Library-Reservation-Dropdown-Button' />
 
 const LibrarySearch = () => {
+  // const [books, setBooks] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [searchParam] = useState(["name", "author", "genre"]);
+  const [searchParam] = useState(["title", "author", "genre"]);
   const [filterParam, setFitlerParam] = useState("");
-  const [dropDownStatus] = useState(false);
+  const [readerFirstNameInput, setReaderFirstNameInput] = useState("");
+  const [readerLastNameInput, setReaderLastNameInput] = useState("");
+  const [readerEmailInput, setReaderEmailInput] = useState("");
 
   function search(items) {
+    // eslint-disable-next-line
     return items.filter((item) => {
         if (item.genre === filterParam) {
             return searchParam.some((newItem) => {
@@ -32,36 +40,52 @@ const LibrarySearch = () => {
     });
   }
 
+  // useEffect(() => {
+  //   axios.get(`https://localhost:3001/academy-project/library/get-all`)
+  //     .then((result)=> {
+  //       setBooks(result.data);
+  //     }).catch((err) => {
+  //       console.log(err.message);
+  //     })
+  // })
+
+   const ReserveWrapper = ({book}) => {
+    if(book.available===true) {
+      return (
+          <div className="Library-Reservation-Input-Container">
+            <input className="Library-Reservation-Input" type="text" name="reader-firstname-input" placeholder="First Name" value={readerFirstNameInput} onChange={(e) => setReaderFirstNameInput(e.target.value)}/>
+            <input className="Library-Reservation-Input" type="text" name="reader-lastname-input" placeholder="Last Name" value={readerLastNameInput} onChange={(e) => setReaderLastNameInput(e.target.value)}/>
+            <input className="Library-Reservation-Input" type="text" name="reader-firstname-input" placeholder="Email" value={readerEmailInput} onChange={(e) => setReaderEmailInput(e.target.value)}/>
+            <button className="Library-Reservation-Button">Reserve</button>
+          </div>
+        ); 
+    }
+      else
+        return (
+              <p>Unavailable. {book.reader} Is currently reading it.</p>
+        
+        );
+    }
+
   return (
     <div className='Library-Container'>
       <div className='Library-Wrapper'>
         <div className="Library-Genre-Select-Wrapper">
-          <div className="Library-Genre-Select-Options">
+          <nav className="Library-Genre-Select-Options">
             <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Java")}}>Java</button>
             <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Python")}}>Python</button>
             <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Devops")}}>DevOps</button>
-            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Mangement")}}>Management</button>
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Management")}}>Management</button>
             <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("Buisness")}}>Buisness</button>
-          </div>
+            <button className="Library-Genre-Selector-Button" onClick={(e) => {setFitlerParam("")}}>Reset</button>
+          </nav>
         </div>
         <div className='Library-SearchBar-Wrapper'>
           <label htmlFor='search-bar'>
-            <input
-              type="text"
-              name="search-bar"
-              className='Library-Search-Input'
-              placeholder='Search Library Here...'
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
+            <input type="text" name="search-bar" className='Library-Search-Input' placeholder='Search Library Here...' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
           </label>
-          {/* <div className='Library-Genre-Select-Dropdown'>
-            <select
-              value={filterParam}
-              onChange={(e) => {setFitlerParam(e.target.value)}}
-              className='genre-select'
-              aria-label='Filter Books by Genre'
-            >
+          <div className='Library-Genre-Select-Dropdown'>
+            <select value={filterParam} onChange={(e) => {setFitlerParam(e.target.value)}} className='genre-select' aria-label='Filter Books by Genre'>
               <option value="">Filter By Genre</option>
               <option value="Java">Java</option>
               <option value="Devops">DevOps</option>
@@ -70,63 +94,36 @@ const LibrarySearch = () => {
               <option value="Buisness">Buisness</option>
             </select>
             <span className='focus'></span>
-          </div> */}
+          </div>
         </div>
 
         <div className='Library-SearchResults-Wrapper'>
           <ul className='Library-BookList'>
             {search(dataMock).map((book) => (
-              <li className='Library-Item' key={book.name}>
+              <li className='Library-Item' key={book.title}>
                 <article className='Library-Book'>
                   <div className='Library-Book-Cover'>
-                    <img className='Library-Book-Cover-Image' src={book.cover} alt={book.name} />
+                    <img className='Library-Book-Cover-Image' src={book.cover} alt={book.title} />
                   </div>
                   <div className='Library-Book-Content'>
                     <div className='Library-Book-Data'>
                       <p className='Library-Book-Detail'>
                         <em className='Library-Orange'>Title: </em>
-                        {book.name}
+                        {book.title}
                       </p>
                       <p className='Library-Book-Detail'>
                         <em className='Library-Orange'>Author: </em>
                         {book.author}
                       </p>
-                      {/* <div className="Library-vl"></div> */}
                       <p className='Library-Book-Detail'>
                         <em className='Library-Orange'>Genre: </em>
                         {book.genre}
                       </p>
                     </div>
-                    <div className="Library-Reservation-Wrapper">{
-                    (() => {
-                        if (book.out === false)
-                            return (
-                                <div className="Library-Reader">
-                                  <p className="Library-Reserve-Available">Available. Reserve Below.</p>
-                                </div>
-                                )
-                        else
-                            return (
-                              <div className='Library-Reserve-Wrapper'>
-                                <p className='Library-Reserve-Unavailable'>Unavailable. {book.reader} is currently reading the book.</p>
-                                <div>
-                                  <div className='Library-Reservation-Wrapper'>
-                                    {() => {
-                                      if (dropDownStatus === true) return (
-                                      <div>
-                                        <button onClick={!dropDownStatus}>DropDown</button>
-                                        <p>testing dropped dropDownStatus</p>
-                                      </div>
-                                      )
-                                      else return (<button onClick={!dropDownStatus}>DropDown</button>);
-                                    }}
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                    })()
-                    }
-                </div>
+                    <div className="Library-Reservation-Wrapper">
+                      <BsFillArrowDownCircleFill className='Library-Reservation-Dropdown-Button' />
+                      <ReserveWrapper book={book}/>
+                    </div>
                   </div>
                 </article>
                 <hr className='Library-Book-Divider' />

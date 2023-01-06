@@ -32,34 +32,83 @@
     height: auto;
     display: flex;
     flex-direction: row;
+    gap: 1%;
 }
 
-.Library-Genre-Selector-Button {
-    width: 20% !important;
-    height: auto !important;
-    border-top-right-radius: 30%;
-    border-top-left-radius: 30%;
-    border-color: var(--gl-light-gray);
-    border-width: 1px;
-
-
+@media (min-width:425px) {
+    .Library-Genre-Selector-Button {
+        width: 15% !important;
+        height: auto !important;
+        /* border-top-right-radius: 30%;
+        border-top-left-radius: 30%; */
+        border-radius: 25px;
+        border-color: var(--gl-light-gray);
+        border-width: 1px;
+    
+        font-size: 0.75rem;
+    }
 }
 
-.Library-SearchBar-Wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 0% 1% 0% 1%;
+@media (max-width:425px) {
+    .Library-Genre-Selector-Button {
+        display: none;
+    }
+}
+
+.Library-Genre-Selector-Button:hover {
+    background-color: var(--gl-orange);
+    color: white;
+}
+
+@media (min-width:425px) {
+    .Library-Genre-Select-Dropdown {
+        display: none;
+    }
+}
+
+@media (max-width:425px) {
+    .Library-Genre-Select-Dropdown {
+        display: flex;
+    }
+}
+
+.genre-select {
+    margin-bottom: 4%;
+    margin-top: 4%;
+}
+
+@media (min-width:425px) {
+    .Library-SearchBar-Wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding: 0% 1% 0% 1%;
+    }
+}
+
+@media (max-width:425px) {
+    .Library-SearchBar-Wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        padding: 0% 1% 0% 1%;
+    }
 }
 
 .Library-Search-Input {
     border-radius: 10px;
-    width: 35vmin;
+    width: 45vmin;
     height: auto;
+    font-size: 1rem;
 }
 
 .Library-SearchResults-Wrapper {
@@ -81,32 +130,52 @@
 }
 
 /* Overall CSS for each Book entry from the DB */
-.Library-Book {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
+@media (min-width:425px) {
+    .Library-Book {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+@media (max-width:425px) {
+    .Library-Book {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .Library-Book-Data {
+        border-top: 1px solid var(--gl-orange);
+        border-bottom: 0px solid white;
+        padding-top:5%;
+    }
 }
 
 .Library-Book-Cover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20%;
+    width: 30%;
 }
 
 .Library-Book-Cover-Image {
-    max-width: 10vmin;
-    width: 7vmin;
-    height: auto;
+    width: auto;
+    
+    height: 10vmax;
 }
 
 .Library-Book-Content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 70%;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
 }
 
 /* CSS for row of book author, title and genre information */
@@ -115,11 +184,40 @@
     height: auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-
+    gap: 5%;
     border-bottom: 1px solid var(--gl-orange);
+}
 
-    font-size: 1rem;
+@media (min-width:1440px) {
+    .Library-Book-Data {
+        font-size: 17px;
+    }
+
+    .Library-Genre-Selector-Button {
+        font-size: 17px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1439px) {
+    .Library-Book-Data {
+        font-size: 15px;
+    }
+
+    .Library-Genre-Selector-Button {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:768px) {
+    .Library-Book-Data {
+        font-size: 13px;
+    }
+
+    .Library-Genre-Selector-Button {
+        font-size: 13px;
+    }
 }
 
 /* .Library-vl {
@@ -128,28 +226,59 @@
 } */
 
 .Library-Reservation-Wrapper {
+    /* margin-top:2%; */
     width: 100%;
-    height: fit-content;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:15px;
 }
 
-.Library-Reader {
-    
+.Library-Reservation-Input-Container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    padding: 5px;
+    background-color: var(--gl-light-gray);
+    border-radius: 5px;
+    border-color: var(--gl-light-gray);
+    border-width: 1px;
 }
 
-.Library-Reserve-Unavailable {
-    color: red !important;
+.Library-Reservation-Input-Name {
+    width:50%;
+    height: auto;
 }
 
-.Library-Reserve-Available {
-    color: green !important;
+.Library-Reservation-Input-Email {
+    width:100%;
+    height: auto;
+}
+
+.Library-Reservation-Button {
+    width:100%;
+    height: auto;
+}
+
+
+.Library-Reservation-Dropdown-Button {
+    width:2vmax;
+    height: auto;
+    color:var(--gl-orange);
+    margin: 2%;
+}
+
+.Library-Reservation-Dropdown-Button:hover {
+    color: var(--gl-dark-orange);
+    cursor: pointer;
 }
 
 .Library-Reservation-Dropdown {
     color: orange !important;
+
 }
 
 /* Font Styling CSS */
