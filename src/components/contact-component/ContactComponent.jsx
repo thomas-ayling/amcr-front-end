@@ -4,6 +4,8 @@ import { create } from '../../service/FeedbackService';
 import DescriptionBox from './description-component/DescriptionBox';
 import Inputs from './input-components/Inputs';
 
+import ErrorMessage from '../error-messages-component/ErrorMessage';
+
 const ContactComponent = ({ feedbackType }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -63,6 +65,7 @@ const ContactComponent = ({ feedbackType }) => {
           submitStatus={submitStatus}
         />
       </div>
+      <ErrorMessage/>
     </div>
   );
 };

@@ -23,7 +23,7 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
     })
     .then((res) => {
       if (res.status === 200) {
-        setSubmitStatus('success');
+        setSubmitStatus('success'); 
         setAwaitingResponse(false);
       }
     })
