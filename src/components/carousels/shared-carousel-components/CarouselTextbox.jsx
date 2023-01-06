@@ -1,7 +1,6 @@
 import React from 'react';
 import '../shared-carousel-components/CarouselTextbox.css';
 
-
 const CarouselTextbox = ({ slides, current }) => {
   return slides.map((slide, index) => (
     <div images details={index} key={index} className={index === current ? 'carousel-textbox active-carousel-textbox' : 'carousel-textbox'}>
