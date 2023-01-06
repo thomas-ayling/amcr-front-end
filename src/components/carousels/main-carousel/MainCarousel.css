@@ -83,13 +83,31 @@
 .pagination-dot-active {
   background-color: var(--gl-orange);
 }
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  width: 100%;
+  right: 2%;
+  height: auto;
+  position: absolute;
+  top: 42.5%;
+  z-index: 1;
+  font-size: 8vmin;
+}
 
-@media screen and (max-width: 1100px) {
+
+
+@media screen and (max-width: 800px) {
   .slide-dots {
     display: none;
   }
   .page {
     z-index: -1 !important;
     padding-top: 187px !important;
+  }
+  .title-wrapper{
+    font-size: 5vmin;
   }
 }

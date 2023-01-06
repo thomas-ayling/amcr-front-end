@@ -4,7 +4,9 @@ import './styles/HomePage.css';
 import HomepageCarousel from '../components/carousels/homepage-carousel/HomepageCarousel';
 import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
 
+
 import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
+
 import MainCarouselSlides from '../service/MainCarouselMockService';
 
 // import BehaviourCarousel from '../components/carousels/behaviour-carousel/BehaviourCarousel';
@@ -15,7 +17,7 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 const HomePage = () => {
   return (
     <div className='homepage-container'>
-      <MainCarousel slides={HomepageCarouselSlides} type='header' />
+      <MainCarousel type = 'header'  slides={HomepageCarouselSlides} /> 
       <div className='welcome-container-border'>
         <div className='welcome-container'>
           <h1 className='homepage-title'>We are Global Logic!</h1>

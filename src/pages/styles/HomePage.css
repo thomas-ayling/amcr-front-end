@@ -10,6 +10,14 @@
     margin-top: 3rem !important;
   }
 }
+
+.homepage-container {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center;
+  justify-content: center; */
+}
+
 .welcome-container-border {
   background-color: var(--gl-light-gray);
   padding: 1rem;
