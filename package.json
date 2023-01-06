@@ -18,6 +18,7 @@
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
     "reactjs-popup": "^2.0.5",
+    "reload": "^3.2.0",
     "remark-gfm": "^3.0.1",
     "serve": "^14.1.2",
     "styled-components": "^5.3.6",
@@ -32,8 +33,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
