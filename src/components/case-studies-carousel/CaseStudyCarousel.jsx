@@ -1,5 +1,5 @@
-import './BodyCarousel.css';
-import bodyCarouselData from './bodyCarouselData';
+import './CaseStudyCarousel.css';
+import bodyCarouselData from '../../service/CaseStudyCarouselMockService';
 import { useState } from 'react';
 
 import ImageSlider from './sub-components/ImageSlider';
@@ -7,11 +7,11 @@ import TitleSlider from './sub-components/TitleSlider';
 import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
 
-const BodyCarousel = () => {
+const CaseStudyCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const currentUrl = `case-studies/${bodyCarouselData[current].url}`;
+  const currentUrl = `case-studies/${bodyCarouselData[current].id}`;
   const length = bodyCarouselData.length;
 
   const resizeObserver = new ResizeObserver((entries) => {
@@ -58,4 +58,4 @@ const BodyCarousel = () => {
   );
 };
 
-export default BodyCarousel;
+export default CaseStudyCarousel;

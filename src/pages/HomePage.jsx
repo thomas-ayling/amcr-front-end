@@ -15,7 +15,7 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 const HomePage = () => {
   return (
     <div className='homepage-container'>
-      {/* <HomepageCarousel slides={HomepageCarouselSlides} /> */}
+      <MainCarousel slides={HomepageCarouselSlides} type='header' />
       <div className='welcome-container-border'>
         <div className='welcome-container'>
           <h1 className='homepage-title'>We are Global Logic!</h1>
@@ -24,9 +24,6 @@ const HomePage = () => {
         </div>
       </div>
       <MainCarousel slides={MainCarouselSlides} />
-      {/* <div className='b-page'>
-        <BehaviourCarousel images={BehaviourCarouselSlides} />
-      </div> */}
       <ContactComponent feedbackType='feedback' />
     </div>
   );
