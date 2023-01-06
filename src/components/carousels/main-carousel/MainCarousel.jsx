@@ -1,11 +1,12 @@
-import './MainCarousel.css';
-import { useEffect, useState } from 'react';
-import CarouselCards from '../shared-carousel-components/CarouselCards';
-import CarouselTextbox from '../shared-carousel-components/CarouselTextbox';
+import "./MainCarousel.css";
+import { useEffect, useState } from "react";
+import CarouselCards from "../shared-carousel-components/CarouselCards";
+import CarouselTextbox from "../shared-carousel-components/CarouselTextbox";
+import CarouselTitles from "../shared-carousel-components/CarouselTitles";
 
 //main functionality for the carasousel and touch controls
 
-const MainCarousel = ({ slides }) => {
+const MainCarousel = ({ slides, type }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
@@ -47,10 +48,16 @@ const MainCarousel = ({ slides }) => {
       return;
 
     const distance = touchStart - touchEnd;
-
     const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
 
-    isLeftSwipe ? slideLeft() : slideRight();
+    if (isLeftSwipe) {
+      slideLeft();
+    } 
+    
+    if (isRightSwipe) {
+      slideRight();
+    }
   };
 
   const handleMouseEnter = () => {
@@ -61,20 +68,39 @@ const MainCarousel = ({ slides }) => {
   return (
     <div className='carousel-container'>
       {/* <div className='carousel-background'> */}
-      <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
+      <div
+        className='carousel-inner'
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={() => setAutoPlay(true)}
+      >
         {/* <div className='carousel-wrapper'> */}
         <div className='slide-wrapper'>
           <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
           {/* </div> */}
         </div>
-        <div className='textbox-wrapper'>
+        
+          {type === "header" ? (
+            <div className='title-wrapper'>
+              {/* <p>GlobalLogic UK&I</p> */}
+              <CarouselTitles slides={slides} current={current} />
+            </div>
+          ) : (
+            <div className='textbox-wrapper'>
+            <CarouselTextbox slides={slides} current={current} />
+            </div>
+          )}
+
           {/* <div className='carousel-wrapper-second'> */}
-          <CarouselTextbox slides={slides} current={current} />
+
           {/* </div> */}
-        </div>
+       
         {/* </div> */}
+        </div>
       </div>
-    </div>
+    
   );
 };
 

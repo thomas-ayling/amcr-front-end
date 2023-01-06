@@ -12,10 +12,9 @@
 }
 
 .homepage-container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center;
-  justify-content: center; */
+  min-height: 95vh;
+  z-index: -1 !important;
+  padding-top: 80px !important;
 }
 
 .welcome-container-border {

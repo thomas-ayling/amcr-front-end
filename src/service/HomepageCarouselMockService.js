@@ -6,27 +6,26 @@ import Image4 from '../assets/images/homepage-carousel/Image4.png'
 const HomepageCarouselSlides = [
     {
         image: Image1,
-        title: "HomepageHeaderImageOne",
-        target: "https://www.google.co.uk/",
-        overview: "First image in the header carousel",
+        title: "Global Logic UK&I",
+      
     },
     {
         image: Image2,
-        title: "HomepageHeaderImageTwo",
-        target: "https://www.google.co.uk/",
-        overview: "Second image in the header carousel",
+        title: "Global Logic UK&I",
+
+   
     },
     {
         image: Image3,
-        title: "HomepageHeaderImageThree",
-        target: "https://www.google.co.uk/",
-        overview: "Third image in the header carousel",
+        title: "Global Logic UK&I",
+
+
     },
     {
         image: Image4,
-        title: "HomepageHeaderImageFour",
-        target: "https://www.google.co.uk/",
-        overview: "Fourth image in the header carousel",
+        title: "Global Logic UK&I",
+
+
     },
 
 ]
