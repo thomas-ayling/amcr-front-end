@@ -1,5 +1,5 @@
 import React from 'react';
-import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
+import MainCarousel from '../components/main-carousel/MainCarousel';
 import MainCarouselSlides from '../service/MainCarouselMockService';
 import ContactComponent from '../components/contact-component/ContactComponent';
 

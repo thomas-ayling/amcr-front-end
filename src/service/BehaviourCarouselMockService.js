@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import IntegrityImage from '../assets/images/behaviour-carousel/Integrity.avif';
 import OpennessImage from '../assets/images/behaviour-carousel/Openness.jpg';
 import TeamworkImage from '../assets/images/behaviour-carousel/Teamwork.jpg';
 import InnovationImage from '../assets/images/behaviour-carousel/Innovation.avif';
+=======
+
+import Integrity from '../assets/images/behaviour-carousel/Integrity.avif';
+import Innovation from '../assets/images/behaviour-carousel/Innovation.avif';
+import Openness from '../assets/images/behaviour-carousel/Openness.jpg';
+import Teamwork from '../assets/images/behaviour-carousel/Teamwork.jpg';
+>>>>>>> dev
 
 const IntegrityDescription = [
   '\u2022 We do what we say we will do',
@@ -69,29 +77,48 @@ const InnovationDescription = [
 
 const behaviourSlides = [
   {
-    image: IntegrityImage,
+    image: Integrity,
     title: 'Integrity',
     overview: 'We have values at GlobalLogic that we all uphold on our day-to-day routine.',
     description: IntegrityDescription,
   },
   {
+<<<<<<< HEAD
     image: OpennessImage,
+=======
+    image: Innovation,
+    title: 'Innovation',
+    description: InnovationDescription,
+  },
+  {
+    image: Openness,
+>>>>>>> dev
     title: 'Openness',
     overview: 'In the UK&I Engineering Center, we need to define the behaviours that embody the GlobalLogic values.',
     description: OpennessDescription,
   },
   {
-    image: TeamworkImage,
+    image: Teamwork,
     title: 'Teamwork',
     overview: 'How we demonstrate these values in our day-to-day work and interactions, with customers and each other.',
     description: TeamworkDescription,
+<<<<<<< HEAD
   },
   {
     image: InnovationImage,
     title: 'Innovation',
     overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
     description: InnovationDescription,
+=======
+>>>>>>> dev
   },
+  // {
+  //   image: InnovationImage,
+  //   title: 'Innovation',
+  //   overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
+  //   description: InnovationDescription,
+  //   url: 'another-entry',
+  // },
 ];
 
 export default behaviourSlides;
