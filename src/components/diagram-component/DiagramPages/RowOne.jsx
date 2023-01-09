@@ -1,7 +1,7 @@
 import '../Diagram.css';
 import Popover from './Popover';
 
-const RowOne = (props) => {
+const RowOne = ({ title, body, currentNode, currentTitle, currentBody }) => {
 
   const arrowLR = (
     <>
@@ -13,11 +13,11 @@ const RowOne = (props) => {
   return (
     <div className='diagram-grid-item diagram-grid-row'>
       <div className='diagram-row-component'>
-        <Popover title={props.title} body={props.body} currentNode = {props.currentNode} id={1}/>
+        <Popover title={title} body={body} currentNode = {currentNode} id={1}/>
         {arrowLR}
-        <Popover title={props.title} body={props.body} currentNode = {props.currentNode} currentTitle={props.currentTitle} currentBody={props.currentBody} id={2}/>
+        <Popover title={title} body={body} currentNode = {currentNode} currentTitle={currentTitle} currentBody={currentBody} id={2}/>
         {arrowLR}
-        <Popover title={props.title} body={props.body} currentNode = {props.currentNode} currentTitle={props.currentTitle} currentBody={props.currentBody} id={3}/>
+        <Popover title={title} body={body} currentNode = {currentNode} currentTitle={currentTitle} currentBody={currentBody} id={3}/>
       </div>
     </div>
   );

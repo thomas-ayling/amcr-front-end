@@ -1,10 +1,9 @@
-const Titles = (props) => {
-  console.log(props.id);
+const Titles = ({ title, id }) => {
   return (
-    <h5 className='diagram-title-grid-title'>
-      <u>{props.title[props.id]}</u>
+    <h5 className='diagram-title-individual-title'>
+      <u>{title[id]}</u>
     </h5>
   );
-}
+};
 
 export default Titles;

@@ -1,13 +1,13 @@
-import Grid from "./Grid";
-import TitleGrid from "./TitleGrid";
+import Grid from './Grid';
+import TitleGrid from './TitleGrid';
 
-const GridDisplay = (props) => {
-    return (
-    <div className="diagram-display-grid">
-    <Grid totalNum={props.totalNum} currentNode={props.currentNode} title={props.title} body={props.body}/>
-    <TitleGrid totalNum={props.totalNum} currentNode={props.currentNode} title={props.title} body={props.body}/>
+const GridDisplay = ({ totalNum, currentNode, title, body }) => {
+  return (
+    <div>
+      <Grid totalNum={totalNum} currentNode={currentNode} title={title} body={body} />
+      <TitleGrid totalNum={totalNum} currentNode={currentNode} title={title} body={body} />
     </div>
-    )
-}
+  );
+};
 
 export default GridDisplay;
