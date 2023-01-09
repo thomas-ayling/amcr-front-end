@@ -53,9 +53,7 @@ const MainCarousel = ({ slides, type }) => {
 
     if (isLeftSwipe) {
       slideLeft();
-    } 
-    
-    if (isRightSwipe) {
+    } else if (isRightSwipe) {
       slideRight();
     }
   };
@@ -87,7 +85,8 @@ const MainCarousel = ({ slides, type }) => {
               {/* <p>GlobalLogic UK&I</p> */}
               <CarouselTitles slides={slides} current={current} />
             </div>
-          ) : (
+          ) :
+           (
             <div className='textbox-wrapper'>
             <CarouselTextbox slides={slides} current={current} />
             </div>
