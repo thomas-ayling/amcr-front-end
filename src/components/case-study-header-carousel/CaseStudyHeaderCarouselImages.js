@@ -4,7 +4,7 @@ import Slide3 from '../../resources/case-studies-header-carousel-images/sidekix-
 
 
 const CaseStudyHeaderCarouselImages =[
-    {   
+    {   id: 1,
         image: Slide1,
         title: "K-dawg",
         page: "case-study-1",
@@ -12,6 +12,7 @@ const CaseStudyHeaderCarouselImages =[
         overview: "Bitcoin is the future" , 
     },
     {   
+        id: 2,
         image: Slide2,
         title: "Ruby Rubester",
         page: "case-study-2",
@@ -20,6 +21,7 @@ const CaseStudyHeaderCarouselImages =[
        
     },
     {   
+        id: 3,
         image: Slide3,
         title: "EDDY Edmeade",
         page: "case-study-3",
