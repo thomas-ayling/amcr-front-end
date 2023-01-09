@@ -55,7 +55,7 @@ export default function Grid(props) {
   }, [props.title, props.body]);
 
   useEffect(() => {
-    console.dir(output);
+    // console.dir(output);
     setOutput((prevOutput) => ({
       ...prevOutput,
       [props.currentNode]: {

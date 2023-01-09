@@ -1,6 +1,6 @@
 import './BehaviourCarousel.css';
-import BehaviourImages from './BehaviourImages';
-import { useState, useEffect } from 'react';
+import BehaviourImages from '../../service/BehaviourCarouselMockService';
+import { useState } from 'react';
 import BehaviourCarouselDescription from './behaviour-carousel-components/BehaviourCarouselDescription';
 
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
