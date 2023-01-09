@@ -1,0 +1,346 @@
+.diagram-grid-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 200px 400px 200px;
+    grid-template-rows: 200px 200px 200px;
+}
+
+.diagram-title-grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 495px;
+    grid-template-rows: 200px 200px 200px;
+    margin-top: -230px;
+}
+
+.diagram-grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.diagram-grid-row {
+    justify-self: start;
+}
+
+.diagram-title-row, .diagram-title-row-reverse {
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+}
+
+.diagram-title-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.diagram-grid-row-reverse {
+    justify-self: end;
+}
+
+.diagram-grid-lr-arrow-top {
+    height:100px;
+    width:100px;
+    border:3px solid black;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-radius: 0px 90px 0px 0px;
+    align-self: end;
+    justify-self: start;
+}
+
+.diagram-grid-lr-arrow-bottom {
+    height:100px;
+    width:100px;
+    border:3px solid black;
+    border-left: 0px;
+    border-top: 0px;
+    border-radius: 0px 0px 90px 0px;
+
+}
+
+.diagram-grid-rl-arrow-top {
+    height:100px;
+    width:100px;
+    border:3px solid black;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-radius: 90px 0px 0px 0px;
+    justify-self: end;
+    align-self: end;
+}
+
+.diagram-grid-rl-arrow-bottom {
+    height:100px;
+    width:100px;
+    border:3px solid black;
+    border-right: 0px;
+    border-top: 0px;
+    border-radius: 0px 0px 0px 90px;
+    justify-self: end;
+}
+
+.diagram-row-component {
+    display: flex;
+    margin: 0px;
+    padding-top: 10px;
+    padding: 20px 0 20px 0;
+}
+
+.diagram-popup-button {
+    height: 40px;
+    width: 40px;
+    background-color: #f37037;
+    border-radius: 50%;
+    border: 1px solid #D45E2B;
+    z-index: 9;
+}
+
+.diagram-arrow-line {
+    height: 3px;
+    width: 110px;
+    background-color: black;
+    align-self: center;
+}
+
+.diagram-arrow-lr-triangle {
+    width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-left: 30px solid black;
+	border-bottom: 10px solid transparent;
+    align-self: center;
+}
+
+.diagram-reverse-row-component {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.diagram-arrow-rl-triangle {
+    width: 0;
+	height: 0;
+	border-top: 10px solid transparent;
+	border-right: 30px solid black;
+	border-bottom: 10px solid transparent;
+    align-self: center;
+}
+
+.diagram-popup-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diagram-popup-title {
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    border-radius: 5px 5px 0 0;
+    width: 90%;
+    margin: auto;
+    padding: 0px 5px 0px 5px;
+    text-align: center;
+}
+
+.diagram-title-grid-title {
+    display: flex;
+    justify-content: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    width: 135px;
+    font-size: 17.5px;
+    padding: 0 0px 0 0px;
+}
+
+.diagram-title-grid-title::-webkit-scrollbar {
+    display: none;
+}
+
+.popup-wrapper {
+    margin: 0;
+}
+
+.diagram-popup-body {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.builder--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number--dropdown{
+    display: flex;
+    align-items: center;
+}
+
+.number--dropdown > label {
+    margin: 0;
+}
+
+.number--dropdown > select {
+    height: 5vh;
+    min-height: 30px;
+    width: 4vw;
+    min-width: 50px;
+    text-align:center;
+    font-size: 1rem;
+    padding-left: 0.5vw;
+    margin-left: 1vw;
+}
+
+.input--name{
+    font-size: 20px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.diagram-title-input, .diagram-body-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.diagram-title-input {
+    align-items: flex-start;
+}
+
+.diagram-body-input{
+    align-items: flex-start;
+}
+
+.diagram-builder-textarea {
+    margin-top: 10px;
+}
+
+.diagram-builder-textarea-title {
+    height: 10vh;
+    font-size: 20px;
+    width: 50vw;
+    text-align: center;
+}
+
+.diagram-builder-textarea-body {
+    height: 20vh;
+    font-size: 20px;
+    width: 50vw;
+    text-align: center;
+}
+
+.diagram-dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.diagram-dropdown-container > div {
+    display: flex;
+    align-items:stretch;
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+}
+
+.diagram-dropdown-label {
+    font-size: 1.5rem;
+    margin-right: 1vw;
+}
+
+.diagram-dropdown-select {
+    background-color:#f37037;
+    border: 1px solid #BCBEC0;
+    color: #E6E7E8;
+    border-radius: 5px;
+    min-width: 50px;
+    max-width: 100px;
+    text-align: center;
+    padding-left: 5px;
+    z-index: 9;
+}
+
+.diagram-submit-button-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.diagram-submit-button {
+    width: 25vw;
+    min-width: 200px;
+    font-size: 1.2rem;
+    height: 7vh;
+    border-radius: 5px;
+    margin-bottom: 100px;
+    border: 1px solid #BCBEC0;
+    text-align: center;
+    background-color: #f37037;
+    color: #E6E7E8;
+    box-shadow: 2px 2px 4px rgba(170, 170, 170, 0.497569);
+}
+
+.diagram-submit-button:hover {
+    background-color: #D45E2B;
+}
+
+.diagram-grid-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .diagram-submit-button {
+        min-height: 60px;
+        max-height: 180px;
+        min-width: 300px;
+        height: 7.5vh;
+    }
+
+    .diagram-builder-textarea {
+        width: 70vw;
+        min-width: 300px;
+    }
+
+    .diagram-grid-lr-arrow-top, .diagram-grid-rl-arrow-top, .diagram-grid-lr-arrow-bottom, .diagram-grid-rl-arrow-bottom {
+        width: 14px;
+        height: 100px;
+    }
+
+    .diagram-grid-container {
+        grid-template-columns: 50px 310px 50px;
+        grid-template-rows: 150px 150px 150px;
+    }
+
+    .diagram-arrow-line {
+        width: 50px;
+    }  
+
+    .diagram-popup-button {
+        height: 50px;
+        width: 50px;
+    }
+
+    .diagram-title-grid {
+        grid-template-columns: 330px;
+        margin-top: -640px;
+    }
+
+    .diagram-title-grid-title {
+        width: 65px;
+        font-size: 15px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .diagram-title-row, .diagram-title-row-reverse {
+        display: flex;
+        justify-content:space-between;
+    }
+}

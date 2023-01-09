@@ -2,155 +2,82 @@ import Popup from 'reactjs-popup';
 import { useState, useEffect } from 'react';
 
 import Popover from './Popover';
+import RowOne from './RowOne';
+import RowTwo from './RowTwo';
+import RowThree from './RowThree';
+import Empty from './Empty'
 
-export default function Grid(props) {
-  const [output, setOutput] = useState({
-    1: {
-      title: '',
-      body: '',
-    },
-    2: {
-      title: '',
-      body: '',
-    },
-    3: {
-      title: '',
-      body: '',
-    },
-    4: {
-      title: '',
-      body: '',
-    },
-    5: {
-      title: '',
-      body: '',
-    },
-    6: {
-      title: '',
-      body: '',
-    },
-    7: {
-      title: '',
-      body: '',
-    },
-    8: {
-      title: '',
-      body: '',
-    },
-    9: {
-      title: '',
-      body: '',
-    },
-  });
+const Grid = (props) => {
 
-  useEffect(() => {
-    setOutput((prevOutput) => ({
-      ...prevOutput,
-      [props.currentNode]: {
-        title: props.title,
-        body: props.body,
-      },
-    }));
-    // console.log(output);
-  }, [props.title, props.body]);
+  // useEffect(() => {
+  //   setOutput((prevOutput) => ({
+  //     ...prevOutput,
+  //     [props.currentNode]: {
+  //       title: props.title,
+  //       body: props.body,
+  //     },
+  //   }));
+  //   console.log(output);
+  // }, [props.title, props.body]);
 
-  useEffect(() => {
-    // console.dir(output);
-    setOutput((prevOutput) => ({
-      ...prevOutput,
-      [props.currentNode]: {
-        title: props.title,
-        body: props.body,
-      },
-    }));
-  }, [props.title, props.body]);
+  // useEffect(() => {
+  //   console.dir(output);
+  //   setOutput((prevOutput) => ({
+  //     ...prevOutput,
+  //     [props.currentNode]: {
+  //       title: props.title,
+  //       body: props.body,
+  //     },
+  //   }));
+  // }, [props.title, props.body]);
 
-  switch (props.number) {
-    case 4:
-      //case 4
-      break;
-    case 5:
-      //case 5
-      break;
-    case 6:
-      //case 6
-      break;
-    case 7:
-      //case 7
-      break;
-    case 8:
-      //case 8
-      break;
-    case 9:
-      //case 9
-      break;
-    default:
-    //default code
-  }
+  // const markdownStyles = {
+  //   backgroundColor: input !== '' ? 'rgb(249, 249, 249)' : 'transparent',
+  //   padding: input !== '' ? '15px' : '0px',
+  //   border: input !== '' ? '1px solid #f37037' : 'none'
+  // };
 
-  //   useEffect(() => {
-  //   }, []);
-
-  const nope = '';
-  const popupItem = (
-    <Popup trigger={<button className='round--btn'></button>} position='top center' on={['hover', 'focus']} contentStyle={{ width: '350px' }}>
-      <div className='popup-container'>
-        <div className='popup-title'>{props.title}</div>
-        <div className='popup-body'>{props.body}</div>
-      </div>
-    </Popup>
-  );
-
-  const arrowLR = (
-    <>
-      <div className='arrow--line' />
-      <div className='triangle--lr' />
-    </>
-  );
-
-  const arrowRL = (
-    <>
-      <div className='arrow--line' />
-      <div className='triangle--rl' />
-    </>
-  );
-    //RowOne, RowTwo, RowThree
-  const row = (
-    <div className='row--component'>
-      <Popover title={props.title} body={props.body}/>
-      {arrowLR}
-      <Popover />
-      {arrowLR}
-      <Popover />
-    </div>
-  );
-
-  const reverseRow = (
-    <div className='reverse--row--component'>
-      <Popover />
-      {arrowRL}
-      <Popover />
-      {arrowRL}
-      <Popover />
-    </div>
-  );
-
-  const empty = <div className='grid--item grid--empty'></div>;
+  const gridStyle = {
+    gridTemplateRows: props.totalNum < 4 ? '200px 0px 0px' : props.totalNum < 7 ? '200px 200px 0px' : '200px 200px 200px'
+  };
 
   return (
-    <div className='grid--component'>
-      <div className='grid--container'>
-        {empty}
-        {<div className='grid--item grid--row'>{row}</div>}
-        <div className='grid--item grid--ta-lr'></div>
-        <div className='grid--item grid--ta-rl'></div>
-        <div className='grid--item grid--row-rev'>{reverseRow}</div>
-        <div className='grid--item grid--ba-lr'></div>
-        <div className='grid--item grid--ba-rl'></div>
-        <div className='grid--item grid--row'>{row}</div>
-        {empty}
+    <div className='diagram-grid-component'>
+      <div className='diagram-grid-container' style={gridStyle}>
+        <Empty/>
+        <RowOne title={props.title} body={props.body} currentNode = {props.currentNode}/>
+        {props.totalNum > 3 ? <div className='diagram-grid-item diagram-grid-lr-arrow-top'></div> : <Empty/>}
+        {props.totalNum > 6 ? <div className='diagram-grid-item diagram-grid-rl-arrow-top'></div> : <Empty/>}
+        {props.totalNum > 3 ? <RowTwo totalNum={props.totalNum} title={props.title} body={props.body} currentNode = {props.currentNode}/> : <Empty/>}
+        {props.totalNum > 3 ? <div className='diagram-grid-item diagram-grid-lr-arrow-bottom'></div> : <Empty/>}
+        {props.totalNum > 6 ? <div className='diagram-grid-item diagram-grid-rl-arrow-bottom'></div> : <Empty/>}
+        {props.totalNum > 6 ? <RowThree totalNum={props.totalNum} title={props.title} body ={props.body} currentNode = {props.currentNode}/> : <Empty/>}
+        <Empty/>
       </div>
       <button className='submit--button'>Confirm Changes</button>
     </div>
   );
-}
+
+// {Array(Number(props.totalNumber))
+//   .fill()
+//   .map((_, i) => (
+//     <Popover key={i} />
+//   ))}
+
+// return (
+//   <div className='diagram-grid-component'>
+//     <div className='diagram-grid-container'>
+//       {empty}
+//       {<div className='diagram-grid-item grid--row'>{row}</div>}
+//       <div className='diagram-grid-item diagram-grid-lr-arrow-top'></div>
+//       <div className='diagram-grid-item diagram-grid-rl-arrow-top'></div>
+//       <div className='diagram-grid-item grid--row-rev'>{reverseRow}</div>
+//       <div className='diagram-grid-item diagram-grid-lr-arrow-bottom'></div>
+//       <div className='diagram-grid-item diagram-grid-rl-arrow-bottom'></div>
+//       <div className='diagram-grid-item grid--row'>{row}</div>
+//       {empty}
+//     </div>
+//     <button className='submit--button'>Confirm Changes</button>
+//   </div>
+// );
+export default Grid;
