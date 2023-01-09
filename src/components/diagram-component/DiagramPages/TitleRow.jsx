@@ -1,12 +1,12 @@
 import Titles from './Titles';
 
-const TitleRow = (props) => {
+const TitleRow = ({ title, body, currentNode, currentTitle, currentBody }) => {
 
   return (
       <div className='diagram-title-row'>
-        <Titles title={props.title} body={props.body} currentNode = {props.currentNode}/>
-        <Titles title={props.title} body={props.body} currentNode = {props.currentNode} currentTitle={props.currentTitle} currentBody={props.currentBody}/>
-        <Titles title={props.title} body={props.body} currentNode = {props.currentNode} currentTitle={props.currentTitle} currentBody={props.currentBody}/>
+        <Titles title={title} body={body} currentNode = {currentNode}/>
+        <Titles title={title} body={body} currentNode = {currentNode} currentTitle={currentTitle} currentBody={currentBody}/>
+        <Titles title={title} body={body} currentNode = {currentNode} currentTitle={currentTitle} currentBody={currentBody}/>
       </div>
   );
 }

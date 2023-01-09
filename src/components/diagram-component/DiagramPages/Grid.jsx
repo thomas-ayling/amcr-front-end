@@ -1,7 +1,7 @@
 
-import RowOne from './RowOne';
-import RowTwo from './RowTwo';
-import RowThree from './RowThree';
+import RowOne from './Rows/RowOne';
+import RowTwo from './Rows/RowTwo';
+import RowThree from './Rows/RowThree';
 import Empty from './Empty';
 
 const Grid = ({ totalNum, currentNode, title, body }) => {
