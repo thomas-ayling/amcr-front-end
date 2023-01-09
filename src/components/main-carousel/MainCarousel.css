@@ -2,7 +2,7 @@
   width: 100%;
   aspect-ratio: 64/25;
   z-index: -1 !important;
-  margin: 50px 0 50px 0;
+  margin: 50px 0 0 0;
 }
 .carousel-inner {
   width: 100%;

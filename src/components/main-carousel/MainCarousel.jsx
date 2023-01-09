@@ -1,8 +1,8 @@
 import './MainCarousel.css';
 import { useEffect, useState } from 'react';
-import CarouselCards from '../shared-carousel-components/CarouselCards';
-import CarouselTextbox from '../shared-carousel-components/CarouselTextbox';
-import CarouselTitles from '../shared-carousel-components/CarouselTitles';
+import CarouselCards from './shared-carousel-components/CarouselCards';
+import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
+import CarouselTitles from './shared-carousel-components/CarouselTitles';
 
 const MainCarousel = ({ slides, type }) => {
   const [current, setCurrent] = useState(0);
