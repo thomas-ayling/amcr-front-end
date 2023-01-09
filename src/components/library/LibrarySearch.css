@@ -47,6 +47,12 @@
     
         font-size: 0.75rem;
     }
+
+    .Library-Genre-Selector-Button:focus {
+        background-color: var(--gl-orange);
+        color: white;
+
+    }
 }
 
 @media (max-width:425px) {
@@ -239,7 +245,7 @@
 .Library-Reservation-Input-Container {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     height: auto;
     padding: 5px;
     background-color: var(--gl-light-gray);
@@ -265,7 +271,7 @@
 
 
 .Library-Reservation-Dropdown-Button {
-    width:2vmax;
+    width:3vmax;
     height: auto;
     color:var(--gl-orange);
     margin: 2%;
@@ -284,4 +290,27 @@
 /* Font Styling CSS */
 .Library-Orange {
     color: var(--gl-orange) !important;
+}
+
+/* Visibility Component - Display toggler for mapped function */
+.default-container,
+.component-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.default-container {
+  gap: 20px;
+}
+.component-container {
+    margin-top:5px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 20px;
+}
+.button-toggler {
+  padding: 5px 10px;
+  font-size: 16px;
 }

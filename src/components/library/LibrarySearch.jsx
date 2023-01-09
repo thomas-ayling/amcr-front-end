@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./LibrarySearch.css";
 import dataMock from "./Books.json";
+import ToggleVisibility from "./ToggleVisibility";
 // import { useEffect } from "react";
 // import axios from "axios";
-import {BsFillArrowDownCircleFill} from 'react-icons/bs';
-<BsFillArrowDownCircleFill className='Library-Reservation-Dropdown-Button' />
 
 const LibrarySearch = () => {
   // const [books, setBooks] = useState([]);
@@ -49,20 +48,24 @@ const LibrarySearch = () => {
   //     })
   // })
 
-   const ReserveWrapper = ({book}) => {
+   function ReserveWrapper({book}) {
     if(book.available===true) {
       return (
-          <div className="Library-Reservation-Input-Container">
-            <input className="Library-Reservation-Input" type="text" name="reader-firstname-input" placeholder="First Name" value={readerFirstNameInput} onChange={(e) => setReaderFirstNameInput(e.target.value)}/>
-            <input className="Library-Reservation-Input" type="text" name="reader-lastname-input" placeholder="Last Name" value={readerLastNameInput} onChange={(e) => setReaderLastNameInput(e.target.value)}/>
-            <input className="Library-Reservation-Input" type="text" name="reader-firstname-input" placeholder="Email" value={readerEmailInput} onChange={(e) => setReaderEmailInput(e.target.value)}/>
+        <ToggleVisibility>
+          <form className="Library-Reservation-Input-Container">
+            <input className="Library-Reservation-Input" type="search" name="reader-firstname-input" placeholder="First Name" value={readerFirstNameInput} onChange={(e) => {setReaderFirstNameInput(e.target.value)}}/>
+            <input className="Library-Reservation-Input" type="search" name="reader-lastname-input" placeholder="Last Name" value={readerLastNameInput} onChange={(e) => {setReaderLastNameInput(e.target.value)}}/>
+            <input className="Library-Reservation-Input" type="search" name="reader-firstname-input" placeholder="Email" value={readerEmailInput} onChange={(e) => {setReaderEmailInput(e.target.value)}}/>
             <button className="Library-Reservation-Button">Reserve</button>
-          </div>
+          </form>
+          </ToggleVisibility>
         ); 
     }
       else
         return (
-              <p>Unavailable. {book.reader} Is currently reading it.</p>
+              <ToggleVisibility>
+                <p>Unavailable. {book.reader} Is currently reading it.</p>
+              </ToggleVisibility>
         
         );
     }
@@ -82,7 +85,7 @@ const LibrarySearch = () => {
         </div>
         <div className='Library-SearchBar-Wrapper'>
           <label htmlFor='search-bar'>
-            <input type="text" name="search-bar" className='Library-Search-Input' placeholder='Search Library Here...' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
+            <input type="search" name="search-bar" className='Library-Search-Input' placeholder='Search Library Here...' value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
           </label>
           <div className='Library-Genre-Select-Dropdown'>
             <select value={filterParam} onChange={(e) => {setFitlerParam(e.target.value)}} className='genre-select' aria-label='Filter Books by Genre'>
@@ -121,7 +124,6 @@ const LibrarySearch = () => {
                       </p>
                     </div>
                     <div className="Library-Reservation-Wrapper">
-                      <BsFillArrowDownCircleFill className='Library-Reservation-Dropdown-Button' />
                       <ReserveWrapper book={book}/>
                     </div>
                   </div>
