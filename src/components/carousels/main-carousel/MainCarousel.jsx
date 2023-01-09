@@ -7,7 +7,7 @@ import CarouselTitles from '../shared-carousel-components/CarouselTitles';
 
 //main functionality for the carasousel and touch controls
 
-const MainCarousel = ({ slides, type, isLink }) => {
+const MainCarousel = ({ slides, type, isLink, classNames }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
@@ -82,7 +82,7 @@ const MainCarousel = ({ slides, type, isLink }) => {
         </div>
         {type === 'header' ? (
           <div className='title-wrapper'>
-            <CarouselTitles slides={slides} current={current} isLink={isLink} handleClickLink={handleClickLink} style={{color:"--gl-orange"}} />
+            <CarouselTitles slides={slides} current={current} isLink={isLink} handleClickLink={handleClickLink} classNames={classNames} />
           </div>
         ) : (
           <div className='textbox-wrapper'>
