@@ -1,10 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import './styles/HomePage.css';
-import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
-import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
-import MainCarouselSlides from '../service/MainCarouselMockService';
-=======
+
 import StyledHr from '../components/styled-components/StyledHr';
 import './styles/HomePage.css';
 
@@ -12,8 +7,6 @@ import MainCarousel from '../components/main-carousel/MainCarousel';
 import BehaviourCarousel from '../components/behaviour-carousel/BehaviourCarousel';
 import MainCarouselSlides from '../service/MainCarouselMockService';
 import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
-
->>>>>>> dev
 import ContactComponent from '../components/contact-component/ContactComponent';
 
 const HomePage = () => {
@@ -28,13 +21,7 @@ const HomePage = () => {
         </div>
       </div>
       <MainCarousel slides={MainCarouselSlides} />
-<<<<<<< HEAD
-      
-    
-
-=======
       <BehaviourCarousel />
->>>>>>> dev
       <ContactComponent feedbackType='feedback' />
     </div>
   );

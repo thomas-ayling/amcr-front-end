@@ -1,24 +1,16 @@
-<<<<<<< HEAD
-import React from 'react';
-import CaseStudyHeaderCarouselImages from '../components/case-study-header-carousel/CaseStudyHeaderCarouselImages';
-import ContactComponent from '../components/contact-component/ContactComponent';
-import BodyCarousel from '../components/case-studies-carousel/BodyCarousel';
-import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
-=======
 import { React } from 'react';
-import ContactComponent from '../components/contact-component/ContactComponent';
+
+import MainCarousel from '../components/main-carousel/MainCarousel';
 import CaseStudyCarousel from '../components/case-studies-carousel/CaseStudyCarousel';
->>>>>>> dev
+import ContactComponent from '../components/contact-component/ContactComponent';
+import '../components/main-carousel/MainCarousel.css';
+import CaseStudyHeaderCarouselImages from '../service/CaseStudyHeaderCarouselMockService';
 
 const CaseStudies = () => {
   return (
     <>
-<<<<<<< HEAD
-    <MainCarousel type = "header" slides={CaseStudyHeaderCarouselImages} isLink={true} classNames="case-study-header-carousel"/>
-      <BodyCarousel/>
-=======
+      <MainCarousel type='header' slides={CaseStudyHeaderCarouselImages} isLink={true} classNames='case-study-header-carousel' />
       <CaseStudyCarousel />
->>>>>>> dev
       <ContactComponent feedbackType='case-study' />
     </>
   );

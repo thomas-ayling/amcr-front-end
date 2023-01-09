@@ -1,17 +1,10 @@
 import './MainCarousel.css';
 import { useEffect, useState } from 'react';
-<<<<<<< HEAD:src/components/carousels/main-carousel/MainCarousel.jsx
-import { useNavigate } from 'react-router-dom';
-import CarouselCards from '../shared-carousel-components/CarouselCards';
-import CarouselTextbox from '../shared-carousel-components/CarouselTextbox';
-import CarouselTitles from '../shared-carousel-components/CarouselTitles';
+import { useNavigate } from 'react-router';
 
-//main functionality for the carasousel and touch controls
-=======
 import CarouselCards from './shared-carousel-components/CarouselCards';
 import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
 import CarouselTitles from './shared-carousel-components/CarouselTitles';
->>>>>>> dev:src/components/main-carousel/MainCarousel.jsx
 
 const MainCarousel = ({ slides, type, isLink, classNames }) => {
   const [current, setCurrent] = useState(0);
@@ -47,6 +40,10 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     setAutoPlay(false); //clears timer/autoplay when user touches the carousel
   };
 
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  }
+
   const onTouchEnd = () => {
     //makes sure only swipes are registered
     if (!touchStart || !touchEnd) return;
@@ -55,15 +52,6 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
 
-<<<<<<< HEAD:src/components/carousels/main-carousel/MainCarousel.jsx
-    isLeftSwipe && slideLeft();
-
-    isRightSwipe && slideRight();
-  };
-
-  const onTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-=======
     if (isLeftSwipe) {
       slideLeft();
     }
@@ -71,7 +59,6 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     if (isRightSwipe) {
       slideRight();
     }
->>>>>>> dev:src/components/main-carousel/MainCarousel.jsx
   };
 
   const handleMouseEnter = () => {
@@ -80,12 +67,11 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
   };
 
   const handleClickLink = (id) => {
-    navigate(`case-studies/${id}`);
+    navigate(`case-study/${id}`);
   };
 
   return (
     <div className='carousel-container'>
-<<<<<<< HEAD:src/components/carousels/main-carousel/MainCarousel.jsx
       <div
         className='carousel-inner'
         onTouchStart={onTouchStart}
@@ -95,21 +81,12 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
         onMouseLeave={() => setAutoPlay(true)}
       >
         <div className='slide-wrapper'>
-          <CarouselCards slides={slides} current={current} setCurrent={setCurrent}  />
-        </div>
-        {type === 'header' ? (
-          <div className='title-wrapper'>
-            <CarouselTitles slides={slides} current={current} isLink={isLink} handleClickLink={handleClickLink} classNames={classNames} />
-=======
-      <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
-        <div className='slide-wrapper'>
           <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
         </div>
 
         {type === 'header' ? (
-          <div className='title-wrapper'>
-            <CarouselTitles slides={slides} current={current} />
->>>>>>> dev:src/components/main-carousel/MainCarousel.jsx
+          <div className='title-wrapper' onClick={() => isLink && handleClickLink(slides.id)}>
+            <CarouselTitles slides={slides} current={current} classNames={classNames}/>
           </div>
         ) : (
           <div className='textbox-wrapper'>

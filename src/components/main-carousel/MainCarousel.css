@@ -18,12 +18,7 @@
   width: 100%;
   aspect-ratio: 64/25;
   z-index: -1 !important;
-<<<<<<< HEAD:src/components/carousels/main-carousel/MainCarousel.css
-  /* margin: 50px 0 50px 0; */
-  user-select: none;
-=======
   margin: 50px 0 0 0;
->>>>>>> dev:src/components/main-carousel/MainCarousel.css
 }
 .carousel-inner {
   width: 100%;
@@ -128,7 +123,6 @@
     font-size: 5vmin;
   }
 }
-<<<<<<< HEAD:src/components/carousels/main-carousel/MainCarousel.css
 
 /* to be moved after merge */
 .case-study-header-carousel{
@@ -139,6 +133,3 @@
 .case-study-header-carousel:hover{
   color: var(--gl-orange);
 }
-
-=======
->>>>>>> dev:src/components/main-carousel/MainCarousel.css
