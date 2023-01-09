@@ -1,4 +1,3 @@
-
 import Integrity from '../assets/images/behaviour-carousel/Integrity.avif';
 import Innovation from '../assets/images/behaviour-carousel/Innovation.avif';
 import Openness from '../assets/images/behaviour-carousel/Openness.jpg';
@@ -93,13 +92,6 @@ const behaviourSlides = [
     title: 'Teamwork',
     description: TeamworkDescription,
   },
-  // {
-  //   image: InnovationImage,
-  //   title: 'Innovation',
-  //   overview: 'We will collectively review and discuss the behaviours each year and update them if we feel that we need to.',
-  //   description: InnovationDescription,
-  //   url: 'another-entry',
-  // },
 ];
 
 export default behaviourSlides;
