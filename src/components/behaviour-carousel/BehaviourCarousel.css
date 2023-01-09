@@ -87,6 +87,7 @@
 }
 
 .behaviour-description {
+  white-space: pre;
   width: 328px;
   height: 269px;
   padding: 0 5px 0 5px;
