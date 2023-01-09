@@ -1,14 +1,14 @@
 import React from 'react';
-import MainCarousel from '../components/carousel/MainCarousel';
+import MainCarousel from '../components/main-carousel/MainCarousel';
+import MainCarouselSlides from '../service/MainCarouselMockService';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import mainCarouselImages from '../components/carousel/MainCarouselImages';
 
 
 const Library = () => {
   return (
     <>
       <div className='page'>
-        <MainCarousel images={mainCarouselImages} />
+        <MainCarousel images={MainCarouselSlides} />
       </div>
       <ContactComponent feedbackType='library' />
     </>

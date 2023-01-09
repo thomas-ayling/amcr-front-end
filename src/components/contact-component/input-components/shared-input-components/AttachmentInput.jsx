@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FileIcon from '../../../../resources/icons/file-icon.png';
+import FileIcon from '../../../../assets/images/icons/file-icon.png';
 
 const AttachmentInput = ({ attachment, setAttachment }) => {
   const [fileName, setFileName] = useState('Add file');

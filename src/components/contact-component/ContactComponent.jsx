@@ -1,5 +1,5 @@
 import './styles/ContactComponent.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { create } from '../../service/FeedbackService';
 import DescriptionBox from './description-component/DescriptionBox';
 import Inputs from './input-components/Inputs';
@@ -15,6 +15,11 @@ const ContactComponent = ({ feedbackType }) => {
   const [isAnonymous, setIsAnonymous] = useState(false);
   const [awaitingResponse, setAwaitingResponse] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle');
+
+  useEffect(() => {
+    if (submitStatus === 'error') alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.');
+  }, [submitStatus])
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,8 +37,6 @@ const ContactComponent = ({ feedbackType }) => {
     setAwaitingResponse(true);
 
     create(feedback, attachment, setAwaitingResponse, setSubmitStatus);
-
-    if (submitStatus === 'error') alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.');
   };
 
   return (

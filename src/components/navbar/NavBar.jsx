@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import logo from '../../resources/logo/GLLogo.png';
+import Logo from '../../assets/logo/GLLogo.png';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <Navbar expanded={expand} fixed='top' expand='md' className={navColour ? 'navbar-sticky' : 'navbar'}>
       <Navbar.Brand href='/' className='d-flex'>
-        <img src={logo} className='img-fluid logo-menu' alt='brand' />
+        <img src={Logo} className='img-fluid logo-menu' alt='brand' />
       </Navbar.Brand>
       <Navbar.Toggle
         aria-controls='responsive-navbar-nav'

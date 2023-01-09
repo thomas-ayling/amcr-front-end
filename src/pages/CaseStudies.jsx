@@ -1,11 +1,11 @@
-import React from 'react';
+import { React } from 'react';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import BodyCarousel from '../components/case-studies-carousel/BodyCarousel';
+import CaseStudyCarousel from '../components/case-studies-carousel/CaseStudyCarousel';
 
 const CaseStudies = () => {
   return (
     <>
-      <BodyCarousel/>
+      <CaseStudyCarousel />
       <ContactComponent feedbackType='case-study' />
     </>
   );
