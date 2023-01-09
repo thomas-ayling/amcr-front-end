@@ -42,18 +42,9 @@
   flex-direction: column;
 }
 
-.welcome-hr {
-  border: none;
-  background-color: var(--gl-orange);
-  width: 10%;
-  margin-bottom: 20px;
-  height: 3px;
-  border-radius: 2px;
-  opacity: 1 !important;
-}
-
 .homepage-title {
   font-size: 55px;
+  margin-bottom: 0;
 }
 
 .homepage-subheading {
