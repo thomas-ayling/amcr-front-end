@@ -9,8 +9,9 @@
 }
 
 .cssp-title {
-  font-size: 50px;
-  font-weight: bold;
+  font-size: 55px;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 .cssp-body-wrapper {
