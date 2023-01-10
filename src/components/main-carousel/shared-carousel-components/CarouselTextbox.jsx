@@ -3,7 +3,7 @@ import MarkdownComponent from '../../markdown-component/MarkdownComponent';
 import '../shared-carousel-components/CarouselTextbox.css';
 
 const CarouselTextbox = ({ slides, current }) => {
-  console.dir(slides[0]);
+
 
   return (
     <div className='textbox-wrapper'>
