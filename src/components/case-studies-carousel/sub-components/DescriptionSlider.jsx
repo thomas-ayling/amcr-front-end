@@ -4,7 +4,7 @@ const DescriptionSlider = ({ current, overviews }) => {
   const descriptionSlider = overviews.map(
     (overview, index) =>
       index === current && (
-        <div className='case-study-carousel-scrollable-description'>
+        <div key={index} className='case-study-carousel-scrollable-description'>
           <div className={`case-study-description-slide ${index === current && ' case-study-description-active'}`} key={index}>
             <div className='case-study-description'>{overview}</div>
           </div>
