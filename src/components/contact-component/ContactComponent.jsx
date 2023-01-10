@@ -4,6 +4,7 @@ import { create } from '../../service/FeedbackService';
 import DescriptionBox from './description-component/DescriptionBox';
 import Inputs from './input-components/Inputs';
 
+// remove this
 import ErrorMessage from '../error-messages-component/ErrorMessage';
 
 const ContactComponent = ({ feedbackType }) => {
@@ -35,7 +36,11 @@ const ContactComponent = ({ feedbackType }) => {
 
     create(feedback, attachment, setAwaitingResponse, setSubmitStatus);
 
-    if (submitStatus === 'error') alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.');
+    // if (submitStatus === 'error') alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.');
+    if (submitStatus === 'success') {
+      alert('success');
+      console.log('success');
+    }
   };
 
   return (
@@ -65,7 +70,8 @@ const ContactComponent = ({ feedbackType }) => {
           submitStatus={submitStatus}
         />
       </div>
-      <ErrorMessage/>
+      {/* remove this */}
+      <ErrorMessage/> 
     </div>
   );
 };
