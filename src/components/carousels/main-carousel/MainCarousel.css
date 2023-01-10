@@ -110,4 +110,10 @@
   .title-wrapper{
     font-size: 5vmin;
   }
+  .carousel-container {
+    width: 100%;
+    height: 100%;
+    z-index: -1 !important;
+    margin: 10px 0 10px 0;
+  }
 }
