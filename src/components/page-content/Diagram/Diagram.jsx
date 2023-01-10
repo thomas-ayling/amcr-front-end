@@ -16,7 +16,7 @@ function Diagram() {
       body: node.body,
     }));
 
-    console.dir(tempNodes);
+    // console.dir(tempNodes);
 
     setNodes(tempNodes);
 
