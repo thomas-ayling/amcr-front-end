@@ -23,7 +23,6 @@ const CaseStudyCarousel = () => {
 
   useEffect(() => {
     get(setPageData, setRequestStatus, setPageLoaded);
-    if (requestStatus === 'error-404') console.error('Case study with id ${id} could not be found');
   }, []);
 
   useEffect(() => {
@@ -32,7 +31,8 @@ const CaseStudyCarousel = () => {
       setTitles(pageData.map((item) => item.title));
       setLength(pageData.length);
     }
-  }, [pageData]);
+    if (requestStatus === 'error-404') console.error(`Case study could not be found`);
+  }, [pageLoaded, pageData, requestStatus]);
 
   const resizeObserver = new ResizeObserver((entries) => {
     setWindowWidth(entries[0].contentRect.width);

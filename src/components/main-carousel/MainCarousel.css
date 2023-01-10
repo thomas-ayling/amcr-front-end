@@ -96,6 +96,9 @@
 }
 
 @media screen and (max-width: 800px) {
+  .textbox-carousel {
+    aspect-ratio: 10/7 !important;
+  }
   .slide-dots {
     display: none;
   }
