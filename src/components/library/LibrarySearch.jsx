@@ -1,18 +1,28 @@
 import React, { useState } from "react";
-import "./LibrarySearch.css";
-import dataMock from "./Books.json";
+import { useEffect } from "react";
+import axios from "axios";
+// import dataMock from "./Books.json";
 import ToggleVisibility from "./ToggleVisibility";
-// import { useEffect } from "react";
-// import axios from "axios";
+import {BsPlusCircleFill} from 'react-icons/bs';
+import { Modal, Button } from "react-bootstrap";
+
+import "./LibrarySearch.css";
 
 const LibrarySearch = () => {
-  // const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchParam] = useState(["title", "author", "genre"]);
   const [filterParam, setFitlerParam] = useState("");
-  const [readerFirstNameInput, setReaderFirstNameInput] = useState("");
-  const [readerLastNameInput, setReaderLastNameInput] = useState("");
+  const [readerNameInput, setReaderNameInput] = useState("");
   const [readerEmailInput, setReaderEmailInput] = useState("");
+  const [bookTitleInput, setBookTitleInput] = useState("");
+  const [bookAuthorInput, setBookAuthorInput] = useState("");
+  const [bookCoverInput, setBookCoverInput] = useState("");
+  const [bookGenreInput, setBookGenreInput] = useState("");
+  const [showModal, setShow] = useState(false);
+
+  function handleClose() {setShow(false)};
+  function handleShow() {setShow(true)};
 
   function search(items) {
     // eslint-disable-next-line
@@ -39,22 +49,46 @@ const LibrarySearch = () => {
     });
   }
 
-  // useEffect(() => {
-  //   axios.get(`https://localhost:3001/academy-project/library/get-all`)
-  //     .then((result)=> {
-  //       setBooks(result.data);
-  //     }).catch((err) => {
-  //       console.log(err.message);
-  //     })
-  // })
+  function uploadBook() {
+    var bodyFormData = new FormData();
+    bodyFormData.append('title', {bookTitleInput});
+    bodyFormData.append('author', {bookAuthorInput});
+    bodyFormData.append('genre', {bookGenreInput});
+    bodyFormData.append('cover', {bookCoverInput});
+    bodyFormData.append('reader', "");
+    bodyFormData.append('available', true);
+    axios({
+      method: "post",
+      url: "http://localhost:3001/library/upload",
+      data: bodyFormData
+    })
+      .then(function (response) {
+        //handle success
+        console.log(response);
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+  }
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/library/`)
+      .then((result)=> {
+        setBooks(result.data);
+      }).catch((err) => {
+        console.log(err.message);
+      })
+  }, [])
+
+  // (axios) .get.then.catch
 
    function ReserveWrapper({book}) {
     if(book.available===true) {
       return (
         <ToggleVisibility>
           <form className="Library-Reservation-Input-Container">
-            <input className="Library-Reservation-Input" type="search" name="reader-firstname-input" placeholder="First Name" value={readerFirstNameInput} onChange={(e) => {setReaderFirstNameInput(e.target.value)}}/>
-            <input className="Library-Reservation-Input" type="search" name="reader-lastname-input" placeholder="Last Name" value={readerLastNameInput} onChange={(e) => {setReaderLastNameInput(e.target.value)}}/>
+            <input className="Library-Reservation-Input" type="search" name="reader-name-input" placeholder="Name" value={readerNameInput} onChange={(e) => {setReaderNameInput(e.target.value)}}/>
             <input className="Library-Reservation-Input" type="search" name="reader-firstname-input" placeholder="Email" value={readerEmailInput} onChange={(e) => {setReaderEmailInput(e.target.value)}}/>
             <button className="Library-Reservation-Button">Reserve</button>
           </form>
@@ -98,11 +132,41 @@ const LibrarySearch = () => {
             </select>
             <span className='focus'></span>
           </div>
+          <BsPlusCircleFill className='Library-NewBook-Dropdown-Button' onClick={handleShow}/>
+          <Modal show={showModal} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Admin. New book entry.</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form className="Library-Reservation-Input-Container">
+                <input className="Library-Reservation-Input" type="text" name="book-title-input" placeholder="Enter book title..." value={bookTitleInput} onChange={(e) => {setBookTitleInput(e.target.value)}}/>
+                <input className="Library-Reservation-Input" type="text" name="book-author-input" placeholder="Enter book author..." value={bookAuthorInput} onChange={(e) => {setBookAuthorInput(e.target.value)}}/>
+                <input className="Library-Reservation-Input" type="text" name="book-cover-input" placeholder="link to cover..." value={bookCoverInput} onChange={(e) => {setBookCoverInput(e.target.value)}}/>
+                <select value={bookGenreInput} onChange={(e) => {setBookGenreInput(e.target.value)}} className='genre-select' aria-label='Filter Books by Genre'>
+                  <option value="">Filter By Genre</option>
+                  <option value="Java">Java</option>
+                  <option value="Devops">DevOps</option>
+                  <option value="Management">Mangement</option>
+                  <option value="Python">Python</option>
+                  <option value="Buisness">Buisness</option>
+                </select>
+                <button className="Library-Reservation-Button" onClick={uploadBook}>Reserve</button>
+              </form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="success" onClick={handleClose}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
 
         <div className='Library-SearchResults-Wrapper'>
           <ul className='Library-BookList'>
-            {search(dataMock).map((book) => (
+            {search(books).map((book) => (
               <li className='Library-Item' key={book.title}>
                 <article className='Library-Book'>
                   <div className='Library-Book-Cover'>

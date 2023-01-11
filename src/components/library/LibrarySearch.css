@@ -29,6 +29,7 @@
 
 .Library-Genre-Select-Options {
     width: 100%;
+    justify-content: space-between;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -86,7 +87,7 @@
 @media (min-width:425px) {
     .Library-SearchBar-Wrapper {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         height: auto;
@@ -100,7 +101,7 @@
     .Library-SearchBar-Wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         height: auto;
@@ -109,6 +110,19 @@
         padding: 0% 1% 0% 1%;
     }
 }
+
+.Library-NewBook-Dropdown-Button {
+    width:2.5rem;
+    height: auto;
+    color:var(--gl-orange);
+    justify-content: flex-end;
+}
+
+.Library-NewBook-Dropdown-Button:hover {
+    color: var(--gl-dark-orange);
+    cursor: pointer;
+}
+
 
 .Library-Search-Input {
     border-radius: 10px;
@@ -271,7 +285,7 @@
 
 
 .Library-Reservation-Dropdown-Button {
-    width:3vmax;
+    width:2.5rem;
     height: auto;
     color:var(--gl-orange);
     margin: 2%;

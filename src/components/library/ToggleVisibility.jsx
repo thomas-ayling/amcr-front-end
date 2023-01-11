@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./LibrarySearch.css";
 import {BsFillArrowDownCircleFill} from 'react-icons/bs';
+import {BsFillArrowUpCircleFill} from 'react-icons/bs';
 
 
 export default function ToggleVisibility({ children }) {
@@ -17,7 +18,8 @@ export default function ToggleVisibility({ children }) {
   return (
     <div className="component-container">
       {show && children}
-      <BsFillArrowDownCircleFill className='Library-Reservation-Dropdown-Button' onClick={toggleShow}/>
+      {!show && <BsFillArrowDownCircleFill className='Library-Reservation-Dropdown-Button' onClick={toggleShow}/>}
+      {show && <BsFillArrowUpCircleFill className='Library-Reservation-Dropdown-Button' onClick={toggleShow}/>}
     </div>
   );
 }
