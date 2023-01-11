@@ -7,7 +7,6 @@
   margin: auto;
   padding: 1rem;
   background-color: var(--gl-light-gray);
-  /* background-color: white; */
   border-radius: 17.5px;
 }
 
@@ -20,10 +19,6 @@
 .case-study-title {
   color: black;
   width: 100%;
-  /* overflow-x: ; */
-  /* overflow-y: hidden; */
-  /* white-space: nowrap; */
-  /* padding: 0 5px 0 5px; */
   margin: 0 !important;
   border-radius: 5%;
   -ms-overflow-style: none;
@@ -47,7 +42,6 @@
   height: 256px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   overflow: scroll;
   overflow-x: hidden;
   -ms-overflow-style: none;
@@ -61,7 +55,6 @@
 .case-study-description {
   padding: 0 5px 0 5px;
   border-radius: 5%;
-  /* -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */
 }
 
 .case-study-image-slide,
@@ -86,8 +79,6 @@
   object-fit: cover;
   width: 100%;
   aspect-ratio: 5/3;
-  /* width: 450px;
-  height: 300px; */
   border-radius: 5px;
   box-shadow: 2px 2px 4px var(--gl-gray);
   transition: 0.5s;
@@ -357,7 +348,6 @@
       height: 35px;
       width: 35px;
       border-radius: 5px;
-      /* border: 10px solid var(--gl-dark-orange); */
       border: 10px solid var(--gl-orange);
     }
 
