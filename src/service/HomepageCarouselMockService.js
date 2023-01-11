@@ -1,3 +1,5 @@
+// import RandomImage from './RandomCarouselImageService.js';
+
 import Image1 from '../assets/images/homepage-carousel/Image1.png'
 import Image2 from '../assets/images/homepage-carousel/Image2.png'
 import Image3 from '../assets/images/homepage-carousel/Image3.png'

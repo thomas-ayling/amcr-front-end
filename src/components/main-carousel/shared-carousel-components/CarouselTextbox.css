@@ -13,7 +13,9 @@
   bottom: 0px;
   margin-left: 50px;
 }
+
 .active-carousel-textbox {
+  height: max-content;
   overflow: hidden;
   pointer-events: none;
   transform: translate(-500px, 0);
@@ -22,16 +24,17 @@
   transform: scale(1);
   pointer-events: visible;
 }
-.card-text {
+.card-text > div {
   background-color: white;
   color: black;
   border-radius: 10px;
   padding: 1rem;
 }
-.card-subtitle {
+.card-text > div > ul > li {
   font-size: 1rem;
 }
-.card-link {
+
+.card-text > div > p > a {
   align-items: flex-end;
   color: var(--gl-orange);
   text-decoration-line: none;
@@ -43,25 +46,31 @@
   cursor: pointer;
 }
 @media screen and (max-width: 1100px) {
-  .card-subtitle-list {
-    margin:0;
+  .card-text > div > ul {
+    margin: 0;
   }
-  .card-title {
+  .card-text > div > h1 {
     font-size: 1rem;
   }
-  .card-subtitle {
+  .card-text > div > ul > li {
     font-size: 0.75rem;
   }
-  .card-link {
+  .card-text > div > p > a {
     font-size: 0.75rem;
+  }
+  .card-text > div {
+    height: 100%;
+    padding: 0.5rem;
   }
   .card-text {
-    padding: 0.5rem;
+    height: 100%;
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 450px) {
   .carousel-textbox {
-    bottom: -100px;
+    left: -12vw;
+    height: 100%;
+    width: 60%;
   }
 }

@@ -5,8 +5,9 @@
 @media (max-width: 1100px) {
   .welcome-container-border {
     padding: 1 0.75rem 1 0.75rem !important;
-    width: 530px !important;
-    height: 530px !important;
+    width: 80% !important;
+    z-index: -1 !important;
+    height: 25% !important;
     margin-top: 3rem !important;
   }
 }
