@@ -1,0 +1,56 @@
+/* CSSP stands for Case Study Single Page */
+
+.cssp-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cssp-title {
+  font-size: 55px;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.cssp-body-wrapper {
+  width: 1100px;
+
+  padding: 1rem;
+  border-radius: 17.5px;
+  background-color: var(--gl-light-gray);
+}
+
+.cssp-body {
+  border-radius: 10px;
+  background-color: white;
+  height: fit-content;
+}
+
+.cssp-body-row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+}
+
+.cssp-regular-row {
+  grid-template-areas: 'image text';
+}
+
+.cssp-reversed-row {
+  grid-template-areas: 'text image';
+}
+
+.cssp-body-img {
+  margin: 1rem;
+  grid-area: image;
+  width: calc(100% - 2rem);
+  border-radius: 5px;
+  aspect-ratio: 5/3;
+}
+
+.cssp-body-text {
+  grid-area: text;
+  padding: 1rem;
+}

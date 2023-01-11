@@ -1,0 +1,9 @@
+hr.styled-hr {
+  border: none;
+  background-color: var(--gl-orange);
+  width: 10%;
+  margin: 12px auto 12px auto;
+  height: 3px;
+  border-radius: 2px;
+  opacity: 1 !important;
+}
