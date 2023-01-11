@@ -20,9 +20,9 @@
 .case-study-title {
   color: black;
   width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
+  /* overflow-x: ; */
+  /* overflow-y: hidden; */
+  /* white-space: nowrap; */
   /* padding: 0 5px 0 5px; */
   margin: 0 !important;
   border-radius: 5%;
