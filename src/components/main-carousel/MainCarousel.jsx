@@ -67,7 +67,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
   };
 
   const handleClickLink = (id) => {
-    navigate(`case-study/${id}`);
+    navigate(`/case-study/${id}`);
   };
 
   return (
@@ -85,7 +85,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
         </div>
 
         {type === 'header' ? (
-          <div className='title-wrapper' onClick={() => isLink && handleClickLink(slides.id)}>
+          <div className='title-wrapper' onClick={() => isLink && handleClickLink(slides[current].id)}>
             <CarouselTitles slides={slides} current={current} classNames={classNames}/>
           </div>
         ) : (
