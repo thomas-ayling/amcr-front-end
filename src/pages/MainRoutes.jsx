@@ -9,6 +9,8 @@ import Configuration from './ConfigurationPage';
 import AdminPanel from './AdminPanel';
 import CaseStudySingle from './CaseStudySingle';
 
+import ToastNotification from '../components/toast-notification/ToastNotification';
+
 import './styles/MainRoutes.css'
 
 const MainRoutes = () => {
@@ -24,6 +26,7 @@ const MainRoutes = () => {
         <Route exact path='/admin-panel' element={<AdminPanel />} />
         <Route exact path='/case-study/:id' element={<CaseStudySingle />} />
       </Routes>
+      <ToastNotification />
     </div>
   );
 };
