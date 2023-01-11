@@ -1,18 +1,38 @@
 import './CaseStudyCarousel.css';
-import bodyCarouselData from '../../service/CaseStudyCarouselMockService';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import ImageSlider from './sub-components/ImageSlider';
 import TitleSlider from './sub-components/TitleSlider';
+import StyledHr from '../styled-components/StyledHr';
+import ImageSlider from './sub-components/ImageSlider';
 import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
+
+import { get } from '../../service/CaseStudiesService';
 
 const CaseStudyCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const currentUrl = `case-studies/${bodyCarouselData[current].id}`;
-  const length = bodyCarouselData.length;
+  const [pageLoaded, setPageLoaded] = useState(false);
+  const [pageData, setPageData] = useState();
+  const [requestStatus, setRequestStatus] = useState();
+
+  const [overviews, setOverviews] = useState([]);
+  const [titles, setTitles] = useState([]);
+  const [length, setLength] = useState();
+
+  useEffect(() => {
+    get(setPageData, setRequestStatus, setPageLoaded);
+    if (requestStatus === 'error-404') console.error('Case study with id ${id} could not be found');
+  }, []);
+
+  useEffect(() => {
+    if (pageLoaded) {
+      setOverviews(pageData.map((item) => item.overview));
+      setTitles(pageData.map((item) => item.title));
+      setLength(pageData.length);
+    }
+  }, [pageData]);
 
   const resizeObserver = new ResizeObserver((entries) => {
     setWindowWidth(entries[0].contentRect.width);
@@ -28,34 +48,32 @@ const CaseStudyCarousel = () => {
     current === length - 1 ? setCurrent(0) : setCurrent((prevCurrent) => prevCurrent + 1);
   };
 
-  return (
-    <div className='body-carousel-wrapper'>
-      <h1 className='body-carousel-page-title'>Case Studies</h1>
-      <div className='body-carousel-case-study-container'>
-        <div className='body-carousel-image-slider-container'>
-          <ImageSlider current={current} currentUrl={currentUrl} windowWidth={windowWidth} dataArray={bodyCarouselData} />
-        </div>
-        <div className='body-carousel-case-study-content'>
-          <TitleSlider current={current} dataArray={bodyCarouselData} />
-          <div className='case-study-scrollable-description'>
-            <DescriptionSlider current={current} dataArray={bodyCarouselData} />
-            <div className='body-carousel-case-study-scroll-arrows'>
-              <div className='body-carousel-case-study-scroll-up'></div>
-              <div className='body-carousel-case-study-scroll-down'></div>
+  if (pageLoaded) {
+    return (
+      <div className='case-study-carousel-wrapper'>
+        <div className='case-study-carousel-inner-wrapper'>
+          <TitleSlider current={current} titles={titles} />
+          <StyledHr />
+          <div className='case-study-carousel-container'>
+            <div className='case-study-carousel-image-slider-container'>
+              <ImageSlider current={current} windowWidth={windowWidth} pageData={pageData} />
+            </div>
+            <div className='case-study-carousel-content'>
+              <DescriptionSlider current={current} overviews={overviews} />
+              <ButtonSlider current={current} pageData={pageData} />
             </div>
           </div>
-          <ButtonSlider current={current} currentUrl={currentUrl} dataArray={bodyCarouselData} />
+          <div className='case-study-carousel-arrows'>
+            <div className='case-study-carousel-arrow-left' onClick={clickLeft}></div>
+            <div className='case-study-carousel-page'>
+              {current + 1} / {length}
+            </div>
+            <div className='case-study-carousel-arrow-right' onClick={clickRight}></div>
+          </div>
         </div>
       </div>
-      <div className='body-carousel-arrows'>
-        <div className='body-carousel-arrow-left' onClick={clickLeft}></div>
-        <div className='body-carousel-case-study-page'>
-          {current + 1} / {length}
-        </div>
-        <div className='body-carousel-arrow-right' onClick={clickRight}></div>
-      </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default CaseStudyCarousel;

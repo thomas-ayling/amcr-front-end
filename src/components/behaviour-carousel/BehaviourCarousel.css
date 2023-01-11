@@ -28,7 +28,7 @@
   color: var(--gl-orange);
   font-weight: 500;
   margin-bottom: 15px;
-  margin-left: 120px;
+  margin-left: 100px;
 }
 
 .behaviour-carousel-container {
@@ -82,23 +82,24 @@
   color: var(--gl-dark-orange);
   width: 350px;
   height: 38px;
-  margin-left: -328px;
-  margin-top: 15px;
+  margin-left: 650px;
+  margin-top: -310px;
 }
 
 .behaviour-description {
+  white-space: pre;
   width: 328px;
   height: 269px;
   padding: 0 5px 0 5px;
   border-radius: 5%;
   background: var(--gl-gray);
-  margin-left: 60px;
-  margin-top: 60px;
+  margin-left: 650px;
+  margin-top: -310px;
 }
 
 .behaviour-carousel-arrows {
   display: flex;
-  margin-top: 0;
+  margin-top: 320px;
   justify-content: center;
   align-items: center;
 }
