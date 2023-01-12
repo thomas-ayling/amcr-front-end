@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AttachmentInput from '../shared-input-components/AttachmentInput';
 import FeedbackBodyTextarea from '../shared-input-components/FeedbackBodyTextarea';
 import UserInfoInputs from '../shared-input-components/UserInfoInputs';
