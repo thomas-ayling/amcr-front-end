@@ -288,9 +288,27 @@ textarea::-webkit-scrollbar {
     font-size: 0.82rem;
   }
 
+  .attachment-input-label {
+    width: 80%;
+  }
+
+  .chosen-file {
+    font-size: 0.82rem;
+  }
+
+  #file-icon {
+    width: 15px;
+  }
+
   .submit-button {
     font-size: 0.82rem;
     padding-top: 0px !important;
     padding-left: 3px;
+  }
+}
+
+@media (max-width: 550px) {
+  .attachment-input-label {
+    width: 100%;
   }
 }
