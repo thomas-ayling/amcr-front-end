@@ -49,14 +49,12 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe) {
+    if (distance > minSwipeDistance) {
       slideLeft();
     }
 
-    if (isRightSwipe) {
+    if (distance < -minSwipeDistance) {
       slideRight();
     }
   };
@@ -70,29 +68,14 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     navigate(`case-study/${id}`);
   };
 
-  return (
-    <div className='carousel-container'>
-      <div
-        className='carousel-inner'
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={() => setAutoPlay(true)}
-      >
-        <div className='slide-wrapper'>
-          <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
-        </div>
+  const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`
 
-        {type === 'header' ? (
-          <div className='title-wrapper' onClick={() => isLink && handleClickLink(slides.id)}>
-            <CarouselTitles slides={slides} current={current} classNames={classNames}/>
-          </div>
-        ) : (
-          <div className='textbox-wrapper'>
-            <CarouselTextbox slides={slides} current={current} />
-          </div>
-        )}
+  return (
+    <div className={`carousel-container ${containerClassNames}`}>
+      <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
+        <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
+        {type.includes('header') && <CarouselTitles slides={slides} current={current} onClick={() => isLink && handleClickLink(slides.id)} classNames={classNames}/>}
+        {type.includes('textbox') && <CarouselTextbox slides={slides} current={current} />}
       </div>
     </div>
   );
