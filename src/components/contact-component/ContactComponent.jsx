@@ -18,21 +18,20 @@ const ContactComponent = ({ feedbackType }) => {
 
   useEffect(() => {
     if (submitStatus === 'error') alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.');
-  }, [submitStatus])
-  
+  }, [submitStatus]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let feedback = {};
-
-    feedback['feedbackType'] = feedbackType;
-    feedback['firstName'] = firstName;
-    feedback['lastName'] = lastName;
-    feedback['emailAddress'] = emailAddress;
-    feedback['feedbackBody'] = feedbackBody;
-    feedback['bookName'] = bookName;
-    feedback['bookLink'] = bookLink;
+    const feedback = {
+      feedbackType: feedbackType,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      feedbackBody: feedbackBody,
+      bookName: bookName,
+      bookLink: bookLink,
+    };
 
     setAwaitingResponse(true);
 
