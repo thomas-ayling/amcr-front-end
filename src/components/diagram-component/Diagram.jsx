@@ -35,11 +35,11 @@ const Diagram = () => {
 
   useEffect(() => {
     axios
-      .get(`${baseUrl}/page-content/diagram/get-all`)
+      .get(`${baseUrl}/page-content/diagram/`)
       .then((res) => {
-        res.data.map((elem) => {
-          setNodeTitle((prevTitle) => ({ ...prevTitle, [elem.nodeId]: elem.title }));
-          setNodeBody((prevBody) => ({ ...prevBody, [elem.nodeId]: elem.body }));
+        res?.data?.map((elem) => {
+          setNodeTitle((prevTitle) => ({ ...prevTitle, [elem.nodePosition]: elem.title }));
+          setNodeBody((prevBody) => ({ ...prevBody, [elem.nodePosition]: elem.body }));
         });
       })
       .catch((error) => {
@@ -50,13 +50,15 @@ const Diagram = () => {
   const updateContent = () => {
     for (let i = 1; i <= 9; i++) {
       const output = {
-        nodeId: i,
+        nodePosition: i,
         title: nodeTitle[i],
         body: nodeBody[i],
       };
       axios
-        .put(`${baseUrl}/page-content/diagram/update-by-node/${i}`, output)
-        .then(() => {setChangesConfirmed(true);})
+        .put(`${baseUrl}/page-content/diagram/node/${i}`, output)
+        .then(() => {
+          setChangesConfirmed(true);
+        })
         .catch((error) => {
           console.log(error);
         });
@@ -64,11 +66,10 @@ const Diagram = () => {
   };
   useEffect(() => {
     if (changesConfirmed) {
-      alert("Changes confirmed!");
+      alert('Changes confirmed!');
       setChangesConfirmed(false);
     }
   }, [changesConfirmed]);
-
   return (
     <div>
       <div className='diagram-dropdown-container'>
