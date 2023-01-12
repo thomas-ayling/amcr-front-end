@@ -4,8 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const runToastNotification = (message, toastType) => {
-  if (toastType === 'success') return toast.success(message, { position: 'top-center', autoClose: 3500 });
-  if (toastType === 'error') return toast.error(message, { position: 'top-center', autoClose: 3500 });
+  if (toastType === 'success') return toast.success(message, { position: 'top-center', autoClose: 5000 });
+  if (toastType === 'error') return toast.error(message, { position: 'top-center', autoClose: 5000 });
   return;
 };
 
