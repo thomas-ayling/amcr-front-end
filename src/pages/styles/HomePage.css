@@ -22,9 +22,9 @@
 .welcome-container-border {
   background-color: var(--gl-light-gray);
   padding: 1rem;
-  width: 80%;
+  width: 1100px;
   height: 90%;
-  margin:auto;
+  margin: auto;
 
   border-radius: 17.5px;
   bottom: 20%;
@@ -32,14 +32,13 @@
 }
 
 .welcome-container {
-  
   width: auto;
   height: 100%;
   padding: 1rem 2rem 1rem 2rem;
   text-align: center;
   border-radius: 10px;
   background-color: white;
- 
+
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -50,16 +49,26 @@
   font-size: 55px;
   margin-bottom: 0;
 }
-.homepage-subheading{
+.homepage-subheading {
   font-size: 30px;
+}
+
+@media (max-width: 1100px) {
+  .welcome-container-border {
+    width: 550px;
+  }
+}
+@media (max-width: 550px) {
+  .welcome-container-border {
+    width: 300px;
+  }
 }
 
 @media screen and (max-width: 800px) {
   .homepage-title {
     font-size: 40px;
   }
-  .homepage-subheading{
+  .homepage-subheading {
     font-size: 20px;
   }
-
 }
