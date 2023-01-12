@@ -25,15 +25,15 @@ const ContactComponent = ({ feedbackType }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let feedback = {};
-
-    feedback['feedbackType'] = feedbackType;
-    feedback['firstName'] = firstName;
-    feedback['lastName'] = lastName;
-    feedback['emailAddress'] = emailAddress;
-    feedback['feedbackBody'] = feedbackBody;
-    feedback['bookName'] = bookName;
-    feedback['bookLink'] = bookLink;
+    const feedback = {
+      feedbackType: feedbackType,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      feedbackBody: feedbackBody,
+      bookName: bookName,
+      bookLink: bookLink,
+    };
 
     setAwaitingResponse(true);
 

@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Title from '../components/case-study-single/Title';
 import Body from '../components/case-study-single/Body';
 import ContactComponent from '../components/contact-component/ContactComponent';
 import { get } from '../service/CaseStudySingleService';
