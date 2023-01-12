@@ -2,15 +2,15 @@
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
 
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .welcome-container-border {
     padding: 1 0.75rem 1 0.75rem !important;
     width: 80% !important;
     z-index: -1 !important;
-    height: 25% !important;
-    margin-top: 3rem !important;
+    height: 5% !important;
+    margin-top: 10rem !important;
   }
-}
+} */
 
 .homepage-container {
   /* display: flex; */
@@ -22,31 +22,44 @@
 .welcome-container-border {
   background-color: var(--gl-light-gray);
   padding: 1rem;
-  width: 1100px;
-  height: 350px;
+  width: 80%;
+  height: 90%;
   margin:auto;
-  /* margin-top: 150px; */
+
   border-radius: 17.5px;
+  bottom: 20%;
+  margin-top: 3rem;
 }
 
 .welcome-container {
-  margin: auto;
-  width: 100%;
+  
+  width: auto;
   height: 100%;
   padding: 1rem 2rem 1rem 2rem;
   text-align: center;
   border-radius: 10px;
   background-color: white;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  top: 50%;
 }
 
 .homepage-title {
   font-size: 55px;
   margin-bottom: 0;
 }
+.homepage-subheading{
+  font-size: 30px;
+}
 
-.homepage-subheading {
+@media screen and (max-width: 800px) {
+  .homepage-title {
+    font-size: 40px;
+  }
+  .homepage-subheading{
+    font-size: 20px;
+  }
+
 }

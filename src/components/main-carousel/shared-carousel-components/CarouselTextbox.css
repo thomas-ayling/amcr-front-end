@@ -45,12 +45,16 @@
   text-decoration-line: none;
   cursor: pointer;
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 800px) {
   .card-text > div > ul {
     margin: 0;
   }
   .card-text > div > h1 {
     font-size: 1rem;
+  }
+
+  .card-text > div > h3 {
+    font-size: 1.3rem;
   }
   .card-text > div > ul > li {
     font-size: 0.75rem;
@@ -65,12 +69,46 @@
   .card-text {
     height: 100%;
   }
+  .carousel-textbox {
+    bottom: 01%;
+    height: auto;
+    right: 27.5%;
+    max-height: fit-content;
+    width: 70%;
+  
+  }
 }
 
 @media screen and (max-width: 450px) {
   .carousel-textbox {
     left: -12vw;
-    height: 100%;
-    width: 60%;
+   
+    height: auto;
+    max-height: 65%;
+    width: 70%;
+    border-radius: 10.5px;
+    padding: 1rem;
+  }
+  .card-text > div > h1 {
+    font-size: 0.3rem;
+  }
+  .card-text > div > h3 {
+    font-size: 1rem;
+  }
+  .card-text > div > ul > li {
+    font-size: 0.6rem;
+  }
+  .card-text > div > p > a {
+    font-size: 0.75rem;
+  }
+  .card-text > div {
+    height: 50%;
+    padding: 0.2rem;
+    font-size: 0.4rem;
+    border-radius: 5px;
+  }
+  .card-text {
+    height: 20%;
+    font-size: 0.8rem;
   }
 }
