@@ -1,10 +1,10 @@
 import React from 'react';
 
 const DescriptionSlider = ({ current, overviews }) => {
-  const descriptionSlider = overviews.map((overview, index) => {
-    if (index === current)
-      return (
-        <div className='case-study-carousel-scrollable-description'>
+  const descriptionSlider = overviews.map(
+    (overview, index) =>
+      index === current && (
+        <div key={index} className='case-study-carousel-scrollable-description'>
           <div className={`case-study-description-slide ${index === current && ' case-study-description-active'}`} key={index}>
             <div className='case-study-description'>{overview}</div>
           </div>
@@ -13,8 +13,8 @@ const DescriptionSlider = ({ current, overviews }) => {
             <div className='case-study-carousel-scroll-down'></div>
           </div>
         </div>
-      );
-  });
+      )
+  );
 
   return descriptionSlider;
 };
