@@ -305,6 +305,14 @@ textarea::-webkit-scrollbar {
     padding-top: 0px !important;
     padding-left: 3px;
   }
+
+  .description-container > p {
+    font-size: 1rem;
+  }
+
+  .description-container > h1 {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 550px) {
