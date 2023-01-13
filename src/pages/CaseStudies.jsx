@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import CaseStudyCarousel from '../components/case-studies-carousel/CaseStudyCarousel';
 import ContactComponent from '../components/contact-component/ContactComponent';
 import MainCarousel from '../components/main-carousel/MainCarousel';
+import Loader from '../components/shared-components/Loader';
 
 import { get } from '../service/CaseStudiesService';
 
@@ -19,9 +20,12 @@ const CaseStudies = () => {
   const [length, setLength] = useState();
 
   useEffect(() => {
-    get(setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeaderCarouselLoaded, setRequestStatus, requestStatus);
-    if (requestStatus === 'error-404') console.error('Case study with id ${id} could not be found');
+    get(setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeaderCarouselLoaded, setRequestStatus);
   }, []);
+
+  useEffect(() => {
+    if (requestStatus === 'error-404') console.error('Case study could not be found');
+  }, [requestStatus]);
 
   useEffect(() => {
     if (carouselLoaded) {
@@ -33,8 +37,8 @@ const CaseStudies = () => {
 
   return (
     <>
-      {headerCarouselLoaded && <MainCarousel type='header' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />}
-      {carouselLoaded && <CaseStudyCarousel overviews={overviews} titles={titles} length={length} pageData={carouselData} />}
+      {headerCarouselLoaded ? <MainCarousel type='header' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' /> : <Loader />}
+      {carouselLoaded ? <CaseStudyCarousel overviews={overviews} titles={titles} length={length} pageData={carouselData} /> : <Loader />}
       <ContactComponent feedbackType='case-study' />
     </>
   );
