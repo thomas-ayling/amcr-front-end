@@ -1,56 +1,44 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
-// import dataMock from "./Books.json";
 import ToggleVisibility from "./ToggleVisibility";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { Modal, Button } from "react-bootstrap";
 
 import "./LibrarySearch.css";
 
+// Component for the engineering centre library
 const LibrarySearch = () => {
   const [books, setBooks] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchParam] = useState(["title", "author", "genre"]);
   const [filterParam, setFitlerParam] = useState("");
-  const [readerNameInput, setReaderNameInput] = useState("");
-  const [readerEmailInput, setReaderEmailInput] = useState("");
   const [bookTitleInput, setBookTitleInput] = useState("");
   const [bookAuthorInput, setBookAuthorInput] = useState("");
   const [bookCoverInput, setBookCoverInput] = useState("");
   const [bookGenreInput, setBookGenreInput] = useState("");
   const [showModal, setShow] = useState(false);
 
-  function handleClose() {
-    setShow(false);
-  }
-  function handleShow() {
-    setShow(true);
-  }
+  // On render calls the axios request for loading all books
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3001/library/`)
+      .then((result) => {
+        setBooks(result.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
 
-  function search(items) {
-    // eslint-disable-next-line
-    return items.filter((item) => {
-      if (item.genre === filterParam) {
-        return searchParam.some((newItem) => {
-          return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
-        });
-      } else if (filterParam === "") {
-        return searchParam.some((newItem) => {
-          return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
-        });
-      }
-    });
-  }
-
+  // ADMIN ONLY - Axios request for adding new book to library
   const uploadBook = (e) => {
-    e.preventDefault();
-    const newBook = { 
+    const newBook = {
       title: bookTitleInput,
-      genre: bookGenreInput, 
-      author: bookAuthorInput,  
-      available: true, 
-      cover: bookCoverInput 
+      genre: bookGenreInput,
+      author: bookAuthorInput,
+      available: true,
+      cover: bookCoverInput,
     };
     const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
     axios
@@ -65,20 +53,30 @@ const LibrarySearch = () => {
       });
   };
 
-  useEffect(() => {
-    axios
-      .get(`http://localhost:3001/library/`)
-      .then((result) => {
-        setBooks(result.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-
-  // (axios) .get.then.catch
-
+  // Function that is created within the book mapping to create a reservation area
   function ReserveWrapper({ book }) {
+    const [readerNameInput, setReaderNameInput] = useState("");
+    const [readerEmailInput, setReaderEmailInput] = useState("");
+
+    // Function for reserving specific book with axios request
+    function reserveBook(event) {
+      const reserveBook = {
+        reader: readerNameInput,
+        email: readerEmailInput,
+      };
+      console.log(reserveBook);
+      const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
+      axios
+        .put(`http://localhost:3001/library/${book.id}`, reserveBook, { headers: headers })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch((error) => {
+          //handle error
+          console.log(error.status);
+        });
+    }
     if (book.available === true) {
       return (
         <ToggleVisibility>
@@ -95,7 +93,7 @@ const LibrarySearch = () => {
             />
             <input
               className='Library-Reservation-Input'
-              type='search'
+              type='email'
               name='reader-firstname-input'
               placeholder='Email'
               value={readerEmailInput}
@@ -103,7 +101,9 @@ const LibrarySearch = () => {
                 setReaderEmailInput(e.target.value);
               }}
             />
-            <button className='Library-Reservation-Button'>Reserve</button>
+            <button className='Library-Reservation-Button' onClick={reserveBook}>
+              Reserve
+            </button>
           </form>
         </ToggleVisibility>
       );
@@ -113,6 +113,32 @@ const LibrarySearch = () => {
           <p>Unavailable. {book.reader} Is currently reading it.</p>
         </ToggleVisibility>
       );
+  }
+
+  // Search function that allows the user to filter and search through the books dependant on genre/search input
+  function search(items) {
+    // eslint-disable-next-line
+    return items.filter((item) => {
+      if (item.genre === filterParam) {
+        return searchParam.some((newItem) => {
+          return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
+        });
+      } else if (filterParam === "") {
+        return searchParam.some((newItem) => {
+          return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
+        });
+      }
+    });
+  }
+
+  // Simple function for hiding book upload modal
+  function handleClose() {
+    setShow(false);
+  }
+
+  // Simple function for showing book upload modal
+  function handleShow() {
+    setShow(true);
   }
 
   return (
@@ -181,6 +207,7 @@ const LibrarySearch = () => {
               onChange={(e) => setSearchInput(e.target.value)}
             />
           </label>
+          {/* Genre Book selector dropdown that only appears on mobiles < 425px in screen width */}
           <div className='Library-Genre-Select-Dropdown'>
             <select
               value={filterParam}
@@ -199,10 +226,11 @@ const LibrarySearch = () => {
             </select>
             <span className='focus'></span>
           </div>
+          {/* ADMIN ONLY - Upload for new book into the database forum/modal */}
           <BsPlusCircleFill className='Library-NewBook-Dropdown-Button' onClick={handleShow} />
           <Modal show={showModal} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>Admin. New book entry.</Modal.Title>
+              <Modal.Title>Add a new book</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <form className='Library-Reservation-Input-Container'>
@@ -257,10 +285,7 @@ const LibrarySearch = () => {
               </form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant='secondary' onClick={handleClose}>
-                Close
-              </Button>
-              <Button variant='success' onClick={handleClose}>
+              <Button variant='success' className='Library-Reservation-Button' onClick={handleClose}>
                 Save Changes
               </Button>
             </Modal.Footer>

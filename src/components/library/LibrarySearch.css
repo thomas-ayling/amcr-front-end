@@ -1,243 +1,242 @@
 /* Top tier parent wrapper for whole component */
-.Library-Container{
-    width:100%;
-    height:auto;
-    margin-top: 10%;
-    padding: 1rem;
+.Library-Container {
+  width: 100%;
+  height: auto;
+  margin-top: 10%;
+  padding: 1rem;
 
-    display:flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: flex-start;
 
-    background-color: var(--gl-light-gray);
-    border-radius: 17.5px;
+  background-color: var(--gl-light-gray);
+  border-radius: 17.5px;
 }
 
 .Library-Wrapper {
-    width:100%;
-    height:auto;
-    padding: 2%;
+  width: 100%;
+  height: auto;
+  padding: 2%;
 
-    background-color: white;
-    border-radius: 17.5px;
+  background-color: white;
+  border-radius: 10px;
 }
 
 .Library-Genre-Select-Wrapper {
-    width: 100%;
+  width: 100%;
 }
 
 .Library-Genre-Select-Options {
-    width: 100%;
-    justify-content: space-between;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 1%;
+  width: 100%;
+  justify-content: space-between;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 1%;
 }
 
-@media (min-width:425px) {
-    .Library-Genre-Selector-Button {
-        width: 15% !important;
-        height: auto !important;
-        /* border-top-right-radius: 30%;
+@media (min-width: 425px) {
+  .Library-Genre-Selector-Button {
+    width: 15% !important;
+    height: auto !important;
+    /* border-top-right-radius: 30%;
         border-top-left-radius: 30%; */
-        border-radius: 25px;
-        border-color: var(--gl-light-gray);
-        border-width: 1px;
-    
-        font-size: 0.75rem;
-    }
+    border-radius: 25px;
+    border-color: var(--gl-light-gray);
+    border-width: 1px;
 
-    .Library-Genre-Selector-Button:focus {
-        background-color: var(--gl-orange);
-        color: white;
+    font-size: 0.75rem;
+  }
 
-    }
+  .Library-Genre-Selector-Button:focus {
+    background-color: var(--gl-orange);
+    color: white;
+  }
 }
 
-@media (max-width:425px) {
-    .Library-Genre-Selector-Button {
-        display: none;
-    }
+@media (max-width: 425px) {
+  .Library-Genre-Selector-Button {
+    display: none;
+  }
 }
 
 .Library-Genre-Selector-Button:hover {
-    background-color: var(--gl-orange);
-    color: white;
+  background-color: var(--gl-orange);
+  color: white;
 }
 
-@media (min-width:425px) {
-    .Library-Genre-Select-Dropdown {
-        display: none;
-    }
+@media (min-width: 425px) {
+  .Library-Genre-Select-Dropdown {
+    display: none;
+  }
 }
 
-@media (max-width:425px) {
-    .Library-Genre-Select-Dropdown {
-        display: flex;
-    }
+@media (max-width: 425px) {
+  .Library-Genre-Select-Dropdown {
+    display: flex;
+  }
 }
 
 .genre-select {
-    margin-bottom: 4%;
-    margin-top: 4%;
+  margin-bottom: 4%;
+  margin-top: 4%;
 }
 
-@media (min-width:425px) {
-    .Library-SearchBar-Wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        padding: 0% 1% 0% 1%;
-    }
+@media (min-width: 425px) {
+  .Library-SearchBar-Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0% 1% 0% 1%;
+  }
 }
 
-@media (max-width:425px) {
-    .Library-SearchBar-Wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        padding: 0% 1% 0% 1%;
-    }
+@media (max-width: 425px) {
+  .Library-SearchBar-Wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0% 1% 0% 1%;
+  }
 }
 
 .Library-NewBook-Dropdown-Button {
-    width:2.5rem;
-    height: auto;
-    color:var(--gl-orange);
-    justify-content: flex-end;
+  width: 2.5rem;
+  height: auto;
+  color: var(--gl-orange);
+  justify-content: flex-end;
 }
 
 .Library-NewBook-Dropdown-Button:hover {
-    color: var(--gl-dark-orange);
-    cursor: pointer;
+  color: var(--gl-dark-orange);
+  cursor: pointer;
 }
 
-
 .Library-Search-Input {
-    border-radius: 10px;
-    width: 45vmin;
-    height: auto;
-    font-size: 1rem;
+  border-radius: 10px;
+  border-color: var(--gl-light-orange);
+  width: 60vmin;
+  height: auto;
+  font-size: 1rem;
 }
 
 .Library-SearchResults-Wrapper {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* CSS for list wrapper */
 .Library-BookList {
-    width: 100%;
-    height:auto;
-    padding: 1%;
-    list-style: none;
+  width: 100%;
+  height: auto;
+  padding: 1%;
+  list-style: none;
 }
 
 .Library-Item {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* Overall CSS for each Book entry from the DB */
-@media (min-width:425px) {
-    .Library-Book {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: row;
-    }
-}
-
-@media (max-width:425px) {
-    .Library-Book {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-    }
-
-    .Library-Book-Data {
-        border-top: 1px solid var(--gl-orange);
-        border-bottom: 0px solid white;
-        padding-top:5%;
-    }
-}
-
-.Library-Book-Cover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30%;
-}
-
-.Library-Book-Cover-Image {
-    width: auto;
-    
-    height: 10vmax;
-}
-
-.Library-Book-Content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-}
-
-/* CSS for row of book author, title and genre information */
-.Library-Book-Data {
+@media (min-width: 425px) {
+  .Library-Book {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 5%;
-    border-bottom: 1px solid var(--gl-orange);
+  }
 }
 
-@media (min-width:1440px) {
-    .Library-Book-Data {
-        font-size: 17px;
-    }
+@media (max-width: 425px) {
+  .Library-Book {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
 
-    .Library-Genre-Selector-Button {
-        font-size: 17px;
-    }
+  .Library-Book-Data {
+    border-top: 1px solid var(--gl-orange);
+    border-bottom: 0px solid white;
+    padding-top: 5%;
+  }
 }
 
-@media (min-width:768px) and (max-width:1439px) {
-    .Library-Book-Data {
-        font-size: 15px;
-    }
-
-    .Library-Genre-Selector-Button {
-        font-size: 15px;
-    }
+.Library-Book-Cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
 
-@media (max-width:768px) {
-    .Library-Book-Data {
-        font-size: 13px;
-    }
+.Library-Book-Cover-Image {
+  width: auto;
 
-    .Library-Genre-Selector-Button {
-        font-size: 13px;
-    }
+  height: 10vmax;
+}
+
+.Library-Book-Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+/* CSS for row of book author, title and genre information */
+.Library-Book-Data {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 5%;
+  border-bottom: 1px solid var(--gl-orange);
+}
+
+@media (min-width: 1440px) {
+  .Library-Book-Data {
+    font-size: 17px;
+  }
+
+  .Library-Genre-Selector-Button {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .Library-Book-Data {
+    font-size: 15px;
+  }
+
+  .Library-Genre-Selector-Button {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Library-Book-Data {
+    font-size: 13px;
+  }
+
+  .Library-Genre-Selector-Button {
+    font-size: 13px;
+  }
 }
 
 /* .Library-vl {
@@ -246,64 +245,71 @@
 } */
 
 .Library-Reservation-Wrapper {
-    /* margin-top:2%; */
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:15px;
+  /* margin-top:2%; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .Library-Reservation-Input-Container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: auto;
-    padding: 5px;
-    background-color: var(--gl-light-gray);
-    border-radius: 5px;
-    border-color: var(--gl-light-gray);
-    border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  background-color: var(--gl-light-gray);
+  border-radius: 5px;
+  border-color: var(--gl-light-gray);
+  border-width: 1px;
 }
 
 .Library-Reservation-Input-Name {
-    width:50%;
-    height: auto;
+  width: 50%;
+  height: auto;
 }
 
 .Library-Reservation-Input-Email {
-    width:100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .Library-Reservation-Button {
-    width:100%;
-    height: auto;
+  width: 100%;
+  height: auto;
+  color: white;
+  background-color: var(--gl-orange);
+  border-radius: 5px;
+  border-color: var(--gl-light-gray);
+  border-width: 1px;
 }
 
+.Library-Reservation-Button:hover {
+  background-color: var(--gl-dark-orange);
+}
 
 .Library-Reservation-Dropdown-Button {
-    width:2.5rem;
-    height: auto;
-    color:var(--gl-orange);
-    margin: 2%;
+  width: 2.5rem;
+  height: auto;
+  color: var(--gl-orange);
+  margin: 2%;
 }
 
 .Library-Reservation-Dropdown-Button:hover {
-    color: var(--gl-dark-orange);
-    cursor: pointer;
+  color: var(--gl-dark-orange);
+  cursor: pointer;
 }
 
 .Library-Reservation-Dropdown {
-    color: orange !important;
-
+  color: orange !important;
 }
 
 /* Font Styling CSS */
 .Library-Orange {
-    color: var(--gl-orange) !important;
+  color: var(--gl-orange) !important;
 }
 
 /* Visibility Component - Display toggler for mapped function */
@@ -318,11 +324,11 @@
   gap: 20px;
 }
 .component-container {
-    margin-top:5px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    gap: 20px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  gap: 20px;
 }
 .button-toggler {
   padding: 5px 10px;
