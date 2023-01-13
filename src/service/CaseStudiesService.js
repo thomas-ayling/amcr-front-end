@@ -24,7 +24,6 @@ const get = (setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeade
     .get(`${baseUrl}/overviews?latest=true&entries=6`)
     .then((response) => {
       if (response.status === 200) {
-        console.dir(response.data)
         setHeaderCarouselData(
           response.data.map((element) => {
             return {

@@ -33,15 +33,20 @@ const CaseStudies = () => {
       setTitles(carouselData.map((item) => item.title));
       setLength(carouselData.length);
     }
-  }, [carouselLoaded]);
+  }, [carouselLoaded, carouselData]);
 
-  return (
-    <>
-      {headerCarouselLoaded ? <MainCarousel type='header' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' /> : <Loader />}
-      {carouselLoaded ? <CaseStudyCarousel overviews={overviews} titles={titles} length={length} pageData={carouselData} /> : <Loader />}
-      <ContactComponent feedbackType='case-study' />
-    </>
-  );
+  if (headerCarouselLoaded && carouselLoaded) {
+    return (
+      <>
+        <MainCarousel type='header' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />
+        <CaseStudyCarousel overviews={overviews} titles={titles} length={length} pageData={carouselData} />
+        <ContactComponent feedbackType='case-study' />
+      </>
+    );
+  }
+  if (!headerCarouselLoaded || !carouselLoaded) {
+    return <Loader />;
+  }
 };
 
 export default CaseStudies;
