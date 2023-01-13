@@ -2,12 +2,13 @@ import './CaseStudyCarousel.css';
 import { useState, useEffect } from 'react';
 
 import TitleSlider from './sub-components/TitleSlider';
-import StyledHr from '../styled-components/StyledHr';
+import StyledHr from '../shared-components/StyledHr';
 import ImageSlider from './sub-components/ImageSlider';
 import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
 
 import { get } from '../../service/CaseStudiesService';
+import Loader from '../shared-components/Loader';
 
 const CaseStudyCarousel = () => {
   const [current, setCurrent] = useState(0);
@@ -73,6 +74,9 @@ const CaseStudyCarousel = () => {
         </div>
       </div>
     );
+  }
+  if (!pageLoaded) {
+    return <Loader />;
   }
 };
 
