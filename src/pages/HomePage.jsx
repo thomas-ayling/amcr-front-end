@@ -6,7 +6,6 @@ import MainCarousel from '../components/main-carousel/MainCarousel';
 import BehaviourCarousel from '../components/behaviour-carousel/BehaviourCarousel';
 import MainCarouselSlides from '../service/MainCarouselMockService';
 import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
-
 import ContactComponent from '../components/contact-component/ContactComponent';
 
 const HomePage = () => {
