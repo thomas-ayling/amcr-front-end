@@ -67,11 +67,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
 
   const handleClickLink = (id) => {
     navigate(`/case-study/${id}`);
-  };
-
-  
-
-       
+  };  
 
   const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`
 
@@ -81,7 +77,6 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
         <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
         {type.includes('header') && <CarouselTitles slides={slides} current={current} onClick={() => isLink && handleClickLink(slides[current].id)} classNames={classNames}/>}
         {type.includes('textbox') && <CarouselTextbox slides={slides} current={current} />}
-
       </div>
     </div>
   );
