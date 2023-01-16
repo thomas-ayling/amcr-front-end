@@ -1,5 +1,5 @@
 import Grid from './Grid';
-import TitleGrid from './TitleGrid';
+import TitleGrid from './TitlePages/TitleGrid';
 
 const GridDisplay = ({ totalNum, currentNode, title, body }) => {
   return (
