@@ -10,9 +10,16 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
+  const minSwipeDistance = 75; //distance on when a user swipes
+
+  const slideRight = () => {
+    setCurrent(current === slides.length - 1 ? 0 : current + 1);
+  };
+
   let timeOut = useRef(null);
   const minSwipeDistance = 100; //distance on when a user swipes
 
+ 
   useEffect(() => {
     timeOut.current =
       autoPlay &&
