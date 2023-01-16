@@ -133,6 +133,12 @@ button:focus {
   }
 }
 
+@media (max-width: 321px) {
+  .navbar {
+    padding: 16px !important;
+  }
+}
+
 .navbar-nav .nav-item {
   position: relative;
   margin-left: 0px;

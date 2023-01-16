@@ -20,35 +20,6 @@
   font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
 
-@media (max-width: 1100px) {
-  .contact-component {
-    flex-direction: column;
-    padding: 1 0.75rem 1 0.75rem !important;
-    align-items: center;
-    width: 80% !important;
-    margin-top: 3rem !important;
-  }
-
-  .description-container {
-    margin-bottom: 0.5rem !important;
-  }
-
-  .description-container,
-  .contact-form-container {
-    width: 100% !important ;
-    aspect-ratio: 8/7 !important;
-  }
-
-  .description-container {
-    margin: 0 0 0.5rem 0 !important;
-  }
-
-  .contact-form-container {
-    margin: 0.5rem 0 0 0 !important;
-  }
-
-}
-
 .contact-component-container {
   /* width: 98vw; */
   display: flex;
@@ -82,8 +53,7 @@
   width: 50%;
   aspect-ratio: 8/7;
   padding: 1rem;
-  margin-right: 0.5rem;  
-
+  margin-right: 0.5rem;
 }
 
 .description-container > h1 {
@@ -275,6 +245,78 @@ hr.vertical {
   height: 10px;
 }
 
-.chosen-file::-webkit-scrollbar, textarea::-webkit-scrollbar {
+.chosen-file::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 1100px) {
+  .contact-component {
+    flex-direction: column;
+    padding: 1 0.75rem 1 0.75rem !important;
+    align-items: center;
+    width: 80% !important;
+    margin-top: 3rem !important;
+  }
+
+  .description-container {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .description-container,
+  .contact-form-container {
+    width: 100% !important ;
+    aspect-ratio: 8/7 !important;
+  }
+
+  .description-container {
+    margin: 0 0 0.5rem 0 !important;
+  }
+
+  .contact-form-container {
+    margin: 0.5rem 0 0 0 !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .contact-form-input {
+    padding-top: 0;
+    padding-left: 3px;
+  }
+
+  .contact-form-input::placeholder {
+    font-size: 0.82rem;
+  }
+
+  .attachment-input-label {
+    width: 80%;
+  }
+
+  .chosen-file {
+    font-size: 0.82rem;
+  }
+
+  #file-icon {
+    width: 15px;
+  }
+
+  .submit-button {
+    font-size: 0.82rem;
+    padding-top: 0px !important;
+    padding-left: 3px;
+  }
+
+  .description-container > p {
+    font-size: 1rem;
+  }
+
+  .description-container > h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .attachment-input-label {
+    width: 100%;
+  }
 }
