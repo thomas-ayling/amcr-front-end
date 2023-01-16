@@ -1,0 +1,220 @@
+.drop-file-input {
+  cursor: pointer;
+  position: relative;
+  width: auto;
+  height: 200px;
+  border: 2px dashed rgb(243, 122, 055);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.drop-file-input input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.drop-file-input:hover,
+.drop-file-input.dragover {
+  opacity: 0.6;
+}
+
+.upload-logo {
+  height: 2.5em !important;
+  width: auto !important;
+  filter: invert(50%);
+}
+
+.drop-file-input__label {
+  text-align: center;
+  color: rgb(188, 190, 192);
+  font-weight: 600;
+  padding: 10px;
+}
+
+.drop-file-input__label img {
+  width: 100px;
+}
+
+.drop-file-preview {
+  margin-top: 30px;
+}
+
+.drop-file-preview p {
+  font-weight: 500;
+}
+
+.drop-file-preview__item {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+  background-color: rgba(188, 190, 192, 0.2);
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.drop-file-preview__item img {
+  width: 50px;
+  margin-right: 20px;
+}
+
+.drop-file-preview__item__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.drop-file-preview__item__del {
+  background-color: rgb(243, 122, 055);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.drop-file-preview__item:hover .drop-file-preview__item__del {
+  opacity: 1;
+  color: white;
+}
+
+.drop-file-break-word {
+  inline-size: 390px;
+  overflow-wrap: break-word;
+}
+
+.attachment-button {
+  background: rgb(243, 122, 055);
+  border: 1px solid rgb(243, 122, 055);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.attachment-button1 {
+  background: white;
+  border: 1px solid rgb(243, 122, 055);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: rgb(243, 122, 055);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.attachment-button:hover,
+.attachment-button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: rgb(243, 122, 055);
+}
+
+.attachment-button1:hover,
+.attachment-button1:active {
+  background-color: rgb(243, 122, 055);
+  background-position: 0 0;
+  color: white;
+}
+
+.attachment-button:active,
+.attachment-button1:active {
+  opacity: 0.5;
+}
+
+.attachment-button,
+.attachment-button1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  height: 50px;
+  width: 120px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.attachment-form-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  margin: auto;
+}
+
+.drag-and-drop-box {
+  border: 17.5px solid rgb(243, 122, 055);
+  background-color: white;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 550px;
+  min-width: 250px;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.file-metadata {
+  color: rgb(243, 122, 055);
+  border: 2px solid rgb(243, 122, 055);
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
