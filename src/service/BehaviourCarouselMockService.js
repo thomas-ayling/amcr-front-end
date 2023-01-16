@@ -5,6 +5,7 @@ import Teamwork from '../assets/images/behaviour-carousel/Teamwork.jpg';
 
 const IntegrityDescription = [
 
+
   '\u2022 We do what we say we will do',
   <br />,
   <br />,
@@ -67,12 +68,28 @@ const InnovationDescription = [
   <br />,
   '\u2022 Experimentation',
 
+
   '\n\u2022 We do what we say we will do\n\n',
   '\u2022 We tell the truth\n\n',
   "\u2022 We don't make empty promises\n\n",
   '\u2022 We align to business value\n\n',
 ];
 
+// const OpennessDescription = [
+//   '\n\u2022 We can always explain our decisions\n\n',
+//   '\u2022 We accept when others do things better\n\n',
+//   '\u2022 We acknowledge failure\n\n',
+//   '\u2022 We share our knowledge\n\n',
+// ];
+
+// const TeamworkDescription = [
+//   '\n\u2022 We work to build an inclusive environment\n\n',
+//   '\u2022 Collaboration is focussed\n\n',
+//   '\u2022 We emphasise the team over the individual\n\n',
+//   '\u2022 Colleague progression\n\n',
+//   '\u2022 We are courageous\n\n',
+//   '\u2022 A respectful environment\n\n',
+// ];
 // const OpennessDescription = [
 //   '\n\u2022 We can always explain our decisions\n\n',
 //   '\u2022 We accept when others do things better\n\n',
@@ -122,11 +139,7 @@ const behaviourSlides = [
     title: 'Teamwork',
     overview: 'How we demonstrate these values in our day-to-day work and interactions, with customers and each other.',
     description: TeamworkDescription,
-
   }
-
-  
-
 ];
 
 export default behaviourSlides;

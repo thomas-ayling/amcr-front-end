@@ -1,7 +1,7 @@
 import React from 'react';
 import SlideDots from './SlideDots';
-  
-const CarouselCards = ({ slides, current, setCurrent, isLink, handleClickLink  }) => {
+
+const CarouselCards = ({ slides, current, setCurrent }) => {
   return (
     <div className='textbox-wrapper'>
       {slides.map((carousel, index) => (
@@ -11,7 +11,6 @@ const CarouselCards = ({ slides, current, setCurrent, isLink, handleClickLink  }
           <SlideDots slides={slides} current={current} setCurrent={setCurrent} />
         </div>
       ))}
-
     </div>
   );
 };
