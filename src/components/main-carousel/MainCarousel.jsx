@@ -31,14 +31,6 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     return () => clearTimeout(timeOut);
   });
 
-  const slideLeft = () => {
-    setCurrent(current === 0 ? slides.length - 1 : current - 1);
-  }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
-
-  const slideRight = () => {
-    setCurrent(current === slides.length - 1 ? 0 : current + 1);
-  };
-
   const onTouchStart = (e) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
