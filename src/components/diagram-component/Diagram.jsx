@@ -3,6 +3,10 @@ import axios from 'axios';
 import 'reactjs-popup/dist/index.css';
 import './Diagram.css';
 import GridDisplay from './DiagramPages/GridDisplay';
+import DiagramDropdown from './DiagramPages/DiagramDropdown';
+import DiagramTextarea from './DiagramPages/DiagramTextarea';
+
+import { runToastNotification } from '../toast-notification/ToastNotification';
 
 const baseUrl = 'http://localhost:3001';
 
@@ -44,6 +48,7 @@ const Diagram = () => {
       })
       .catch((error) => {
         console.log(error);
+        runToastNotification('Could not load diagram data', 'error');
       });
   }, []);
 
@@ -61,65 +66,26 @@ const Diagram = () => {
         })
         .catch((error) => {
           console.log(error);
+          runToastNotification('Could not update diagram data', 'error');
         });
     }
   };
   useEffect(() => {
     if (changesConfirmed) {
-      alert('Changes confirmed!');
+      runToastNotification('Diagram changes confirmed!', 'success');
       setChangesConfirmed(false);
     }
   }, [changesConfirmed]);
   return (
     <div>
       <div className='diagram-dropdown-container'>
-        <div>
-          <label className='diagram-dropdown-label' htmlFor='nodeTotalNumber'>
-            Total number of nodes:
-          </label>
-          <select id='nodeTotalNumber' className='diagram-dropdown-select' name='nodeTotalNumber' value={totalNum} onChange={(e) => setTotalNum(e.target.value)}>
-            <option value='3'>3</option>
-            <option value='4'>4</option>
-            <option value='5'>5</option>
-            <option value='6'>6</option>
-            <option value='7'>7</option>
-            <option value='8'>8</option>
-            <option value='9'>9</option>
-          </select>
-        </div>
-        <div>
-          <label className='diagram-dropdown-label' htmlFor='currentNode'>
-            Currently editing node:
-          </label>
-          <select id='currentNode' className='diagram-dropdown-select' name='currentNode' value={currentNode} onChange={(e) => setCurrentNode(e.target.value)}>
-            {Array(Number(totalNum))
-              .fill()
-              .map((_, i) => (
-                <option value={i + 1} key={i}>
-                  {i + 1}
-                </option>
-              ))}
-          </select>
-        </div>
+        <DiagramDropdown id={'nodeTotalNumber'} totalNum={totalNum} setTotalNum={setTotalNum} />
+        <DiagramDropdown id={'currentNode'} currentNode={currentNode} setCurrentNode={setCurrentNode} totalNum={totalNum} />
       </div>
 
       <div className='diagram-popup-inputs'>
-        <div className='diagram-title-input'>
-          <textarea
-            className='diagram-builder-textarea-title'
-            value={nodeTitle[currentNode]}
-            placeholder='Title'
-            onChange={(e) => setNodeTitle((prevTitle) => ({ ...prevTitle, [currentNode]: e.target.value }))}
-          />
-        </div>
-        <div className='diagram-body-input'>
-          <textarea
-            className='diagram-builder-textarea-body'
-            value={nodeBody[currentNode]}
-            placeholder='Content'
-            onChange={(e) => setNodeBody((prevBody) => ({ ...prevBody, [currentNode]: e.target.value }))}
-          />
-        </div>
+        <DiagramTextarea type={'title'} nodeTitle={nodeTitle} setNodeTitle={setNodeTitle} currentNode={currentNode} />
+        <DiagramTextarea type={'body'} nodeBody={nodeBody} setNodeBody={setNodeBody} currentNode={currentNode} />
       </div>
       <GridDisplay totalNum={totalNum} currentNode={currentNode} title={nodeTitle} body={nodeBody} />
       <div className='diagram-submit-button-container'>

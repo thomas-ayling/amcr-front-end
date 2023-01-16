@@ -1,7 +1,7 @@
 import TitleRowOne from './TitleRowOne';
 import TitleRowTwo from './TitleRowTwo';
 import TitleRowThree from './TitleRowThree';
-import Empty from './Empty';
+import Empty from '../Empty';
 
 const TitleGrid = ({ totalNum, currentNode, title, body }) => {
   const gridStyle = {
