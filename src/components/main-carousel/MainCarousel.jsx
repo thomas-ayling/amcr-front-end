@@ -1,7 +1,5 @@
 import './MainCarousel.css';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
-
+import { useEffect, useRef, useState } from 'react';
 import CarouselCards from './shared-carousel-components/CarouselCards';
 import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
 import CarouselTitles from './shared-carousel-components/CarouselTitles';
@@ -12,18 +10,16 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
-  const navigate = useNavigate();
-
-  let timeOut = null;
+  let timeOut = useRef(null);
   const minSwipeDistance = 100; //distance on when a user swipes
 
   useEffect(() => {
-    timeOut =
+    timeOut.current =
       autoPlay &&
       setTimeout(() => {
         slideRight();
       }, 5000);
-    return () => clearTimeout(timeOut);
+    return () => clearTimeout(timeOut.current);
   });
 
   const slideLeft = () => {
@@ -42,7 +38,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
 
   const onTouchMove = (e) => {
     setTouchEnd(e.targetTouches[0].clientX);
-  }
+  };
 
   const onTouchEnd = () => {
     //makes sure only swipes are registered
@@ -61,27 +57,17 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
 
   const handleMouseEnter = () => {
     setAutoPlay(false);
-    clearTimeout(timeOut);
+    clearTimeout(timeOut.current);
   };
 
-
-  const handleClickLink = (id) => {
-    navigate(`/case-study/${id}`);
-  };
-
-  
-
-       
-
-  const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`
+  const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`;
 
   return (
     <div className={`carousel-container ${containerClassNames}`}>
       <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
         <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
-        {type.includes('header') && <CarouselTitles slides={slides} current={current} onClick={() => isLink && handleClickLink(slides[current].id)} classNames={classNames}/>}
+        {type.includes('header') && <CarouselTitles slides={slides} current={current} isLink={isLink} classNames={classNames} />}
         {type.includes('textbox') && <CarouselTextbox slides={slides} current={current} />}
-
       </div>
     </div>
   );

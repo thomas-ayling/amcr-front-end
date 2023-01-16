@@ -7,3 +7,9 @@ hr.styled-hr {
   border-radius: 2px;
   opacity: 1 !important;
 }
+
+#loader-icon {
+  width: 50px;
+  aspect-ratio: 1;
+  margin-left: calc(50vw - 25px);
+}
