@@ -6,7 +6,7 @@ import Empty from './Empty';
 const TitleGrid = ({ totalNum, currentNode, title, body }) => {
   const gridStyle = {
     gridTemplateRows: totalNum < 4 ? '200px 0px 0px' : totalNum < 7 ? '200px 200px 0px' : '200px 200px 200px',
-    marginTop: totalNum < 4 ? '-240px' : totalNum < 7 ? '-440px' : '-640px'
+    marginTop: totalNum < 4 ? '-240px' : totalNum < 7 ? '-440px' : '-640px',
   };
 
   return (
