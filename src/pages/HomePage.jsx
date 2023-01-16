@@ -1,6 +1,5 @@
 import React from 'react';
-
-import StyledHr from '../components/styled-components/StyledHr';
+import StyledHr from '../components/shared-components/StyledHr';
 import './styles/HomePage.css';
 
 import MainCarousel from '../components/main-carousel/MainCarousel';

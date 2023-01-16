@@ -9,10 +9,15 @@
     pointer-events: none;
     transform: translate(0, 100%);
     transition: 1s ease-in-out;
-    
     border-radius: 17.5px;
     bottom: 0px;
     margin-left: 50px;
+    user-select: none;
+  }
+
+  .carousel-title-link:hover {
+    transition: 0.1s ease-in-out;
+    color: var(--gl-orange);
   }
 
   .active-carousel-title  {
@@ -26,7 +31,5 @@
   }
 
 
-  /* .carousel-title:hover{
-    color:aqua
-  } */
+  
 

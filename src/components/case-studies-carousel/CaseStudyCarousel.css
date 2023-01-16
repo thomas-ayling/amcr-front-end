@@ -5,6 +5,7 @@
 .case-study-carousel-wrapper {
   width: 1100px;
   margin: auto;
+  margin-top: 100px;
   padding: 1rem;
   background-color: var(--gl-light-gray);
   border-radius: 17.5px;

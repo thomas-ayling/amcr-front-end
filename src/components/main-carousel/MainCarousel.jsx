@@ -1,7 +1,5 @@
 import './MainCarousel.css';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
-
+import { useEffect, useRef, useState } from 'react';
 import CarouselCards from './shared-carousel-components/CarouselCards';
 import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
 import CarouselTitles from './shared-carousel-components/CarouselTitles';
@@ -23,12 +21,12 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
 
  
   useEffect(() => {
-    timeOut =
+    timeOut.current =
       autoPlay &&
       setTimeout(() => {
         slideRight();
       }, 5000);
-    return () => clearTimeout(timeOut);
+    return () => clearTimeout(timeOut.current);
   });
 
   const onTouchStart = (e) => {
@@ -39,7 +37,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
 
   const onTouchMove = (e) => {
     setTouchEnd(e.targetTouches[0].clientX);
-  }
+  };
 
   const onTouchEnd = () => {
     //makes sure only swipes are registered
@@ -58,7 +56,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
 
   const handleMouseEnter = () => {
     setAutoPlay(false);
-    clearTimeout(timeOut);
+    clearTimeout(timeOut.current);
   };
 
   const handleClickLink = (id) => {
