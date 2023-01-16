@@ -59,9 +59,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     clearTimeout(timeOut.current);
   };
 
-  const handleClickLink = (id) => {
-    navigate(`case-study/${id}`);
-  };
+  
 
   const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`
 
