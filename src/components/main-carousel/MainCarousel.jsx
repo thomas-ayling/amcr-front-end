@@ -9,7 +9,7 @@ const MainCarousel = ({ slides, type }) => {
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-  const minSwipeDistance = 100; //distance on when a user swipes
+  const minSwipeDistance = 75; //distance on when a user swipes
 
   const slideRight = () => {
     setCurrent(current === slides.length - 1 ? 0 : current + 1);
@@ -19,6 +19,7 @@ const MainCarousel = ({ slides, type }) => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
+ 
   useEffect(() => {
     const timeOut =
       autoPlay &&
