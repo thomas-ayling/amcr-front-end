@@ -18,11 +18,12 @@ const LibrarySearch = () => {
   const [bookCoverInput, setBookCoverInput] = useState("");
   const [bookGenreInput, setBookGenreInput] = useState("");
   const [showModal, setShow] = useState(false);
+  const baseUrl = 'http://localhost:3001';
 
   // On render calls the axios request for loading all books
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/library/`)
+      .get(`${baseUrl}/books/`)
       .then((result) => {
         setBooks(result.data);
       })
@@ -42,7 +43,7 @@ const LibrarySearch = () => {
     };
     const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
     axios
-      .post("http://localhost:3001/library/upload", newBook, { headers: headers })
+      .post(`${baseUrl}/books/`, newBook, { headers: headers })
       .then(function (response) {
         //handle success
         console.log(response);
@@ -67,7 +68,7 @@ const LibrarySearch = () => {
       console.log(reserveBook);
       const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
       axios
-        .put(`http://localhost:3001/library/${book.id}`, reserveBook, { headers: headers })
+        .put(`${baseUrl}/books/${book.id}`, reserveBook, { headers: headers })
         .then(function (response) {
           //handle success
           console.log(response);
