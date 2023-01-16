@@ -1,5 +1,5 @@
 import React from 'react';
-import StyledHr from '../../styled-components/StyledHr';
+import StyledHr from '../../shared-components/StyledHr';
 
 export const DescriptionBox = ({ feedbackType }) => {
   switch (feedbackType) {

@@ -8,7 +8,7 @@ const BehaviourCarouselDescription = ({ current, currentUrl, windowWidth, dataAr
         <div className={index === current ? 'behaviour-image-slide behaviour-image-active' : 'behaviour-image-slide'} key={element.image}>
           {index === current && (
             <a href={windowWidth < 1100 ? null : currentUrl}>
-              <img className='behaviour-image' src={element.image} />
+              <img className='behaviour-image' src={element.image} alt={element.title}/>
             </a>
           )}
         </div>

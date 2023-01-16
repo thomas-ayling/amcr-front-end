@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from './Title';
 import BodyRows from './BodyRows';
-import StyledHr from '../styled-components/StyledHr'
+import StyledHr from '../shared-components/StyledHr'
 
 const Body = ({ data, title }) => {
   return (
