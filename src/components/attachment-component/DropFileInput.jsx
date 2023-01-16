@@ -66,7 +66,7 @@ const DropFileInput = () => {
           <img className='upload-logo' src={dragAndDropIcon} alt='Drag And Drop Icon' />
           <br />
           <br />
-          <p>Drag 'n' drop some files here to upload,</p>
+          <p>Drag 'n' drop files here to upload,</p>
           <p>or click to select files</p>
           <p>Max file size: 200MB</p>
         </div>
