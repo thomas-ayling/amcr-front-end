@@ -1,15 +1,22 @@
-#Base Image node:12.18.4-alpine
-FROM node:16.19-alpine3.16
-#Set working directory to /app
+## Config
+# Node base-image
+FROM node:18.13-slim as build
+# Set the working dir to /app inside the container.
 WORKDIR /app
-#Set PATH /app/node_modules/.bin
-ENV PATH /app/node_modules/.bin:$PATH
-#Copy package.json in the image
-COPY package.json ./
-#Run npm install command
-RUN npm install
-#Copy the app
-COPY . ./
+# Copy the app files.  This assumes a .dockerignore file is present to filter out the irrelavant, otherwise you can make it more specfic.
+COPY . .
+## Build
+# Install the dependencies, ensuring the versions in the lockfile are used.  Build the app.
+RUN npm ci && npm run build
+## Package
+FROM node:18.13-slim
+WORKDIR /app
+# Copies the built app from build stage.
+COPY --from=build /app/build .
+## Run
+# Set the env to production.
+ENV NODE_ENV=production
+# Expose the listening port of the app.
 EXPOSE 3000
-#Start the app
-CMD ["node", "./src/index.js"]
+# Start the app
+CMD [ "npx", "serve", "." ]

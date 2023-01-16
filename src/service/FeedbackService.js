@@ -1,5 +1,6 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/feedback';
+const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/feedback';
+// const baseUrl = 'http://13.41.186.121:3001/feedback';
 
 const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
   const formData = new FormData();
@@ -14,20 +15,19 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
     formData.append('attachment', attachment);
   }
 
+  const headers = { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
+
   axios
-    .post(baseUrl + '/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
+    .post(`${baseUrl}/`, formData, {
+      headers: headers,
     })
-    .then((res) => {
-      if (res.status === 200) {
+    .then((response) => {
+      if (response.status === 200) {
         setSubmitStatus('success');
         setAwaitingResponse(false);
       }
     })
     .catch((err) => {
-      err.status === 500
-        ? alert('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.')
-        : alert('An unknown error has occurred. Please try again or contact an administrator if this continues to happen.');
       setSubmitStatus('error');
       setAwaitingResponse(false);
     });

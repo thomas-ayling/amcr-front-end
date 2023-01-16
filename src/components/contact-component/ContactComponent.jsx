@@ -1,8 +1,9 @@
 import './styles/ContactComponent.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { create } from '../../service/FeedbackService';
 import DescriptionBox from './description-component/DescriptionBox';
 import Inputs from './input-components/Inputs';
+import { runToastNotification } from '../toast-notification/ToastNotification';
 
 const ContactComponent = ({ feedbackType }) => {
   const [firstName, setFirstName] = useState('');
@@ -16,18 +17,23 @@ const ContactComponent = ({ feedbackType }) => {
   const [awaitingResponse, setAwaitingResponse] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle');
 
+  useEffect(() => {
+    if (submitStatus === 'error') runToastNotification('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.', "error");
+  }, [submitStatus])
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let feedback = {};
-
-    feedback['feedbackType'] = feedbackType;
-    feedback['firstName'] = firstName;
-    feedback['lastName'] = lastName;
-    feedback['emailAddress'] = emailAddress;
-    feedback['feedbackBody'] = feedbackBody;
-    feedback['bookName'] = bookName;
-    feedback['bookLink'] = bookLink;
+    const feedback = {
+      feedbackType: feedbackType,
+      firstName: firstName,
+      lastName: lastName,
+      emailAddress: emailAddress,
+      feedbackBody: feedbackBody,
+      bookName: bookName,
+      bookLink: bookLink,
+    };
 
     setAwaitingResponse(true);
 
@@ -48,6 +54,7 @@ const ContactComponent = ({ feedbackType }) => {
           setEmailAddress={setEmailAddress}
           feedbackBody={feedbackBody}
           setFeedbackBody={setFeedbackBody}
+          attachment={attachment}
           setAttachment={setAttachment}
           isAnonymous={isAnonymous}
           setIsAnonymous={setIsAnonymous}
