@@ -15,7 +15,7 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
     formData.append('attachment', attachment);
   }
 
-  const headers = { 'Content-Type': 'multipart/form-data'};//, 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
+  const headers = { 'Content-Type': 'multipart/form-data', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
 
   axios
     .post(`${baseUrl}/`, formData, {
