@@ -121,5 +121,6 @@
     aspect-ratio: 1/1;
     position: auto;
     object-fit: cover;
+    height: 100%;
   }
 }
