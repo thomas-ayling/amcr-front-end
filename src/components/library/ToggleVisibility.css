@@ -1,0 +1,32 @@
+.VisibilityToggler-Wrapper {
+  background-color: #e6e7e8;
+  width: 100%;
+  height: auto;
+  padding: 2%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.VisibilityToggler-Wrapper:hover {
+  cursor: pointer;
+  background-color: var(--gl-orange);
+  color: white;
+}
+
+.VisibilityToggler-Wrapper:hover > .Library-Reservation-Dropdown-Button {
+  color: white;
+}
+
+.VT-Button-Text {
+  margin-bottom: 0 !important;
+}
+
+.VT-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
