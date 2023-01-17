@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Body from '../components/case-study-single/Body';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import Loader from '../components/shared-components/Loader';
+import LoaderGif from '../components/shared-components/LoaderGif';
 import { get } from '../service/CaseStudySingleService';
 import './styles/CaseStudySingle.css';
 
@@ -30,7 +30,7 @@ const CaseStudySingle = () => {
     );
   }
   if (!pageLoaded) {
-    return <Loader />;
+    return <LoaderGif />;
   }
 };
 

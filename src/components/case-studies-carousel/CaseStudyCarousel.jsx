@@ -2,10 +2,10 @@ import './CaseStudyCarousel.css';
 import { useState } from 'react';
 
 import TitleSlider from './sub-components/TitleSlider';
-import StyledHr from '../shared-components/StyledHr';
 import ImageSlider from './sub-components/ImageSlider';
 import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
+import { StyledHr } from '../../styles/styles';
 
 const CaseStudyCarousel = ({overviews, titles, length, pageData}) => {
   const [current, setCurrent] = useState(0);
