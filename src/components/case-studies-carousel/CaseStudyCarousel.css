@@ -230,7 +230,8 @@
   }
   .case-study-carousel-image-slider-container {
     width: 95%;
-    margin: auto;
+    display: flex;
+    justify-content: center;
   }
   .case-study-image {
     width: 100%;
@@ -248,9 +249,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
   .case-study-carousel-scrollable-description {
-    width: 100%;
+    width: 800px;
   }
   .case-study-description {
     padding: 0;
@@ -292,61 +294,3 @@
     font-size: 25px;
   }
 }
-
-/* @media (max-width: 585px) {
-  .case-study-carousel-wrapper {
-    width: 90%;
-    min-width: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 17.5px;
-  }
-  .case-study-carousel-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .case-study-carousel-image-slider-container {
-    width: 95%;
-    margin: auto;
-  }
-  .case-study-image {
-    width: 100%;
-    margin-left: 0;
-  }
-  .case-study-image:hover {
-    cursor: default;
-  }
-} */
-
-/* @media (max-width: 1100px) {
-
-  @media (max-width: 425px) {
-    .case-study-carousel-arrows {
-      width: 100%;
-      position: absolute;
-      transform: translate(0, 220px);
-      display: flex;
-    }
-
-    .case-study-carousel-arrow-left,
-    .case-study-carousel-arrow-right {
-      height: 35px;
-      width: 35px;
-      border-radius: 5px;
-      border: 10px solid var(--gl-orange);
-    }
-
-    .case-study-carousel-arrow-left {
-      border-top: 0;
-      border-right: 0;
-      margin-left: 2%;
-    }
-
-    .case-study-carousel-arrow-right {
-      border-bottom: 0;
-      border-left: 0;
-      margin-right: 2%;
-    }
-  }
-} */
