@@ -6,6 +6,7 @@ const DiagramTextarea = ({ type, nodeTitle, setNodeTitle, nodeBody, setNodeBody,
     if (type === 'title') setNodeTitle((prevTitle) => ({ ...prevTitle, [currentNode]: e.target.value }));
     else if (type === 'body') setNodeBody((prevBody) => ({ ...prevBody, [currentNode]: e.target.value }));
   };
+
   return (
     <div className={type === 'title' ? 'diagram-title-input' : type === 'body' ? 'diagram-body-input' : null}>
       <textarea
