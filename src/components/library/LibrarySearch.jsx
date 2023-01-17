@@ -18,7 +18,7 @@ const LibrarySearch = () => {
   const [bookCoverInput, setBookCoverInput] = useState("");
   const [bookGenreInput, setBookGenreInput] = useState("");
   const [showModal, setShow] = useState(false);
-  const baseUrl = 'http://localhost:3001';
+  const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001';
 
   // On render calls the axios request for loading all books
   useEffect(() => {
