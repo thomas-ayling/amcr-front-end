@@ -69,7 +69,7 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
     <div className={`carousel-container ${containerClassNames}`}>
       <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
         <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
-        {type.includes('header') && <CarouselTitles slides={slides} current={current} onClick={() => isLink && handleClickLink(slides.id)} classNames={classNames}/>}
+        {type.includes('header') && <CarouselTitles slides={slides} current={current} onClick={() => isLink && handleClickLink(slides.id):undefined} classNames={classNames}/>}
         {type.includes('textbox') && <CarouselTextbox slides={slides} current={current} />}
       </div>
     </div>
