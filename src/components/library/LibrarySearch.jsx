@@ -54,7 +54,7 @@ const LibrarySearch = () => {
       .catch((error) => {
         //handle error
         console.log(error.status);
-        runToastNotification("Book successfully added!", 'success')
+        runToastNotification("Book failed to be added!", 'error');
       });
   };
 
