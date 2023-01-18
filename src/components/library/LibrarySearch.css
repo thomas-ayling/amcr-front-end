@@ -287,6 +287,21 @@
   border-width: 1px;
 }
 
+.Library-Reservation-Button-Exit {
+  color: white;
+  background-color: var(--gl-gray);
+  border-radius: 5px;
+  border-color: var(--gl-light-gray);
+  border-width: 1px;
+}
+
+.Library-Reservation-Button-Exit:hover {
+  background-color: var(--gl-dark-orange);
+  border-radius: 5px;
+  border-color: var(--gl-light-gray);
+  border-width: 1px;
+}
+
 .Library-Reservation-Button:hover {
   background-color: var(--gl-dark-orange);
 }
