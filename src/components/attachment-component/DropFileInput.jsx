@@ -68,7 +68,7 @@ const DropFileInput = () => {
           <br />
           <p>Drag 'n' drop files here to upload,</p>
           <p>or click to select files</p>
-          <p>Max file size: 200MB</p>
+          <p>Max file size: 50MB</p>
         </div>
       </div>
       <form className='attachment-form-button-wrapper' onSubmit={(e) => onFormSubmit(e)}>
