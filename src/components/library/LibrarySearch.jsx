@@ -281,15 +281,10 @@ const LibrarySearch = () => {
                   <option value='Buisness'>Buisness</option>
                 </select>
                 <button className='Library-Reservation-Button' onClick={(e) => uploadBook(e)}>
-                  Reserve
+                  Add
                 </button>
               </form>
             </Modal.Body>
-            <Modal.Footer>
-              <Button variant='success' className='Library-Reservation-Button' onClick={handleClose}>
-                Save Changes
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
 
