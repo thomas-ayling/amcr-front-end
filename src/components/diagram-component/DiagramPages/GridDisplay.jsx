@@ -1,11 +1,11 @@
 import Grid from './Grid';
 import TitleGrid from './TitlePages/TitleGrid';
 
-const GridDisplay = ({ totalNum, currentNode, title, body }) => {
+const GridDisplay = ({ totalNum, currentNode, nodeData }) => {
   return (
     <div>
-      <Grid totalNum={totalNum} currentNode={currentNode} title={title} body={body} />
-      <TitleGrid totalNum={totalNum} currentNode={currentNode} title={title} body={body} />
+      <Grid totalNum={totalNum} currentNode={currentNode} nodeData={nodeData} />
+      <TitleGrid totalNum={totalNum} currentNode={currentNode} nodeData={nodeData} />
     </div>
   );
 };

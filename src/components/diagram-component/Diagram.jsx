@@ -6,68 +6,64 @@ import GridDisplay from './DiagramPages/GridDisplay';
 import DiagramDropdown from './DiagramPages/DiagramDropdown';
 import DiagramTextarea from './DiagramPages/DiagramTextarea';
 
-import { runToastNotification } from '../toast-notification/ToastNotification';
+import { get, put } from '../../service/DiagramService';
 
-const baseUrl = 'http://localhost:3001';
+import { runToastNotification } from '../toast-notification/ToastNotification';
 
 const Diagram = () => {
   const [totalNum, setTotalNum] = useState(3);
   const [currentNode, setCurrentNode] = useState(1);
-  const [nodeTitle, setNodeTitle] = useState({
-    1: ' ',
-    2: ' ',
-    3: ' ',
-    4: ' ',
-    5: ' ',
-    6: ' ',
-    7: ' ',
-    8: ' ',
-    9: ' ',
-  });
-  const [nodeBody, setNodeBody] = useState({
-    1: ' ',
-    2: ' ',
-    3: ' ',
-    4: ' ',
-    5: ' ',
-    6: ' ',
-    7: ' ',
-    8: ' ',
-    9: ' ',
+  const [nodeData, setNodeData] = useState({
+    1: {
+      title: ' ',
+      body: ' ',
+    },
+    2: {
+      title: ' ',
+      body: ' ',
+    },
+    3: {
+      title: ' ',
+      body: ' ',
+    },
+    4: {
+      title: ' ',
+      body: ' ',
+    },
+    5: {
+      title: ' ',
+      body: ' ',
+    },
+    6: {
+      title: ' ',
+      body: ' ',
+    },
+    7: {
+      title: ' ',
+      body: ' ',
+    },
+    8: {
+      title: ' ',
+      body: ' ',
+    },
+    9: {
+      title: ' ',
+      body: ' ',
+    },
   });
   const [changesConfirmed, setChangesConfirmed] = useState(false);
-
   useEffect(() => {
-    axios
-      .get(`${baseUrl}/page-content/diagram/`)
-      .then((res) => {
-        res?.data?.map((elem) => {
-          setNodeTitle((prevTitle) => ({ ...prevTitle, [elem.nodePosition]: elem.title }));
-          setNodeBody((prevBody) => ({ ...prevBody, [elem.nodePosition]: elem.body }));
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-        runToastNotification('Could not load diagram data', 'error');
-      });
+    get(setNodeData);
   }, []);
 
   const updateContent = () => {
     for (let i = 1; i <= 9; i++) {
       const output = {
         nodePosition: i,
-        title: nodeTitle[i],
-        body: nodeBody[i],
+        title: nodeData[i].title,
+        body: nodeData[i].body,
       };
-      axios
-        .put(`${baseUrl}/page-content/diagram/node/${i}`, output)
-        .then(() => {
-          setChangesConfirmed(true);
-        })
-        .catch((error) => {
-          console.log(error);
-          runToastNotification('Could not update diagram data', 'error');
-        });
+      put(i, output, setChangesConfirmed);
     }
   };
   useEffect(() => {
@@ -84,10 +80,10 @@ const Diagram = () => {
       </div>
 
       <div className='diagram-popup-inputs'>
-        <DiagramTextarea type={'title'} nodeTitle={nodeTitle} setNodeTitle={setNodeTitle} currentNode={currentNode} />
-        <DiagramTextarea type={'body'} nodeBody={nodeBody} setNodeBody={setNodeBody} currentNode={currentNode} />
+        <DiagramTextarea type={'title'} nodeData={nodeData} setNodeData={setNodeData} currentNode={currentNode} />
+        <DiagramTextarea type={'body'} nodeData={nodeData} setNodeData={setNodeData} currentNode={currentNode} />
       </div>
-      <GridDisplay totalNum={totalNum} currentNode={currentNode} title={nodeTitle} body={nodeBody} />
+      <GridDisplay totalNum={totalNum} currentNode={currentNode} nodeData={nodeData} />
       <div className='diagram-submit-button-container'>
         <button className='diagram-submit-button' onClick={updateContent}>
           Confirm Changes

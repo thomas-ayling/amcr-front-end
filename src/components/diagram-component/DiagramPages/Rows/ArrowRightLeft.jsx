@@ -1,12 +1,12 @@
 import React from 'react';
 import Popover from '../Popover';
 
-const ArrowRightLeft = ({ title, body, currentNode, id }) => {
+const ArrowRightLeft = ({ currentNode, nodeData, id }) => {
   return (
     <>
       <div className='diagram-arrow-line' />
       <div className='diagram-arrow-rl-triangle' />
-      <Popover title={title} body={body} currentNode={currentNode} id={id} />
+      <Popover currentNode={currentNode} nodeData={nodeData} id={id} />
     </>
   );
 };

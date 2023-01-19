@@ -1,11 +1,11 @@
 import Titles from './Titles';
 
-const TitleRowTwo = ({ totalNum, title, body, currentNode, currentTitle, currentBody }) => {
+const TitleRowTwo = ({ totalNum, currentNode, nodeData }) => {
   return (
     <div className='diagram-title-row-reverse'>
-      <Titles title={title} body={body} currentNode={currentNode} id={4} />
-      <Titles title={totalNum > 4 ? title : ''} body={body} currentNode={currentNode} currentTitle={currentTitle} currentBody={currentBody} id={5} />
-      <Titles title={totalNum > 5 ? title : ''} body={body} currentNode={currentNode} currentTitle={currentTitle} currentBody={currentBody} id={6} />
+      <Titles isVisible={true} nodeData={nodeData} currentNode={currentNode} id={4} />
+      <Titles isVisible={totalNum > 4 ? true : false} nodeData={nodeData} currentNode={currentNode} id={5} />
+      <Titles isVisible={totalNum > 5 ? true : false} nodeData={nodeData} currentNode={currentNode} id={6} />
     </div>
   );
 };
