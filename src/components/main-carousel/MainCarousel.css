@@ -134,10 +134,10 @@
   }
   .card-image {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1;
     position: auto;
     object-fit: cover;
-    height: 100%;
+    height: 95%;
   }
 }
 

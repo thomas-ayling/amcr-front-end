@@ -23,7 +23,7 @@ const get = (setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeade
     });
 
   axios
-    .get(`${baseUrl}/overviews?latest=true&entries=6`)
+    .get(`${baseUrl}/overviews?latest=true&entries=3`)
     .then((response) => {
       if (response.status === 200) {
         setHeaderCarouselData(

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import CaseStudyCarousel from '../components/case-studies-carousel/CaseStudyCarousel';
 import ContactComponent from '../components/contact-component/ContactComponent';
 import MainCarousel from '../components/main-carousel/MainCarousel';
-import Loader from '../components/shared-components/Loader';
+import LoaderGif from '../components/shared-components/LoaderGif';
 
 import { get } from '../service/CaseStudiesService';
 
@@ -45,7 +45,7 @@ const CaseStudies = () => {
     );
   }
   if (!headerCarouselLoaded || !carouselLoaded) {
-    return <Loader />;
+    return <LoaderGif />;
   }
 };
 
