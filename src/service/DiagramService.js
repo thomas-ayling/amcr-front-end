@@ -3,14 +3,13 @@ import { runToastNotification } from '../components/toast-notification/ToastNoti
 
 // const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001';
 const baseUrl = 'http://localhost:3001';
+const id = '99ffb583-6dc1-4e5c-8448-c2c3d8983b28';
 
-const get = (setNodeData) => {
+const get = (setNodeArray) => {
   axios
-    .get(`${baseUrl}/page-content/diagram/`)
+    .get(`${baseUrl}/diagram/${id}`)
     .then((res) => {
-      res?.data?.map((elem) => {
-        setNodeData((prevNodeData) => ({ ...prevNodeData, [elem.nodePosition]: { title: elem.title, body: elem.body } }));
-      });
+      setNodeArray(res?.data?.nodes);
     })
     .catch((error) => {
       console.log(error);
@@ -18,9 +17,9 @@ const get = (setNodeData) => {
     });
 };
 
-const put = (i, output, setChangesConfirmed) => {
+const put = (nodeArray, setChangesConfirmed) => {
   axios
-    .put(`${baseUrl}/page-content/diagram/node`, output)
+    .put(`${baseUrl}/diagram/${id}`, { nodes: nodeArray })
     .then(() => {
       setChangesConfirmed(true);
     })

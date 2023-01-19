@@ -2,15 +2,15 @@ import '../../Diagram.css';
 import Popover from '../Popover';
 import ArrowLeftRight from './ArrowLeftRight';
 
-const RowOne = ({ currentNode, nodeData }) => {
+const RowOne = ({ currentNode, nodeArray }) => {
   return (
     <div className='diagram-grid-item diagram-grid-row'>
       <div className='diagram-row-component'>
-        <Popover currentNode={currentNode} nodeData={nodeData} id={1} />
+        <Popover currentNode={currentNode} nodeArray={nodeArray} id={0} />
         <ArrowLeftRight />
-        <Popover currentNode={currentNode} nodeData={nodeData} id={2} />
+        <Popover currentNode={currentNode} nodeArray={nodeArray} id={1} />
         <ArrowLeftRight />
-        <Popover currentNode={currentNode} nodeData={nodeData} id={3} />
+        <Popover currentNode={currentNode} nodeArray={nodeArray} id={2} />
       </div>
     </div>
   );

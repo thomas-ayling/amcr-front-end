@@ -1,11 +1,11 @@
 import Titles from './Titles';
 
-const TitleRowThree = ({ totalNum, nodeData, currentNode }) => {
+const TitleRowThree = ({ totalNum, currentNode, nodeArray }) => {
   return (
     <div className='diagram-title-row'>
-      <Titles isVisible={true} nodeData={nodeData} currentNode={currentNode} id={7} />
-      <Titles isVisible={totalNum > 7 ? true : false} nodeData={nodeData} currentNode={currentNode} id={8} />
-      <Titles isVisible={totalNum > 8 ? true : false} nodeData={nodeData} currentNode={currentNode} id={9} />
+      <Titles isVisible={true} nodeArray={nodeArray} currentNode={currentNode} id={6} />
+      <Titles isVisible={totalNum > 7 ? true : false} nodeArray={nodeArray} currentNode={currentNode} id={7} />
+      <Titles isVisible={totalNum > 8 ? true : false} nodeArray={nodeArray} currentNode={currentNode} id={8} />
     </div>
   );
 };

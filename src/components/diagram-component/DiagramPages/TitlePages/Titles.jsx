@@ -1,7 +1,7 @@
-const Titles = ({ nodeData, id, isVisible }) => {
+const Titles = ({ nodeArray, id, isVisible }) => {
   return (
     <h5 className='diagram-title-individual-title'>
-      <u>{isVisible ? nodeData[id].title : ''}</u>
+      <u>{isVisible ? nodeArray[id].title : ''}</u>
     </h5>
   );
 };
