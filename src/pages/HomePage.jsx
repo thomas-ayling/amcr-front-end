@@ -11,7 +11,7 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 const HomePage = () => {
   return (
     <div className='homepage-container'>
-      <MainCarousel type='header' slides={HomepageCarouselSlides} />
+      <MainCarousel type='header-multi' slides={HomepageCarouselSlides} />
       <div className='welcome-container-border'>
         <div className='welcome-container'>
           <h1 className='homepage-title'>We are Global Logic!</h1>
