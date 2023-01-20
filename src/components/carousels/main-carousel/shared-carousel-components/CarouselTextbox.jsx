@@ -1,6 +1,6 @@
 import React from 'react';
-import MarkdownComponent from '../../markdown-component/MarkdownComponent';
 import '../shared-carousel-components/CarouselTextbox.css';
+import MarkdownComponent from '../../../markdown-component/MarkdownComponent';
 
 const CarouselTextbox = ({ slides, current }) => {
 

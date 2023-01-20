@@ -5,7 +5,7 @@ import TitleSlider from './sub-components/TitleSlider';
 import ImageSlider from './sub-components/ImageSlider';
 import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
-import { StyledHr } from '../../styles/styles';
+import { StyledHr } from '../../../styles/styles';
 
 const CaseStudyCarousel = ({overviews, titles, length, pageData}) => {
   const [current, setCurrent] = useState(0);
