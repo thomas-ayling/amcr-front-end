@@ -169,7 +169,7 @@
 
 .case-study-carousel-arrows {
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
   justify-content: center;
   align-items: center;
 }
@@ -264,7 +264,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 45px;
+    margin-top: 75px;
   }
   .case-study-carousel-arrow-left,
   .case-study-carousel-arrow-right {
