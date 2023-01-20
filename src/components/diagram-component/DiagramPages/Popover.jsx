@@ -1,4 +1,5 @@
 import Popup from 'reactjs-popup';
+import MarkdownComponent from '../../markdown-component/MarkdownComponent';
 
 const Popover = ({ nodeArray, id }) => {
   const hoverable = nodeArray[id].body === ' ' || nodeArray[id].body === '' ? '' : 'hover';
@@ -9,7 +10,7 @@ const Popover = ({ nodeArray, id }) => {
           <div className='diagram-popup-title'>
             <u>{nodeArray[id].title}</u>
           </div>
-          <div className='diagram-popup-body'>{nodeArray[id].body}</div>
+          <div className='diagram-popup-body'>{<MarkdownComponent markdownText={nodeArray[id].body} />}</div>
         </div>
       </Popup>
     </>

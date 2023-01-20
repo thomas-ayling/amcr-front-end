@@ -14,9 +14,10 @@ const Diagram = ({ adminEnabled }) => {
   const [currentNode, setCurrentNode] = useState(1);
   const [nodeArray, setNodeArray] = useState([]);
   const [changesConfirmed, setChangesConfirmed] = useState(false);
+  const [requestStatus, setRequestStatus] = useState();
 
   useEffect(() => {
-    get(setNodeArray);
+    get(setNodeArray, setRequestStatus);
   }, []);
 
   useEffect(() => {
@@ -25,11 +26,10 @@ const Diagram = ({ adminEnabled }) => {
       newNodeArray.push({ nodePosition: nodeArray.length + 1, title: ' ', body: ' ' });
       setNodeArray(newNodeArray);
     }
-    console.log('nodeArray', nodeArray);
   }, [nodeArray]);
 
   const updateContent = () => {
-    put(nodeArray, setChangesConfirmed);
+    put(nodeArray, setChangesConfirmed, setRequestStatus);
   };
 
   useEffect(() => {
@@ -38,6 +38,13 @@ const Diagram = ({ adminEnabled }) => {
       setChangesConfirmed(false);
     }
   }, [changesConfirmed]);
+
+  useEffect(() => {
+    if (requestStatus === 'error-404') runToastNotification(`Diagram data not found!`, 'error');
+    else if (requestStatus === 'other-get-error') runToastNotification('Could not load diagram data!', 'error');
+    else if (requestStatus === 'other-put-error') runToastNotification('Could not update diagram data!', 'error');
+  }, [requestStatus]);
+
   if (nodeArray.length == 9) {
     return (
       <div>

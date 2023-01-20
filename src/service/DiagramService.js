@@ -5,27 +5,25 @@ import { runToastNotification } from '../components/toast-notification/ToastNoti
 const baseUrl = 'http://localhost:3001';
 const id = '99ffb583-6dc1-4e5c-8448-c2c3d8983b28';
 
-const get = (setNodeArray) => {
+const get = (setNodeArray, setRequestStatus) => {
   axios
     .get(`${baseUrl}/diagram/${id}`)
     .then((res) => {
-      setNodeArray(res?.data?.nodes);
+      if (res.status === 200) setNodeArray(res?.data?.nodes);
     })
     .catch((error) => {
-      console.log(error);
-      runToastNotification('Could not load diagram data', 'error');
+      setRequestStatus(error.status === 404 ? 'error-404' : 'other-get-error');
     });
 };
 
-const put = (nodeArray, setChangesConfirmed) => {
+const put = (nodeArray, setChangesConfirmed, setRequestStatus) => {
   axios
     .put(`${baseUrl}/diagram/${id}`, { nodes: nodeArray })
-    .then(() => {
-      setChangesConfirmed(true);
+    .then((res) => {
+      if (res.status === 202) setChangesConfirmed(true);
     })
     .catch((error) => {
-      console.log(error);
-      runToastNotification('Could not update diagram data', 'error');
+      setRequestStatus(error.status === 404 ? 'error-404' : 'other-put-error');
     });
 };
 
