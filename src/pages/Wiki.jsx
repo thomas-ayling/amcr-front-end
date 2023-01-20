@@ -5,8 +5,8 @@ import Diagram from '../components/diagram-component/Diagram';
 const Wiki = () => {
   return (
     <>
+      <Diagram adminEnabled={false} />
       <ContactComponent feedbackType={'improvement'} />
-      <Diagram />
     </>
   );
 };

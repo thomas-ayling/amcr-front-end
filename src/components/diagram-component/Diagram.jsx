@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import 'reactjs-popup/dist/index.css';
 import './Diagram.css';
 import GridDisplay from './DiagramPages/GridDisplay';
-import DiagramDropdown from './DiagramPages/DiagramDropdown';
-import DiagramTextarea from './DiagramPages/DiagramTextarea';
+import DiagramAdminChanges from './DiagramPages/DiagramAdminChanges';
+import DiagramConfirmButton from './DiagramPages/DiagramConfirmButton';
 
 import { get, put } from '../../service/DiagramService';
 
 import { runToastNotification } from '../toast-notification/ToastNotification';
 
-const Diagram = () => {
+const Diagram = ({ adminEnabled }) => {
   const [totalNum, setTotalNum] = useState(3);
   const [currentNode, setCurrentNode] = useState(1);
   const [nodeArray, setNodeArray] = useState([]);
@@ -42,21 +41,18 @@ const Diagram = () => {
   if (nodeArray.length == 9) {
     return (
       <div>
-        <div className='diagram-dropdown-container'>
-          <DiagramDropdown id={'nodeTotalNumber'} totalNum={totalNum} setTotalNum={setTotalNum} />
-          <DiagramDropdown id={'currentNode'} currentNode={currentNode} setCurrentNode={setCurrentNode} totalNum={totalNum} />
-        </div>
-
-        <div className='diagram-popup-inputs'>
-          <DiagramTextarea type={'title'} nodeArray={nodeArray} setNodeArray={setNodeArray} currentNode={currentNode} />
-          <DiagramTextarea type={'body'} nodeArray={nodeArray} setNodeArray={setNodeArray} currentNode={currentNode} />
-        </div>
+        {adminEnabled && (
+          <DiagramAdminChanges
+            totalNum={totalNum}
+            setTotalNum={setTotalNum}
+            currentNode={currentNode}
+            setCurrentNode={setCurrentNode}
+            nodeArray={nodeArray}
+            setNodeArray={setNodeArray}
+          />
+        )}
         <GridDisplay totalNum={totalNum} currentNode={currentNode} nodeArray={nodeArray} />
-        <div className='diagram-submit-button-container'>
-          <button className='diagram-submit-button' onClick={updateContent}>
-            Confirm Changes
-          </button>
-        </div>
+        {adminEnabled && <DiagramConfirmButton updateContent={updateContent} />}
       </div>
     );
   }
