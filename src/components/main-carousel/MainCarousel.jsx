@@ -102,7 +102,6 @@ const MainCarousel = ({ slides, type, isLink }) => {
         <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
         {type.includes("header") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
         {type.includes("header-single") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
-        {type.includes("header-single-description") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
         {type.includes("header-multi") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
         {type.includes("textbox") && <CarouselTextbox slides={slides} current={current} type={type} />}
       </div>
