@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
 import CarouselTitles from './shared-carousel-components/CarouselTitles';
 
-const MainCarousel = ({ slides, type, isLink, classNames }) => {
+const MainCarousel = ({ slides, type, isLink }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
@@ -89,13 +89,22 @@ const MainCarousel = ({ slides, type, isLink, classNames }) => {
   };
 
   const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`;
-
   return (
     <div className={`carousel-container ${containerClassNames}`}>
-      <div className='carousel-inner' onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onMouseEnter={handleMouseEnter} onMouseLeave={() => setAutoPlay(true)}>
+      <div
+        className='carousel-inner'
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={() => setAutoPlay(true)}
+      >
         <CarouselCards slides={slides} current={current} setCurrent={setCurrent} />
-        {type.includes('header') && <CarouselTitles slides={slides} current={current} isLink={isLink} classNames={classNames} />}
-        {type.includes('textbox') && <CarouselTextbox slides={slides} current={current} />}
+        {type.includes("header") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
+        {type.includes("header-single") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
+        {type.includes("header-single-description") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
+        {type.includes("header-multi") && <CarouselTitles slides={slides} current={current} isLink={isLink} type={type} />}
+        {type.includes("textbox") && <CarouselTextbox slides={slides} current={current} type={type} />}
       </div>
     </div>
   );
