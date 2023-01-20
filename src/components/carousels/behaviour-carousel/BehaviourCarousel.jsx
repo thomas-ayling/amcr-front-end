@@ -1,5 +1,5 @@
 import './BehaviourCarousel.css';
-import BehaviourImages from '../../service/BehaviourCarouselMockService';
+import BehaviourImages from '../../../service/BehaviourCarouselMockService';
 import { useState } from 'react';
 import BehaviourCarouselDescription from './behaviour-carousel-components/BehaviourCarouselDescription';
 
