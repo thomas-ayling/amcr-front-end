@@ -16,10 +16,13 @@
 
 .cssp-body-wrapper {
   width: 1100px;
-
   padding: 1rem;
   border-radius: 17.5px;
   background-color: var(--gl-light-gray);
+}
+
+.cssp-body-wrapper-edit {
+  width: 1150px !important;
 }
 
 .cssp-body {
@@ -53,4 +56,149 @@
 .cssp-body-text {
   grid-area: text;
   padding: 1rem;
+  height: max-content;
+}
+
+/* EDIT PAGE STYLING */
+
+.cssp-body-row-edit {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 5% 95%;
+}
+
+.cssp-regular-row-edit {
+  grid-template-areas:
+    'nothing edit-buttons'
+    'image text';
+}
+
+.cssp-reversed-row-edit {
+  grid-template-areas:
+    'nothing edit-buttons'
+    'text image';
+}
+
+.cssp-text-edit {
+  margin-top: 10px;
+  width: 100%;
+  aspect-ratio: 3/1;
+  grid-area: text-edit;
+}
+
+.title-input {
+  width: 50%;
+  margin-left: calc(25%);
+  margin-bottom: 100px;
+}
+
+.cssp-textarea-edit {
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.cssp-submit-edit {
+  width: 15%;
+  margin-left: 46%;
+  margin-bottom: 1rem;
+  background-color: var(--gl-orange);
+  border-radius: 5px;
+  border: 1px solid var(--gl-dark-orange);
+  aspect-ratio: 4/1;
+  font-size: 20px;
+  color: var(--gl-light-gray);
+}
+
+.cssp-submit-edit:hover {
+  background-color: var(--gl-dark-orange);
+}
+
+.edit-carousel-container {
+  width: 100%;
+  aspect-ratio: 5/1;
+  display: grid;
+  grid-template-areas: 'image-upload overview-edit';
+  grid-template-columns: 50% 50%;
+  padding: 1rem;
+}
+
+.cssp-overview-edit {
+  padding: 1rem;
+  grid-area: 'overview-edit';
+}
+
+.cssp-cover-image-upload {
+  grid-area: 'image-upload';
+  height: 100px;
+}
+.cssp-cover-image-upload-row {
+  margin-top: 1rem;
+}
+
+.cssp-edit-buttons-contaier {
+  width: 100%;
+  display: flex;
+  grid-area: edit-buttons;
+  align-items: flex-end;
+  flex-direction: column;
+  padding-bottom: 10px;
+  height: 100%;
+}
+
+.cssp-delete-row-button {
+  background-color: var(--gl-error);
+  color: var(--gl-light-gray);
+  aspect-ratio: 5/1;
+  border-radius: 5px;
+  margin-right: 40px;
+}
+
+.cssp-undo-redo-buttons-container {
+  width: 125px;
+  height: 55px;
+  position: fixed;
+  align-self: flex-end;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+.cssp-undo-img,
+.cssp-redo-img {
+  width: 100%;
+  height: 100%;
+  filter: invert();
+}
+
+.cssp-redo-img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.cssp-undo-button,
+.cssp-redo-button {
+  width: 55px;
+  height: 45px;
+  background-color: var(--gl-orange);
+}
+
+.cssp-undo-button-invalid,
+.cssp-redo-button-invalid,
+.cssp-undo-button-invalid:hover,
+.cssp-redo-button-invalid:hover {
+  background-color: var(--gl-dark-gray) !important;
+  /* cursor: default; */
+  pointer-events: none;
+}
+
+.cssp-undo-button:hover,
+.cssp-redo-button:hover {
+  background-color: var(--gl-dark-orange);
+}
+
+.cssp-undo-button {
+  margin: 5px 2.5px 5px 5px;
+}
+
+.cssp-redo-button {
+  margin: 5px 5px 5px 2.5px;
 }

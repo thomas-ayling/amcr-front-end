@@ -8,7 +8,7 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
     .then((response) => {
       if (response.status === 200) {
         setPageData(response.data);
-        setPageLoaded(true)
+        setPageLoaded(true);
       }
     })
     .catch((err) => {
@@ -17,6 +17,20 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
 };
 
 export { get };
+
+const put = (id, updatedCaseStudy, setUpdateStatus, setPageData) => {
+  axios
+    .put(`${baseUrl}/${id}`, updatedCaseStudy)
+    .then((response) => {
+      setUpdateStatus('success');
+      setPageData(response.data);
+    })
+    .catch((err) => {
+      setUpdateStatus('error', err);
+    });
+};
+
+export { put };
 
 /*
 
