@@ -103,12 +103,37 @@
   align-items: center;
   color: white;
   width: 100%;
-  right: 2%;
   height: auto;
   position: absolute;
-  top: 42.5%;
+  top: 50%;
   z-index: 1;
   font-size: 8vmin;
+}
+
+.title-wrapper-header-single {
+  justify-content: flex-start !important;
+  top:90%;
+  left:1%;
+}
+
+.title-wrapper-header-single {
+  justify-content: flex-start !important;
+  top:90%;
+  left:1%;
+}
+
+.title-wrapper-header-single-description {
+  justify-content: flex-start !important;
+  top:70%;
+  left:1%;
+}
+
+.description-wrapper {
+  left: 1%;
+  top: 50%;
+  width: 60%;
+  height: auto;
+  z-index: 100;
 }
 
 @media screen and (max-width: 800px) {
