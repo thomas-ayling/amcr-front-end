@@ -13,9 +13,7 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
       type: attachment.type,
       crc: new Crc32c().update(new Uint8Array(e.target.result)).digest(),
     };
-
-    console.log('metadata.crc', metadata.crc);
-
+    
     const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
 
     axios
