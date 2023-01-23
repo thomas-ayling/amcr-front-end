@@ -1,7 +1,7 @@
 import { HashRouter as Router } from 'react-router-dom';
-import NavBar from './components/navbar/NavBar';
+import NavBar from './components/shared-components/navbar/NavBar';
 import MainRoutes from './pages/MainRoutes';
-import Footer from './components/footer/Footer';
+import Footer from './components/shared-components/footer/Footer';
 import React from 'react';
 import 'react-bootstrap';
 
