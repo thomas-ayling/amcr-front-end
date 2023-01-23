@@ -4,16 +4,17 @@ import dragAndDropIcon from '../../../src/assets/images/attachment-component/gl-
 import { upload } from '../../service/AttachmentService.js';
 import { useDropzone } from 'react-dropzone';
 import AttachmentDetails from './AttachmentDetails';
+import { runToastNotification } from '../toast-notification/ToastNotification';
 
 const DropFileInput = () => {
   const [file, setFile] = useState();
   const [responseStatus, setResponseStatus] = useState('');
   const [percentage, setPercentage] = useState(null);
   const [downloadUri, setDownloadUri] = useState(null);
+
   useEffect(() => {
-    console.log('downloadUri', downloadUri)
-  }, [downloadUri])
-  
+    runToastNotification(responseStatus, responseStatus.includes('succesfully') ? 'success' : responseStatus.includes('error') && 'error');
+  }, [responseStatus]);
 
   function onFormSubmit(e) {
     e.preventDefault();

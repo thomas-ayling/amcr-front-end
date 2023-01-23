@@ -13,19 +13,20 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
       type: attachment.type,
       crc: new Crc32c().update(new Uint8Array(e.target.result)).digest(),
     };
-    
+
     const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
 
     axios
       .post(`${baseUrl}`, metadata, { headers: headers })
       .then((response) => {
         axios.put(response.headers.location, e.target.result, { headers: headers }).then(() => {
-          setResponseStatus('success');
+          setResponseStatus('Attachment succesfully uploaded.');
           setDownloadUri(response.headers.location);
         });
       })
-      .catch((err) => {
-        setResponseStatus('There was an error uploading this file.', err);
+      .catch((error) => {
+        setResponseStatus('There was an error uploading this file.');
+        console.error(error);
       });
   };
 
