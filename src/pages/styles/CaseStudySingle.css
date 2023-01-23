@@ -8,12 +8,6 @@
   flex-direction: column;
 }
 
-.cssp-title {
-  font-size: 55px;
-  padding-top: 1rem;
-  text-align: center;
-}
-
 .cssp-body-wrapper {
   width: 1100px;
   padding: 1rem;
@@ -23,6 +17,12 @@
 
 .cssp-body-wrapper-edit {
   width: 1150px !important;
+}
+
+.cssp-title {
+  font-size: 55px;
+  padding-top: 1rem;
+  text-align: center;
 }
 
 .cssp-body {
@@ -59,6 +59,35 @@
   height: max-content;
 }
 
+@media (max-width: 1100px) {
+  .cssp-body-wrapper {
+    width: 550px;
+  }
+  .cssp-body-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 100% !important;
+    grid-template-rows: 50% 50% !important;
+    grid-template-areas: 'image text' !important; */
+  }
+}
+
+@media (max-width: 550px) {
+  .cssp-body-wrapper {
+    width: 95vw;
+  }
+
+  .cssp-body-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 100% !important;
+    grid-template-rows: 50% 50% !important;
+    grid-template-areas: 'image text' !important; */
+  }
+}
+
 /* EDIT PAGE STYLING */
 
 .cssp-body-row-edit {
@@ -69,13 +98,13 @@
 
 .cssp-regular-row-edit {
   grid-template-areas:
-    'nothing edit-buttons'
+    'top-left edit-buttons'
     'image text';
 }
 
 .cssp-reversed-row-edit {
   grid-template-areas:
-    'nothing edit-buttons'
+    'top-'
     'text image';
 }
 
@@ -89,7 +118,6 @@
 .title-input {
   width: 50%;
   margin-left: calc(25%);
-  margin-bottom: 100px;
 }
 
 .cssp-textarea-edit {
@@ -142,24 +170,44 @@
   align-items: flex-end;
   flex-direction: column;
   padding-bottom: 10px;
-  height: 100%;
+  /* height: 100%; */
 }
 
-.cssp-delete-row-button {
-  background-color: var(--gl-error);
-  color: var(--gl-light-gray);
+.cssp-edit-button {
   aspect-ratio: 5/1;
   border-radius: 5px;
   margin-right: 40px;
 }
 
+.cssp-add-new-row-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cssp-delete-row-button {
+  background-color: var(--gl-error);
+  color: var(--gl-light-gray);
+}
+
+.cssp-add-row-button {
+  right: 0px;
+  background-color: var(--gl-lime);
+}
+
+.cssp-add-row-button:hover {
+  background-color: var(--gl-dark-lime);
+}
+
 .cssp-undo-redo-buttons-container {
   width: 125px;
-  height: 55px;
+  height: fit-content;
   position: fixed;
   align-self: flex-end;
   margin-top: 20px;
-  margin-right: 20px;
+  margin-right: 10px;
+  background-color: var(--gl-light-gray);
+  text-align: center;
 }
 
 .cssp-undo-img,
@@ -201,4 +249,17 @@
 
 .cssp-redo-button {
   margin: 5px 5px 5px 2.5px;
+}
+
+.cssp-edit-p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.cssp-row-num {
+  grid-area: top-left;
+  margin-left: 1rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--gl-orange);
 }
