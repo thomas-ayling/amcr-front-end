@@ -1,29 +1,44 @@
 import axios from 'axios';
+import { buf } from 'crc-32/crc32c';
 
-const baseUrl = 'http://localhost:3001/attachments';
+const baseUrl = 'http://localhost:3001/attachment/';
 
-function upload(attachment, setResponseStatus) {
-  const formData = new FormData();
-  if (attachment) {
-    formData.append('attachment', attachment);
-  }
+function upload(attachment, setResponseStatus, setDownloadUri) {
+  const reader = new FileReader();
 
-  const url = `${baseUrl}/`;
-  const headers = {
-    headers: {
-      'content-type': 'multipart/form-data',
-    },
+  reader.onload = (e) => {
+    const metadata = {
+      name: attachment.name,
+      size: attachment.size,
+      type: attachment.type,
+      crc: buf(new Uint8Array(e.target.result)),
+    };
+
+    const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
+
+    axios
+      .post(`${baseUrl}`, metadata, { headers: headers })
+      .then((response) => {
+        axios
+          .put(response.headers.location, e.target.result, { headers: headers })
+          .then(() => {
+            setResponseStatus('success');
+            setDownloadUri(response.headers.location);
+          })
+          .catch((err) => setResponseStatus('error in binary upload', err));
+      })
+      .catch((err) => {
+        setResponseStatus('error in metadata upload', err);
+      });
+
+    console.log('e.target.result', e.target.result);
   };
-  axios
-    .post(url, formData, headers)
-    .then((res) => {
-      console.dir(res);
-      setResponseStatus('success');
-    })
-    .catch((error) => {
-      console.error(error.status);
-      setResponseStatus('error', error.status);
-    });
+
+  reader.onerror = (e) => {
+    console.error('Error: ', e.type);
+  };
+
+  reader.readAsArrayBuffer(attachment);
 }
 
 export { upload };

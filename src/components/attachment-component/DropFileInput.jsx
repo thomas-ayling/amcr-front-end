@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import './dropFileInput.css';
 import dragAndDropIcon from '../../../src/assets/images/attachment-component/gl-drag-and-drop-logo.png';
 import { upload } from '../../service/AttachmentService.js';
@@ -9,30 +9,37 @@ const DropFileInput = () => {
   const [file, setFile] = useState();
   const [responseStatus, setResponseStatus] = useState('');
   const [percentage, setPercentage] = useState(null);
+  const [downloadUri, setDownloadUri] = useState(null);
+
+  useEffect(() => {
+    console.log('responseStatus', responseStatus)
+    console.log('downloadUri', downloadUri)
+  }, [responseStatus, downloadUri])
+  
 
   function onFormSubmit(e) {
     e.preventDefault();
-    upload(file, setResponseStatus);
+    upload(file, setResponseStatus, setDownloadUri);
 
-    const xhr = new XMLHttpRequest();
-    xhr.upload.onprogress = (event) => {
-      const percentage = parseInt((event.loaded / event.total) * 100);
-      setPercentage(percentage);
-    };
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState !== 4) return;
-      if (xhr.status !== 200) {
-      }
-      setFile();
-      setPercentage(null);
-    };
-    xhr.open('POST', 'https://httpbin.org/post', true);
-    xhr.send(file);
+    // const xhr = new XMLHttpRequest();
+    // xhr.upload.onprogress = (event) => {
+    //   const percentage = parseInt((event.loaded / event.total) * 100);
+    //   setPercentage(percentage);
+    // };
+    // xhr.onreadystatechange = () => {
+    //   if (xhr.readyState !== 4) return;
+    //   if (xhr.status !== 200) {
+    //   }
+    //   setFile();
+    //   setPercentage(null);
+    // };
+    // xhr.open('POST', 'https://httpbin.org/post', true);
+    // xhr.send(file);
   }
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
-      upload(file, setResponseStatus);
+      upload(file, setResponseStatus, setDownloadUri);
       const reader = new FileReader();
 
       const xhr = new XMLHttpRequest();
