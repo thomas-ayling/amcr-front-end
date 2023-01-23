@@ -317,6 +317,7 @@
     width: 50px;
   }
 
+  /* TitleRowOne.jsx, TitleRowTwo.jsx, TitleRowThree.jsx components */
   .diagram-title-row,
   .diagram-title-row-reverse {
     display: flex;
@@ -328,5 +329,34 @@
     font-size: 15px;
     margin: 0;
     padding: 0;
+  }
+}
+
+@media (max-width: 350px) {
+  /* Grid.jsx, TitleGrid.jsx components */
+  .diagram-grid-container {
+    grid-template-columns: 50px 270px 50px;
+    grid-template-rows: 150px 150px 150px;
+  }
+
+  /* RowOne.jsx, RowTwo.jsx, RowThree.jsx components */
+  .diagram-arrow-line {
+    width: 45px;
+  }
+  /* Popover.jsx component */
+  .diagram-popup-button {
+    height: 40px;
+    width: 40px;
+  }
+  /* TitleRowOne.jsx, TitleRowTwo.jsx, TitleRowThree.jsx components */
+  .diagram-title-row,
+  .diagram-title-row-reverse {
+    display: flex;
+    justify-content: space-between;
+  }
+  /* Titles.jsx component */
+  .diagram-title-individual-title {
+    margin-left: 17.5px;
+    margin-right: 17.5px;
   }
 }
