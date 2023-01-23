@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 import {FaArrowCircleUp} from 'react-icons/fa';
-import TwitterIcon from '../../assets/images/icons/twitter-icon.svg';
-import LinkedinIcon from '../../assets/images/icons/linkedin-icon.svg';
-import YoutubeIcon from '../../assets/images/icons/youtube-icon.svg';
-import InstagramIcon from '../../assets/images/icons/instagram-icon.svg';
-import FacebookIcon from '../../assets/images/icons/facebook-icon.svg';
+import TwitterIcon from '../../../assets/images/icons/twitter-icon.svg';
+import LinkedinIcon from '../../../assets/images/icons/linkedin-icon.svg';
+import YoutubeIcon from '../../../assets/images/icons/youtube-icon.svg';
+import InstagramIcon from '../../../assets/images/icons/instagram-icon.svg';
+import FacebookIcon from '../../../assets/images/icons/facebook-icon.svg';
 
 import './Footer.css';
 // import '/node_modules/font-awesome/css/font-awesome.min.css'; 

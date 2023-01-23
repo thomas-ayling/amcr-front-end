@@ -113,12 +113,12 @@
   transition: 1s;
 }
 
-
 .case-study-carousel-scroll-arrows {
   display: flex;
   flex-direction: column;
   visibility: hidden;
   color: var(--gl-orange);
+  margin-left: 2px;
 }
 
 .case-study-carousel-scroll-up,
@@ -169,7 +169,7 @@
 
 .case-study-carousel-arrows {
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
   justify-content: center;
   align-items: center;
 }
@@ -217,152 +217,103 @@
 }
 
 @media (max-width: 1100px) {
-  .case-study-carousel-page-title {
-    font-size: 45px;
-  }
-
   .case-study-carousel-wrapper {
-    width: 100%;
-    height: 800px;
+    width: 95%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
+  .case-study-carousel-inner-wrapper {
+    width: 100%;
+  }
   .case-study-carousel-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin: auto;
-    padding-top: 150px;
   }
-
-  .case-study-image-anchor {
-    width: 70%;
+  .case-study-carousel-image-slider-container {
+    width: 95%;
+    margin: auto;
     display: flex;
     justify-content: center;
   }
-
   .case-study-image {
     width: 100%;
-    height: 300px;
-    min-width: 300px;
+    aspect-ratio: 1;
+    min-width: 200px;
     max-width: 600px;
+    margin-bottom: 10px;
   }
-
   .case-study-image:hover {
     cursor: default;
-    box-shadow: 2px 2px 4px rgba(212, 94, 43, 0.35);
   }
-
-  .case-study-image-slide,
-  .case-study-image-active {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
-
   .case-study-carousel-content {
-    width: 80%;
+    width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
-
+  .case-study-carousel-scrollable-description {
+    width: 800px;
+  }
+  .case-study-description {
+    padding: 0;
+  }
+  .case-study-carousel-scroll-arrows {
+    display: none;
+  }
   .case-study-carousel-arrows {
     width: 100%;
-    position: absolute;
-    transform: translate(0, 205px);
     display: flex;
     justify-content: space-between;
+    margin-top: 75px;
   }
-
   .case-study-carousel-arrow-left,
   .case-study-carousel-arrow-right {
     height: 60px;
     width: 60px;
     border-radius: 5px;
-    border: 10px solid var(--gl-dark-orange);
+    border: 15px solid var(--gl-orange);
   }
-
   .case-study-carousel-arrow-left {
     border-top: 0;
     border-right: 0;
   }
-
   .case-study-carousel-arrow-right {
     border-bottom: 0;
     border-left: 0;
   }
-
   .case-study-carousel-page {
-    display: none;
-  }
-
-  .case-study-title-slide,
-  .case-study-title-active {
-    width: 100%;
-    min-width: 300px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .case-study-carousel-title {
-    text-align: center;
-    border-radius: 5px;
-  }
-
-  .case-study-scrollable-description {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .case-study-button-slide,
-  .case-study-button-active {
-    width: 50%;
-    min-width: 145px;
-  }
-
-  .case-study-button {
-    margin-left: 0%;
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
     font-size: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
+  }
+  .case-study-button-slide.case-study-button-active {
+    width: 100%;
+  }
+  .case-study-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
   }
 
-  @media (max-width: 425px) {
-    .case-study-carousel-arrows {
-      width: 100%;
-      position: absolute;
-      transform: translate(0, 220px);
-      display: flex;
-    }
-
+  @media (max-width: 300px) {
     .case-study-carousel-arrow-left,
     .case-study-carousel-arrow-right {
-      height: 35px;
-      width: 35px;
-      border-radius: 5px;
-      border: 10px solid var(--gl-orange);
+      height: 40px;
+      width: 40px;
     }
-
     .case-study-carousel-arrow-left {
       border-top: 0;
       border-right: 0;
-      margin-left: 2%;
     }
-
     .case-study-carousel-arrow-right {
       border-bottom: 0;
       border-left: 0;
-      margin-right: 2%;
+    }
+    .case-study-carousel-page {
+      font-size: 15px;
     }
   }
 }
