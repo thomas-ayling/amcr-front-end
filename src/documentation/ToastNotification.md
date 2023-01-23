@@ -14,6 +14,16 @@ or
 alert("Success! This thing's just fine!");
 ```
 
+## Import the _runToastNotificatoin_ function
+
+The function is located in _src/components/toast-notification/ToastNotification_.
+
+The import will most likely look similar to this
+
+```js
+import { runToastNotification } from '../toast-notification/ToastNotification';
+```
+
 ## Change this to the _runToastNotification_ function
 
 For example, if you have

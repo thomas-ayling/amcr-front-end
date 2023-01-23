@@ -1,0 +1,31 @@
+.carousel-title {
+    position: absolute;
+    width: fit-content;
+    padding: 1rem;
+
+    height: auto;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(0, 100%);
+    transition: 1s ease-in-out;
+    border-radius: 17.5px;
+    bottom: 0px;
+    user-select: none;
+    text-shadow: 1px 1px black;
+  }
+
+  .carousel-title-link:hover {
+    transition: 0.1s ease-in-out;
+    color: var(--gl-orange);
+  }
+
+  .active-carousel-title  {
+    overflow: hidden;
+    pointer-events: none;
+    transform: translate(-500px, 0);
+    transition: 1 ease-in-out;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: visible;
+  }

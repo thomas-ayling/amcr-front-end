@@ -1,10 +1,10 @@
 import { React } from 'react';
 import { useState, useEffect } from 'react';
 
-import CaseStudyCarousel from '../components/case-studies-carousel/CaseStudyCarousel';
+import CaseStudyCarousel from './../components/carousels/case-studies-carousel/CaseStudyCarousel';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import MainCarousel from '../components/main-carousel/MainCarousel';
-import Loader from '../components/shared-components/Loader';
+import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
+import LoaderGif from '../components/shared-components/LoaderGif';
 
 import { get } from '../service/CaseStudiesService';
 
@@ -38,14 +38,14 @@ const CaseStudies = () => {
   if (headerCarouselLoaded && carouselLoaded) {
     return (
       <>
-        <MainCarousel type='header' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />
+        <MainCarousel type='header-multi' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />
         <CaseStudyCarousel overviews={overviews} titles={titles} length={length} pageData={carouselData} />
         <ContactComponent feedbackType='case-study' />
       </>
     );
   }
   if (!headerCarouselLoaded || !carouselLoaded) {
-    return <Loader />;
+    return <LoaderGif />;
   }
 };
 
