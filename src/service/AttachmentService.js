@@ -25,10 +25,9 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
             setResponseStatus('success');
             setDownloadUri(response.headers.location);
           })
-          .catch((err) => setResponseStatus('error in binary upload', err));
       })
       .catch((err) => {
-        setResponseStatus('error in metadata upload', err);
+        setResponseStatus('There was an error uploading this file.', err);
       });
   };
 
