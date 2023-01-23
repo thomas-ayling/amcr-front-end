@@ -7,11 +7,11 @@ import 'react-bootstrap';
 
 function App() {
   return (
-      <Router>
-        <NavBar />
-        <MainRoutes />
-        <Footer />
-      </Router>
+    <Router>
+      <NavBar />
+      <MainRoutes />
+      <Footer />
+    </Router>
   );
 }
 
