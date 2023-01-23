@@ -10,7 +10,11 @@ const DropFileInput = () => {
   const [responseStatus, setResponseStatus] = useState('');
   const [percentage, setPercentage] = useState(null);
   const [downloadUri, setDownloadUri] = useState(null);
+  useEffect(() => {
+    console.log('downloadUri', downloadUri)
+  }, [downloadUri])
   
+
   function onFormSubmit(e) {
     e.preventDefault();
     upload(file, setResponseStatus, setDownloadUri);

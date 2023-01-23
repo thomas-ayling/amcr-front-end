@@ -30,8 +30,6 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
       .catch((err) => {
         setResponseStatus('error in metadata upload', err);
       });
-
-    console.log('e.target.result', e.target.result);
   };
 
   reader.onerror = (e) => {
