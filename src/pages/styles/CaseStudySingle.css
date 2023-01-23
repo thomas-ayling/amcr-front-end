@@ -104,7 +104,7 @@
 
 .cssp-reversed-row-edit {
   grid-template-areas:
-    'top-'
+    'top-left edit-buttons'
     'text image';
 }
 

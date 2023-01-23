@@ -145,7 +145,10 @@ const EditBody = ({ pageData, setPageData, id }) => {
                 <CaseStudyCarousel overviews={[updatedOverview]} titles={[updatedTitle]} length={1} pageData={[pageData]} />
 
                 <div className='edit-carousel-container'>
-                  <input type='file' className='cssp-cover-image-upload' />
+                  <input
+                    type='file'
+                    className='cssp-cover-image-upload'
+                  />
                   <textarea className='cssp-overview-edit cssp-textarea-edit' value={updatedOverview} onChange={(e) => setUpdatedOverview(e.target.value)} />
                 </div>
               </>
