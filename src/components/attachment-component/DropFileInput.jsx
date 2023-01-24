@@ -44,20 +44,20 @@ const DropFileInput = () => {
       upload(file, setResponseStatus, setDownloadUri);
       const reader = new FileReader();
 
-      const xhr = new XMLHttpRequest();
-      xhr.upload.onprogress = (event) => {
-        const percentage = parseInt((event.loaded / event.total) * 100);
-        setPercentage(percentage);
-      };
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState !== 4) return;
-        if (xhr.status !== 200) {
-        }
-        setFile();
-        setPercentage(null);
-      };
-      xhr.open('POST', 'https://httpbin.org/post', true);
-      xhr.send(file);
+      // const xhr = new XMLHttpRequest();
+      // xhr.upload.onprogress = (event) => {
+      //   const percentage = parseInt((event.loaded / event.total) * 100);
+      //   setPercentage(percentage);
+      // };
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState !== 4) return;
+      //   if (xhr.status !== 200) {
+      //   }
+      //   setFile();
+      //   setPercentage(null);
+      // };
+      // xhr.open('POST', 'https://httpbin.org/post', true);
+      // xhr.send(file);
 
       reader.onload = () => {
         const binaryStr = reader.result;
