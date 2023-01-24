@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { buf } from 'crc-32/crc32c';
+import { Crc32c } from '@aws-crypto/crc32c';
 
 const baseUrl = 'http://localhost:3001/attachment/';
 
@@ -11,7 +11,7 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
       name: attachment.name,
       size: attachment.size,
       type: attachment.type,
-      crc: buf(new Uint8Array(e.target.result)),
+      crc: new Crc32c().update(new Uint8Array(e.target.result)).digest(),
     };
 
     const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
@@ -19,16 +19,14 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
     axios
       .post(`${baseUrl}`, metadata, { headers: headers })
       .then((response) => {
-        axios
-          .put(response.headers.location, e.target.result, { headers: headers })
-          .then(() => {
-            setResponseStatus('success');
-            setDownloadUri(response.headers.location);
-          })
-          .catch((err) => setResponseStatus('error in binary upload', err));
+        axios.put(response.headers.location, e.target.result, { headers: headers }).then(() => {
+          setResponseStatus('Attachment succesfully uploaded.');
+          setDownloadUri(response.headers.location);
+        });
       })
-      .catch((err) => {
-        setResponseStatus('error in metadata upload', err);
+      .catch((error) => {
+        setResponseStatus('There was an error uploading this file.');
+        console.error(error);
       });
   };
 
