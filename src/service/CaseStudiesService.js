@@ -1,5 +1,7 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/case-study';
+// const baseUrl = 'http://localhost:3001/case-study';
+const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/case-study';
+
 
 const get = (setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeaderCarouselLoaded, setRequestStatus) => {
   let error = false;
@@ -24,7 +26,6 @@ const get = (setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeade
     .get(`${baseUrl}/overviews?latest=true&entries=6`)
     .then((response) => {
       if (response.status === 200) {
-        console.dir(response.data)
         setHeaderCarouselData(
           response.data.map((element) => {
             return {

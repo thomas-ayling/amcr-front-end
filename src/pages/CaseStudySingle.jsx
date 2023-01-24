@@ -15,8 +15,11 @@ const CaseStudySingle = () => {
 
   useEffect(() => {
     get(id, setPageData, setRequestStatus, setPageLoaded);
-    if (requestStatus === 'error-404') console.error('Case study with id ${id} could not be found');
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    if (requestStatus === 'error-404') console.error(`Case study with id ${id} could not be found`);
+  }, [requestStatus, id]);
 
   if (pageLoaded) {
     return (
