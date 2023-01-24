@@ -3,14 +3,14 @@ import Title from './Title';
 import BodyRows from './BodyRows';
 import StyledHr from '../shared-components/StyledHr'
 
-const Body = ({ data, title }) => {
+const Body = ({ pageData }) => {
   return (
     <>
       <div className='cssp-body-wrapper'>
         <div className='cssp-body'>
-          <Title text={title} />
+          <Title text={pageData.title} />
           <StyledHr className='cssp-hr' />
-          <BodyRows data={data} />
+          <BodyRows data={pageData.body} />
         </div>
       </div>
     </>

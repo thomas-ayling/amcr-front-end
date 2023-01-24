@@ -21,7 +21,7 @@ const CaseStudySingle = () => {
   if (pageLoaded) {
     return (
       <div className='cssp-container'>
-        <Body data={pageData.body.content} title={pageData.title} />
+        <Body pageData={pageData} />
         <ContactComponent feedbackType='case-study' />
       </div>
     );
