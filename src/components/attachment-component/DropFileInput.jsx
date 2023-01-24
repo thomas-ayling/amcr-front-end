@@ -13,7 +13,10 @@ const DropFileInput = () => {
   const [downloadUri, setDownloadUri] = useState(null);
 
   useEffect(() => {
-    runToastNotification(responseStatus, responseStatus.includes('succesfully') ? 'success' : responseStatus.includes('error') && 'error');
+    if (responseStatus != null) {
+      runToastNotification(responseStatus, responseStatus.includes('succesfully') ? 'success' : responseStatus.includes('error') && 'error');
+      setResponseStatus(null);
+    }
   }, [responseStatus]);
 
   function onFormSubmit(e) {
