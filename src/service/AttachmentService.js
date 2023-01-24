@@ -20,12 +20,12 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
       .post(`${baseUrl}`, metadata, { headers: headers })
       .then((response) => {
         axios.put(response.headers.location, e.target.result, { headers: headers }).then(() => {
-          setResponseStatus('Attachment succesfully uploaded.');
+          setResponseStatus(`Attachment with name ${attachment.name} has been successfully uploaded.`);
           setDownloadUri(response.headers.location);
         });
       })
       .catch((error) => {
-        setResponseStatus('There was an error uploading this file.');
+        setResponseStatus(`Error uploading attachment with name ${attachment.name}`);
         console.error(error);
       });
   };

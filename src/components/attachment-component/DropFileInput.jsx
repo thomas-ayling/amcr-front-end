@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './dropFileInput.css';
-import dragAndDropIcon from '../../../src/assets/images/attachment-component/gl-drag-and-drop-logo.png';
 import { upload } from '../../service/AttachmentService.js';
 import { useDropzone } from 'react-dropzone';
 import AttachmentDetails from './AttachmentDetails';
@@ -9,12 +8,11 @@ import { runToastNotification } from '../toast-notification/ToastNotification';
 const DropFileInput = () => {
   const [file, setFile] = useState();
   const [responseStatus, setResponseStatus] = useState('');
-  const [percentage, setPercentage] = useState(null);
   const [downloadUri, setDownloadUri] = useState(null);
 
   useEffect(() => {
     if (responseStatus != null) {
-      runToastNotification(responseStatus, responseStatus.includes('succesfully') ? 'success' : responseStatus.includes('error') && 'error');
+      runToastNotification(responseStatus, responseStatus.includes('successfully') ? 'success' : responseStatus.includes('error') && 'error');
       setResponseStatus(null);
     }
   }, [responseStatus]);
@@ -22,46 +20,13 @@ const DropFileInput = () => {
   function onFormSubmit(e) {
     e.preventDefault();
     upload(file, setResponseStatus, setDownloadUri);
-
-    // const xhr = new XMLHttpRequest();
-    // xhr.upload.onprogress = (event) => {
-    //   const percentage = parseInt((event.loaded / event.total) * 100);
-    //   setPercentage(percentage);
-    // };
-    // xhr.onreadystatechange = () => {
-    //   if (xhr.readyState !== 4) return;
-    //   if (xhr.status !== 200) {
-    //   }
-    //   setFile();
-    //   setPercentage(null);
-    // };
-    // xhr.open('POST', 'https://httpbin.org/post', true);
-    // xhr.send(file);
+    setFile();
   }
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       upload(file, setResponseStatus, setDownloadUri);
       const reader = new FileReader();
-
-      // const xhr = new XMLHttpRequest();
-      // xhr.upload.onprogress = (event) => {
-      //   const percentage = parseInt((event.loaded / event.total) * 100);
-      //   setPercentage(percentage);
-      // };
-      // xhr.onreadystatechange = () => {
-      //   if (xhr.readyState !== 4) return;
-      //   if (xhr.status !== 200) {
-      //   }
-      //   setFile();
-      //   setPercentage(null);
-      // };
-      // xhr.open('POST', 'https://httpbin.org/post', true);
-      // xhr.send(file);
-
-      reader.onload = () => {
-        const binaryStr = reader.result;
-      };
       reader.readAsArrayBuffer(file);
     });
   }, []);
@@ -72,11 +37,7 @@ const DropFileInput = () => {
       <div className='drop-file-input'>
         <div className='drop-file-input__label' {...getRootProps()}>
           <input {...getInputProps()} />
-          <img className='upload-logo' src={dragAndDropIcon} alt='Drag And Drop Icon' />
-          <br />
-          <br />
-          <p>Drag 'n' drop files here to upload,</p>
-          <p>or click to select files</p>
+          <p>Drag and drop files here to upload, or click to select files and automatically start uploading.</p>
           <p>Max file size: 50MB</p>
         </div>
       </div>
@@ -95,7 +56,7 @@ const DropFileInput = () => {
           Upload
         </button>
       </form>
-      <AttachmentDetails file={file} percentage={percentage} />
+      <AttachmentDetails file={file} />
     </>
   );
 };

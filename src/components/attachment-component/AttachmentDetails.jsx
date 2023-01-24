@@ -2,7 +2,7 @@ import React from 'react';
 import { partial } from 'filesize';
 import './dropFileInput.css';
 
-const AttachmentDetails = ({ file, percentage }) => {
+const AttachmentDetails = ({ file }) => {
   const actualSize = partial({ base: 2, standard: 'jedec' });
   return (
     <>
@@ -13,7 +13,6 @@ const AttachmentDetails = ({ file, percentage }) => {
           <div className='file-metadata'>Size: {actualSize(file.size)}</div>
         </>
       ) : null}
-      {percentage ? <div className='file-metadata'>Uploading... {percentage}%</div> : null}
     </>
   );
 };
