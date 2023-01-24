@@ -11,9 +11,8 @@ const DropFileInput = () => {
   const [percentage, setPercentage] = useState(null);
   const [downloadUri, setDownloadUri] = useState(null);
   useEffect(() => {
-    console.log('downloadUri', downloadUri)
-  }, [downloadUri])
-  
+    console.log('downloadUri', downloadUri);
+  }, [downloadUri]);
 
   function onFormSubmit(e) {
     e.preventDefault();
@@ -40,20 +39,20 @@ const DropFileInput = () => {
       upload(file, setResponseStatus, setDownloadUri);
       const reader = new FileReader();
 
-      const xhr = new XMLHttpRequest();
-      xhr.upload.onprogress = (event) => {
-        const percentage = parseInt((event.loaded / event.total) * 100);
-        setPercentage(percentage);
-      };
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState !== 4) return;
-        if (xhr.status !== 200) {
-        }
-        setFile();
-        setPercentage(null);
-      };
-      xhr.open('POST', 'https://httpbin.org/post', true);
-      xhr.send(file);
+      // const xhr = new XMLHttpRequest();
+      // xhr.upload.onprogress = (event) => {
+      //   const percentage = parseInt((event.loaded / event.total) * 100);
+      //   setPercentage(percentage);
+      // };
+      // xhr.onreadystatechange = () => {
+      //   if (xhr.readyState !== 4) return;
+      //   if (xhr.status !== 200) {
+      //   }
+      //   setFile();
+      //   setPercentage(null);
+      // };
+      // xhr.open('POST', 'https://httpbin.org/post', true);
+      // xhr.send(file);
 
       reader.onload = () => {
         const binaryStr = reader.result;
