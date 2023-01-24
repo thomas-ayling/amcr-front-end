@@ -176,3 +176,7 @@ button:focus {
   padding-bottom: 30px !important;
   color: white !important;
 }
+
+.nav-link.active {
+  color: rgb(243, 122, 055) !important;
+}
