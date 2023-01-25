@@ -4,25 +4,56 @@ import MarkdownComponent from '../markdown-component/MarkdownComponent';
 import CaseStudyCarousel from '../case-studies-carousel/CaseStudyCarousel';
 import { StyledHr } from '../../styles/styles';
 import { put } from '../../service/CaseStudySingleService';
+import { uploadAttachment } from '../../service/AttachmentService.js';
 import { runToastNotification } from '../toast-notification/ToastNotification';
 import { useNavigate } from 'react-router-dom';
 import UndoIcon from '../../assets/images/icons/undo-icon.png';
+import '../../pages/styles/CaseStudySingle.css';
 
 const EditBody = ({ pageData, setPageData, id }) => {
   const [updatedTitle, setUpdatedTitle] = useState(pageData.title);
   const [updatedBody, setUpdatedBody] = useState(pageData.body);
   const [updatedOverview, setUpdatedOverview] = useState(pageData.overview);
+  const [updatedCoverImageLink, setUpdatedCoverImageLink] = useState();
   const [spotlight, setSpotlight] = useState(pageData.spotlight);
+
   const [updateStatus, setUpdateStatus] = useState(false);
 
   const [changeHistory, setChangeHistory] = useState([updatedBody]);
   const [historyPointer, setHistoryPointer] = useState(0);
 
+  const [imageIndex, setImageIndex] = useState();
+  const [responseStatus, setResponseStatus] = useState(null);
+  const [downloadUri, setDownloadUri] = useState();
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (imageIndex !== undefined && imageIndex !== null && downloadUri) {
+      let newUpdatedBody = [...updatedBody];
+      newUpdatedBody[imageIndex].imageId = downloadUri;
+      setUpdatedBody(newUpdatedBody);
+      let newChangeHistory = [...changeHistory];
+      newChangeHistory[historyPointer] = newUpdatedBody;
+      setChangeHistory(newChangeHistory);
+    }
+  }, [downloadUri, imageIndex]);
+
+  useEffect(() => {
+    if (responseStatus !== null && responseStatus !== undefined) {
+      responseStatus.includes('success') && runToastNotification('Image uploaded successfuly', 'success');
+    }
+    return () => {
+      setResponseStatus(null);
+    };
+  }, [responseStatus]);
 
   useEffect(() => {
     updateStatus === 'success' ? runToastNotification('Update was successful!', 'success') : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
     updateStatus === 'success' && setTimeout(() => navigate(`/case-study/${id}`), 500);
+    return () => {
+      setUpdateStatus(undefined);
+    };
   }, [id, navigate, updateStatus]);
 
   useEffect(() => {
@@ -30,39 +61,19 @@ const EditBody = ({ pageData, setPageData, id }) => {
   }, [changeHistory, historyPointer]);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    const body = changeHistory[historyPointer].map((row) => ({markdownText:row.markdownText, imageId: row.imageId.split('/attachment/')[1]}));
+    const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
+
+    console.log('body', body)
+
     const updatedCaseStudy = {
       title: updatedTitle,
       overview: updatedOverview,
-      body: changeHistory[historyPointer],
+      body: body,
+      coverImageId: coverImageId,
       spotlight: spotlight,
     };
     put(id, updatedCaseStudy, setUpdateStatus, setPageData);
-  };
-
-  const handleChangeTextarea = (value, index) => {
-    let newChangeHistory = [...changeHistory];
-    newChangeHistory[historyPointer][index].markdownText = value;
-    setChangeHistory(newChangeHistory);
-    historyPointer < changeHistory.length - 1 && deleteRedoHistory();
-  };
-
-  const handleUndo = () => {
-    setHistoryPointer(historyPointer > 0 && historyPointer - 1);
-  };
-
-  const handleRedo = () => {
-    setHistoryPointer(historyPointer < changeHistory.length - 1 && historyPointer + 1);
-  };
-
-  const removeRow = (index) => {
-    let newUpdatedBody = [...updatedBody];
-    newUpdatedBody.splice(index, 1);
-    setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
-    newChangeHistory.push(newUpdatedBody);
-    setChangeHistory(newChangeHistory);
-    setHistoryPointer(historyPointer + 1);
   };
 
   const addRow = () => {
@@ -78,10 +89,48 @@ const EditBody = ({ pageData, setPageData, id }) => {
     setHistoryPointer(newChangeHistory.length - 1);
   };
 
+  const removeRow = (index) => {
+    let newUpdatedBody = [...updatedBody];
+    newUpdatedBody.splice(index, 1);
+    setUpdatedBody(newUpdatedBody);
+    let newChangeHistory = [...changeHistory];
+    newChangeHistory.push(newUpdatedBody);
+    setChangeHistory(newChangeHistory);
+    setHistoryPointer(historyPointer + 1);
+  };
+
+  const handleUndo = () => {
+    setHistoryPointer(historyPointer > 0 && historyPointer - 1);
+  };
+
+  const handleRedo = () => {
+    setHistoryPointer(historyPointer < changeHistory.length - 1 && historyPointer + 1);
+  };
+
   const deleteRedoHistory = () => {
     let newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
     console.log('newChangeHistory', newChangeHistory);
+  };
+
+  const handleChangeTextarea = (value, index) => {
+    let newChangeHistory = [...changeHistory];
+    newChangeHistory[historyPointer][index].markdownText = value;
+    setChangeHistory(newChangeHistory);
+    historyPointer < changeHistory.length - 1 && deleteRedoHistory();
+  };
+
+  const handleChangeRowImage = (file, index) => {
+    uploadAttachment(file, setResponseStatus, setDownloadUri);
+    setImageIndex(index);
+  };
+
+  const handleChangeCoverImage = (file) => {
+    uploadAttachment(file, setResponseStatus, setDownloadUri);
+    setUpdatedCoverImageLink(downloadUri);
+    let newPageData = pageData;
+    newPageData.coverImageLink = downloadUri;
+    setPageData(newPageData);
   };
 
   return (
@@ -95,33 +144,36 @@ const EditBody = ({ pageData, setPageData, id }) => {
           <img src={UndoIcon} className='cssp-redo-img' alt='redo button' />
         </button>
       </div>
-
       <div className='cssp-body-wrapper cssp-body-wrapper-edit'>
         <div className='cssp-body'>
           <form onSubmit={(e) => handleSubmit(e)}>
             <Title text={updatedTitle} />
             <input type='text' className='title-input' value={updatedTitle} onChange={(e) => setUpdatedTitle(e.target.value)} />
-            {/* <StyledHr style={{ width: '100%' }} /> */}
             {changeHistory[historyPointer].map((item, index) => (
               <div key={index}>
                 <StyledHr style={{ width: '100%' }} />
                 <div className={`cssp-body-row-edit cssp-${index % 2 === 0 ? 'regular' : 'reversed'}-row-edit`} key={index}>
                   <h3 className='cssp-row-num'>Row no. {index + 1}</h3>
-
                   <div className='cssp-edit-buttons-contaier'>
                     <button className='cssp-delete-row-button cssp-edit-button' onClick={() => removeRow(index)} type='button'>
                       Delete row
                     </button>
                   </div>
-
-                  <div className='cssp-body-img'>
-                    <img className='' src={item.imageLink} alt={item.title} />
-                    {/* Upload new image */}
-                    <input type='file' className='cssp-cover-image-upload cssp-cover-image-upload-row' />
+                  <div className='cssp-body-img-container'>
+                    <div className='cssp-body-img'>
+                      <img className='cssp-image' src={item.imageId} alt={item.title} />
+                    </div>
+                    <h4>Upload new image:</h4>
+                    <input
+                      type='file'
+                      className='cssp-row-image-upload'
+                      onChange={(e) => {
+                        handleChangeRowImage(e.target.files[0], index);
+                      }}
+                    />
                   </div>
                   <div className='cssp-body-text'>
                     <MarkdownComponent markdownText={item.markdownText} />
-                    {/* <StyledHr style={{ width: '100%' }} /> */}
                     <textarea className='cssp-text-edit cssp-textarea-edit' value={item.markdownText} onChange={(e) => handleChangeTextarea(e.target.value, index)} />
                   </div>
                 </div>
@@ -134,21 +186,14 @@ const EditBody = ({ pageData, setPageData, id }) => {
               </button>
             </div>
             <StyledHr style={{ width: '100%' }} />
-
             <input id='spotlight-checkbox' type='checkbox' checked={spotlight} onChange={(e) => setSpotlight(e.target.checked)} />
             <label htmlFor='spotlight-checkbox'> &nbsp; Show this case study on spotlight carousel?</label>
-
             {spotlight && (
               <>
                 <h1 style={{ textAlign: 'center' }}>Carousel Preview:</h1>
-
-                <CaseStudyCarousel overviews={[updatedOverview]} titles={[updatedTitle]} length={1} pageData={[pageData]} />
-
+                <CaseStudyCarousel pageData={[pageData]} />
                 <div className='edit-carousel-container'>
-                  <input
-                    type='file'
-                    className='cssp-cover-image-upload'
-                  />
+                  <input type='file' className='cssp-cover-image-upload' onChange={(e) => handleChangeCoverImage(e.target.files[0])} />
                   <textarea className='cssp-overview-edit cssp-textarea-edit' value={updatedOverview} onChange={(e) => setUpdatedOverview(e.target.value)} />
                 </div>
               </>

@@ -195,7 +195,7 @@
   min-width: 220px;
 }
 
-input[type='file'] {
+.attachment-component-file-upload {
   display: none;
 }
 

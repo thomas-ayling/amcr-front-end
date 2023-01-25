@@ -3,7 +3,7 @@ import { Crc32c } from '@aws-crypto/crc32c';
 
 const baseUrl = 'http://localhost:3001/attachment/';
 
-function upload(attachment, setResponseStatus, setDownloadUri) {
+function uploadAttachment(attachment, setResponseStatus, setDownloadUri) {
   const reader = new FileReader();
 
   reader.onload = (e) => {
@@ -22,6 +22,7 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
         axios.put(response.headers.location, e.target.result, { headers: headers }).then(() => {
           setResponseStatus(`Attachment with name ${attachment.name} has been successfully uploaded.`);
           setDownloadUri(response.headers.location);
+          // setAttachmentId(response.data.id);
         });
       })
       .catch((error) => {
@@ -37,4 +38,4 @@ function upload(attachment, setResponseStatus, setDownloadUri) {
   reader.readAsArrayBuffer(attachment);
 }
 
-export { upload };
+export { uploadAttachment };

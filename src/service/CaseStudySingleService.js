@@ -16,7 +16,6 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
     });
 };
 
-export { get };
 
 const put = (id, updatedCaseStudy, setUpdateStatus, setPageData) => {
   axios
@@ -30,7 +29,7 @@ const put = (id, updatedCaseStudy, setUpdateStatus, setPageData) => {
     });
 };
 
-export { put };
+export { get, put };
 
 /*
 

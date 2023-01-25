@@ -5,7 +5,7 @@ const baseUrl = 'http://localhost:3001/case-study';
 
 const get = (setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeaderCarouselLoaded, setRequestStatus) => {
   let error = false;
-
+  console.log('wtd');
   axios
     .get(`${baseUrl}/overviews?spotlit=true`)
     .then((response) => {
