@@ -21,6 +21,7 @@ const CaseStudies = () => {
 
   useEffect(() => {
     if (requestStatus === 'error-404') console.error('Case study could not be found');
+    console.log('requestStatus', requestStatus)
   }, [requestStatus]);
 
   if (headerCarouselLoaded && carouselLoaded) {
