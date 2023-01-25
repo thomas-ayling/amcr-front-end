@@ -12,11 +12,16 @@ import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons
 import { getSpotlit } from '../../../service/ContactsCarouselService';
 import { runToastNotification } from '../../toast-notification/ToastNotification';
 
+import { upload } from '../../../service/AttachmentService';
+
 const ContactsMainCarousel = () => {
   const slider = useRef();
 
   const [carouselData, setCarouselData] = useState();
   const [requestStatus, setRequestStatus] = useState('');
+
+  const [responseStatus, setResponseStatus] = useState('');
+  const [downloadUri, setDownloadUri] = useState('');
 
   useEffect(() => {
     getSpotlit(setCarouselData, setRequestStatus);
@@ -66,9 +71,23 @@ const ContactsMainCarousel = () => {
     ],
   };
 
+  const handleUploadFile = (file) => {
+    upload(file, setRequestStatus, setDownloadUri);
+  };
+
+  useEffect(() => {
+    console.log('downloadUri', downloadUri);
+  }, [downloadUri]);
+
   if (requestStatus.includes('success'))
     return (
       <div className='contacts-carousel'>
+        <input
+          type='file'
+          onClick={(e) => {
+            handleUploadFile(e.target.files[0]);
+          }}
+        />
         <Slider ref={slider} {...settings}>
           {carouselData.map((elem, i) => (
             <ContactsCarouselCard index={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} />

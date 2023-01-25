@@ -27,7 +27,7 @@ const CaseStudies = () => {
     return (
       <>
         <MainCarousel type='header-multi' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />
-        <CaseStudyCarousel overviews={overviews} titles={titles} length={length} pageData={carouselData} />
+        <CaseStudyCarousel pageData={carouselData} />
         <ContactComponent feedbackType='case-study' />
       </>
     );

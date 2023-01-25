@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import Title from './Title';
 import MarkdownComponent from '../markdown-component/MarkdownComponent';
-import CaseStudyCarousel from '../case-studies-carousel/CaseStudyCarousel';
+import CaseStudyCarousel from '../carousels/case-studies-carousel/CaseStudyCarousel';
 import { StyledHr } from '../../styles/styles';
 import { put } from '../../service/CaseStudySingleService';
 import { runToastNotification } from '../toast-notification/ToastNotification';
@@ -21,7 +21,9 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    updateStatus === 'success' ? runToastNotification('Update was successful!', 'success') : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
+    updateStatus === 'success'
+      ? runToastNotification('Update was successful!', 'success')
+      : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
     updateStatus === 'success' && setTimeout(() => navigate(`/case-study/${id}`), 500);
   }, [id, navigate, updateStatus]);
 
@@ -145,10 +147,7 @@ const EditBody = ({ pageData, setPageData, id }) => {
                 <CaseStudyCarousel overviews={[updatedOverview]} titles={[updatedTitle]} length={1} pageData={[pageData]} />
 
                 <div className='edit-carousel-container'>
-                  <input
-                    type='file'
-                    className='cssp-cover-image-upload'
-                  />
+                  <input type='file' className='cssp-cover-image-upload' />
                   <textarea className='cssp-overview-edit cssp-textarea-edit' value={updatedOverview} onChange={(e) => setUpdatedOverview(e.target.value)} />
                 </div>
               </>
