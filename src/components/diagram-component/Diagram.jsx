@@ -6,7 +6,6 @@ import DiagramAdminChanges from './DiagramPages/DiagramAdminChanges';
 import DiagramConfirmButton from './DiagramPages/DiagramConfirmButton';
 
 import { get, put } from '../../service/DiagramService';
-
 import { runToastNotification } from '../toast-notification/ToastNotification';
 
 const Diagram = ({ adminEnabled }) => {
