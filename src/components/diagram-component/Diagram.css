@@ -250,6 +250,7 @@
 }
 /* Titles.jsx component */
 .diagram-title-individual-title {
+  text-align: center;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
