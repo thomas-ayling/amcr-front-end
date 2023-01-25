@@ -6,10 +6,23 @@ import ImageSlider from './sub-components/ImageSlider';
 import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
 import { StyledHr } from '../../styles/styles';
+import { useEffect } from 'react';
 
-const CaseStudyCarousel = ({overviews, titles, length, pageData}) => {
+const CaseStudyCarousel = ({ pageData }) => {
   const [current, setCurrent] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const [overviews, setOverviews] = useState([]);
+  const [titles, setTitles] = useState([]);
+  const [length, setLength] = useState();
+
+  useEffect(() => {
+    if (pageData) {
+      setOverviews(pageData.map((item) => item.overview));
+      setTitles(pageData.map((item) => item.title));
+      setLength(pageData.length);
+    }
+  }, [pageData]);
 
   const resizeObserver = new ResizeObserver((entries) => {
     setWindowWidth(entries[0].contentRect.width);
