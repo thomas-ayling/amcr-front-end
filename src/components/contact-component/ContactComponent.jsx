@@ -25,6 +25,8 @@ const ContactComponent = ({ feedbackType }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    runToastNotification('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.', "error");
+
     const feedback = {
       feedbackType: feedbackType,
       firstName: firstName,
