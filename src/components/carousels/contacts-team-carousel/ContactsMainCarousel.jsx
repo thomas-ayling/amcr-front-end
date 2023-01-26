@@ -6,7 +6,6 @@ import './slick-css-files/slick.css';
 import './slick-css-files/slick-theme.css';
 
 import ContactsCarouselCard from './ContactsCarouselCard';
-import ContactsAdminPanel from './admin-functionality/ContactsAdminPanel';
 import LoaderGif from '../../shared-components/LoaderGif';
 import { StyledHr } from '../../../styles/styles';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
@@ -22,6 +21,11 @@ const ContactsMainCarousel = () => {
   useEffect(() => {
     getSpotlit(setCarouselData, setResponseStatus);
   }, []);
+
+  useEffect(() => {
+    if (responseStatus === 'error-404') runToastNotification(`Carousel data not found!`, 'error');
+    else if (responseStatus === 'other-error') runToastNotification('Could not load carousel data!', 'error');
+  }, [responseStatus]);
 
   const settings = {
     dots: true,
@@ -63,15 +67,9 @@ const ContactsMainCarousel = () => {
     ],
   };
 
-  useEffect(() => {
-    if (responseStatus === 'error-404') runToastNotification(`Carousel data not found!`, 'error');
-    else if (responseStatus === 'other-error') runToastNotification('Could not load carousel data!', 'error');
-  }, [responseStatus]);
-
   if (responseStatus.includes('success'))
     return (
       <div className='contacts-carousel'>
-        <ContactsAdminPanel carouselData={carouselData} />
         <Slider ref={slider} {...settings}>
           {carouselData.map((elem, i) => (
             <ContactsCarouselCard key={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} />

@@ -85,32 +85,6 @@
   margin-left: 40px;
 }
 
-/* Admin panel stuff */
-.contacts-carousel-admin-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-.contacts-carousel-admin-dropdown {
-  display: flex;
-  justify-content: center;
-}
-
-.contacts-carousel-admin-buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.contacts-carousel-admin-inputs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.contacts-carousel-admin-inputs textarea {
-  width: 50%;
-}
-
 @media (max-width: 325px) {
   .contacts-carousel-card-border {
     padding: 1rem;
