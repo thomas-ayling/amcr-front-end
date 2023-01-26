@@ -6,31 +6,22 @@ import './slick-css-files/slick.css';
 import './slick-css-files/slick-theme.css';
 
 import ContactsCarouselCard from './ContactsCarouselCard';
+import ContactsAdminPanel from './admin-functionality/ContactsAdminPanel';
 import LoaderGif from '../../shared-components/LoaderGif';
 import { StyledHr } from '../../../styles/styles';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import { getSpotlit } from '../../../service/ContactsCarouselService';
 import { runToastNotification } from '../../toast-notification/ToastNotification';
 
-import { upload } from '../../../service/AttachmentService';
-
 const ContactsMainCarousel = () => {
   const slider = useRef();
 
   const [carouselData, setCarouselData] = useState();
-  const [requestStatus, setRequestStatus] = useState('');
-
   const [responseStatus, setResponseStatus] = useState('');
-  const [downloadUri, setDownloadUri] = useState('');
 
   useEffect(() => {
-    getSpotlit(setCarouselData, setRequestStatus);
+    getSpotlit(setCarouselData, setResponseStatus);
   }, []);
-
-  useEffect(() => {
-    if (requestStatus === 'error-404') runToastNotification(`Carousel data not found!`, 'error');
-    else if (requestStatus === 'other-error') runToastNotification('Could not load carousel data!', 'error');
-  }, [requestStatus]);
 
   const settings = {
     dots: true,
@@ -39,6 +30,7 @@ const ContactsMainCarousel = () => {
     slidesToShow: 5,
     slidesToScroll: 5,
     initialSlide: 0,
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1700,
@@ -71,26 +63,18 @@ const ContactsMainCarousel = () => {
     ],
   };
 
-  const handleUploadFile = (file) => {
-    upload(file, setRequestStatus, setDownloadUri);
-  };
-
   useEffect(() => {
-    console.log('downloadUri', downloadUri);
-  }, [downloadUri]);
+    if (responseStatus === 'error-404') runToastNotification(`Carousel data not found!`, 'error');
+    else if (responseStatus === 'other-error') runToastNotification('Could not load carousel data!', 'error');
+  }, [responseStatus]);
 
-  if (requestStatus.includes('success'))
+  if (responseStatus.includes('success'))
     return (
       <div className='contacts-carousel'>
-        <input
-          type='file'
-          onClick={(e) => {
-            handleUploadFile(e.target.files[0]);
-          }}
-        />
+        <ContactsAdminPanel carouselData={carouselData} />
         <Slider ref={slider} {...settings}>
           {carouselData.map((elem, i) => (
-            <ContactsCarouselCard index={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} />
+            <ContactsCarouselCard key={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} />
           ))}
         </Slider>
         <div className='contacts-carousel-arrows'>
@@ -104,7 +88,7 @@ const ContactsMainCarousel = () => {
         <StyledHr />
       </div>
     );
-  if (requestStatus.includes('success')) {
+  if (responseStatus.includes('success')) {
     return <LoaderGif />;
   }
 };

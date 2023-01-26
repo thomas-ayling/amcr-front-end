@@ -1,3 +1,4 @@
+/* ContactsCarouselCard.jsx */
 .contacts-carousel-card-border {
   background-color: var(--gl-light-gray);
   padding: 1rem;
@@ -52,6 +53,10 @@
   overflow-x: hidden;
 }
 
+/* ContactsMainCarousel.jsx */
+.contacts-carousel {
+  margin-top: 1.5rem;
+}
 .contacts-carousel-arrows {
   display: flex;
   justify-content: center;
