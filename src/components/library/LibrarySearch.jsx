@@ -4,6 +4,7 @@ import axios from "axios";
 import ToggleVisibility from "./ToggleVisibility";
 import { BsPlusCircleFill } from "react-icons/bs";
 import { Modal, Button } from "react-bootstrap";
+import { runToastNotification } from '../toast-notification/ToastNotification';
 
 import "./LibrarySearch.css";
 
@@ -34,6 +35,7 @@ const LibrarySearch = () => {
 
   // ADMIN ONLY - Axios request for adding new book to library
   const uploadBook = (e) => {
+    e.preventDefault();
     const newBook = {
       title: bookTitleInput,
       genre: bookGenreInput,
@@ -47,10 +49,12 @@ const LibrarySearch = () => {
       .then(function (response) {
         //handle success
         console.log(response);
+        runToastNotification("Book successfully added!", 'success');
       })
       .catch((error) => {
         //handle error
         console.log(error.status);
+        runToastNotification("Book failed to be added!", 'error');
       });
   };
 
@@ -135,6 +139,7 @@ const LibrarySearch = () => {
   // Simple function for hiding book upload modal
   function handleClose() {
     setShow(false);
+    window.location.reload();
   }
 
   // Simple function for showing book upload modal
@@ -281,13 +286,13 @@ const LibrarySearch = () => {
                   <option value='Buisness'>Buisness</option>
                 </select>
                 <button className='Library-Reservation-Button' onClick={(e) => uploadBook(e)}>
-                  Reserve
+                  Add
                 </button>
               </form>
             </Modal.Body>
             <Modal.Footer>
-              <Button variant='success' className='Library-Reservation-Button' onClick={handleClose}>
-                Save Changes
+              <Button className='Library-Reservation-Button-Exit' onClick={handleClose}>
+                Close
               </Button>
             </Modal.Footer>
           </Modal>

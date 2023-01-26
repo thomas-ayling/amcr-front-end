@@ -1,10 +1,13 @@
 import React from 'react';
-import DropFileInput from '../../src/components/attachment-component/DropFileInput';
+import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
+import ContactUsHeader from '../service/ContactUsHeader';
+import ContactComponent from '../components/contact-component/ContactComponent';
 
 const Contacts = () => {
   return (
-    <div className='drag-and-drop-box'>
-      <DropFileInput />
+    <div>
+      <MainCarousel type='header-single' slides={ContactUsHeader} />
+      <ContactComponent feedbackType={'improvement'} />
     </div>
   );
 };
