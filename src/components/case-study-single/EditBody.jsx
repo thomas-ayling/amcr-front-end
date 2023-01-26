@@ -26,10 +26,18 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const [responseStatus, setResponseStatus] = useState(null);
   const [downloadUri, setDownloadUri] = useState();
 
+  const [changingImage, setChangingImage] = useState();
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (imageIndex !== undefined && imageIndex !== null && downloadUri) {
+    if (changingImage === 'cover-image') {
+      setUpdatedCoverImageLink(downloadUri);
+      let newPageData = pageData;
+      newPageData.coverImageLink = downloadUri;
+      setPageData(newPageData);
+    }
+    if (changingImage === 'row') {
       let newUpdatedBody = [...updatedBody];
       newUpdatedBody[imageIndex].imageId = downloadUri;
       setUpdatedBody(newUpdatedBody);
@@ -37,7 +45,7 @@ const EditBody = ({ pageData, setPageData, id }) => {
       newChangeHistory[historyPointer] = newUpdatedBody;
       setChangeHistory(newChangeHistory);
     }
-  }, [downloadUri, imageIndex]);
+  }, [downloadUri, imageIndex, changingImage]);
 
   useEffect(() => {
     if (responseStatus !== null && responseStatus !== undefined) {
@@ -61,10 +69,10 @@ const EditBody = ({ pageData, setPageData, id }) => {
   }, [changeHistory, historyPointer]);
 
   const handleSubmit = (e) => {
-    const body = changeHistory[historyPointer].map((row) => ({markdownText:row.markdownText, imageId: row.imageId.split('/attachment/')[1]}));
+    const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1] }));
     const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
 
-    console.log('body', body)
+    console.log('body', body);
 
     const updatedCaseStudy = {
       title: updatedTitle,
@@ -121,16 +129,22 @@ const EditBody = ({ pageData, setPageData, id }) => {
   };
 
   const handleChangeRowImage = (file, index) => {
+    if (!file.type.startsWith('image')) {
+      runToastNotification('Attachment must be an image.', 'error');
+      return;
+    }
+    setChangingImage('row');
     uploadAttachment(file, setResponseStatus, setDownloadUri);
     setImageIndex(index);
   };
 
   const handleChangeCoverImage = (file) => {
+    if (!file.type.startsWith('image')) {
+      runToastNotification('Attachment must be an image.', 'error');
+      return;
+    }
     uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setUpdatedCoverImageLink(downloadUri);
-    let newPageData = pageData;
-    newPageData.coverImageLink = downloadUri;
-    setPageData(newPageData);
+    setChangingImage('cover-image');
   };
 
   return (
