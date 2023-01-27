@@ -9,7 +9,7 @@ const CarouselTitles = ({ slides, current, isLink, type }) => {
     navigate(`/case-study/${id}`);
   };
 
-  const wrapperClassNames =`${type.includes('header-single') && 'title-wrapper-header-single'} 
+  const wrapperClassNames = `${type.includes('header-single') && 'title-wrapper-header-single'} 
                             ${type.includes('header-single-description') && 'title-wrapper-header-single'} 
                             ${type.includes('header-multi') && 'title-wrapper-header-multi'} `;
 

@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import Title from './Title';
 import MarkdownComponent from '../markdown-component/MarkdownComponent';
-import CaseStudyCarousel from '../case-studies-carousel/CaseStudyCarousel';
+import CaseStudyCarousel from '../carousels/case-studies-carousel/CaseStudyCarousel';
 import { StyledHr } from '../../styles/styles';
 import { put } from '../../service/CaseStudySingleService';
 import { uploadAttachment } from '../../service/AttachmentService.js';
@@ -16,16 +16,12 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const [updatedOverview, setUpdatedOverview] = useState(pageData.overview);
   const [updatedCoverImageLink, setUpdatedCoverImageLink] = useState();
   const [spotlight, setSpotlight] = useState(pageData.spotlight);
-
   const [updateStatus, setUpdateStatus] = useState(false);
-
   const [changeHistory, setChangeHistory] = useState([updatedBody]);
   const [historyPointer, setHistoryPointer] = useState(0);
-
   const [imageIndex, setImageIndex] = useState();
   const [responseStatus, setResponseStatus] = useState(null);
   const [downloadUri, setDownloadUri] = useState();
-
   const [changingImage, setChangingImage] = useState();
 
   const navigate = useNavigate();
@@ -69,10 +65,15 @@ const EditBody = ({ pageData, setPageData, id }) => {
   }, [changeHistory, historyPointer]);
 
   const handleSubmit = (e) => {
-    const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1] }));
+    e.preventDefault();
+    for (let row of changeHistory[historyPointer]) {
+      if (row.imageId === '') {
+        runToastNotification('Please make sure all rows have images', 'error');
+        return;
+      }
+    }
+    const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1]}));
     const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
-
-    console.log('body', body);
 
     const updatedCaseStudy = {
       title: updatedTitle,
@@ -87,7 +88,7 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const addRow = () => {
     let newUpdatedBody = [...updatedBody];
     newUpdatedBody.push({
-      imageLink: '',
+      imageId: '',
       markdownText: '',
     });
     setUpdatedBody(newUpdatedBody);
@@ -118,7 +119,6 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const deleteRedoHistory = () => {
     let newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
-    console.log('newChangeHistory', newChangeHistory);
   };
 
   const handleChangeTextarea = (value, index) => {

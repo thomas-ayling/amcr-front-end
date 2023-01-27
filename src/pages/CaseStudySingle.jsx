@@ -25,7 +25,7 @@ const CaseStudySingle = ({ editMode }) => {
   if (pageLoaded && editMode) {
     return (
       <div className='cssp-container'>
-        <EditBody body={pageData.body} title={pageData.title} overview={pageData.overview} pageData={pageData} setPageData={setPageData} id={id} />
+        <EditBody pageData={pageData} setPageData={setPageData} id={id} />
       </div>
     );
   }

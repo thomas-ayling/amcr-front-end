@@ -6,6 +6,27 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
   axios
     .get(`${baseUrl}/${id}`)
     .then((response) => {
+
+      console.log('response.data.attachmentLinks', response.data.attachmentLinks)
+
+      const TIMEOUT = 100;
+      const promises = response.data.attachmentLinks.map((link, index) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(
+            () =>
+              axios
+                .get(`${link}/metadata`)
+                .then((res) => {resolve(res);
+                console.log('res.data', res.data)
+                })
+                .catch((err) => reject(err)),
+            TIMEOUT * index
+          );
+        });
+      });
+      Promise.all(promises)
+        .then((res) => console.log('res.data', res.headers))
+        .catch((err) => console.error(err));
       if (response.status === 200) {
         setPageData(response.data);
         setPageLoaded(true);
@@ -30,33 +51,3 @@ const put = (id, updatedCaseStudy, setUpdateStatus, setPageData) => {
 };
 
 export { get, put };
-
-/*
-
-{
-    "id": "9595958d-3ac2-4977-bbf3-c22f70f9635d",
-    "spotlight": true,
-    "title": "This is the title",
-    "overview": "This is the overview",
-    "coverImageLink": "This is a link :/",
-    "body": {
-        "content": [
-            {
-                "markdownText": "This is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template",
-                "imageLink": "https://picsum.photos/500/300"
-            },
-            {
-                "markdownText": "#This is the header of the block \n This is even more text, just doing it for fun as you do --hello-- ",
-                "imageLink": "https://picsum.photos/500/300"
-            },
-            {
-                "markdownText": "This is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template, this is a lot of markdown text to be used as a template",
-                "imageLink": "https://picsum.photos/500/300"
-            }
-        ]
-    },
-    "pdfLink": "This is a PDF link",
-    "pptxLink": "This is a PPTX link"
-}
-
-*/
