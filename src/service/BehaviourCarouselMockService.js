@@ -35,7 +35,7 @@ const InnovationDescription = [
   '\u2022 Experimentation\n\n',
 ];
 
-const behaviourSlides = [
+const behaviourImages = [
   {
     image: Integrity,
     title: 'Integrity',
@@ -55,7 +55,8 @@ const behaviourSlides = [
     image: Teamwork,
     title: 'Teamwork',
     description: TeamworkDescription,
+    url: 'another-entry',
   },
 ];
 
-export default behaviourSlides;
+export default behaviourImages;
