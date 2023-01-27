@@ -1,0 +1,124 @@
+:root {
+  --gl-light-orange: #ee9f41;
+  --gl-orange: #f37037;
+  --gl-dark-orange: #d45e2b;
+  --gl-light-gray: #e6e7e8;
+  --gl-gray: #bcbec0;
+  --gl-medium-gray: #6d6e71;
+  --gl-dark-gray: #414042;
+  --gl-error: #ac2c2c;
+  --gl-dark-error: #8f2424;
+  --gl-lime: #8ec549;
+  --gl-dark-lime: #77a63d;
+  --gl-canary: #f4d034;
+  --gl-teal: #53bdbe;
+}
+
+* {
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+}
+
+.content-section-container {
+  background-color: var(--gl-light-gray);
+  padding: 1rem;
+  width: 1100px;
+  height: auto;
+  margin: auto;
+  border-radius: 17.5px;
+  bottom: 20%;
+  margin-top: 3rem;
+}
+
+.content-section-wrapper {
+  width: auto;
+  height: 100%;
+  padding: 1rem 2rem 1rem 2rem;
+  text-align: center;
+  border-radius: 10px;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 50%;
+}
+
+.content-section-span {
+  display: flex;
+  align-items: center;
+  margin-left: 20%;
+}
+
+.content-section-icons {
+  display: flex;
+  color: white;
+  border-radius: 30px;
+  background: var(--gl-medium-gray);
+  margin: auto;
+}
+
+.content-section-icons:hover {
+  background: var(--gl-orange);
+  transition: all 0.3s ease-out 0s;
+}
+
+.content-section-space-between-icon-and-text {
+  font-size: 1.125rem;
+  margin-left: 20px;
+}
+
+.content-section-icons-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1em;
+  gap: 8em;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1101px) {
+  .content-section-icons-container {
+    grid-template-columns: 1fr;
+    margin: auto;
+    grid-gap: 1rem;
+  }
+
+  .content-section-space-between-icon-and-text {
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  .content-section-container {
+    width: 550px;
+  }
+
+  .content-section-span {
+    display: flex;
+    align-items: center;
+    margin-left: 15%;
+  }
+}
+
+@media (max-width: 551px) {
+  .content-section-icons-container {
+    grid-template-columns: 1fr;
+    margin: auto;
+    grid-gap: 1rem;
+  }
+
+  .content-section-space-between-icon-and-text {
+    margin-left: 30px;
+    text-align: left;
+  }
+
+  .content-section-container {
+    width: 95%;
+  }
+
+  .content-section-span {
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+  }
+}
