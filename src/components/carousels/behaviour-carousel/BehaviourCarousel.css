@@ -19,9 +19,18 @@
 }
 
 .behaviour-body-carousel-wrapper {
-  width: 1200px;
+  width: 1100px;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 100px;
+  padding: 1rem;
+  background-color: var(--gl-light-gray);
+  border-radius: 17.5px;
+}
+
+.behaviour-carousel-inner-wrapper {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 .behaviour-body-carousel-page-title {
@@ -89,7 +98,7 @@
 .behaviour-description {
   white-space: pre;
   width: 328px;
-  height: 269px;
+  height: auto;
   padding: 0 5px 0 5px;
   border-radius: 5%;
   background: var(--gl-gray);
@@ -171,8 +180,8 @@
   }
 
   .behaviour-carousel-arrows {
-    margin-top: 113px;
-    width: 70%;
+    margin-top: -660px;
+    width: 90%;
     position: absolute;
     transform: translate(0, 315px);
     display: flex;
