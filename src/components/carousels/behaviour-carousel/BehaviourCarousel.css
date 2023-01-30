@@ -86,6 +86,7 @@
 .behaviour-carousel-arrows {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .behaviour-carousel-arrow-left,
@@ -117,15 +118,6 @@
     align-items: center;
   }
 
-  .behaviour-carousel-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: auto;
-    margin-top: 15px;
-  }
-
   .behaviour-image {
     width: 100%;
     height: 300px;
@@ -154,9 +146,9 @@
   }
 
   .behaviour-description {
-    width: 100%;
+    width: 70%;
     min-width: 300px;
-    max-width: 550px;
+    max-width: 450px;
     margin-left: 0;
     margin-top: 100px;
   }
