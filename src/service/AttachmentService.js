@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Crc32c } from '@aws-crypto/crc32c';
 
 const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/attachment/';
+// const baseUrl = 'http://localhost:3001/attachment/';
 
 function upload(attachment, setResponseStatus, setDownloadUri) {
   const reader = new FileReader();
