@@ -13,6 +13,16 @@
             ]
         }
     ],
+    "environment": [
+        {
+            "name": "HOSTNAME",
+            "value": "ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com"
+        },
+        {
+            "name": "LISTEN_PORT",
+            "value": "3000"
+        }
+    ],
     "cpu": "512",
     "memory": "1024",
     "requiresCompatibilities": [
