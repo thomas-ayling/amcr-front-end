@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './BehaviourCarousel.css';
 import BehaviourImages from '../../../service/BehaviourCarouselMockService';
 import BehaviourCarouselDescription from './behaviour-carousel-components/BehaviourCarouselDescription';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
+import './BehaviourCarousel.css';
 
 const BehaviourCarousel = () => {
   const [current, setCurrent] = useState(0);
