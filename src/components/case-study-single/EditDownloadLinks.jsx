@@ -4,18 +4,20 @@ import { runToastNotification } from '../toast-notification/ToastNotification';
 
 const DownloadLinks = ({ attachmentMetadata, attachmentLinks, setAttachmentLinks }) => {
   const [responseStatus, setResponseStatus] = useState('idle');
-  const [downloadUri, setDownloadUri] = useState();
 
   useEffect(() => {
     if (responseStatus === 'success') runToastNotification('Attachment uploaded successfuly', 'success');
     if (responseStatus === 'error') runToastNotification('There was an error uploading this attachment', 'error');
-    const newAttachmentLinks = [...attachmentLinks];
-    newAttachmentLinks[index] = downloadUri;
-    setAttachmentLinks(newAttachmentLinks);
-  }, [downloadUri, responseStatus]);
+    return () => {
+      setResponseStatus('idle');
+    };
+  }, [responseStatus]);
 
   const handleChangeFile = (attachment, index) => {
-    uploadAttachment(attachment, setResponseStatus, setDownloadUri);
+    const downloadLink = uploadAttachment(attachment, setResponseStatus);
+    const newAttachmentLinks = [...attachmentLinks];
+    newAttachmentLinks[index] = downloadLink;
+    setAttachmentLinks(newAttachmentLinks);
   };
 
   if (attachmentMetadata) {
