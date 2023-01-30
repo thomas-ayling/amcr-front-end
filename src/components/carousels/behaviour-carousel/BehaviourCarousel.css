@@ -138,22 +138,6 @@
     box-shadow: 2px 2px 4px var(--gl-orange);
   }
 
-  .behaviour-image-slide,
-  .behaviour-image-active {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
-
-  .behaviour-carousel-content {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .behaviour-carousel-arrows {
     margin-top: 0;
     margin-left: 50px;
@@ -161,15 +145,6 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
-  }
-
-  .behaviour-title-slide,
-  .behaviour-title-active {
-    width: 100%;
-    min-width: 300px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
   }
 
   .behaviour-title {
