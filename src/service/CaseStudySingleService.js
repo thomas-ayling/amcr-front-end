@@ -1,14 +1,13 @@
 import axios from 'axios';
+import { partial } from 'filesize';
 const baseUrl = 'http://localhost:3001/case-study';
 // const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/case-study';
 
-const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
+const get = (id, setPageData, setRequestStatus, setPageLoaded, setAttachmentMetadata) => {
+  const bytesToReadable = partial({ base: 2, standard: 'jedec' })
   axios
     .get(`${baseUrl}/${id}`)
     .then((response) => {
-
-      console.log('response.data.attachmentLinks', response.data.attachmentLinks)
-
       const TIMEOUT = 100;
       const promises = response.data.attachmentLinks.map((link, index) => {
         return new Promise((resolve, reject) => {
@@ -16,27 +15,31 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
             () =>
               axios
                 .get(`${link}/metadata`)
-                .then((res) => {resolve(res);
-                console.log('res.data', res.data)
-                })
+                .then((res) => resolve(res))
                 .catch((err) => reject(err)),
             TIMEOUT * index
           );
         });
       });
       Promise.all(promises)
-        .then((res) => console.log('res.data', res.headers))
+        .then((res) => {
+          setAttachmentMetadata(
+            res.map((item, index) => ({
+              name: item.data.name,
+              size: bytesToReadable(item.data.size),
+              type: item.data.type.split("/")[1].toUpperCase(),
+              link: response.data.attachmentLinks[index],
+            }))
+          );
+        })
         .catch((err) => console.error(err));
-      if (response.status === 200) {
-        setPageData(response.data);
-        setPageLoaded(true);
-      }
+      setPageData(response.data);
+      setPageLoaded(true);
     })
     .catch((err) => {
       setRequestStatus(err.status === 404 ? 'error-404' : 'other-error');
     });
 };
-
 
 const put = (id, updatedCaseStudy, setUpdateStatus, setPageData) => {
   axios
