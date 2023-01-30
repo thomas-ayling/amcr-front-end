@@ -11,7 +11,7 @@ import UndoIcon from '../../assets/images/icons/undo-icon.png';
 import '../../pages/styles/CaseStudySingle.css';
 import EditDownloadLinks from './EditDownloadLinks';
 
-const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
+const EditBody = ({ pageData, setPageData, attachmentMetadata, setAttachmentMetadata, id }) => {
   const [updatedTitle, setUpdatedTitle] = useState(pageData.title);
   const [updatedBody, setUpdatedBody] = useState(pageData.body);
   const [updatedOverview, setUpdatedOverview] = useState(pageData.overview);
@@ -20,30 +20,13 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
   const [updateStatus, setUpdateStatus] = useState(false);
   const [changeHistory, setChangeHistory] = useState([updatedBody]);
   const [historyPointer, setHistoryPointer] = useState(0);
-  const [imageIndex, setImageIndex] = useState();
   const [responseStatus, setResponseStatus] = useState(null);
-  const [downloadUri, setDownloadUri] = useState();
-  const [changingImage, setChangingImage] = useState();
   const [attachmentLinks, setAttachmentLinks] = useState();
+  const [coverImageUri, setCoverImageUri] = useState();
+  const [downloadUri, setDownloadUri] = useState();
+  const [newIndex, setNewIndex] = useState();
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (changingImage === 'cover-image') {
-      setUpdatedCoverImageLink(downloadUri);
-      const newPageData = pageData;
-      newPageData.coverImageLink = downloadUri;
-      setPageData(newPageData);
-    }
-    if (changingImage === 'row') {
-      const newUpdatedBody = [...updatedBody];
-      newUpdatedBody[imageIndex].imageId = downloadUri;
-      setUpdatedBody(newUpdatedBody);
-      const newChangeHistory = [...changeHistory];
-      newChangeHistory[historyPointer] = newUpdatedBody;
-      setChangeHistory(newChangeHistory);
-    }
-  }, [downloadUri, imageIndex, changingImage]);
 
   useEffect(() => {
     if (pageData) {
@@ -72,6 +55,24 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
     setUpdatedBody(changeHistory[historyPointer]);
   }, [changeHistory, historyPointer]);
 
+  useEffect(() => {
+    if (newIndex && downloadUri) {
+      const newUpdatedBody = [...updatedBody];
+      newUpdatedBody[newIndex].imageId = downloadUri;
+      setUpdatedBody(newUpdatedBody);
+      const newChangeHistory = [...changeHistory];
+      newChangeHistory[historyPointer] = newUpdatedBody;
+      setChangeHistory(newChangeHistory);
+    }
+  }, [downloadUri, newIndex]);
+
+  useEffect(() => {
+    setUpdatedCoverImageLink(coverImageUri);
+    const newPageData = pageData;
+    newPageData.coverImageLink = coverImageUri;
+    setPageData(newPageData);
+  }, [coverImageUri]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     for (let row of changeHistory[historyPointer]) {
@@ -80,6 +81,7 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
         return;
       }
     }
+
     const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1] }));
     const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
     const attachmentIds = attachmentLinks.map((link) => link.split('/attachment/')[1]);
@@ -143,9 +145,8 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
       runToastNotification('Attachment must be an image.', 'error');
       return;
     }
-    setChangingImage('row');
     uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setImageIndex(index);
+    setNewIndex(index);
   };
 
   const handleChangeCoverImage = (file) => {
@@ -153,11 +154,10 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
       runToastNotification('Attachment must be an image.', 'error');
       return;
     }
-    uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setChangingImage('cover-image');
+    uploadAttachment(file, setResponseStatus, setCoverImageUri);
   };
 
-  return (
+  if (attachmentLinks) return (
     <>
       <div className='cssp-undo-redo-buttons-container'>
         <p className='cssp-edit-p'>UNDO/REDO ROW DELETIONS</p>
@@ -210,7 +210,7 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
               </button>
             </div>
             <StyledHr style={{ width: '100%' }} />
-            <EditDownloadLinks attachmentMetadata={attachmentMetadata} attachmentLinks={attachmentLinks} setAttachmentLinks={setAttachmentLinks} />
+            <EditDownloadLinks attachmentMetadata={attachmentMetadata} setAttachmentMetadata={setAttachmentMetadata} attachmentLinks={attachmentLinks} setAttachmentLinks={setAttachmentLinks} />
             <StyledHr style={{ width: '100%' }} />
             <input id='spotlight-checkbox' type='checkbox' checked={spotlight} onChange={(e) => setSpotlight(e.target.checked)} />
             <label htmlFor='spotlight-checkbox'> &nbsp; Show this case study on spotlight carousel?</label>

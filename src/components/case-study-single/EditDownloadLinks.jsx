@@ -1,9 +1,12 @@
 import { useState, useEffect, React } from 'react';
 import { uploadAttachment } from '../../service/AttachmentService';
 import { runToastNotification } from '../toast-notification/ToastNotification';
+import { getMetadata } from '../../service/AttachmentMetadataService';
 
-const DownloadLinks = ({ attachmentMetadata, attachmentLinks, setAttachmentLinks }) => {
+const DownloadLinks = ({ attachmentMetadata, setAttachmentMetadata, attachmentLinks, setAttachmentLinks }) => {
   const [responseStatus, setResponseStatus] = useState('idle');
+  const [downloadUri, setDownloadUri] = useState();
+  const [newIndex, setNewIndex] = useState();
 
   useEffect(() => {
     if (responseStatus === 'success') runToastNotification('Attachment uploaded successfuly', 'success');
@@ -13,11 +16,16 @@ const DownloadLinks = ({ attachmentMetadata, attachmentLinks, setAttachmentLinks
     };
   }, [responseStatus]);
 
-  const handleChangeFile = (attachment, index) => {
-    const downloadLink = uploadAttachment(attachment, setResponseStatus);
+  useEffect(() => {
     const newAttachmentLinks = [...attachmentLinks];
-    newAttachmentLinks[index] = downloadLink;
+    newAttachmentLinks[newIndex] = downloadUri;
     setAttachmentLinks(newAttachmentLinks);
+    getMetadata(newAttachmentLinks, setAttachmentMetadata);
+  }, [downloadUri]);
+
+  const handleChangeFile = (attachment, index) => {
+    uploadAttachment(attachment, setResponseStatus, setDownloadUri);
+    setNewIndex(index)
   };
 
   if (attachmentMetadata) {

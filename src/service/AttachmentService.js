@@ -22,8 +22,6 @@ function uploadAttachment(attachment, setResponseStatus, setDownloadUri) {
         axios.put(response.headers.location, e.target.result, { headers: headers }).then(() => {
           setResponseStatus(`Attachment with name ${attachment.name} has been successfully uploaded.`);
           setDownloadUri(response.headers.location);
-          return response.headers.location
-          // setAttachmentId(response.data.id);
         });
       })
       .catch((error) => {
