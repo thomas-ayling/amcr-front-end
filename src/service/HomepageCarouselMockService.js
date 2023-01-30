@@ -1,7 +1,10 @@
+// import RandomImage from './RandomCarouselImageService.js';
+
 import Image1 from '../assets/images/homepage-carousel/Image1.png'
 import Image2 from '../assets/images/homepage-carousel/Image2.png'
 import Image3 from '../assets/images/homepage-carousel/Image3.png'
 import Image4 from '../assets/images/homepage-carousel/Image4.png'
+import Image5 from '../assets/images/homepage-carousel/Image5.png'
 
 const HomepageCarouselSlides = [
     {
@@ -23,6 +26,12 @@ const HomepageCarouselSlides = [
     },
     {
         image: Image4,
+        title: "Global Logic UK&I",
+
+
+    },
+    {
+        image: Image5,
         title: "Global Logic UK&I",
 
 

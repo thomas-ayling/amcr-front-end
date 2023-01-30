@@ -1,0 +1,96 @@
+:root {
+  --gl-light-orange: #ee9f41;
+  --gl-orange: #f37037;
+  --gl-dark-orange: #d45e2b;
+  --gl-light-gray: #e6e7e8;
+  --gl-gray: #bcbec0;
+  --gl-medium-gray: #6d6e71;
+  --gl-dark-gray: #414042;
+  --gl-error: #ac2c2c;
+  --gl-dark-error: #8f2424;
+  --gl-lime: #8ec549;
+  --gl-dark-lime: #77a63d;
+  --gl-canary: #f4d034;
+  --gl-teal: #53bdbe;
+}
+
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.item-container {
+  height: 25%;
+  width: 100%;
+  margin-top: 10px;
+
+  border: 1px #333 dashed;
+}
+
+/* CSS */
+.Grid-button {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: var(--gl-orange);
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.Grid-button:hover,
+.Grid-button:focus {
+  background-color: var(--gl-orange);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.Grid-button:hover {
+  transform: translateY(-1px);
+}
+
+.Grid-button:active {
+  background-color: var(--gl-orange);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
