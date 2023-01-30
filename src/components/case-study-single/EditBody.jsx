@@ -82,7 +82,7 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
     }
     const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1] }));
     const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
-    const attachmentIds = attachmentLinks.map;
+    const attachmentIds = attachmentLinks.map((link) => link.split('/attachment/')[1]);
 
     const updatedCaseStudy = {
       title: updatedTitle,
