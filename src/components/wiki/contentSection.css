@@ -119,6 +119,6 @@
   .content-section-span {
     display: flex;
     align-items: center;
-    margin-left: 10%;
+    margin-left: -15px;
   }
 }
