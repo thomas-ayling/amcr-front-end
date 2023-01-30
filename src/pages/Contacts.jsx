@@ -8,7 +8,7 @@ const Contacts = () => {
   return (
     <div>
       <MainCarousel type='header-single' slides={ContactUsHeader} />
-      <ContactsMainCarousel />
+      <ContactsMainCarousel adminEnabled={true} />
       <ContactComponent feedbackType={'improvement'} />
     </div>
   );

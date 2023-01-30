@@ -1,10 +1,18 @@
 /* ContactsCarouselCard.jsx */
-.contacts-carousel-card-border {
-  background-color: var(--gl-light-gray);
+.contacts-carousel-card-border,
+.contacts-carousel-card-border-selected {
   padding: 1rem;
   width: 285px;
   margin: auto;
   border-radius: 17.5px;
+}
+
+.contacts-carousel-card-border {
+  background-color: var(--gl-light-gray);
+}
+
+.contacts-carousel-card-border-selected {
+  background-color: var(--gl-light-orange);
 }
 
 .contacts-carousel-card-container {
@@ -83,6 +91,32 @@
 
 .contacts-carousel-arrow-right {
   margin-left: 40px;
+}
+
+/* Admin panel stuff */
+.contacts-carousel-admin-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-carousel-admin-dropdown {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts-carousel-admin-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.contacts-carousel-admin-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacts-carousel-admin-inputs textarea {
+  width: 50%;
 }
 
 @media (max-width: 325px) {

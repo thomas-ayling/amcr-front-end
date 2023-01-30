@@ -6,17 +6,22 @@ import './slick-css-files/slick.css';
 import './slick-css-files/slick-theme.css';
 
 import ContactsCarouselCard from './ContactsCarouselCard';
+import ContactsAdminPanel from './admin-functionality/ContactsAdminPanel';
 import LoaderGif from '../../shared-components/LoaderGif';
 import { StyledHr } from '../../../styles/styles';
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import { getSpotlit } from '../../../service/ContactsCarouselService';
 import { runToastNotification } from '../../toast-notification/ToastNotification';
 
-const ContactsMainCarousel = () => {
+const ContactsMainCarousel = ({ adminEnabled }) => {
   const slider = useRef();
 
   const [carouselData, setCarouselData] = useState();
   const [responseStatus, setResponseStatus] = useState('');
+
+  const [selectedName, setSelectedName] = useState('');
+  const [selectedTitle, setSelectedTitle] = useState('');
+  const [selectedDescription, setSelectedDescription] = useState('');
 
   useEffect(() => {
     getSpotlit(setCarouselData, setResponseStatus);
@@ -67,12 +72,27 @@ const ContactsMainCarousel = () => {
     ],
   };
 
+  const handleClick = (name, title, description) => {
+    setSelectedName(name);
+    setSelectedTitle(title);
+    setSelectedDescription(description);
+  };
+
   if (responseStatus.includes('success'))
     return (
       <div className='contacts-carousel'>
+        <ContactsAdminPanel carouselData={carouselData} name={selectedName} title={selectedTitle} description={selectedDescription} />
         <Slider ref={slider} {...settings}>
           {carouselData.map((elem, i) => (
-            <ContactsCarouselCard key={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} />
+            <ContactsCarouselCard
+              key={i}
+              image={elem.imageLink}
+              name={elem.fullName}
+              title={elem.title}
+              description={elem.description}
+              adminEnabled={adminEnabled}
+              handleClick={handleClick}
+            />
           ))}
         </Slider>
         <div className='contacts-carousel-arrows'>
