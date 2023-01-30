@@ -1,38 +1,29 @@
+import React, { useState, useEffect } from 'react';
 import './BehaviourCarousel.css';
 import BehaviourImages from '../../../service/BehaviourCarouselMockService';
-import { useState } from 'react';
 import BehaviourCarouselDescription from './behaviour-carousel-components/BehaviourCarouselDescription';
-
 import { HiOutlineArrowNarrowLeft, HiOutlineArrowNarrowRight } from 'react-icons/hi';
 
-const BodyCarousel = () => {
-  const [current, setCurrent] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+function BehaviourCarousel() {
+  const [state, setState] = useState({ current: 0, windowWidth: window.innerWidth });
   const length = BehaviourImages.length;
 
-  const resizeObserver = new ResizeObserver((entries) => {
-    setWindowWidth(entries[0].contentRect.width);
-  });
+  useEffect(() => {
+    const handleResize = () => setState({ ...state, windowWidth: window.innerWidth });
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [state]);
 
-  resizeObserver.observe(document.body);
+  const clickLeft = () => setState({ ...state, current: state.current === 0 ? length - 1 : state.current - 1 });
 
-  const clickLeft = () => {
-    current === 0 ? setCurrent(length - 1) : setCurrent((prevCurrent) => prevCurrent - 1);
-  };
-
-  const clickRight = () => {
-    current === length - 1 ? setCurrent(0) : setCurrent((prevCurrent) => prevCurrent + 1);
-  };
+  const clickRight = () => setState({ ...state, current: state.current === length - 1 ? 0 : state.current + 1 });
 
   return (
     <div className='behaviour-body-carousel-wrapper'>
       <div className='behaviour-carousel-inner-wrapper'>
         <h1 className='behaviour-body-carousel-page-title'>GlobalLogic UK&I Behaviours</h1>
-        <div className='behaviour-carousel-container'>
-          <div className='behaviour-carousel-content'>
-            <BehaviourCarouselDescription current={current} windowWidth={windowWidth} dataArray={BehaviourImages} />
-          </div>
+        <div className='behaviour-carousel-content'>
+          <BehaviourCarouselDescription current={state.current} windowWidth={state.windowWidth} dataArray={BehaviourImages} />
         </div>
         <div className='behaviour-carousel-arrows'>
           <div className='behaviour-carousel-arrow-left' onClick={clickLeft}>
@@ -45,6 +36,6 @@ const BodyCarousel = () => {
       </div>
     </div>
   );
-};
+}
 
-export default BodyCarousel;
+export default React.memo(BehaviourCarousel);
