@@ -72,7 +72,16 @@
 
 .cssp-download-button {
   margin: 10px 10px 20px 10px;
-  border-radius:  5px;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  border-radius: 5px;
+  background-color: var(--gl-orange);
+  color: var(--gl-light-gray);
+  border: 1px solid var(--gl-dark-orange)
+}
+
+
+.cssp-download-button:hover {
+  background-color: var(--gl-dark-orange);
 }
 
 @media (max-width: 1100px) {

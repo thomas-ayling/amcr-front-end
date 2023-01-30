@@ -9,8 +9,9 @@ import { runToastNotification } from '../toast-notification/ToastNotification';
 import { useNavigate } from 'react-router-dom';
 import UndoIcon from '../../assets/images/icons/undo-icon.png';
 import '../../pages/styles/CaseStudySingle.css';
+import EditDownloadLinks from './EditDownloadLinks';
 
-const EditBody = ({ pageData, setPageData, id }) => {
+const EditBody = ({ pageData, setPageData, attachmentMetadata, id }) => {
   const [updatedTitle, setUpdatedTitle] = useState(pageData.title);
   const [updatedBody, setUpdatedBody] = useState(pageData.body);
   const [updatedOverview, setUpdatedOverview] = useState(pageData.overview);
@@ -23,25 +24,32 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const [responseStatus, setResponseStatus] = useState(null);
   const [downloadUri, setDownloadUri] = useState();
   const [changingImage, setChangingImage] = useState();
+  const [attachmentLinks, setAttachmentLinks] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (changingImage === 'cover-image') {
       setUpdatedCoverImageLink(downloadUri);
-      let newPageData = pageData;
+      const newPageData = pageData;
       newPageData.coverImageLink = downloadUri;
       setPageData(newPageData);
     }
     if (changingImage === 'row') {
-      let newUpdatedBody = [...updatedBody];
+      const newUpdatedBody = [...updatedBody];
       newUpdatedBody[imageIndex].imageId = downloadUri;
       setUpdatedBody(newUpdatedBody);
-      let newChangeHistory = [...changeHistory];
+      const newChangeHistory = [...changeHistory];
       newChangeHistory[historyPointer] = newUpdatedBody;
       setChangeHistory(newChangeHistory);
     }
   }, [downloadUri, imageIndex, changingImage]);
+
+  useEffect(() => {
+    if (pageData) {
+      setAttachmentLinks(pageData.attachmentLinks);
+    }
+  }, [pageData]);
 
   useEffect(() => {
     if (responseStatus !== null && responseStatus !== undefined) {
@@ -72,37 +80,39 @@ const EditBody = ({ pageData, setPageData, id }) => {
         return;
       }
     }
-    const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1]}));
+    const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1] }));
     const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
+    const attachmentIds = attachmentLinks.map;
 
     const updatedCaseStudy = {
       title: updatedTitle,
       overview: updatedOverview,
       body: body,
       coverImageId: coverImageId,
+      attachmentIds: attachmentIds,
       spotlight: spotlight,
     };
     put(id, updatedCaseStudy, setUpdateStatus, setPageData);
   };
 
   const addRow = () => {
-    let newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.push({
       imageId: '',
       markdownText: '',
     });
     setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
     setHistoryPointer(newChangeHistory.length - 1);
   };
 
   const removeRow = (index) => {
-    let newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.splice(index, 1);
     setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
     setHistoryPointer(historyPointer + 1);
@@ -117,12 +127,12 @@ const EditBody = ({ pageData, setPageData, id }) => {
   };
 
   const deleteRedoHistory = () => {
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
   };
 
   const handleChangeTextarea = (value, index) => {
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory[historyPointer][index].markdownText = value;
     setChangeHistory(newChangeHistory);
     historyPointer < changeHistory.length - 1 && deleteRedoHistory();
@@ -199,6 +209,8 @@ const EditBody = ({ pageData, setPageData, id }) => {
                 + Add new row
               </button>
             </div>
+            <StyledHr style={{ width: '100%' }} />
+            <EditDownloadLinks attachmentMetadata={attachmentMetadata} attachmentLinks={attachmentLinks} setAttachmentLinks={setAttachmentLinks} />
             <StyledHr style={{ width: '100%' }} />
             <input id='spotlight-checkbox' type='checkbox' checked={spotlight} onChange={(e) => setSpotlight(e.target.checked)} />
             <label htmlFor='spotlight-checkbox'> &nbsp; Show this case study on spotlight carousel?</label>
