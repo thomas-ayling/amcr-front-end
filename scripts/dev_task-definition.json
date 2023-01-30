@@ -15,11 +15,11 @@
     ],
     "environment": [
         {
-            "name": "HOSTNAME",
+            "name": "NGINX_HOST_NAME",
             "value": "ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com"
         },
         {
-            "name": "LISTEN_PORT",
+            "name": "NGINX_LP",
             "value": "3000"
         }
     ],

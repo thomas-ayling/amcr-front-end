@@ -1,8 +1,8 @@
 server {
-    listen       ${LISTEN_PORT} default_server;
-    listen  [::]:${LISTEN_PORT} default_server;
+    listen       ${NGINX_LP} default_server;
+    listen  [::]:${NGINX_LP} default_server;
 
-    server_name  localhost ${HOSTNAME}
+    server_name  localhost ${NGINX_HOST_NAME}
 
     #access_log  /var/log/nginx/host.access.log  main;
 
@@ -44,7 +44,7 @@ server {
         # Disable FLoC.
         add_header Permissions-Policy interest-cohort=();
 
-        #add_header Content-Security-Policy "default-src http://*.${HOSTNAME}:${PORT} 'self'; script-src 'self' 'unsafe-inline' https://*.googleapis.com; connect-src {{ item["sources_domain"] }} blob: https://*.googleapis.com; object-src 'self'; font-src 'self' data: https://use.fontawesome.com; img-src * blob: data:; style-src 'self' https://use.fontawesome.com https://fonts.googleapis.com 'unsafe-inline'; media-src blob:; worker-src http://*.${HOSTNAME}:${PORT} blob:;";
+        #add_header Content-Security-Policy "default-src http://*.${NGINX_HOST_NAME}:${PORT} 'self'; script-src 'self' 'unsafe-inline' https://*.googleapis.com; connect-src {{ item["sources_domain"] }} blob: https://*.googleapis.com; object-src 'self'; font-src 'self' data: https://use.fontawesome.com; img-src * blob: data:; style-src 'self' https://use.fontawesome.com https://fonts.googleapis.com 'unsafe-inline'; media-src blob:; worker-src http://*.${NGINX_HOST_NAME}:${PORT} blob:;";
     }
 
     #error_page  404              /404.html;
