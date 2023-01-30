@@ -47,13 +47,14 @@ const DropFileInput = () => {
         </label>
         <input
           id='file-upload'
+          className='file-input-hidden'
           type='file'
           className='attachment-component-file-upload'
           onChange={(e) => {
             setFile(e.target.files[0]);
           }}
         />
-        <button className='attachment-button1' type='submit'>
+        <button disabled={!file} className='attachment-button1' type='submit'>
           Upload
         </button>
       </form>
