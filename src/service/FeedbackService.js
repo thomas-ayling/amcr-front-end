@@ -3,8 +3,6 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:3001/feedback';
 
 const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
-  console.log('baseUrl', baseUrl)
-
   const formData = new FormData();
 
   const feedbackBlob = new Blob([JSON.stringify(feedback)], {
@@ -24,10 +22,8 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
       headers: headers,
     })
     .then((response) => {
-      if (response.status === 200) {
-        setSubmitStatus('error');
-        setAwaitingResponse(false);
-      }
+      setSubmitStatus('success');
+      setAwaitingResponse(false);
     })
     .catch((err) => {
       setSubmitStatus('error');
