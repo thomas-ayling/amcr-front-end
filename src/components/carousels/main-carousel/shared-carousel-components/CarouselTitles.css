@@ -28,4 +28,5 @@
     opacity: 1;
     transform: scale(1);
     pointer-events: visible;
+    font-weight: bold;
   }

@@ -324,3 +324,36 @@ textarea::-webkit-scrollbar {
     width: 100%;
   }
 }
+
+@media (max-width: 281px) {
+
+  .contact-form-input::placeholder {
+    font-size: 0.41rem;
+  }
+
+  .contact-form-input {
+    padding-bottom: 5px;
+  }
+
+  .chosen-file {
+    font-size: 0.41rem;
+  }
+
+  .description-container > p {
+    font-size: 0.5rem;
+  }
+
+  .description-container > h1 {
+    font-size: 1rem;
+  }
+
+  .submit-button {
+    font-size: 0.41rem;
+    padding-top: 0px !important;
+    padding-left: 3px;
+  }
+
+  #file-icon {
+    width: 10px;
+  }
+}
