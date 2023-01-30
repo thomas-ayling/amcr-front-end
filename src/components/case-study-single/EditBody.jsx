@@ -30,10 +30,10 @@ const EditBody = ({ pageData, setPageData, id }) => {
 
   useEffect(() => {
     if (imageIndex !== undefined && imageIndex !== null && downloadUri) {
-      let newUpdatedBody = [...updatedBody];
+      const newUpdatedBody = [...updatedBody];
       newUpdatedBody[imageIndex].imageId = downloadUri;
       setUpdatedBody(newUpdatedBody);
-      let newChangeHistory = [...changeHistory];
+      const newChangeHistory = [...changeHistory];
       newChangeHistory[historyPointer] = newUpdatedBody;
       setChangeHistory(newChangeHistory);
     }
@@ -79,13 +79,13 @@ const EditBody = ({ pageData, setPageData, id }) => {
   };
 
   const addRow = () => {
-    let newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.push({
       imageLink: '',
       markdownText: '',
     });
     setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
     setHistoryPointer(newChangeHistory.length - 1);
@@ -110,13 +110,13 @@ const EditBody = ({ pageData, setPageData, id }) => {
   };
 
   const deleteRedoHistory = () => {
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
     console.log('newChangeHistory', newChangeHistory);
   };
 
   const handleChangeTextarea = (value, index) => {
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory[historyPointer][index].markdownText = value;
     setChangeHistory(newChangeHistory);
     historyPointer < changeHistory.length - 1 && deleteRedoHistory();
@@ -130,7 +130,7 @@ const EditBody = ({ pageData, setPageData, id }) => {
   const handleChangeCoverImage = (file) => {
     uploadAttachment(file, setResponseStatus, setDownloadUri);
     setUpdatedCoverImageLink(downloadUri);
-    let newPageData = pageData;
+    const newPageData = pageData;
     newPageData.coverImageLink = downloadUri;
     setPageData(newPageData);
   };
