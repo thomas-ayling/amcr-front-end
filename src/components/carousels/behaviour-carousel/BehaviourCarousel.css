@@ -54,7 +54,7 @@
 
 .behaviour-image:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.85);
+  box-shadow: 2px 2px 4px var(--gl-dark-orange);
   transition: 0.5s;
 }
 
@@ -155,7 +155,7 @@
   }
 
   .behaviour-carousel-arrows {
-    margin-top: -333px;
+    margin-top: 0;
     margin-left: 50px;
     width: 50%;
     position: absolute;
