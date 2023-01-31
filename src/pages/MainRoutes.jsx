@@ -25,6 +25,7 @@ const MainRoutes = () => {
         <Route exact path='/config' element={<Configuration />} />
         <Route exact path='/admin-panel' element={<AdminPanel />} />
         <Route exact path='/case-study/:id' element={<CaseStudySingle />} />
+        <Route exact path='/case-study/edit/:id' element={<CaseStudySingle editMode={true} />} />
       </Routes>
       <ToastNotification />
     </div>
