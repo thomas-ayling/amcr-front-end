@@ -49,7 +49,6 @@ const DropFileInput = () => {
           id='file-upload'
           className='file-input-hidden'
           type='file'
-          className='attachment-component-file-upload'
           onChange={(e) => {
             setFile(e.target.files[0]);
           }}
