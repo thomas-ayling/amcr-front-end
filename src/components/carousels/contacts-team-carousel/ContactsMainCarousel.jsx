@@ -33,6 +33,7 @@ const ContactsMainCarousel = () => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
+    arrows: false,
     initialSlide: 0,
     adaptiveHeight: true,
     responsive: [
