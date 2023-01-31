@@ -8,13 +8,19 @@ import Loader from './contact-component/input-components/shared-input-components
 import HomepageHeaderCarousel from './carousels/HomepageHeaderCarousel';
 import HomepageBodyCarousel from './carousels/HomepageBodyCarousel';
 import HomepageIntro from './HomepageTextIntro';
+import WikiHeader from './carousels/WikiHeader';
+import WikiTextIntro from './WikiTextIntro';
+import ContentSection from './wiki/ContentSection';
+import ContactHeader from './carousels/ContactHeader';
+import ContactsMainCarousel from './carousels/contacts-team-carousel/ContactsMainCarousel';
+import DropFileInput from './attachment-component/DropFileInput';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 function Grid(loc) {
   const [layout, setLayout] = useState([]);
   const [page, setPage] = useState([]);
-  const [isStatic, setIsStatic] = useState([]);
+  const [isStatic, setIsStatic] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,8 +39,13 @@ function Grid(loc) {
       .catch((err) => {
         throw new Error(err.message);
       });
+  }, []);
+
+  useEffect(() => {
+    console.log('isStatic', isStatic);
   }, [isStatic]);
 
+  console.log('layout', layout);
   const onOff = () => {
     if (isStatic === false) {
       setIsStatic(true);
@@ -79,10 +90,33 @@ function Grid(loc) {
         return <HomepageIntro />;
       case 'homepage-feedback-component':
         return <ContactComponent feedbackType='feedback' />;
+      case 'wiki-header':
+        return <WikiHeader />;
+      case 'wiki-intro':
+        return <WikiTextIntro />;
+      case 'wiki-content':
+        return <ContentSection />;
+      case 'wiki-diagram':
+        return <p>Diagram goes here</p>;
+      case 'wiki-feedback-component':
+        return <ContactComponent feedbackType='improvement' />;
+      case 'contact-carousel':
+        return <ContactsMainCarousel />;
+      case 'contact-header':
+        return <ContactHeader />;
+      case 'contact-feedback-component':
+        return <ContactComponent feedbackType='improvement' />;
+      case 'contact-file-drop':
+        return (
+          <div className='drag-and-drop-box'>
+            <DropFileInput />
+          </div>
+        );
       default:
         return <p>No return</p>;
     }
   };
+  console.log('isStatic', isStatic);
   if (isLoading) return <Loader />;
 
   return (
@@ -96,15 +130,14 @@ function Grid(loc) {
         width={1200}
         onLayoutChange={(movingItem) => setLayout(movingItem)}
         isBounded={true}
-        static={isStatic}
       >
         {layout?.map((component) => (
-          <div className='item-container' key={component.i} data-grid={{ x: component.x, y: component.y, w: component.w, h: component.h }}>
+          <div className='item-container' key={component.i} data-grid={{ x: component.x, y: component.y, w: component.w, h: component.h, static: isStatic }}>
             {handleComponent(component)}
           </div>
         ))}
       </ResponsiveGridLayout>
-      <button className='Grid-button' onClick={() => onOff(page)}>
+      <button className='Grid-button' onClick={() => setIsStatic(!isStatic)}>
         on/off
       </button>
       <button className='Grid-button' onClick={() => updateItem(page)}>
