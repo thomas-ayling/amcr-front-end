@@ -10,14 +10,14 @@ const ContentSection = () => {
         <div className='content-section-icons-container'>
           <div className='content-section-span'>
             <Link to={'/engineering-excellence'}>
-              <FaWikipediaW size={46} className='content-section-icons' />
+              <FaWikipediaW size={45} className='content-section-icons' />
             </Link>
             <span className='content-section-space-between-icon-and-text'>Engineering Excellence</span>
           </div>
 
           <div className='content-section-span'>
             <Link to={'/employee-journey'}>
-              <FaWikipediaW size={46} className='content-section-icons' />
+              <FaWikipediaW size={45} className='content-section-icons' />
             </Link>
             <span className='content-section-space-between-icon-and-text'>Employee Journey</span>
           </div>
@@ -31,7 +31,7 @@ const ContentSection = () => {
 
           <div className='content-section-span'>
             <Link to={'/lab-science-decks'}>
-              <FaWikipediaW size={46} className='content-section-icons' />
+              <FaWikipediaW size={45} className='content-section-icons' />
             </Link>
             <span className='content-section-space-between-icon-and-text'>Lab Science Decks</span>
           </div>
