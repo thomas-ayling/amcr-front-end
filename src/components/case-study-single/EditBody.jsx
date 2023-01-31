@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import Title from './Title';
 import MarkdownComponent from '../markdown-component/MarkdownComponent';
 import CaseStudyCarousel from '../carousels/case-studies-carousel/CaseStudyCarousel';
+import CaseStudyCarousel from '../carousels/case-studies-carousel/CaseStudyCarousel';
 import { StyledHr } from '../../styles/styles';
 import { put } from '../../service/CaseStudySingleService';
 import { uploadAttachment } from '../../service/AttachmentService.js';
@@ -44,7 +45,9 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, setAttachmentMeta
   }, [responseStatus]);
 
   useEffect(() => {
-    updateStatus === 'success' ? runToastNotification('Update was successful!', 'success') : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
+    updateStatus === 'success'
+      ? runToastNotification('Update was successful!', 'success')
+      : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
     updateStatus === 'success' && setTimeout(() => navigate(`/case-study/${id}`), 500);
     return () => {
       setUpdateStatus(undefined);
@@ -99,11 +102,13 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, setAttachmentMeta
 
   const addRow = () => {
     const newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.push({
       imageId: '',
       markdownText: '',
     });
     setUpdatedBody(newUpdatedBody);
+    const newChangeHistory = [...changeHistory];
     const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
@@ -130,10 +135,12 @@ const EditBody = ({ pageData, setPageData, attachmentMetadata, setAttachmentMeta
 
   const deleteRedoHistory = () => {
     const newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
   };
 
   const handleChangeTextarea = (value, index) => {
+    const newChangeHistory = [...changeHistory];
     const newChangeHistory = [...changeHistory];
     newChangeHistory[historyPointer][index].markdownText = value;
     setChangeHistory(newChangeHistory);
