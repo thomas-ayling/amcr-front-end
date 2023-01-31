@@ -14,6 +14,7 @@ const HomePage = () => {
       <HomepageBodyCarousel />
       <BehaviourCarousel />
       <ContactComponent feedbackType='feedback' /> */}
+      {/* <HomepageHeaderCarousel /> */}
       <Grid loc={'homepage'} />
     </div>
   );

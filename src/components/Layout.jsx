@@ -1,35 +1,36 @@
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { json, useLocation } from 'react-router-dom';
 import BehaviourCarousel from './carousels/behaviour-carousel/BehaviourCarousel';
 import './layout.css';
 import ContactComponent from './contact-component/ContactComponent';
 import Loader from './contact-component/input-components/shared-input-components/Loader';
 import HomepageHeaderCarousel from './carousels/HomepageHeaderCarousel';
 import HomepageBodyCarousel from './carousels/HomepageBodyCarousel';
+import HomepageIntro from './HomepageTextIntro';
+import WikiHeader from './carousels/WikiHeader';
+import WikiTextIntro from './WikiTextIntro';
+import ContentSection from './wiki/ContentSection';
+import ContactHeader from './carousels/ContactHeader';
+import ContactsMainCarousel from './carousels/contacts-team-carousel/ContactsMainCarousel';
+import DropFileInput from './attachment-component/DropFileInput';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 function Grid(loc) {
   const [layout, setLayout] = useState([]);
   const [page, setPage] = useState([]);
-  const [isStatic, setIsStatic] = useState([true]);
+  const [isStatic, setIsStatic] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
   const baseURL = 'http://localhost:3001/page-layout/';
-  const location = useLocation();
-  const pathname = location.pathname;
 
-  const path = pathname.replace(/[^a-z0-9-]/g, '');
-  console.log('pathname', loc.loc);
   useEffect(() => {
     axios
       .get(`${baseURL}name=${loc.loc}`)
       .then((res) => {
         if (res) {
-          console.log('res', res.data);
           setIsLoading(false);
           setPage(res.data);
           setLayout(res.data.components);
@@ -38,35 +39,33 @@ function Grid(loc) {
       .catch((err) => {
         throw new Error(err.message);
       });
+  }, []);
+
+  useEffect(() => {
+    console.log('isStatic', isStatic);
   }, [isStatic]);
 
-  const removeItem = (square) => {
-    axios.delete(`${baseURL}${square.id}`).then(setLayout(layout.filter((item) => item !== square)));
-  };
-
-  const onOff = (item) => {
+  console.log('layout', layout);
+  const onOff = () => {
     if (isStatic === false) {
       setIsStatic(true);
-      axios.put(
-        `${baseURL}${item.id}`,
+      console.log('isStatic2', isStatic);
+      // axios.put(
+      //   `${baseURL}${item.id}`,
 
-        {
-          static: isStatic,
-        },
-        { headers: headers }
-      );
+      //   {
+      //     static: isStatic,
+      //   }
+      // );
     } else {
+      console.log('isStatic3', isStatic);
       setIsStatic(false);
-      axios.put(
-        `${baseURL}${item.id}`,
-        {
-          static: isStatic,
-        },
-        { headers: headers }
-      );
+      // axios.put(`${baseURL}${item.id}`, {
+      //   static: isStatic,
+      // });
     }
   };
-  console.log(isStatic, 'after code');
+
   const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
   const updateItem = (item) => {
     axios.put(
@@ -82,18 +81,42 @@ function Grid(loc) {
   const handleComponent = (item) => {
     switch (item.i) {
       case 'homepage-header-carousel':
-        // code block
-
         return <HomepageHeaderCarousel />;
       case 'homepage-body-carousel':
-        // code block
-
         return <HomepageBodyCarousel />;
-
+      case 'homepage-behaviour-carousel':
+        return <BehaviourCarousel />;
+      case 'homepage-text-intro':
+        return <HomepageIntro />;
+      case 'homepage-feedback-component':
+        return <ContactComponent feedbackType='feedback' />;
+      case 'wiki-header':
+        return <WikiHeader />;
+      case 'wiki-intro':
+        return <WikiTextIntro />;
+      case 'wiki-content':
+        return <ContentSection />;
+      case 'wiki-diagram':
+        return <p>Diagram goes here</p>;
+      case 'wiki-feedback-component':
+        return <ContactComponent feedbackType='improvement' />;
+      case 'contact-carousel':
+        return <ContactsMainCarousel />;
+      case 'contact-header':
+        return <ContactHeader />;
+      case 'contact-feedback-component':
+        return <ContactComponent feedbackType='improvement' />;
+      case 'contact-file-drop':
+        return (
+          <div className='drag-and-drop-box'>
+            <DropFileInput />
+          </div>
+        );
       default:
         return <p>No return</p>;
     }
   };
+  console.log('isStatic', isStatic);
   if (isLoading) return <Loader />;
 
   return (
@@ -114,7 +137,7 @@ function Grid(loc) {
           </div>
         ))}
       </ResponsiveGridLayout>
-      <button className='Grid-button' onClick={() => onOff(page)}>
+      <button className='Grid-button' onClick={() => setIsStatic(!isStatic)}>
         on/off
       </button>
       <button className='Grid-button' onClick={() => updateItem(page)}>

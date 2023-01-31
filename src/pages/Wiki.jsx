@@ -1,12 +1,10 @@
 import { React } from 'react';
-import ContactComponent from '../components/contact-component/ContactComponent';
-import Diagram from '../components/diagram-component/Diagram';
+import Grid from '../components/Layout';
 
 const Wiki = () => {
   return (
     <>
-      <Diagram adminEnabled={false} />
-      <ContactComponent feedbackType={'improvement'} />
+      <Grid loc={'wiki'} />
     </>
   );
 };
