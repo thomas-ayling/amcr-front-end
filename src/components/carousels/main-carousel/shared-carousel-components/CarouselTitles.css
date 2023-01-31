@@ -13,6 +13,7 @@
     bottom: 0px;
     user-select: none;
     text-shadow: 1px 1px black;
+    font-weight: bold;
   }
 
   .carousel-title-link:hover {

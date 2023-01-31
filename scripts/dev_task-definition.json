@@ -4,23 +4,23 @@
         {
             "image": "REPOSITORY_URI:BUILD_NUMBER",
             "name": NAME,
-	    "essential": true,
+	        "essential": true,
             "portMappings": [
                 {
                     "containerPort": 3000,
                     "hostPort": 3000
                 }
+            ],
+            "environment": [
+                {
+                    "name": "NGINX_HN",
+                    "value": "ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com"
+                },
+                {
+                    "name": "NGINX_LP",
+                    "value": "3000"
+                }
             ]
-        }
-    ],
-    "environment": [
-        {
-            "name": "HOSTNAME",
-            "value": "ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com"
-        },
-        {
-            "name": "LISTEN_PORT",
-            "value": "3000"
         }
     ],
     "cpu": "512",
