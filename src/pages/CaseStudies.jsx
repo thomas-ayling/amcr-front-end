@@ -7,6 +7,7 @@ import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
 import LoaderGif from '../components/shared-components/LoaderGif';
 
 import { get } from '../service/CaseStudiesService';
+import { runToastNotification } from '../components/toast-notification/ToastNotification';
 
 const CaseStudies = () => {
   const [carouselLoaded, setCarouselLoaded] = useState(false);
@@ -20,8 +21,8 @@ const CaseStudies = () => {
   }, []);
 
   useEffect(() => {
-    if (requestStatus === 'error-404') console.error('Case study could not be found');
-    console.log('requestStatus', requestStatus)
+    if (requestStatus.includes('error')) runToastNotification('There was an issue fetching case study data', 'error');
+    console.log('requestStatus', requestStatus);
   }, [requestStatus]);
 
   if (headerCarouselLoaded && carouselLoaded) {
