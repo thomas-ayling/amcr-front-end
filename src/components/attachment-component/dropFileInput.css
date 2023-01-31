@@ -193,14 +193,6 @@
   margin-top: 20px;
 }
 
-.attachment-form-button-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 250px;
-  margin: auto;
-}
-
 .drag-and-drop-box {
   border: 17.5px solid #e6e7e8;
   background-color: white;
