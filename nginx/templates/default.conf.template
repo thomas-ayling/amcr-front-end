@@ -2,7 +2,10 @@ server {
     listen       ${NGINX_LP} default_server;
     listen  [::]:${NGINX_LP} default_server;
 
-    server_name  localhost ${NGINX_HN}
+    server_name  localhost ${NGINX_HN};
+
+    root  /usr/share/nginx/html;
+    index index.html;
 
     #access_log  /var/log/nginx/host.access.log  main;
 
@@ -35,16 +38,20 @@ server {
     # more: http://www.html5rocks.com/en/tutorials/security/content-security-policy/#inline-code-considered-harmful
     #add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'self'; img-src 'self' data:; style-src 'self'";
 
+    location /static/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=604800, immutable";
+    }
+
     location / {
-        root   /usr/share/nginx/html;
         client_max_body_size 20M;
 
-        try_files $uri $uri/index.html =404;
+        try_files $uri /index.html =404;
 
         # Disable FLoC.
         add_header Permissions-Policy interest-cohort=();
 
-        #add_header Content-Security-Policy "default-src http://*.${NGINX_HN}:${PORT} 'self'; script-src 'self' 'unsafe-inline' https://*.googleapis.com; connect-src {{ item["sources_domain"] }} blob: https://*.googleapis.com; object-src 'self'; font-src 'self' data: https://use.fontawesome.com; img-src * blob: data:; style-src 'self' https://use.fontawesome.com https://fonts.googleapis.com 'unsafe-inline'; media-src blob:; worker-src http://*.${NGINX_HN}:${PORT} blob:;";
+        #add_header Content-Security-Policy "default-src http://*.${NGINX_HN}:${NGINX_LP} 'self'; script-src 'self' 'unsafe-inline' https://*.googleapis.com; connect-src {{ item["sources_domain"] }} blob: https://*.googleapis.com; object-src 'self'; font-src 'self' data: https://use.fontawesome.com; img-src * blob: data:; style-src 'self' https://use.fontawesome.com https://fonts.googleapis.com 'unsafe-inline'; media-src blob:; worker-src http://*.${NGINX_HN}:${NGINX_LP} blob:;";
     }
 
     #error_page  404              /404.html;
@@ -52,6 +59,7 @@ server {
     # redirect server error pages to the static page /50x.html
     #
     error_page   500 502 503 504  /50x.html;
+
     location = /50x.html {
         root   /usr/share/nginx/html;
     }
