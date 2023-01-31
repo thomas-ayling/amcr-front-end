@@ -7,10 +7,10 @@ const ImageSlider = ({ current, windowWidth, pageData }) => {
   const handleClick = () => {
     windowWidth > 1100 && navigate(`/case-study/${pageData[current].id}`);
   };
-
+  
   const imageSlider = pageData.map((item, index) => (
     <div className={index === current ? 'case-study-image-slide case-study-image-active' : 'case-study-image-slide'} key={index}>
-      {index === current && <img className='case-study-image' src={item.coverImageLink} alt={`carousel-{index}`} onClick={handleClick} />}
+      {index === current && <img className='case-study-image' src={item.coverImageLink} alt={`carousel-${index}`} onClick={handleClick} />}
     </div>
   ));
 
