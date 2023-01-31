@@ -1,6 +1,6 @@
 import axios from 'axios';
-// const baseUrl = 'http://localhost:3001/case-study';
-const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/case-study';
+const baseUrl = 'http://localhost:3001/case-study';
+// const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/case-study';
 
 const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
   axios
@@ -8,7 +8,7 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
     .then((response) => {
       if (response.status === 200) {
         setPageData(response.data);
-        setPageLoaded(true)
+        setPageLoaded(true);
       }
     })
     .catch((err) => {
@@ -16,7 +16,20 @@ const get = (id, setPageData, setRequestStatus, setPageLoaded) => {
     });
 };
 
-export { get };
+
+const put = (id, updatedCaseStudy, setUpdateStatus, setPageData) => {
+  axios
+    .put(`${baseUrl}/${id}`, updatedCaseStudy)
+    .then((response) => {
+      setUpdateStatus('success');
+      setPageData(response.data);
+    })
+    .catch((err) => {
+      setUpdateStatus('error', err);
+    });
+};
+
+export { get, put };
 
 /*
 

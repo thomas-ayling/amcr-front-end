@@ -22,10 +22,8 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
       headers: headers,
     })
     .then((response) => {
-      if (response.status === 200) {
-        setSubmitStatus('success');
-        setAwaitingResponse(false);
-      }
+      setSubmitStatus('success');
+      setAwaitingResponse(false);
     })
     .catch((err) => {
       setSubmitStatus('error');
