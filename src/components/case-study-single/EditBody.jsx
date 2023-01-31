@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react';
 import Title from './Title';
 import MarkdownComponent from '../markdown-component/MarkdownComponent';
 import CaseStudyCarousel from '../carousels/case-studies-carousel/CaseStudyCarousel';
+import CaseStudyCarousel from '../carousels/case-studies-carousel/CaseStudyCarousel';
 import { StyledHr } from '../../styles/styles';
 import { put } from '../../service/CaseStudySingleService';
 import { uploadAttachment } from '../../service/AttachmentService.js';
@@ -9,35 +10,30 @@ import { runToastNotification } from '../toast-notification/ToastNotification';
 import { useNavigate } from 'react-router-dom';
 import UndoIcon from '../../assets/images/icons/undo-icon.png';
 import '../../pages/styles/CaseStudySingle.css';
+import EditDownloadLinks from './EditDownloadLinks';
 
-const EditBody = ({ pageData, setPageData, id }) => {
+const EditBody = ({ pageData, setPageData, attachmentMetadata, setAttachmentMetadata, id }) => {
   const [updatedTitle, setUpdatedTitle] = useState(pageData.title);
   const [updatedBody, setUpdatedBody] = useState(pageData.body);
   const [updatedOverview, setUpdatedOverview] = useState(pageData.overview);
   const [updatedCoverImageLink, setUpdatedCoverImageLink] = useState();
   const [spotlight, setSpotlight] = useState(pageData.spotlight);
-
   const [updateStatus, setUpdateStatus] = useState(false);
-
   const [changeHistory, setChangeHistory] = useState([updatedBody]);
   const [historyPointer, setHistoryPointer] = useState(0);
-
-  const [imageIndex, setImageIndex] = useState();
   const [responseStatus, setResponseStatus] = useState(null);
+  const [attachmentLinks, setAttachmentLinks] = useState();
+  const [coverImageUri, setCoverImageUri] = useState();
   const [downloadUri, setDownloadUri] = useState();
+  const [newIndex, setNewIndex] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (imageIndex !== undefined && imageIndex !== null && downloadUri) {
-      const newUpdatedBody = [...updatedBody];
-      newUpdatedBody[imageIndex].imageId = downloadUri;
-      setUpdatedBody(newUpdatedBody);
-      const newChangeHistory = [...changeHistory];
-      newChangeHistory[historyPointer] = newUpdatedBody;
-      setChangeHistory(newChangeHistory);
+    if (pageData) {
+      setAttachmentLinks(pageData.attachmentLinks);
     }
-  }, [downloadUri, imageIndex]);
+  }, [pageData]);
 
   useEffect(() => {
     if (responseStatus !== null && responseStatus !== undefined) {
@@ -62,17 +58,43 @@ const EditBody = ({ pageData, setPageData, id }) => {
     setUpdatedBody(changeHistory[historyPointer]);
   }, [changeHistory, historyPointer]);
 
+  useEffect(() => {
+    if (newIndex && downloadUri) {
+      const newUpdatedBody = [...updatedBody];
+      newUpdatedBody[newIndex].imageId = downloadUri;
+      setUpdatedBody(newUpdatedBody);
+      const newChangeHistory = [...changeHistory];
+      newChangeHistory[historyPointer] = newUpdatedBody;
+      setChangeHistory(newChangeHistory);
+    }
+  }, [downloadUri, newIndex]);
+
+  useEffect(() => {
+    setUpdatedCoverImageLink(coverImageUri);
+    const newPageData = pageData;
+    newPageData.coverImageLink = coverImageUri;
+    setPageData(newPageData);
+  }, [coverImageUri]);
+
   const handleSubmit = (e) => {
+    e.preventDefault();
+    for (let row of changeHistory[historyPointer]) {
+      if (row.imageId === '') {
+        runToastNotification('Please make sure all rows have images', 'error');
+        return;
+      }
+    }
+
     const body = changeHistory[historyPointer].map((row) => ({ markdownText: row.markdownText, imageId: row.imageId.split('/attachment/')[1] }));
     const coverImageId = updatedCoverImageLink ? updatedCoverImageLink.split('/attachment/')[1] : pageData.coverImageId;
-
-    console.log('body', body);
+    const attachmentIds = attachmentLinks.map((link) => link.split('/attachment/')[1]);
 
     const updatedCaseStudy = {
       title: updatedTitle,
       overview: updatedOverview,
       body: body,
       coverImageId: coverImageId,
+      attachmentIds: attachmentIds,
       spotlight: spotlight,
     };
     put(id, updatedCaseStudy, setUpdateStatus, setPageData);
@@ -80,11 +102,13 @@ const EditBody = ({ pageData, setPageData, id }) => {
 
   const addRow = () => {
     const newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.push({
-      imageLink: '',
+      imageId: '',
       markdownText: '',
     });
     setUpdatedBody(newUpdatedBody);
+    const newChangeHistory = [...changeHistory];
     const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
@@ -92,10 +116,10 @@ const EditBody = ({ pageData, setPageData, id }) => {
   };
 
   const removeRow = (index) => {
-    let newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.splice(index, 1);
     setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
     setHistoryPointer(historyPointer + 1);
@@ -111,11 +135,12 @@ const EditBody = ({ pageData, setPageData, id }) => {
 
   const deleteRedoHistory = () => {
     const newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
-    console.log('newChangeHistory', newChangeHistory);
   };
 
   const handleChangeTextarea = (value, index) => {
+    const newChangeHistory = [...changeHistory];
     const newChangeHistory = [...changeHistory];
     newChangeHistory[historyPointer][index].markdownText = value;
     setChangeHistory(newChangeHistory);
@@ -123,19 +148,23 @@ const EditBody = ({ pageData, setPageData, id }) => {
   };
 
   const handleChangeRowImage = (file, index) => {
+    if (!file.type.startsWith('image')) {
+      runToastNotification('Attachment must be an image.', 'error');
+      return;
+    }
     uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setImageIndex(index);
+    setNewIndex(index);
   };
 
   const handleChangeCoverImage = (file) => {
-    uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setUpdatedCoverImageLink(downloadUri);
-    const newPageData = pageData;
-    newPageData.coverImageLink = downloadUri;
-    setPageData(newPageData);
+    if (!file.type.startsWith('image')) {
+      runToastNotification('Attachment must be an image.', 'error');
+      return;
+    }
+    uploadAttachment(file, setResponseStatus, setCoverImageUri);
   };
 
-  return (
+  if (attachmentLinks) return (
     <>
       <div className='cssp-undo-redo-buttons-container'>
         <p className='cssp-edit-p'>UNDO/REDO ROW DELETIONS</p>
@@ -187,6 +216,8 @@ const EditBody = ({ pageData, setPageData, id }) => {
                 + Add new row
               </button>
             </div>
+            <StyledHr style={{ width: '100%' }} />
+            <EditDownloadLinks attachmentMetadata={attachmentMetadata} setAttachmentMetadata={setAttachmentMetadata} attachmentLinks={attachmentLinks} setAttachmentLinks={setAttachmentLinks} />
             <StyledHr style={{ width: '100%' }} />
             <input id='spotlight-checkbox' type='checkbox' checked={spotlight} onChange={(e) => setSpotlight(e.target.checked)} />
             <label htmlFor='spotlight-checkbox'> &nbsp; Show this case study on spotlight carousel?</label>
