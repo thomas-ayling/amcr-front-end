@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './dropFileInput.css';
-import { upload } from '../../service/AttachmentService.js';
+import { uploadAttachment } from '../../service/AttachmentService.js';
 import { useDropzone } from 'react-dropzone';
 import AttachmentDetails from './AttachmentDetails';
 import { runToastNotification } from '../toast-notification/ToastNotification';
@@ -19,13 +19,13 @@ const DropFileInput = () => {
 
   function onFormSubmit(e) {
     e.preventDefault();
-    upload(file, setResponseStatus, setDownloadUri);
+    uploadAttachment(file, setResponseStatus, setDownloadUri);
     setFile();
   }
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
-      upload(file, setResponseStatus, setDownloadUri);
+      uploadAttachment(file, setResponseStatus, setDownloadUri);
       const reader = new FileReader();
       reader.readAsArrayBuffer(file);
     });
@@ -49,6 +49,7 @@ const DropFileInput = () => {
           id='file-upload'
           className='file-input-hidden'
           type='file'
+          className='attachment-component-file-upload'
           onChange={(e) => {
             setFile(e.target.files[0]);
           }}
