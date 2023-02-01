@@ -85,6 +85,35 @@
   margin-left: 40px;
 }
 
+@media (max-height: 700px) {
+  .contacts-carousel-card-image-container {
+    width: 60%;
+    margin-top: 20px;
+  }
+
+  .contacts-carousel-card-name,
+  .contacts-carousel-card-title {
+    font-size: 15px;
+  }
+
+  .contacts-carousel-card-description {
+    width: 92%;
+    height: 100px;
+    font-size: 13.5px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 750px) {
+  .contacts-carousel-arrow-left,
+  .contacts-carousel-arrow-right {
+    display: none;
+  }
+  .contacts-carousel-arrows {
+    margin-bottom: 2.25rem;
+  }
+}
+
 @media (max-width: 325px) {
   .contacts-carousel-card-border {
     padding: 1rem;
