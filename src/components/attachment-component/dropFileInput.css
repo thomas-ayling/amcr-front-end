@@ -31,6 +31,7 @@
   color: rgb(188, 190, 192);
   font-weight: 600;
   padding: 10px;
+  margin-top: 14px;
 }
 
 .drop-file-input__label img {
@@ -141,6 +142,22 @@
   vertical-align: middle;
 }
 
+.attachment-button1:disabled {
+  border: 1px solid rgb(188, 190, 192);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: rgb(188, 190, 192);
+  cursor: default;
+}
+
+.attachment-button1:hover:disabled,
+.attachment-button1:active:disabled {
+  background-color: white;
+  background-position: 0 0;
+  color: rgb(188, 190, 192);
+}
+
 .attachment-button:hover,
 .attachment-button:active {
   background-color: initial;
@@ -177,14 +194,6 @@
   margin-top: 20px;
 }
 
-.attachment-form-button-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 250px;
-  margin: auto;
-}
-
 .drag-and-drop-box {
   border: 17.5px solid #e6e7e8;
   background-color: white;
@@ -193,9 +202,10 @@
   border-radius: 20px;
   max-width: 350px;
   min-width: 220px;
+  margin-bottom: 65px;
 }
 
-.attachment-component-file-upload {
+.file-input-hidden {
   display: none;
 }
 

@@ -7,7 +7,7 @@ import DescriptionSlider from './sub-components/DescriptionSlider';
 import ButtonSlider from './sub-components/ButtonSlider';
 import { StyledHr } from '../../../styles/styles';
 
-const CaseStudyCarousel = ({ pageData }) => {
+const CaseStudyCarousel = ({pageData }) => {
   const [current, setCurrent] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

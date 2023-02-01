@@ -106,7 +106,8 @@ button:focus {
 }
 
 .logo-menu {
-  height: 2.5em !important;
+  height: 2.2em !important;
+  margin-top: 6px !important;
   width: auto !important;
 }
 

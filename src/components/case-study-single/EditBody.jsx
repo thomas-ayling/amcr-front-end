@@ -19,12 +19,12 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
   const [spotlight, setSpotlight] = useState(pageData.spotlight);
   const [updateStatus, setUpdateStatus] = useState(false);
   const [changeHistory, setChangeHistory] = useState([updatedBody]);
-  const [attachmentLinks, setAttachmentLinks] = useState();
   const [historyPointer, setHistoryPointer] = useState(0);
-  const [imageIndex, setImageIndex] = useState();
   const [responseStatus, setResponseStatus] = useState(null);
+  const [attachmentLinks, setAttachmentLinks] = useState();
+  const [coverImageUri, setCoverImageUri] = useState();
   const [downloadUri, setDownloadUri] = useState();
-  const [changingImage, setChangingImage] = useState();
+  const [newIndex, setNewIndex] = useState();
 
   const navigate = useNavigate();
 
@@ -33,23 +33,6 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
       setAttachmentLinks(pageData.attachmentLinks);
     }
   }, [pageData]);
-
-  useEffect(() => {
-    if (changingImage === 'cover-image') {
-      setUpdatedCoverImageLink(downloadUri);
-      let newPageData = pageData;
-      newPageData.coverImageLink = downloadUri;
-      setPageData(newPageData);
-    }
-    if (changingImage === 'row') {
-      let newUpdatedBody = [...updatedBody];
-      newUpdatedBody[imageIndex].imageId = downloadUri;
-      setUpdatedBody(newUpdatedBody);
-      let newChangeHistory = [...changeHistory];
-      newChangeHistory[historyPointer] = newUpdatedBody;
-      setChangeHistory(newChangeHistory);
-    }
-  }, [downloadUri, imageIndex, changingImage]);
 
   useEffect(() => {
     if (responseStatus !== null && responseStatus !== undefined) {
@@ -75,6 +58,26 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
     setUpdatedBody(changeHistory[historyPointer]);
   }, [changeHistory, historyPointer]);
 
+  useEffect(() => {
+    if (newIndex && downloadUri) {
+      const newUpdatedBody = [...updatedBody];
+      newUpdatedBody[newIndex].imageId = downloadUri;
+      setUpdatedBody(newUpdatedBody);
+      const newChangeHistory = [...changeHistory];
+      newChangeHistory[historyPointer] = newUpdatedBody;
+      setChangeHistory(newChangeHistory);
+    }
+  }, [downloadUri, newIndex]);
+
+  useEffect(() => {
+    if (coverImageUri) {
+      setUpdatedCoverImageLink(coverImageUri);
+      const newPageData = pageData;
+      newPageData.coverImageLink = coverImageUri;
+      setPageData(newPageData);
+    }
+  }, [coverImageUri]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     for (let row of changeHistory[historyPointer]) {
@@ -93,29 +96,30 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
       body: body,
       coverImageId: coverImageId,
       attachmentIds: attachmentIds,
+      attachmentIds: attachmentIds,
       spotlight: spotlight,
     };
     put(id, updatedCaseStudy, setUpdateStatus, setPageData);
   };
 
   const addRow = () => {
-    let newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.push({
       imageId: '',
       markdownText: '',
     });
     setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
     setHistoryPointer(newChangeHistory.length - 1);
   };
 
   const removeRow = (index) => {
-    let newUpdatedBody = [...updatedBody];
+    const newUpdatedBody = [...updatedBody];
     newUpdatedBody.splice(index, 1);
     setUpdatedBody(newUpdatedBody);
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.push(newUpdatedBody);
     setChangeHistory(newChangeHistory);
     setHistoryPointer(historyPointer + 1);
@@ -130,12 +134,12 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
   };
 
   const deleteRedoHistory = () => {
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory.splice(historyPointer + 1, changeHistory.length - historyPointer);
   };
 
   const handleChangeTextarea = (value, index) => {
-    let newChangeHistory = [...changeHistory];
+    const newChangeHistory = [...changeHistory];
     newChangeHistory[historyPointer][index].markdownText = value;
     setChangeHistory(newChangeHistory);
     historyPointer < changeHistory.length - 1 && deleteRedoHistory();
@@ -146,9 +150,8 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
       runToastNotification('Attachment must be an image.', 'error');
       return;
     }
-    setChangingImage('row');
     uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setImageIndex(index);
+    setNewIndex(index);
   };
 
   const handleChangeCoverImage = (file) => {
@@ -156,8 +159,7 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
       runToastNotification('Attachment must be an image.', 'error');
       return;
     }
-    uploadAttachment(file, setResponseStatus, setDownloadUri);
-    setChangingImage('cover-image');
+    uploadAttachment(file, setResponseStatus, setCoverImageUri);
   };
 
   if (attachmentLinks)

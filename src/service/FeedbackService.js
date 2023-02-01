@@ -22,10 +22,12 @@ const create = (feedback, attachment, setAwaitingResponse, setSubmitStatus) => {
       headers: headers,
     })
     .then((response) => {
+      console.dir('here');
       setSubmitStatus('success');
       setAwaitingResponse(false);
     })
     .catch((err) => {
+      console.dir('there');
       setSubmitStatus('error');
       setAwaitingResponse(false);
     });

@@ -26,6 +26,8 @@ const CaseStudySingle = ({ editMode }) => {
   if (pageLoaded && editMode) {
     return (
       <div className='cssp-container'>
+        {  console.log('pageData', pageData)
+}
         <EditBody pageData={pageData} setPageData={setPageData} setAttachmentMetadata={setAttachmentMetadata} attachmentMetadata={attachmentMetadata} id={id} />
       </div>
     );
