@@ -30,10 +30,10 @@ const ContactsMainCarousel = () => {
   const settings = {
     dots: true,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
-    arrows: false,
     initialSlide: 0,
     adaptiveHeight: true,
     responsive: [
