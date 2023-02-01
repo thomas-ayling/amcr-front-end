@@ -41,6 +41,7 @@ body {
   max-width: 20%;
   height: auto;
   padding-top: 1%;
+  margin-top: 5px;
 }
 
 .gl-logo {
@@ -98,7 +99,7 @@ body {
 .footer-link {
   min-width: 10%;
   height: auto;
-  font-size: 2.25vmin;
+  font-size: 10vwpx;
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
 }
