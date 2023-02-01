@@ -67,7 +67,6 @@ const ContactsMainCarousel = () => {
       },
     ],
   };
-
   if (responseStatus.includes('success'))
     return (
       <div className='contacts-carousel'>
