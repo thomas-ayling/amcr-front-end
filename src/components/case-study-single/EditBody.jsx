@@ -44,7 +44,9 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
   }, [responseStatus]);
 
   useEffect(() => {
-    updateStatus === 'success' ? runToastNotification('Update was successful!', 'success') : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
+    updateStatus === 'success'
+      ? runToastNotification('Update was successful!', 'success')
+      : updateStatus === 'error' && runToastNotification('There was an error updating this case study. Please try again', 'error');
     updateStatus === 'success' &&
       setTimeout(() => {
         navigate(`/case-study/${id}`);
@@ -59,7 +61,7 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
   }, [changeHistory, historyPointer]);
 
   useEffect(() => {
-    if (newIndex && downloadUri) {
+    if ((newIndex || newIndex == 0) && downloadUri) {
       const newUpdatedBody = [...updatedBody];
       newUpdatedBody[newIndex].imageId = downloadUri;
       setUpdatedBody(newUpdatedBody);
@@ -216,7 +218,12 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
                 </button>
               </div>
               <StyledHr style={{ width: '100%' }} />
-              <EditDownloadLinks attachmentMetadata={attachmentMetadata} setAttachmentMetadata={setAttachmentMetadata} attachmentLinks={attachmentLinks} setAttachmentLinks={setAttachmentLinks} />
+              <EditDownloadLinks
+                attachmentMetadata={attachmentMetadata}
+                setAttachmentMetadata={setAttachmentMetadata}
+                attachmentLinks={attachmentLinks}
+                setAttachmentLinks={setAttachmentLinks}
+              />
               <StyledHr style={{ width: '100%' }} />
               <input id='spotlight-checkbox' type='checkbox' checked={spotlight} onChange={(e) => setSpotlight(e.target.checked)} />
               <label htmlFor='spotlight-checkbox'> &nbsp; Show this case study on spotlight carousel?</label>
