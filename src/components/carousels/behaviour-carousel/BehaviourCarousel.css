@@ -23,8 +23,7 @@
   height: auto;
   margin: auto;
   background-color: var(--gl-light-gray);
-  padding: 1%;
-
+  padding: 1rem;
   border-radius: 17.5px;
   bottom: 20%;
   margin-top: 3rem;
