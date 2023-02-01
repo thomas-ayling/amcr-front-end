@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// const baseUrl = 'http://ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com:3001';
-const baseUrl = 'http://localhost:3001';
+const baseUrl = 'http://ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com:3001';
+// const baseUrl = 'http://localhost:3001';
 const getSpotlit = (setCarouselData, setResponseStatus) => {
   axios
     .get(`${baseUrl}/contacts/spotlight`)
