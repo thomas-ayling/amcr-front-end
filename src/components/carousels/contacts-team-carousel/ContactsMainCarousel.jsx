@@ -66,6 +66,10 @@ const ContactsMainCarousel = () => {
       },
     ],
   };
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5cbe1cbca926b7a4b40e5724bfe63af4198aa746
   if (responseStatus.includes('success'))
     return (
       <div className='contacts-carousel'>

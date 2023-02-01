@@ -9,7 +9,11 @@ const DownloadLinks = ({ attachmentMetadata, setAttachmentMetadata, attachmentLi
   const [newIndex, setNewIndex] = useState();
 
   useEffect(() => {
+<<<<<<< HEAD
     if (responseStatus === 'success') runToastNotification('Attachment uploaded successfuly. Press save and refresh to see chages', 'success');
+=======
+    if (responseStatus === 'success') runToastNotification('Attachment uploaded successfuly', 'success');
+>>>>>>> 5cbe1cbca926b7a4b40e5724bfe63af4198aa746
     if (responseStatus === 'error') runToastNotification('There was an error uploading this attachment', 'error');
     return () => {
       setResponseStatus('idle');
@@ -17,15 +21,26 @@ const DownloadLinks = ({ attachmentMetadata, setAttachmentMetadata, attachmentLi
   }, [responseStatus]);
 
   useEffect(() => {
+<<<<<<< HEAD
       const newAttachmentLinks = [...attachmentLinks];
       newAttachmentLinks[newIndex] = downloadUri;
       setAttachmentLinks(newAttachmentLinks);
       getMetadata(newAttachmentLinks, setAttachmentMetadata);
+=======
+    const newAttachmentLinks = [...attachmentLinks];
+    newAttachmentLinks[newIndex] = downloadUri;
+    setAttachmentLinks(newAttachmentLinks);
+    getMetadata(newAttachmentLinks, setAttachmentMetadata);
+>>>>>>> 5cbe1cbca926b7a4b40e5724bfe63af4198aa746
   }, [downloadUri]);
 
   const handleChangeFile = (attachment, index) => {
     uploadAttachment(attachment, setResponseStatus, setDownloadUri);
+<<<<<<< HEAD
     setNewIndex(index);
+=======
+    setNewIndex(index)
+>>>>>>> 5cbe1cbca926b7a4b40e5724bfe63af4198aa746
   };
 
   if (attachmentMetadata) {

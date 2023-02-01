@@ -1,11 +1,17 @@
 import { React } from 'react';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import Diagram from '../components/diagram-component/Diagram';
+import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
+import WikiHeader from '../service/WikiHeader';
+import TextIntro from '../components/shared-components/text-intro/TextIntro';
+import WikiTextIntro from '../service/WikiTextIntroService';
+import ContentSection from '../components/wiki/ContentSection';
 
 const Wiki = () => {
   return (
     <>
-      <Diagram adminEnabled={false} />
+      <MainCarousel type='header-single-description' slides={WikiHeader} />
+      <TextIntro content={WikiTextIntro} />
+      <ContentSection />
       <ContactComponent feedbackType={'improvement'} />
     </>
   );

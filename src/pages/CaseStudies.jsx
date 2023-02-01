@@ -21,7 +21,7 @@ const CaseStudies = () => {
   }, []);
 
   useEffect(() => {
-    if (requestStatus === 'error-404') runToastNotification('Case study could not be found', 'error');
+    if (requestStatus.includes('error')) runToastNotification('There was an issue fetching case study data', 'error');
   }, [requestStatus]);
 
   if (headerCarouselLoaded && carouselLoaded) {

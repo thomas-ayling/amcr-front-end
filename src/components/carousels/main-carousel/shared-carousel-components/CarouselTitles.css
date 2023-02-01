@@ -13,6 +13,7 @@
     bottom: 0px;
     user-select: none;
     text-shadow: 1px 1px black;
+    font-weight: bold;
   }
 
   .carousel-title-link:hover {
@@ -28,4 +29,5 @@
     opacity: 1;
     transform: scale(1);
     pointer-events: visible;
+    font-weight: bold;
   }
