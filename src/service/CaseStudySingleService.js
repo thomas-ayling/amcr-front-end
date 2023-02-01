@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { partial } from 'filesize';
-const baseUrl = 'http://localhost:3001/case-study';
-// const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/case-study';
+// const baseUrl = 'http://localhost:3001/case-study';
+const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/case-study';
 
 const get = (id, setPageData, setRequestStatus, setPageLoaded, setAttachmentMetadata) => {
   const bytesToReadable = partial({ base: 2, standard: 'jedec' })
