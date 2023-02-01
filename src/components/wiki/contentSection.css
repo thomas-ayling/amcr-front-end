@@ -48,6 +48,11 @@
   margin-left: 20%;
 }
 
+.content-section-span:hover {
+  color: var(--gl-orange);
+  transition: all 0.3s ease-out 0s;
+}
+
 .content-section-icons {
   display: flex;
   color: white;

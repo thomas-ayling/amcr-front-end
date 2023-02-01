@@ -31,6 +31,7 @@
   color: rgb(188, 190, 192);
   font-weight: 600;
   padding: 10px;
+  margin-top: 14px;
 }
 
 .drop-file-input__label img {
@@ -193,14 +194,6 @@
   margin-top: 20px;
 }
 
-.attachment-form-button-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 250px;
-  margin: auto;
-}
-
 .drag-and-drop-box {
   border: 17.5px solid #e6e7e8;
   background-color: white;
@@ -209,6 +202,7 @@
   border-radius: 20px;
   max-width: 350px;
   min-width: 220px;
+  margin-bottom: 65px;
 }
 
 .file-input-hidden {
