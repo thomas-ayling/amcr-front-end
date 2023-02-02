@@ -18,14 +18,15 @@ const ContactComponent = ({ feedbackType }) => {
   const [submitStatus, setSubmitStatus] = useState('idle');
 
   useEffect(() => {
-    if (submitStatus === 'error') runToastNotification('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.', 'error');
-    if (submitStatus === 'success') runToastNotification('Your feedback has been sent.', 'success');
+    if (submitStatus.includes('error')) runToastNotification('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.', 'error');
+    if (submitStatus.includes('success')) runToastNotification('Your feedback has been sent', 'success');
+    return () => {
+      setSubmitStatus('idle');
+    }
   }, [submitStatus]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    runToastNotification('There was an internal server error while submitting your feedback. Please try again or contact an administrator if this continues to happen.', "error");
 
     const feedback = {
       feedbackType: feedbackType,
