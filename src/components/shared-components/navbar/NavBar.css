@@ -6,26 +6,26 @@ button:focus {
   box-shadow: none !important;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 7px;
 }
 
 ::-webkit-scrollbar-track {
   background: white;
-}
+} */
 
-::-webkit-scrollbar-track:hover {
+/* ::-webkit-scrollbar-track:hover {
   background: white;
-}
+} */
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(243, 122, 055);
-  border-radius: 12px;
+  background: var(--gl-orange);
+  /* border-radius: 12px; */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(243, 122, 055);
-  border-radius: 12px;
+  background: var(--gl-dark-orange);
+  /* border-radius: 12px; */
 }
 
 .navbar-sticky {
