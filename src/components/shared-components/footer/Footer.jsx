@@ -32,7 +32,7 @@ const Footer = () => {
   return (
     <>
     <div className="footer">
-      <div className="container">
+      <div className="footer-container">
         <section className="top-area">
           {/* Column for Global Logic Logo */}
           <div className="footer-logo">
@@ -41,16 +41,16 @@ const Footer = () => {
           {/* Column for internal page links */}
           <div className="footer-pages">
             <div className="internal-pages">
-              <div><Link className="footer-link" to={`/case-studies`} onClick={pageReload}>Case Studies</Link></div>
-              <div><Link className="footer-link" to={`/Wiki`}>Wiki</Link></div>
-              <div><Link className="footer-link" to={`/contacts`}>Contacts</Link></div>
-              <div><Link className="footer-link" to={`/library`}>Library</Link></div>
+              <div><Link className="footer-link" to={`/case-studies`} onClick={pageReload} >Case Studies</Link></div>
+              <div><Link className="footer-link" to={`/Wiki`} onClick={pageReload} >Wiki</Link></div>
+              <div><Link className="footer-link" to={`/contacts`} onClick={pageReload} >Contacts</Link></div>
+              <div><Link className="footer-link" to={`/library`} onClick={pageReload} >Library</Link></div>
             </div>
           </div>
           {/* Column for admin panel */}
           <div className="admin-panel">
             <div>
-              <Link  className="admin-link" to={`/admin-panel`}>Admin Panel</Link>
+              <Link  className="admin-link" to={`/admin-panel`} onClick={pageReload} >Admin Panel</Link>
             </div>
           </div>
         </section>
