@@ -14,13 +14,15 @@ import ContentSection from './wiki/ContentSection';
 import ContactHeader from './carousels/ContactHeader';
 import ContactsMainCarousel from './carousels/contacts-team-carousel/ContactsMainCarousel';
 import DropFileInput from './attachment-component/DropFileInput';
+import LibrarySearch from './library/LibrarySearch';
+import LibraryHeader from './carousels/LibraryHeader';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 function Grid(loc) {
   const [layout, setLayout] = useState([]);
   const [page, setPage] = useState([]);
-  const [isStatic, setIsStatic] = useState(false);
+  const [isStatic, setIsStatic] = useState(true);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,6 +36,7 @@ function Grid(loc) {
           setIsLoading(false);
           setPage(res.data);
           setLayout(res.data.components);
+          setIsStatic(res.data.static);
         }
       })
       .catch((err) => {
@@ -112,6 +115,13 @@ function Grid(loc) {
             <DropFileInput />
           </div>
         );
+      case 'library-header':
+        return <LibraryHeader />;
+      case 'library-search':
+        return <LibrarySearch />;
+      case 'library-feedback-component':
+        return <ContactComponent feedbackType='library' />;
+
       default:
         return <p>No return</p>;
     }
@@ -130,9 +140,12 @@ function Grid(loc) {
         width={1200}
         onLayoutChange={(movingItem) => setLayout(movingItem)}
         isBounded={true}
+        isResizable={isStatic}
+        isDraggable={isStatic}
+        autoSize={true}
       >
         {layout?.map((component) => (
-          <div className='item-container' key={component.i} data-grid={{ x: component.x, y: component.y, w: component.w, h: component.h, static: isStatic }}>
+          <div className='item-container' key={component.i} data-grid={{ x: component.x, y: component.y, w: component.w, h: component.h }}>
             {handleComponent(component)}
           </div>
         ))}
