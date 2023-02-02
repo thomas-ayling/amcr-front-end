@@ -9,36 +9,34 @@ import MarkdownComponent from '../../markdown-component/MarkdownComponent';
 const TextIntro = (location) => {
   const [textIntroData, setTextIntroData] = useState([]);
   const baseUrl = 'http://localhost:3001/text-intro/location';
-  const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
+  const headers = { 
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Headers": "*",
+                  "Access-Control-Allow-Credentials": "true" };
 
   
   useEffect(() => {
     axios
-      .get(`${baseUrl}/${location}`, { headers: headers })
+      .get(`${baseUrl}/${location.location}`, { headers: headers })
       .then((result) => {
-        console.log(result);
         setTextIntroData(result.data);
-        console.log(textIntroData);
       })
       .catch((err) => {
         console.log(err.message);
       });
-  }, []);
+  });
 
-    return (
-      <div>
-        {textIntroData.map((intro) => (        
+    return (   
         <div className='textintro-container'>
           <div className='textintro-wrapper'>
-            <h1 className='textintro-title'>{intro.title}</h1>
+            <h1 className='textintro-title'>{textIntroData.title}</h1>
             <StyledHr />
             <h2 className='textintro-description'>
-              <MarkdownComponent markdownText={intro.description}/>
+              <MarkdownComponent markdownText={textIntroData.description}/>
             </h2>
           </div>
         </div>
-    ))}
-    </div>
     )
 }
 

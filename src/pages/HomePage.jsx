@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div className='homepage-container'>
       <MainCarousel type='header-multi' slides={HomepageCarouselSlides} />
-      <TextIntro location={"homepage"}/>
+      <TextIntro location='homepage'/>
       <MainCarousel slides={MainCarouselSlides} type={'textbox'} />
       <BehaviourCarousel />
       <ContactComponent feedbackType='feedback' />
