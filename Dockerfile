@@ -1,6 +1,6 @@
 ## Config
 # Node base-image
-FROM node:18.12.1-slim as build
+FROM node:18.13.0-slim as build
 
 # Set the working dir to /app inside the container.
 WORKDIR /app
