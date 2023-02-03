@@ -1,16 +1,10 @@
 import React from 'react';
-import ContactComponent from '../components/contact-component/ContactComponent';
-import LibrarySearch from '../components/library/LibrarySearch';
-import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
-import LibraryHeader from '../service/LibraryHeader';
-
+import Grid from '../components/Layout';
 
 const Library = () => {
   return (
     <>
-      <MainCarousel type='header-single-description' slides={LibraryHeader} />
-      <LibrarySearch />
-      <ContactComponent feedbackType='library' />
+      <Grid loc={'library'} />
     </>
   );
 };

@@ -104,20 +104,20 @@
 
 .title-wrapper-header-single {
   justify-content: flex-start !important;
-  top:90%;
-  left:1%;
+  top: 90%;
+  left: 1%;
 }
 
 .title-wrapper-header-single {
   justify-content: flex-start !important;
-  top:90%;
-  left:1%;
+  top: 90%;
+  left: 1%;
 }
 
 .title-wrapper-header-single-description {
   justify-content: flex-start !important;
-  top:70%;
-  left:1%;
+  top: 70%;
+  left: 1%;
 }
 
 .description-wrapper {
@@ -147,7 +147,6 @@
     aspect-ratio: 32/18;
     z-index: -1 !important;
     margin: 50px 0 0 0;
-  
   }
   .card-image {
     width: 100%;
@@ -159,11 +158,11 @@
 }
 
 /* to be moved after merge */
-.case-study-header-carousel{
-  color:white;
+.case-study-header-carousel {
+  color: white;
   cursor: pointer;
 }
 
-.case-study-header-carousel:hover{
+.case-study-header-carousel:hover {
   color: var(--gl-orange);
 }

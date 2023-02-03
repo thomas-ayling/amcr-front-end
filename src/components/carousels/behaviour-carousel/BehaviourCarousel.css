@@ -54,6 +54,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 1200px;
+  margin: auto;
+  /* margin-top: 20vh; */
+  object-fit: contain;
 }
 
 .behaviour-body-carousel-page-title {
@@ -68,6 +72,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 1%;
+  object-fit: contain;
 }
 
 .behaviour-image-slide,
