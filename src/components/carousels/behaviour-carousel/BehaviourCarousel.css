@@ -249,6 +249,11 @@
     box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.85);
   }
 }
+@media (max-width: 769px) {
+  .behaviour-description {
+    font-size: 1.5vmin;
+  }
+}
 
 @media (max-width: 620px) {
   .behaviour-description {
