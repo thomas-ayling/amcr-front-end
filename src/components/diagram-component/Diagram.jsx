@@ -44,7 +44,7 @@ const Diagram = ({ adminEnabled }) => {
     else if (requestStatus === 'other-put-error') runToastNotification('Could not update diagram data!', 'error');
   }, [requestStatus]);
 
-  if (nodeArray.length == 9) {
+  if (nodeArray.length === 9) {
     return (
       <div>
         {adminEnabled && (
