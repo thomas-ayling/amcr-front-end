@@ -1,0 +1,114 @@
+.carousel-textbox {
+  position: absolute;
+  width: 40%;
+  padding: 1rem;
+  background-color: var(--gl-light-gray);
+  height: auto;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-500px, 0);
+  transition: 1s ease-in-out;
+  border-radius: 17.5px;
+  bottom: 0px;
+  margin-left: 50px;
+}
+
+.active-carousel-textbox {
+  height: max-content;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate(-500px, 0);
+  transition: 1 ease-in-out;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: visible;
+}
+.card-text > div {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.card-text > div > ul > li {
+  font-size: 1rem;
+}
+
+.card-text > div > p > a {
+  align-items: flex-end;
+  color: var(--gl-orange);
+  text-decoration-line: none;
+}
+.card-link:hover {
+  align-items: flex-end;
+  color: var(--gl-dark-orange);
+  text-decoration-line: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+  .card-text > div > ul {
+    margin: 0;
+  }
+  .card-text > div > h1 {
+    font-size: 1rem;
+  }
+
+  .card-text > div > h3 {
+    font-size: 1.3rem;
+  }
+  .card-text > div > ul > li {
+    font-size: 0.75rem;
+  }
+  .card-text > div > p > a {
+    font-size: 0.75rem;
+  }
+  .card-text > div {
+    height: 100%;
+    padding: 0.5rem;
+  }
+  .card-text {
+    height: 100%;
+  }
+  .carousel-textbox {
+    bottom: 01%;
+    height: auto;
+    right: 27.5%;
+    max-height: fit-content;
+    width: 70%;
+  
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .carousel-textbox {
+    left: -12vw;
+   
+    height: auto;
+    max-height: 65%;
+    width: 70%;
+    border-radius: 10.5px;
+    padding: 1rem;
+  }
+  .card-text > div > h1 {
+    font-size: 0.3rem;
+  }
+  .card-text > div > h3 {
+    font-size: 1rem;
+  }
+  .card-text > div > ul > li {
+    font-size: 0.6rem;
+  }
+  .card-text > div > p > a {
+    font-size: 0.75rem;
+  }
+  .card-text > div {
+    height: 50%;
+    padding: 0.2rem;
+    font-size: 0.4rem;
+    border-radius: 5px;
+  }
+  .card-text {
+    height: 20%;
+    font-size: 0.8rem;
+  }
+}

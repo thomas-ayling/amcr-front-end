@@ -1,0 +1,33 @@
+{
+    "family": FAMILY,
+    "containerDefinitions": [
+        {
+            "image": "REPOSITORY_URI:BUILD_NUMBER",
+            "name": NAME,
+	        "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000
+                }
+            ],
+            "environment": [
+                {
+                    "name": "NGINX_HN",
+                    "value": "ec-acad-elb-fe-2f7bfb1526a617ef.elb.eu-west-2.amazonaws.com"
+                },
+                {
+                    "name": "NGINX_LP",
+                    "value": "3000"
+                }
+            ]
+        }
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "requiresCompatibilities": [
+             "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "executionRoleArn": ROLE_ARN
+}

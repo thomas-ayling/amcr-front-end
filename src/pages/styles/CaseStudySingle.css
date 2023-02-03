@@ -1,0 +1,298 @@
+/* CSSP stands for Case Study Single Page */
+
+.cssp-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cssp-body-wrapper {
+  width: 1100px;
+  padding: 1rem;
+  border-radius: 17.5px;
+  background-color: var(--gl-light-gray);
+}
+
+.cssp-body-wrapper-edit {
+  width: 1150px !important;
+}
+
+.cssp-title {
+  font-size: 55px;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.cssp-body {
+  border-radius: 10px;
+  background-color: white;
+  height: fit-content;
+}
+
+.cssp-body-row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 100%;
+}
+
+.cssp-regular-row {
+  grid-template-areas: 'image text';
+}
+
+.cssp-reversed-row {
+  grid-template-areas: 'text image';
+}
+
+.cssp-body-img {
+  margin: 1rem;
+  grid-area: image;
+  width: calc(100% - 2rem);
+  border-radius: 5px;
+  aspect-ratio: 5/3;
+}
+
+.cssp-image {
+  width: 100%;
+  height: 100%;
+}
+
+.cssp-body-text {
+  grid-area: text;
+  padding: 1rem;
+  height: max-content;
+}
+
+.cssp-download-link-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cssp-download-button {
+  margin: 10px 10px 20px 10px;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  border-radius: 5px;
+  background-color: var(--gl-orange);
+  color: var(--gl-light-gray);
+  border: 1px solid var(--gl-dark-orange)
+}
+
+
+.cssp-download-button:hover {
+  background-color: var(--gl-dark-orange);
+}
+
+@media (max-width: 1100px) {
+  .cssp-body-wrapper {
+    width: 550px;
+  }
+  .cssp-body-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 100% !important;
+    grid-template-rows: 50% 50% !important;
+    grid-template-areas: 'image text' !important; */
+  }
+}
+
+@media (max-width: 550px) {
+  .cssp-body-wrapper {
+    width: 95vw;
+  }
+
+  .cssp-body-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* EDIT PAGE STYLING */
+
+.cssp-body-row-edit {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 5% 95%;
+}
+
+.cssp-regular-row-edit {
+  grid-template-areas:
+    'top-left edit-buttons'
+    'image text';
+}
+
+.cssp-reversed-row-edit {
+  grid-template-areas:
+    'top-left edit-buttons'
+    'text image';
+}
+
+.cssp-text-edit {
+  margin-top: 10px;
+  width: 100%;
+  aspect-ratio: 3/1;
+  grid-area: text-edit;
+}
+
+.title-input {
+  width: 50%;
+  margin-left: calc(25%);
+}
+
+.cssp-textarea-edit {
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.cssp-submit-edit {
+  width: 15%;
+  margin-left: 46%;
+  margin-bottom: 1rem;
+  background-color: var(--gl-orange);
+  border-radius: 5px;
+  border: 1px solid var(--gl-dark-orange);
+  aspect-ratio: 4/1;
+  font-size: 20px;
+  color: var(--gl-light-gray);
+}
+
+.cssp-submit-edit:hover {
+  background-color: var(--gl-dark-orange);
+}
+
+.edit-carousel-container {
+  width: 100%;
+  aspect-ratio: 5/1;
+  display: grid;
+  grid-template-areas: 'image-upload overview-edit';
+  grid-template-columns: 50% 50%;
+  padding: 1rem;
+}
+
+.cssp-overview-edit {
+  padding: 1rem;
+  grid-area: 'overview-edit';
+}
+
+.cssp-row-image-upload {
+  margin-left: 1rem;
+  height: 100%;
+}
+
+.cssp-cover-image-upload {
+  grid-area: 'image-upload';
+  height: 100px;
+}
+
+.cssp-body-img-container h4 {
+  margin-left: 1rem;
+  text-decoration: underline;
+}
+
+.cssp-cover-image-upload-row {
+  margin-top: 1rem;
+}
+
+.cssp-edit-buttons-contaier {
+  width: 100%;
+  display: flex;
+  grid-area: edit-buttons;
+  align-items: flex-end;
+  flex-direction: column;
+  padding-bottom: 10px;
+  /* height: 100%; */
+}
+
+.cssp-edit-button {
+  aspect-ratio: 5/1;
+  border-radius: 5px;
+  margin-right: 40px;
+}
+
+.cssp-add-new-row-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cssp-delete-row-button {
+  background-color: var(--gl-error);
+  color: var(--gl-light-gray);
+}
+
+.cssp-add-row-button {
+  right: 0px;
+  background-color: var(--gl-lime);
+}
+
+.cssp-add-row-button:hover {
+  background-color: var(--gl-dark-lime);
+}
+
+.cssp-undo-redo-buttons-container {
+  width: 125px;
+  height: fit-content;
+  position: fixed;
+  align-self: flex-end;
+  margin-top: 20px;
+  margin-right: 10px;
+  background-color: var(--gl-light-gray);
+  text-align: center;
+}
+
+.cssp-undo-img,
+.cssp-redo-img {
+  width: 100%;
+  height: 100%;
+  filter: invert();
+}
+
+.cssp-redo-img {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.cssp-undo-button,
+.cssp-redo-button {
+  width: 55px;
+  height: 45px;
+  background-color: var(--gl-orange);
+}
+
+.cssp-undo-button-invalid,
+.cssp-redo-button-invalid,
+.cssp-undo-button-invalid:hover,
+.cssp-redo-button-invalid:hover {
+  background-color: var(--gl-dark-gray) !important;
+  /* cursor: default; */
+  pointer-events: none;
+}
+
+.cssp-undo-button:hover,
+.cssp-redo-button:hover {
+  background-color: var(--gl-dark-orange);
+}
+
+.cssp-undo-button {
+  margin: 5px 2.5px 5px 5px;
+}
+
+.cssp-redo-button {
+  margin: 5px 5px 5px 2.5px;
+}
+
+.cssp-edit-p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.cssp-row-num {
+  grid-area: top-left;
+  margin-left: 1rem;
+  font-weight: bold;
+  text-decoration: underline;
+  color: var(--gl-orange);
+}
