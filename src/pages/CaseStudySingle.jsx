@@ -11,11 +11,12 @@ const CaseStudySingle = ({ editMode }) => {
   const [pageLoaded, setPageLoaded] = useState(false);
   const [pageData, setPageData] = useState({});
   const [requestStatus, setRequestStatus] = useState();
+  const [attachmentMetadata, setAttachmentMetadata] = useState();
 
   const { id } = useParams();
 
   useEffect(() => {
-    get(id, setPageData, setRequestStatus, setPageLoaded);
+    get(id, setPageData, setRequestStatus, setPageLoaded, setAttachmentMetadata);
   }, [id]);
 
   useEffect(() => {
@@ -25,14 +26,14 @@ const CaseStudySingle = ({ editMode }) => {
   if (pageLoaded && editMode) {
     return (
       <div className='cssp-container'>
-        <EditBody body={pageData.body} title={pageData.title} overview={pageData.overview} pageData={pageData} setPageData={setPageData} id={id} />
+        <EditBody pageData={pageData} setPageData={setPageData} setAttachmentMetadata={setAttachmentMetadata} attachmentMetadata={attachmentMetadata} id={id} />
       </div>
     );
   }
   if (pageLoaded && !editMode) {
     return (
       <div className='cssp-container'>
-        <Body body={pageData.body} title={pageData.title} />
+        <Body body={pageData.body} title={pageData.title} attachmentMetadata={attachmentMetadata} />
         <ContactComponent feedbackType='case-study' />
         <Link to={`/case-study/edit/${id}`}>Edit this page</Link>
       </div>

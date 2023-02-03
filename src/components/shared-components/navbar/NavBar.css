@@ -1,5 +1,7 @@
 body {
   background-color: rgb(188, 190, 192) !important;
+  scrollbar-width: 7px;
+  scrollbar-color: rgb(243, 122, 055);
 }
 
 button:focus {
@@ -107,6 +109,7 @@ button:focus {
 
 .logo-menu {
   height: 2.2em !important;
+  margin-top: 6px !important;
   width: auto !important;
 }
 

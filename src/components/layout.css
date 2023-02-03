@@ -43,10 +43,10 @@
 
 .item-container {
   height: 25%;
-  width: 100%;
+  width: 25%;
   margin-top: 10px;
-
-  border: 1px #333 dashed;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 /* CSS */
