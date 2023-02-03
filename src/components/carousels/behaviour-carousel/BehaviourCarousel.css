@@ -251,6 +251,11 @@
     width: 80%;
   }
 }
+@media (max-width: 769px) {
+  .behaviour-description {
+    font-size: 1.5vmin;
+  }
+}
 
 @media (max-width: 620px) {
   .behaviour-description {
