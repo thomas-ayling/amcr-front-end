@@ -27,6 +27,7 @@
   align-items: center;
   background-color: var(--gl-gray);
   padding: 10vh 0 10vh 0;
+  object-fit: contain;
 }
 
 .contact-component {
