@@ -58,7 +58,7 @@
 
 .behaviour-body-carousel-page-title {
   font-weight: 500;
-  font-size: 3vmax;
+  font-size: 2vmax;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
@@ -93,7 +93,7 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   object-fit: cover;
-  width: 100%;
+  width: 90%;
   height: auto;
   border-radius: 5px;
   box-shadow: 2px 2px 4px var(--gl-gray);
@@ -119,12 +119,12 @@
   color: var(--gl-orange);
   min-width: 260px;
   max-width: 350px;
-  height: 38px;
+  height: 25px;
 }
 
 .behaviour-description {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   white-space: pre;
   width: fit-content;
   height: auto;
