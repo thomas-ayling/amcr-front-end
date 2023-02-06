@@ -115,6 +115,7 @@
 }
 
 .behaviour-title {
+  text-align: center;
   color: var(--gl-orange);
   min-width: 260px;
   max-width: 350px;
@@ -122,6 +123,7 @@
 }
 
 .behaviour-description {
+  text-align: center;
   font-size: 1rem;
   white-space: pre;
   width: fit-content;
