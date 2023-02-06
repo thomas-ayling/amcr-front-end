@@ -31,7 +31,7 @@
 .textintro-description {
   margin:auto;
   font-size: 30px;
-  width: 775px;
+  width: 100%;
 }
 
 @media (max-width: 1100px) {
@@ -57,6 +57,10 @@
   .textintro-description {
     font-size: 20px;
   }
+  .textintro-wrapper {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
 }
 
 @media screen and (max-width: 550px) {
@@ -65,6 +69,10 @@
   }
   .textintro-description {
     font-size: 15px;
+  }
+  .textintro-wrapper {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
@@ -75,6 +83,10 @@
   .textintro-description {
     font-size: 15px;
   }
+  .textintro-wrapper {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -84,6 +96,10 @@
   .textintro-description {
     font-size: 10px;
   }
+  .textintro-wrapper {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -92,5 +108,9 @@
   }
   .textintro-description {
     font-size: 10px;
+  }
+  .textintro-wrapper {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 }
