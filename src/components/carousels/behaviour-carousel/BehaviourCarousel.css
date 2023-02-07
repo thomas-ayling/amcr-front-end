@@ -58,7 +58,7 @@
 
 .behaviour-body-carousel-page-title {
   font-weight: 500;
-  font-size: 3vmax;
+  font-size: 2vmax;
   margin-bottom: 15px;
   display: flex;
   justify-content: center;
@@ -74,7 +74,7 @@
 .behaviour-title-slide,
 .behaviour-description-slide {
   opacity: 0;
-  transition-duration: 1s ease;
+  /* transition-duration: 1s ease; */
   transform: scale(0.95);
 }
 
@@ -82,7 +82,7 @@
 .behaviour-title-slide.behaviour-title-active,
 .behaviour-description-slide.behaviour-description-active {
   opacity: 1;
-  transition-duration: 1s;
+  /* transition-duration: 1s; */
   transform: scale(1);
   margin-right: 100px;
 }
@@ -97,12 +97,12 @@
   height: auto;
   border-radius: 5px;
   box-shadow: 2px 2px 4px var(--gl-gray);
-  transition: 0.5s;
+  /* transition: 0.5s; */
 }
 
 .behaviour-image:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 4px var(--gl-medium-gray);
+  box-shadow: 2px 2px 4px var(--gl-orange);
   transition: 0.5s;
 }
 
@@ -115,20 +115,26 @@
 }
 
 .behaviour-title {
+  text-align: center;
   color: var(--gl-orange);
   min-width: 260px;
   max-width: 350px;
-  height: 38px;
+  height: 25px;
 }
 
 .behaviour-description {
-  font-size: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
   white-space: pre;
   width: fit-content;
-  height: auto;
+  height: 150px;
   padding: 0 5px 0 5px;
   border-radius: 5% solid var(--gl-gray);
   background-color: white;
+  overflow: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .behaviour-carousel-arrows {
@@ -192,7 +198,7 @@
   .behaviour-title-slide.behaviour-title-active,
   .behaviour-description-slide.behaviour-description-active {
     opacity: 1;
-    transition-duration: 1s;
+    /* transition-duration: 1s; */
     transform: scale(1);
     margin-right: 0px;
   }
@@ -271,7 +277,7 @@
   .behaviour-title-slide.behaviour-title-active,
   .behaviour-description-slide.behaviour-description-active {
     opacity: 1;
-    transition-duration: 1s;
+    /* transition-duration: 1s; */
     transform: scale(1);
     margin-right: 0px;
   }

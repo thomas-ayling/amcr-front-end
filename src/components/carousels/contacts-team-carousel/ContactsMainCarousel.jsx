@@ -72,7 +72,7 @@ const ContactsMainCarousel = () => {
       <div className='contacts-carousel'>
         <Slider ref={slider} {...settings}>
           {carouselData.map((elem, i) => (
-            <ContactsCarouselCard key={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} />
+            <ContactsCarouselCard key={i} image={elem.imageLink} name={elem.fullName} title={elem.title} description={elem.description} email={elem.email} />
           ))}
         </Slider>
         <div className='contacts-carousel-arrows'>
