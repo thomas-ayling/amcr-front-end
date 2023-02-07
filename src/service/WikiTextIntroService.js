@@ -1,7 +1,7 @@
 const WikiTextIntro = {
-    title: 'What is our Wiki?',
-    description:
-      'The Wiki page provides in-depth information of how the UK&I Engineering Center in Manchester works. Here, we offer information about Engineering Excellence, Employee Development & Growth, as well as other exciting areas in our Engineering Center.',
-  };
-  
-  export default WikiTextIntro;
+  title: 'What is Wiki?',
+  description:
+    'The Wiki page provides in depth information how the UK&I Engineering Center at Manchester works, you could find information about the Engineering Excellence for example, regarding Promotion, Development & Growth the Recruitment & Onboarding, as well as other exciting areas in our UK&I Engineering Center',
+};
+
+export default WikiTextIntro;
