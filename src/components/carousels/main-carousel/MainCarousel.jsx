@@ -1,18 +1,17 @@
-import './MainCarousel.css';
-import { useEffect, useRef, useState } from 'react';
+import "./MainCarousel.css";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
-import CarouselTitles from './shared-carousel-components/CarouselTitles';
+import CarouselTextbox from "./shared-carousel-components/CarouselTextbox";
+import CarouselTitles from "./shared-carousel-components/CarouselTitles";
 
-const MainCarousel = ({ slides, type, isLink, location }) => {
+const MainCarousel = ({ type, isLink, location }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const minSwipeDistance = 75; //distance on when a user swipes
   let timeOut = useRef(null);
-  const [slideData, setSlideData] = useState([]);
- 
+
   useEffect(() => {
     timeOut.current =
       autoPlay &&
@@ -20,40 +19,44 @@ const MainCarousel = ({ slides, type, isLink, location }) => {
         slideRight();
       }, 5000);
     return () => clearTimeout(timeOut.current);
-  });
+  }, []);
 
   useEffect(() => {
     dataRetrival();
-  });
+  }, []);
 
   const dataRetrival = () => {
-    const baseUrl = 'http://localhost:3001/main-carousel/location';
-    const headers = { 
-                  "Content-Type": "application/json",
-                  "Access-Control-Allow-Origin": "*",
-                  "Access-Control-Allow-Headers": "*",
-                  "Access-Control-Allow-Credentials": "true" };
+    const baseUrl = "http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/main-carousel/location";
+    const headers = {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "*",
+        "Access-Control-Allow-Credentials": "true",
+      },
+    };
 
     axios
-    .get(`${baseUrl}/${location}`, { headers: headers })
-    .then((result) => {
-      console.log(result.data);
-      var arraySlide = new Array(result.data.titles);
-      var arrayLength = arraySlide.length;
-      console.log(arraySlide);
-      console.log(arrayLength);
-      for (var i=0; i < arrayLength; i++) {
-        console.log(result.data.titles[i]);
-        console.log(result.data.imageLinks[i]);
-        console.log(result.data.descriptions[i]);
-        slideData.slide({"titles":result.data.titles[i], "descriptions":result.data.titles[i], "imageLinks":result.data.titles[i]});
-        console.log(slideData);
-      };
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-  }
+      .get(`${baseUrl}/${location}`, headers)
+      .then((result) => {
+        if (type.includes("header-single")) {
+          const slides = [];
+          for (let i = 0; i < result.data.titles.length; i++) {
+            slides.push({
+              titles: result.data.titles[i],
+              imageLinks: result.data.imageLinks[i],
+              descriptions: result.data.descriptions ? result.data.descriptions[i] : null,
+            });
+          }
+          console.log("slides", slides);
+        } else {
+          console.log(result.data);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const slideLeft = () => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);
@@ -94,19 +97,25 @@ const MainCarousel = ({ slides, type, isLink, location }) => {
   };
 
   // Internal Components
-  const CarouselCards = ({ slides, current, setCurrent, isLink, handleClickLink  }) => {
+  const CarouselCards = ({ slides, current, setCurrent, isLink, handleClickLink }) => {
     return (
       <div className='textbox-wrapper'>
         {slides.map((carousel, index) => (
-              <div details={index} key={index} className={index === current ? 'carousel-card carousel-card-active' : 'carousel-card'} onClick={() => {isLink && handleClickLink(carousel.id)}}>
+          <div
+            details={index}
+            key={index}
+            className={index === current ? "carousel-card carousel-card-active" : "carousel-card"}
+            onClick={() => {
+              isLink && handleClickLink(carousel.id);
+            }}
+          >
             <img className='card-image' src={carousel.image} alt='' />
             <div className='card-overlay'></div>
-            {type.includes('textbox') && <SlideDots slides={slides} current={current} setCurrent={setCurrent} />}
-            {type.includes('header-multi') && <SlideDots slides={slides} current={current} setCurrent={setCurrent} />}
-            {type.includes('header-single') && <div></div>}
+            {type.includes("textbox") && <SlideDots slides={slides} current={current} setCurrent={setCurrent} />}
+            {type.includes("header-multi") && <SlideDots slides={slides} current={current} setCurrent={setCurrent} />}
+            {type.includes("header-single") && <div></div>}
           </div>
         ))}
-  
       </div>
     );
   };
@@ -115,13 +124,13 @@ const MainCarousel = ({ slides, type, isLink, location }) => {
     return (
       <div className='slide-dots'>
         {slides.map((_, index) => (
-          <div key={index} className={index === current ? 'pagination-dot pagination-dot-active' : 'pagination-dot'} onClick={() => setCurrent(index)}></div>
+          <div key={index} className={index === current ? "pagination-dot pagination-dot-active" : "pagination-dot"} onClick={() => setCurrent(index)}></div>
         ))}
       </div>
     );
   };
 
-  const containerClassNames = `${type.includes('header') && 'header-carousel'} ${type.includes('textbox') && 'textbox-carousel'}`;
+  const containerClassNames = `${type.includes("header") && "header-carousel"} ${type.includes("textbox") && "textbox-carousel"}`;
   return (
     <div className={`carousel-container ${containerClassNames}`}>
       <div
