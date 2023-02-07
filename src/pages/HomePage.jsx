@@ -8,7 +8,6 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 import TextIntro from '../components/shared-components/text-intro/TextIntro';
 import HomepageTextIntro from '../service/HomepageTextIntroService';
 
-
 const HomePage = () => {
   return (
     <div className='homepage-container'>
