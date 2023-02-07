@@ -1,0 +1,18 @@
+.wiki-single-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wiki-single-admin-toggle {
+  color: blue;
+  text-decoration: underline;
+  background: none;
+  border: none;
+}
+
+.wiki-single-button {
+  background-color: var(--gl-orange);
+  border: 1px solid var(--gl-dark-orange);
+  color: var(--gl-light-gray);
+}
