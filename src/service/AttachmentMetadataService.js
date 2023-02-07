@@ -4,13 +4,13 @@ import { partial } from 'filesize';
 const getMetadata = (attachmentLinks, setAttachmentMetadata) => {
   const bytesToReadable = partial({ base: 2, standard: 'jedec' });
   const TIMEOUT = 100;
-  const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
+  const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
   const promises = attachmentLinks.map((link, index) => {
     return new Promise((resolve, reject) => {
       setTimeout(
         () =>
           axios
-            .get(`${link}/metadata`, {headers: headers})
+            .get(`${link}/metadata`, { headers: headers })
             .then((res) => resolve(res))
             .catch((err) => reject(err)),
         TIMEOUT * index
@@ -19,11 +19,13 @@ const getMetadata = (attachmentLinks, setAttachmentMetadata) => {
   });
   Promise.all(promises)
     .then((res) => {
+      console.log('res[0].data.type', res[0].data.type);
       setAttachmentMetadata(
         res.map((item, index) => ({
           name: item.data.name,
           size: bytesToReadable(item.data.size),
-          type: item.data.type.split('/')[1].toUpperCase(),
+          type:
+            item.data.type.split('/')[1].toUpperCase() === 'VND.OPENXMLFORMATS-OFFICEDOCUMENT.PRESENTATIONML.PRESENTATION' ? 'PPTX' : item.data.type.split('/')[1].toUpperCase(),
           link: attachmentLinks[index],
         }))
       );

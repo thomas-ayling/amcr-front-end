@@ -20,9 +20,10 @@
 }
 
 .cssp-title {
-  font-size: 55px;
+  font-size: 45px;
   padding-top: 1rem;
   text-align: center;
+  overflow-wrap: break-word;
 }
 
 .cssp-body {
@@ -76,9 +77,8 @@
   border-radius: 5px;
   background-color: var(--gl-orange);
   color: var(--gl-light-gray);
-  border: 1px solid var(--gl-dark-orange)
+  border: 1px solid var(--gl-dark-orange);
 }
-
 
 .cssp-download-button:hover {
   background-color: var(--gl-dark-orange);
