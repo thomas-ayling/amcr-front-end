@@ -1,17 +1,17 @@
 import './MainCarousel.css';
 import { useEffect, useRef, useState } from 'react';
+import axios from "axios";
 import CarouselTextbox from './shared-carousel-components/CarouselTextbox';
 import CarouselTitles from './shared-carousel-components/CarouselTitles';
 
-const MainCarousel = ({ slides, type, isLink }) => {
+const MainCarousel = ({ slides, type, isLink, location }) => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
-
   const minSwipeDistance = 75; //distance on when a user swipes
-
   let timeOut = useRef(null);
+  const [slideData, setSlideData] = useState([]);
  
   useEffect(() => {
     timeOut.current =
@@ -21,6 +21,39 @@ const MainCarousel = ({ slides, type, isLink }) => {
       }, 5000);
     return () => clearTimeout(timeOut.current);
   });
+
+  useEffect(() => {
+    dataRetrival();
+  });
+
+  const dataRetrival = () => {
+    const baseUrl = 'http://localhost:3001/main-carousel/location';
+    const headers = { 
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "*",
+                  "Access-Control-Allow-Headers": "*",
+                  "Access-Control-Allow-Credentials": "true" };
+
+    axios
+    .get(`${baseUrl}/${location}`, { headers: headers })
+    .then((result) => {
+      console.log(result.data);
+      var arraySlide = new Array(result.data.titles);
+      var arrayLength = arraySlide.length;
+      console.log(arraySlide);
+      console.log(arrayLength);
+      for (var i=0; i < arrayLength; i++) {
+        console.log(result.data.titles[i]);
+        console.log(result.data.imageLinks[i]);
+        console.log(result.data.descriptions[i]);
+        slideData.slide({"titles":result.data.titles[i], "descriptions":result.data.titles[i], "imageLinks":result.data.titles[i]});
+        console.log(slideData);
+      };
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+  }
 
   const slideLeft = () => {
     setCurrent(current === 0 ? slides.length - 1 : current - 1);

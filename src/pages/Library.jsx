@@ -8,7 +8,7 @@ import LibraryHeader from '../service/LibraryHeader';
 const Library = () => {
   return (
     <>
-      <MainCarousel type='header-single-description' slides={LibraryHeader} />
+      <MainCarousel type='header-single' slides={LibraryHeader} location="library"/>
       <LibrarySearch />
       <ContactComponent feedbackType='library' />
     </>
