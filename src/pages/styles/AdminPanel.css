@@ -48,8 +48,8 @@
   border-collapse: collapse;
 }
 
-.feedback-panel-table > thead > tr > th,
-.feedback-panel-table > tbody > tr > td {
+.feedback-panel-table th,
+.feedback-panel-table td {
   border: 1px solid;
   padding: 0 10px 0 10px;
 }
