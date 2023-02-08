@@ -24,7 +24,6 @@ const get = (location, setSlideHeaderData) => {
             });
           }
           setSlideHeaderData(slides);
-          console.log("slides", slides);
       })
       .catch((err) => {
         console.error(err);
