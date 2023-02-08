@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CarouselTitles.css';
 
-const CarouselTitles = ({ slides, current, isLink, type }) => {
+const CarouselTitles = ({ slideData, current, isLink, type }) => {
   const navigate = useNavigate();
 
   const handleClickLink = (id) => {
@@ -15,15 +15,15 @@ const CarouselTitles = ({ slides, current, isLink, type }) => {
 
   return (
     <div className={`title-wrapper ${wrapperClassNames}`}>
-      {slides.map((slide, index) => (
+      {slideData.map((slide, index) => (
         <div
           key={index}
           className={`carousel-title ${isLink && 'carousel-title-link'} ${index === current && 'active-carousel-title'}`}
           onClick={() => {
-            isLink && handleClickLink(slides[current].id);
+            isLink && handleClickLink(slide.id);
           }}
         >
-          {slide.title}
+          {slide.titles}
         </div>
       ))}
     </div>
