@@ -8,7 +8,7 @@ import TextIntro from '../components/shared-components/text-intro/TextIntro';
 import ContentSection from '../components/wiki/ContentSection';
 
 const Wiki = () => {
-  const [slideData, setSlideData] = useState();
+  const [slideData, setSlideData] = useState([]);
 
   useEffect(() => {
     get("wiki-header", setSlideData);

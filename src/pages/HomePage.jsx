@@ -8,8 +8,8 @@ import ContactComponent from '../components/contact-component/ContactComponent';
 import TextIntro from '../components/shared-components/text-intro/TextIntro';
 
 const HomePage = () => {
-  const [slideHeaderData, setSlideHeaderData] = useState();
-  const [slideMainData, setSlideMainData] = useState();
+  const [slideHeaderData, setSlideHeaderData] = useState([]);
+  const [slideMainData, setSlideMainData] = useState([]);
 
   useEffect(() => {
     get("homepage-header", setSlideHeaderData);

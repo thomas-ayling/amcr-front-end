@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const get = (location, setSlideHeaderData) => {
-    const baseUrl = 'http://localhost:3001/main-carousel/location';
-    // const baseUrl = "http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/main-carousel/location";
+    const baseUrl = "http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/main-carousel/location";
     const headers = {
       headers: {
         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ import { get } from '../service/MainCarouselService';
 import { useEffect, useState } from "react";
 
 const Library = () => {
-  const [slideData, setSlideData] = useState();
+  const [slideData, setSlideData] = useState([]);
 
   useEffect(() => {
     get("library", setSlideData);
