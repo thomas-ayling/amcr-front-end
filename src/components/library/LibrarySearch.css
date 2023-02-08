@@ -3,21 +3,17 @@
   width: 100%;
   height: auto;
   padding: 1rem;
-
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: flex-start;
-
   background-color: var(--gl-light-gray);
-  border-radius: 17.5px;
 }
 
 .Library-Wrapper {
   width: 100%;
   height: auto;
   padding: 2%;
-
   background-color: white;
   border-radius: 10px;
 }
@@ -122,8 +118,8 @@
 }
 
 .Library-Search-Input {
-  border-radius: 10px;
-  border-color: var(--gl-light-orange);
+  border-radius: 5px;
+  border: 1px solid var(--gl-light-orange);
   width: 60vmin;
   height: auto;
   font-size: 1rem;
