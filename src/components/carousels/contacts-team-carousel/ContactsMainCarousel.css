@@ -69,6 +69,11 @@
   margin-bottom: 20px;
   overflow: scroll;
   overflow-x: hidden;
+  scrollbar-color: var(--gl-medium-gray) white;
+}
+
+.contacts-carousel-card-description::-webkit-scrollbar {
+  background-color: white;
 }
 
 /* ContactsMainCarousel.jsx */
