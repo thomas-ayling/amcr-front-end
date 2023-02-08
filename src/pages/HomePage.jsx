@@ -6,7 +6,6 @@ import MainCarouselSlides from '../service/MainCarouselMockService';
 import HomepageCarouselSlides from '../service/HomepageCarouselMockService';
 import ContactComponent from '../components/contact-component/ContactComponent';
 import TextIntro from '../components/shared-components/text-intro/TextIntro';
-import HomepageTextIntro from '../service/HomepageTextIntroService';ev
 
 const HomePage = () => {
   return (
