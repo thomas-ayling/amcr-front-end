@@ -1,37 +1,56 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import ToggleVisibility from "./ToggleVisibility";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { Modal, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import ToggleVisibility from './ToggleVisibility';
+import { BsPlusCircleFill } from 'react-icons/bs';
+import { Modal, Button } from 'react-bootstrap';
 import { runToastNotification } from '../toast-notification/ToastNotification';
 
-import "./LibrarySearch.css";
+import './LibrarySearch.css';
+import { get, post, put } from '../../service/LibraryService';
 
 // Component for the engineering centre library
 const LibrarySearch = () => {
   const [books, setBooks] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [searchParam] = useState(["title", "author", "genre"]);
-  const [filterParam, setFitlerParam] = useState("");
-  const [bookTitleInput, setBookTitleInput] = useState("");
-  const [bookAuthorInput, setBookAuthorInput] = useState("");
-  const [bookCoverInput, setBookCoverInput] = useState("");
-  const [bookGenreInput, setBookGenreInput] = useState("");
+  const [searchInput, setSearchInput] = useState('');
+  const [searchParam] = useState(['title', 'author', 'genre']);
+  const [filterParam, setFitlerParam] = useState('');
+  const [bookTitleInput, setBookTitleInput] = useState('');
+  const [bookAuthorInput, setBookAuthorInput] = useState('');
+  const [bookCoverInput, setBookCoverInput] = useState('');
+  const [bookGenreInput, setBookGenreInput] = useState('');
   const [showModal, setShow] = useState(false);
-  const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001';
+  const [responseStatus, setResponseStatus] = useState();
 
   // On render calls the axios request for loading all books
   useEffect(() => {
-    axios
-      .get(`${baseUrl}/books/`)
-      .then((result) => {
-        setBooks(result.data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    get(setBooks, setResponseStatus);
   }, []);
+
+  useEffect(() => {
+    if (responseStatus === 'get-error') {
+      runToastNotification('There was an error loading library data', 'error');
+      return;
+    }
+    if (responseStatus === 'post-error') {
+      runToastNotification('There was an error saving this book', 'error');
+      return;
+    }
+    if (responseStatus === 'post-success') {
+      runToastNotification('Book successfully saved!', 'success');
+      return;
+    }
+    if (responseStatus === 'put-error') {
+      runToastNotification('There was an error reserving this book', 'error');
+      return;
+    }
+    if (responseStatus === 'put-success') {
+      runToastNotification('Book successfully reserved!', 'success');
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000);
+      return;
+    }
+  }, [responseStatus]);
 
   // ADMIN ONLY - Axios request for adding new book to library
   const uploadBook = (e) => {
@@ -43,52 +62,31 @@ const LibrarySearch = () => {
       available: true,
       cover: bookCoverInput,
     };
-    const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
-    axios
-      .post(`${baseUrl}/books/`, newBook, { headers: headers })
-      .then(function (response) {
-        //handle success
-        console.log(response);
-        runToastNotification("Book successfully added!", 'success');
-      })
-      .catch((error) => {
-        //handle error
-        console.log(error.status);
-        runToastNotification("Book failed to be added!", 'error');
-      });
+    post(newBook, setResponseStatus);
   };
 
   // Function that is created within the book mapping to create a reservation area
   function ReserveWrapper({ book }) {
-    const [readerNameInput, setReaderNameInput] = useState("");
-    const [readerEmailInput, setReaderEmailInput] = useState("");
+    const [readerNameInput, setReaderNameInput] = useState('');
+    const [readerEmailInput, setReaderEmailInput] = useState('');
 
     // Function for reserving specific book with axios request
-    function reserveBook(event) {
+    function reserveBook(e, book) {
+      e.preventDefault();
       const reserveBook = {
         reader: readerNameInput,
         email: readerEmailInput,
       };
-      console.log(reserveBook);
-      const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
-      axios
-        .put(`${baseUrl}/books/${book.id}`, reserveBook, { headers: headers })
-        .then(function (response) {
-          //handle success
-          console.log(response);
-        })
-        .catch((error) => {
-          //handle error
-          console.log(error.status);
-        });
+      put(book.id, reserveBook, setResponseStatus);
     }
+
     if (book.available === true) {
       return (
         <ToggleVisibility>
-          <form className='Library-Reservation-Input-Container'>
+          <form className='Library-Reservation-Input-Container' onSubmit={(e) => reserveBook(e, book)}>
             <input
-              className='Library-Reservation-Input'
               type='search'
+              className='Library-Reservation-Input'
               name='reader-name-input'
               placeholder='Name'
               value={readerNameInput}
@@ -97,8 +95,8 @@ const LibrarySearch = () => {
               }}
             />
             <input
-              className='Library-Reservation-Input'
               type='email'
+              className='Library-Reservation-Input'
               name='reader-firstname-input'
               placeholder='Email'
               value={readerEmailInput}
@@ -106,9 +104,7 @@ const LibrarySearch = () => {
                 setReaderEmailInput(e.target.value);
               }}
             />
-            <button className='Library-Reservation-Button' onClick={reserveBook}>
-              Reserve
-            </button>
+            <input type='submit' value='Reserve' className='Library-Reservation-Button' />
           </form>
         </ToggleVisibility>
       );
@@ -128,7 +124,7 @@ const LibrarySearch = () => {
         return searchParam.some((newItem) => {
           return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
         });
-      } else if (filterParam === "") {
+      } else if (filterParam === '') {
         return searchParam.some((newItem) => {
           return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
         });
@@ -155,7 +151,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Java");
+                setFitlerParam('Java');
               }}
             >
               Java
@@ -163,7 +159,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Python");
+                setFitlerParam('Python');
               }}
             >
               Python
@@ -171,7 +167,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Devops");
+                setFitlerParam('Devops');
               }}
             >
               DevOps
@@ -179,7 +175,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Management");
+                setFitlerParam('Management');
               }}
             >
               Management
@@ -187,7 +183,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Buisness");
+                setFitlerParam('Buisness');
               }}
             >
               Buisness
@@ -195,7 +191,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("");
+                setFitlerParam('');
               }}
             >
               Reset
@@ -204,14 +200,7 @@ const LibrarySearch = () => {
         </div>
         <div className='Library-SearchBar-Wrapper'>
           <label htmlFor='search-bar'>
-            <input
-              type='search'
-              name='search-bar'
-              className='Library-Search-Input'
-              placeholder='Search Library Here...'
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-            />
+            <input type='search' name='search-bar' className='Library-Search-Input' placeholder='Search Library Here...' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
           </label>
           {/* Genre Book selector dropdown that only appears on mobiles < 425px in screen width */}
           <div className='Library-Genre-Select-Dropdown'>
