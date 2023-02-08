@@ -18,6 +18,9 @@ const LibrarySearch = () => {
   const [bookAuthorInput, setBookAuthorInput] = useState('');
   const [bookCoverInput, setBookCoverInput] = useState('');
   const [bookGenreInput, setBookGenreInput] = useState('');
+  const [readerNameInput, setReaderNameInput] = useState('');
+  const [readerEmailInput, setReaderEmailInput] = useState('');
+
   const [showModal, setShow] = useState(false);
   const [responseStatus, setResponseStatus] = useState();
 
@@ -65,21 +68,18 @@ const LibrarySearch = () => {
     post(newBook, setResponseStatus);
   };
 
+  // Function for reserving specific book with axios request
+  function reserveBook(e, book) {
+    e.preventDefault();
+    const reserveBook = {
+      reader: readerNameInput,
+      email: readerEmailInput,
+    };
+    put(book.id, reserveBook, setResponseStatus);
+  }
+
   // Function that is created within the book mapping to create a reservation area
   function ReserveWrapper({ book }) {
-    const [readerNameInput, setReaderNameInput] = useState('');
-    const [readerEmailInput, setReaderEmailInput] = useState('');
-
-    // Function for reserving specific book with axios request
-    function reserveBook(e, book) {
-      e.preventDefault();
-      const reserveBook = {
-        reader: readerNameInput,
-        email: readerEmailInput,
-      };
-      put(book.id, reserveBook, setResponseStatus);
-    }
-
     if (book.available === true) {
       return (
         <ToggleVisibility>
