@@ -11,10 +11,10 @@ const DescriptionSlider = ({ current, overviews }) => {
               <MarkdownComponent markdownText={overview} />
             </div>
           </div>
-          <div className='case-study-carousel-scroll-arrows'>
-            <div className='case-study-carousel-scroll-up'></div>
-            <div className='case-study-carousel-scroll-down'></div>
-          </div>
+          {/*<div className='case-study-carousel-scroll-arrows'>*/}
+          {/*  <div className='case-study-carousel-scroll-up'></div>*/}
+          {/*  <div className='case-study-carousel-scroll-down'></div>*/}
+          {/*</div>*/}
         </div>
       )
   );
