@@ -36,7 +36,6 @@ const get = (last, setSubmitStatus, setResponse) => {
     .then((res) => {
       setSubmitStatus('success');
       setResponse(res.data);
-      console.log('res.data', res.data);
     })
     .catch((err) => {
       setSubmitStatus('error');
@@ -44,14 +43,18 @@ const get = (last, setSubmitStatus, setResponse) => {
     });
 };
 
-const getCount = (setCount, setLast) => {
+const getCount = (setCount, setLast, setSubmitStatus) => {
   axios
     .get(`${baseUrl}/count`, headers)
     .then((res) => {
+      setSubmitStatus("success")
       setCount(res.data);
       setLast(res.data);
     })
-    .catch(setCount(0));
+    .catch(() => {
+      setSubmitStatus('error');
+      setCount(0);
+    });
 };
 
 export { create, get, getCount };

@@ -5,6 +5,7 @@ import { ImCross } from 'react-icons/im';
 
 import './styles/AdminPanel.css';
 import { StyledHr } from '../styles/styles';
+import { runToastNotification } from '../components/toast-notification/ToastNotification';
 
 const AdminPanel = () => {
   const [last, setLast] = useState();
@@ -19,13 +20,19 @@ const AdminPanel = () => {
   }, [last]);
 
   useEffect(() => {
-    getCount(setCount, setLast);
+    getCount(setCount, setLast, setSubmitStatus);
   }, []);
 
+  useEffect(() => {
+    if (submitStatus === 'error') {
+      runToastNotification('There was an error loading admin data', 'error');
+    }
+  }, [submitStatus]);
+
   const handleLeftClick = () => {
-    if (last - 10 > 0)
-    setLast(last - 10);
+    if (last - 10 > 0) setLast(last - 10);
   };
+
   const handleRightClick = () => {
     if (last + 10 > count) {
       setLast(count);
@@ -54,6 +61,7 @@ const AdminPanel = () => {
                   <th>Attachment link</th>
                 </tr>
               </thead>
+
               <tbody>
                 {response.map((row, i) => (
                   <tr key={i}>
