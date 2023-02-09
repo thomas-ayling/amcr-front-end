@@ -98,19 +98,22 @@
   .cssp-body-wrapper {
     width: 550px;
   }
-  .cssp-body-row {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* grid-template-columns: 100% !important;
-    grid-template-rows: 50% 50% !important;
-    grid-template-areas: 'image text' !important; */
+
+  .cssp-body-row,
+  .cssp-body-row-edit {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .cssp-undo-redo-buttons-container {
+    display: none;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 551px) {
   .cssp-body-wrapper {
-    width: 95vw;
+    width: 90% !important;
   }
 
   .cssp-title {
@@ -120,6 +123,13 @@
   .cssp-body-row {
     width: 100%;
     display: flex;
+    flex-direction: column;
+  }
+  .cssp-download-link-container {
+    flex-direction: column;
+  }
+  .edit-carousel-container {
+    display: flex !important;
     flex-direction: column;
   }
 }
