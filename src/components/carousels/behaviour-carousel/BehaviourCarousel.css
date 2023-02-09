@@ -131,8 +131,7 @@
   padding: 0 5px 0 5px;
   border-radius: 5% solid var(--gl-gray);
   background-color: white;
-  overflow: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }

@@ -12,13 +12,15 @@
     border-radius: 17.5px;
     bottom: 0px;
     user-select: none;
-    text-shadow: 1px 1px black;
+    -webkit-text-stroke: 1px var(--gl-medium-gray);
     font-weight: bold;
   }
 
   .carousel-title-link:hover {
     transition: 0.1s ease-in-out;
     color: var(--gl-orange);
+    -webkit-text-stroke: 1px var(--gl-dark-orange);
+
   }
 
   .active-carousel-title  {
