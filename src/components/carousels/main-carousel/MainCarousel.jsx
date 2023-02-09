@@ -18,20 +18,16 @@ const MainCarousel = ({ slideData, type, isLink }) => {
       autoPlay &&
       setTimeout(() => {
         slideRight();
-      }, 1000);
+      }, 5000);
     return () => clearTimeout(timeOut.current);
   }, []);
 
   const slideLeft = () => {
-    if (type.includes("header-single")) {
-      console.log("single pringle")
-    } else {setCurrent(current === 0 ? slideData.length - 1 : current - 1);}
+    setCurrent(current === 0 ? slideData.length - 1 : current - 1);
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
   const slideRight = () => {
-    if (type.includes("header-single")) {
-      console.log("single pringle")
-  } else {setCurrent(current === slideData.length - 1 ? 0 : current + 1);}
+    setCurrent(current === slideData.length - 1 ? 0 : current + 1);
   };
 
   const onTouchStart = (e) => {
