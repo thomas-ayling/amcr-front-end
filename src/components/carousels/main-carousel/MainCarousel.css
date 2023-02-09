@@ -100,16 +100,22 @@
   justify-content: flex-start !important;
   top: 90%;
   left: 1%;
+  top: 90%;
+  left: 1%;
 }
 
 .title-wrapper-header-single {
   justify-content: flex-start !important;
   top: 90%;
   left: 1%;
+  top: 90%;
+  left: 1%;
 }
 
 .title-wrapper-header-single-description {
   justify-content: flex-start !important;
+  top: 70%;
+  left: 1%;
   top: 70%;
   left: 1%;
 }
@@ -155,6 +161,8 @@
 
 /* to be moved after merge */
 .case-study-header-carousel {
+  color: white;
+
   color: white;
   cursor: pointer;
 }
