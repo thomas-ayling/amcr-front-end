@@ -27,7 +27,7 @@ const CaseStudies = () => {
   if (headerCarouselLoaded && carouselLoaded) {
     return (
       <>
-        <MainCarousel type='header-multi' slides={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />
+        <MainCarousel type='header-multi' slideData={headerCarouselData} isLink={true} classNames='case-study-header-carousel' />
         <CaseStudyCarousel pageData={carouselData} />
         <ContactComponent feedbackType='case-study' />
       </>

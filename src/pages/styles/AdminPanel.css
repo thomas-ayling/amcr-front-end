@@ -1,0 +1,68 @@
+.arrow-icon {
+  width: 25px;
+}
+
+.left-arrow {
+  transform: scaleX(-1);
+}
+
+.admin-panel-container {
+  width: 1100px;
+  background-color: var(--gl-light-gray);
+  margin: auto;
+  border-radius: 17.5px;
+  padding: 1rem;
+}
+
+.admin-panel-wrapper {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+}
+
+.admin-panel-title {
+  text-align: center;
+}
+
+.admin-bottom-button {
+  border: 1px solid var(--gl-gray);
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
+}
+
+.admin-bottom-button:hover {
+  background-color: var(--gl-gray);
+}
+
+.admin-buttom-button-container {
+  align-self: center;
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback-panel-table {
+  border-collapse: collapse;
+}
+
+.feedback-panel-table th,
+.feedback-panel-table td {
+  border: 1px solid;
+  padding: 0 10px 0 10px;
+}
+
+.admin-panel-cross {
+  background-color: red;
+}
+
+.feedback-panel-link-col {
+  max-width: 5px;
+}
+
+.feedback-panel-link {
+  width: 50rem;
+  font-size: 1rem;
+}
