@@ -2,7 +2,6 @@ import React from 'react';
 import MainCarousel from '../components/carousels/main-carousel/MainCarousel';
 import ContactsMainCarousel from '../components/carousels/contacts-team-carousel/ContactsMainCarousel';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import DropFileInput from '../../src/components/attachment-component/DropFileInput';
 import { get } from '../service/MainCarouselService';
 import { useEffect, useState } from "react";
 
@@ -17,9 +16,6 @@ const Contacts = () => {
       <MainCarousel type='header-single' slideData={slideData} />
       <ContactsMainCarousel />
       <ContactComponent feedbackType={'improvement'} />
-      <div className='drag-and-drop-box'>
-        <DropFileInput />
-      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { get, getCount } from '../service/FeedbackService';
 import { ImCross } from 'react-icons/im';
 
 import './styles/AdminPanel.css';
+import DropFileInput from '../../src/components/attachment-component/DropFileInput';
 import { StyledHr } from '../styles/styles';
 import { runToastNotification } from '../components/toast-notification/ToastNotification';
 
@@ -43,6 +44,7 @@ const AdminPanel = () => {
 
   if (response)
     return (
+      <>
       <div className='admin-panel-container'>
         <div className='admin-panel-wrapper'>
           <h1 className='admin-panel-title'>All feedback</h1>
@@ -110,6 +112,10 @@ const AdminPanel = () => {
           </div>
         </div>
       </div>
+      <div className='drag-and-drop-box'>
+        <DropFileInput />
+      </div>
+      </>
     );
 };
 

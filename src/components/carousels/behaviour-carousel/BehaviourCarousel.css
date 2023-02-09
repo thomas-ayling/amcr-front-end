@@ -136,6 +136,10 @@
   scrollbar-width: none;
 }
 
+.behaviour-description::-webkit-scrollbar {
+  background-color: white;
+}
+
 .behaviour-carousel-arrows {
   display: flex;
   justify-content: center;
