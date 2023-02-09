@@ -69,3 +69,16 @@
   width: 50rem;
   font-size: 1rem;
 }
+
+@media (max-width: 1101px) {
+  .admin-panel-container {
+    width: 95vw;
+  }
+
+.feedback-panel-table th,
+.feedback-panel-table td,
+.feedback-panel-table a {
+  max-width: 97px;
+  font-size: small;
+}
+}
