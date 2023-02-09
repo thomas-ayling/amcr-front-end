@@ -19,60 +19,33 @@ import LibraryHeader from './carousels/LibraryHeader';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
+//loc is the page the grid is on eg "homepage", "contacts", "case-study" it should match the name in the backend for the desired page
+
 function Grid(loc) {
   const [layout, setLayout] = useState([]);
   const [page, setPage] = useState([]);
-  const [isStatic, setIsStatic] = useState(true);
+
+  //Used to turn resizeable and draggable functions on and off false =!resizeable and !Draggable
+  const [isChangeable, setIsChangeable] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const baseURL = 'http://localhost:3001/page-layout/';
+  const baseURL = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/page-layout';
 
   useEffect(() => {
-    axios
-      .get(`${baseURL}name=${loc.loc}`)
-      .then((res) => {
-        if (res) {
-          setIsLoading(false);
-          setPage(res.data);
-          setLayout(res.data.components);
-          setIsStatic(res.data.static);
-        }
-      })
-      .catch((err) => {
-        throw new Error(err.message);
-      });
+    axios.get(`${baseURL}?name=${loc.loc}`).then((res) => {
+      if (res) {
+        setIsLoading(false);
+        setPage(res.data);
+        setLayout(res.data.components);
+      }
+    });
   }, []);
-
-  useEffect(() => {
-    console.log('isStatic', isStatic);
-  }, [isStatic]);
-
-  console.log('layout', layout);
-  const onOff = () => {
-    if (isStatic === false) {
-      setIsStatic(true);
-      console.log('isStatic2', isStatic);
-      // axios.put(
-      //   `${baseURL}${item.id}`,
-
-      //   {
-      //     static: isStatic,
-      //   }
-      // );
-    } else {
-      console.log('isStatic3', isStatic);
-      setIsStatic(false);
-      // axios.put(`${baseURL}${item.id}`, {
-      //   static: isStatic,
-      // });
-    }
-  };
 
   const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
   const updateItem = (item) => {
     axios.put(
-      `${baseURL}${item.id}`,
+      `${baseURL}/${item.id}`,
 
       {
         components: layout,
@@ -80,7 +53,7 @@ function Grid(loc) {
       { headers: headers }
     );
   };
-
+  // This is where the component knows what to render new components need to be added to the switch case so that they can be inside the grid
   const handleComponent = (item) => {
     switch (item.i) {
       case 'homepage-header-carousel':
@@ -126,9 +99,9 @@ function Grid(loc) {
         return <p>No return</p>;
     }
   };
-  console.log('isStatic', isStatic);
-  if (isLoading) return <Loader />;
 
+  if (isLoading) return <Loader />;
+  // A list of more props is available @ https://github.com/react-grid-layout/react-grid-layout
   return (
     <div>
       <ResponsiveGridLayout
@@ -140,8 +113,8 @@ function Grid(loc) {
         width={1200}
         onLayoutChange={(movingItem) => setLayout(movingItem)}
         isBounded={true}
-        isResizable={isStatic}
-        isDraggable={isStatic}
+        isResizable={isChangeable}
+        isDraggable={isChangeable}
         autoSize={true}
       >
         {layout?.map((component) => (
@@ -150,7 +123,7 @@ function Grid(loc) {
           </div>
         ))}
       </ResponsiveGridLayout>
-      <button className='Grid-button' onClick={() => setIsStatic(!isStatic)}>
+      <button className='Grid-button' onClick={() => setIsChangeable(!isChangeable)}>
         on/off
       </button>
       <button className='Grid-button' onClick={() => updateItem(page)}>

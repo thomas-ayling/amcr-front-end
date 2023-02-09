@@ -5,7 +5,7 @@ import '/node_modules/react-resizable/css/styles.css';
 const Configuration = () => {
   return (
     <div>
-      <div>Configurations</div>
+      <Grid loc={'homepage'} />
     </div>
   );
 };

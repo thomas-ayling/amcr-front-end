@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
-import ToggleVisibility from "./ToggleVisibility";
-import { BsPlusCircleFill } from "react-icons/bs";
-import { Modal, Button } from "react-bootstrap";
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
+import ToggleVisibility from './ToggleVisibility';
+import { BsPlusCircleFill } from 'react-icons/bs';
+import { Modal, Button } from 'react-bootstrap';
 import { runToastNotification } from '../toast-notification/ToastNotification';
 
-import "./LibrarySearch.css";
+import './LibrarySearch.css';
 
 // Component for the engineering centre library
 const LibrarySearch = () => {
   const [books, setBooks] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
-  const [searchParam] = useState(["title", "author", "genre"]);
-  const [filterParam, setFitlerParam] = useState("");
-  const [bookTitleInput, setBookTitleInput] = useState("");
-  const [bookAuthorInput, setBookAuthorInput] = useState("");
-  const [bookCoverInput, setBookCoverInput] = useState("");
-  const [bookGenreInput, setBookGenreInput] = useState("");
+  const [searchInput, setSearchInput] = useState('');
+  const [searchParam] = useState(['title', 'author', 'genre']);
+  const [filterParam, setFitlerParam] = useState('');
+  const [bookTitleInput, setBookTitleInput] = useState('');
+  const [bookAuthorInput, setBookAuthorInput] = useState('');
+  const [bookCoverInput, setBookCoverInput] = useState('');
+  const [bookGenreInput, setBookGenreInput] = useState('');
   const [showModal, setShow] = useState(false);
   const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001';
 
@@ -43,25 +43,25 @@ const LibrarySearch = () => {
       available: true,
       cover: bookCoverInput,
     };
-    const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
+    const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
     axios
       .post(`${baseUrl}/books/`, newBook, { headers: headers })
       .then(function (response) {
         //handle success
         console.log(response);
-        runToastNotification("Book successfully added!", 'success');
+        runToastNotification('Book successfully added!', 'success');
       })
       .catch((error) => {
         //handle error
         console.log(error.status);
-        runToastNotification("Book failed to be added!", 'error');
+        runToastNotification('Book failed to be added!', 'error');
       });
   };
 
   // Function that is created within the book mapping to create a reservation area
   function ReserveWrapper({ book }) {
-    const [readerNameInput, setReaderNameInput] = useState("");
-    const [readerEmailInput, setReaderEmailInput] = useState("");
+    const [readerNameInput, setReaderNameInput] = useState('');
+    const [readerEmailInput, setReaderEmailInput] = useState('');
 
     // Function for reserving specific book with axios request
     function reserveBook(event) {
@@ -70,7 +70,7 @@ const LibrarySearch = () => {
         email: readerEmailInput,
       };
       console.log(reserveBook);
-      const headers = { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "*", "Access-Control-Allow-Credentials": "true" };
+      const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
       axios
         .put(`${baseUrl}/books/${book.id}`, reserveBook, { headers: headers })
         .then(function (response) {
@@ -128,7 +128,7 @@ const LibrarySearch = () => {
         return searchParam.some((newItem) => {
           return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
         });
-      } else if (filterParam === "") {
+      } else if (filterParam === '') {
         return searchParam.some((newItem) => {
           return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
         });
@@ -155,7 +155,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Java");
+                setFitlerParam('Java');
               }}
             >
               Java
@@ -163,7 +163,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Python");
+                setFitlerParam('Python');
               }}
             >
               Python
@@ -171,7 +171,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Devops");
+                setFitlerParam('Devops');
               }}
             >
               DevOps
@@ -179,7 +179,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Management");
+                setFitlerParam('Management');
               }}
             >
               Management
@@ -187,7 +187,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("Buisness");
+                setFitlerParam('Buisness');
               }}
             >
               Buisness
@@ -195,7 +195,7 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam("");
+                setFitlerParam('');
               }}
             >
               Reset
