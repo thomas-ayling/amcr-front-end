@@ -26,7 +26,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--gl-gray);
-  padding: 10vh 0 10vh 0;
+  padding: 4vh 0 9.5vh 0;
 }
 
 .contact-component {
@@ -256,7 +256,7 @@ textarea::-webkit-scrollbar {
     padding: 1 0.75rem 1 0.75rem !important;
     align-items: center;
     width: 550px !important;
-    margin-top: 3rem !important;
+    /*margin-top: 3rem !important;*/
   }
 
   .description-container {
