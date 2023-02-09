@@ -9,7 +9,7 @@ const ContentSection = () => {
   const [imageSize, setImageSize] = useState(45);
 
   useEffect(() => {
-    windowWidth > 551 ? setImageSize(45) : windowWidth > 365 ? setImageSize(30) : setImageSize(25);
+    windowWidth > 551 ? setImageSize(45) : windowWidth > 365 ? setImageSize(30) : windowWidth > 300 ? setImageSize(25) : setImageSize(50);
   }, [windowWidth]);
 
   const resizeObserver = new ResizeObserver((entries) => {
