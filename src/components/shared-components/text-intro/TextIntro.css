@@ -1,19 +1,15 @@
 .textintro-container {
   background-color: var(--gl-light-gray);
   padding: 1rem;
-  width: 775px;
+  width: 100%;
   height: fit-content;
   margin: auto;
-
-  border-radius: 17.5px;
-  bottom: 20%;
-  margin-top: 3rem;
 }
 
 .textintro-wrapper {
   width: auto;
   height: 100%;
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 4rem 15rem 4rem 15rem;
   text-align: center;
   border-radius: 10px;
   background-color: white;
@@ -29,23 +25,9 @@
   margin-bottom: 0;
 }
 .textintro-description {
+  margin:auto;
   font-size: 30px;
-}
-
-@media (max-width: 1100px) {
-  .textintro-container {
-    width: 80%;
-  }
-}
-@media (max-width: 550px) {
-  .textintro-container {
-    width: 80%;
-  }
-}
-@media (max-width: 320px) {
-  .textintro-container {
-    width: 80%;
-  }
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -54,6 +36,10 @@
   }
   .textintro-description {
     font-size: 20px;
+  }
+  .textintro-wrapper {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 }
 
@@ -64,6 +50,10 @@
   .textintro-description {
     font-size: 15px;
   }
+  .textintro-wrapper {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
 
 @media screen and (max-width: 410px) {
@@ -73,6 +63,10 @@
   .textintro-description {
     font-size: 15px;
   }
+  .textintro-wrapper {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -80,7 +74,10 @@
     font-size: 20px;
   }
   .textintro-description {
-    font-size: 10px;
+    font-size: 13px;
+  }
+  .textintro-wrapper {
+    padding: 2rem;
   }
 }
 
@@ -90,5 +87,9 @@
   }
   .textintro-description {
     font-size: 10px;
+  }
+  .textintro-wrapper {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 }

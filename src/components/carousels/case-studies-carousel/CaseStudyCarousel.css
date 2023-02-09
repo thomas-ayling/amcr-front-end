@@ -4,6 +4,8 @@
 
 .case-study-carousel-wrapper {
   width: 1100px;
+  height: auto;
+  max-height: fit-content;
   margin: auto;
   margin-top: 100px;
   padding: 1rem;
@@ -20,6 +22,8 @@
 .case-study-title {
   color: black;
   width: 100%;
+  height: fit-content;
+  font-size: 3vmax !important;
   margin: 0 !important;
   border-radius: 5%;
   -ms-overflow-style: none;
@@ -239,7 +243,7 @@
   }
   .case-study-image {
     width: 100%;
-    aspect-ratio: 1;
+    aspect-ratio: 0;
     min-width: 200px;
     max-width: 600px;
     margin-bottom: 10px;
@@ -248,13 +252,13 @@
     cursor: default;
   }
   .case-study-carousel-content {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 92%;
+    height: 180px;
+    margin-bottom: 30px;
+    overflow: scroll;
+    overflow-x: hidden;
   }
+
   .case-study-carousel-scrollable-description {
     width: 100%;
     min-width: 150px;
@@ -270,14 +274,14 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 75px;
+    margin-top: 0;
   }
   .case-study-carousel-arrow-left,
   .case-study-carousel-arrow-right {
-    height: 60px;
-    width: 60px;
+    height: 30px;
+    width: 30px;
     border-radius: 5px;
-    border: 15px solid var(--gl-orange);
+    border: 5px solid var(--gl-orange);
   }
   .case-study-carousel-arrow-left {
     border-top: 0;
@@ -294,10 +298,10 @@
     width: 100%;
   }
   .case-study-button {
-    width: 100%;
+    width: 65%;
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 

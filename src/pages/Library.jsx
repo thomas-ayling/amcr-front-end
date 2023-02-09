@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactComponent from '../components/contact-component/ContactComponent';
 import LibrarySearch from '../components/library/LibrarySearch';
-import LibraryHeader from '../service/LibraryHeader';
+import LibraryHeader from '../components/carousels/LibraryHeader';
 
 const Library = () => {
   return (

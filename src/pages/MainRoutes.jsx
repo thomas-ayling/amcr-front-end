@@ -26,7 +26,7 @@ const MainRoutes = () => {
         <Route exact path='/library' element={<Library />} />
         <Route exact path='/config' element={<Configuration />} />
         <Route exact path='/future-wiki' element={<FutureWiki />} />
-        <Route exact path='/futureContacts' element={<FutureContacts />} />
+        <Route exact path='/future-contacts' element={<FutureContacts />} />
         <Route exact path='/future-library' element={<FutureLibrary />} />
         <Route exact path='/admin-panel' element={<AdminPanel />} />
         <Route exact path='/case-study/:id' element={<CaseStudySingle />} />

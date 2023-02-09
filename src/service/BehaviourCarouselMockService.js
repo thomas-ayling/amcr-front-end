@@ -1,5 +1,5 @@
-import Integrity from '../assets/images/behaviour-carousel/Integrity.avif';
-import Innovation from '../assets/images/behaviour-carousel/Innovation.avif';
+import Integrity from '../assets/images/behaviour-carousel/Integrity.jpg';
+import Innovation from '../assets/images/behaviour-carousel/Innovation.jpg';
 import Openness from '../assets/images/behaviour-carousel/Openness.jpg';
 import Teamwork from '../assets/images/behaviour-carousel/Teamwork.jpg';
 

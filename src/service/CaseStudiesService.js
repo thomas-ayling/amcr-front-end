@@ -27,8 +27,8 @@ const get = (setCarouselData, setCarouselLoaded, setHeaderCarouselData, setHeade
         setHeaderCarouselData(
           response.data.map((element) => {
             return {
-              title: element.title,
-              image: element.coverImageLink,
+              titles: element.title,
+              imageLinks: element.coverImageLink,
               id: element.id,
             };
           })

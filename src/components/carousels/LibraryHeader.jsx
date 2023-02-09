@@ -1,9 +1,15 @@
 import React from 'react';
 import MainCarousel from './main-carousel/MainCarousel';
-import LibraryHeaderService from '../../service/LibraryHeader';
+import { get } from '../../service/MainCarouselService';
+import { useEffect, useState } from 'react';
 
 const LibraryHeader = () => {
-  return <MainCarousel type='header-single-description' slides={LibraryHeaderService} />;
+  const [slideData, setSlideData] = useState([]);
+
+  useEffect(() => {
+    get('library', setSlideData);
+  }, []);
+  return <MainCarousel type='header-single' slideData={slideData} />;
 };
 
 export default LibraryHeader;

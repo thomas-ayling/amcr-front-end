@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledHr } from '../../../styles/styles';
 import MarkdownComponent from '../../markdown-component/MarkdownComponent';
 
-const ContactsCarouselCard = ({ image, name, title, description }) => {
+const ContactsCarouselCard = ({ image, name, title, description, email }) => {
   return (
     <div className='contacts-carousel-card-border'>
       <div className='contacts-carousel-card-container'>
@@ -16,6 +16,9 @@ const ContactsCarouselCard = ({ image, name, title, description }) => {
           <div className='contacts-carousel-card-title'>
             <b>{title}</b>
           </div>
+          <a href={`mailto:${email}`} className='contacts-carousel-card-email'>
+            {email}
+          </a>
           <StyledHr />
           <div className='contacts-carousel-card-description'>
             <MarkdownComponent markdownText={description} />

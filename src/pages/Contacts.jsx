@@ -1,18 +1,21 @@
 import React from 'react';
+import ContactHeader from '../components/carousels/ContactHeader';
 import ContactsMainCarousel from '../components/carousels/contacts-team-carousel/ContactsMainCarousel';
-import ContactUsHeader from '../service/ContactUsHeader';
 import ContactComponent from '../components/contact-component/ContactComponent';
-import DropFileInput from '../../src/components/attachment-component/DropFileInput';
+import { get } from '../service/MainCarouselService';
+import { useEffect, useState } from 'react';
 
 const Contacts = () => {
+  const [slideData, setSlideData] = useState([]);
+
+  useEffect(() => {
+    get('contact-header', setSlideData);
+  }, []);
   return (
     <div>
-      <ContactUsHeader />
+      <ContactHeader />
       <ContactsMainCarousel />
       <ContactComponent feedbackType={'improvement'} />
-      <div className='drag-and-drop-box'>
-        <DropFileInput />
-      </div>
     </div>
   );
 };
