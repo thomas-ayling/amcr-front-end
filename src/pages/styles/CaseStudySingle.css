@@ -88,6 +88,10 @@
   background-color: var(--gl-orange);
   color: var(--gl-light-gray);
   border: 1px solid var(--gl-dark-orange);
+  width: 180px;
+  height: 45px;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .cssp-download-button:hover {
@@ -119,6 +123,18 @@ width: 50% !important;
 @media (max-width: 551px) {
   .cssp-body-wrapper {
     width: 90% !important;
+  }
+
+  .cssp-download-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 37px;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 12px;
   }
 
   .cssp-title {
