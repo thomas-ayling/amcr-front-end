@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import ArrowIcon from '../assets/images/icons/arrow-icon.png';
 import { get, getCount } from '../service/FeedbackService';
 import { ImCross } from 'react-icons/im';
-import { Link } from 'react-router-dom';
+
 import './styles/AdminPanel.css';
 import DropFileInput from '../../src/components/attachment-component/DropFileInput';
 import { StyledHr } from '../styles/styles';
 import { runToastNotification } from '../components/toast-notification/ToastNotification';
+import '../components/layout.css';
+import FuturePages from '../components/FuturePages';
 
 const AdminPanel = () => {
   const [last, setLast] = useState();
@@ -14,12 +16,6 @@ const AdminPanel = () => {
   const [response, setResponse] = useState(0);
   const [count, setCount] = useState(0);
 
-  const pageReload = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant',
-    });
-  };
   useEffect(() => {
     if (last) {
       get(last, setSubmitStatus, setResponse);
@@ -120,12 +116,8 @@ const AdminPanel = () => {
         </div>
         <div className='drag-and-drop-box'>
           <DropFileInput />
-          <div>
-            <Link to={'/future-contacts'} onClick={pageReload}>
-              Case Studies
-            </Link>
-          </div>
         </div>
+        <FuturePages />
       </>
     );
 };

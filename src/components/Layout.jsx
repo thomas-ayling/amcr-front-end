@@ -1,6 +1,5 @@
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import BehaviourCarousel from './carousels/behaviour-carousel/BehaviourCarousel';
 import './layout.css';
 import ContactComponent from './contact-component/ContactComponent';
@@ -17,6 +16,7 @@ import DropFileInput from './attachment-component/DropFileInput';
 import LibrarySearch from './library/LibrarySearch';
 import LibraryHeader from './carousels/LibraryHeader';
 import { get, put } from '../service/GridLayoutService';
+import FuturePages from './FuturePages';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -33,7 +33,7 @@ function Grid(loc) {
   }, []);
 
   const updateItem = (item) => {
-    put(item, layout, page);
+    put(item, layout, page, setIsChangeable);
   };
   // This is where the component knows what to render new components need to be added to the switch case so that they can be inside the grid
   const handleComponent = (item) => {
@@ -97,7 +97,6 @@ function Grid(loc) {
         isBounded={true}
         isResizable={isChangeable}
         isDraggable={isChangeable}
-        autoSize={true}
       >
         {layout?.map((component) => (
           <div className='item-container' key={component.i} data-grid={{ x: component.x, y: component.y, w: component.w, h: component.h }}>
@@ -105,12 +104,15 @@ function Grid(loc) {
           </div>
         ))}
       </ResponsiveGridLayout>
-      <button className='Grid-button' onClick={() => setIsChangeable(!isChangeable)}>
-        on/off
-      </button>
-      <button className='Grid-button' onClick={() => updateItem(page)}>
-        Save layout
-      </button>
+      <div>
+        <button className='layout-button' onClick={() => setIsChangeable(!isChangeable)}>
+          on/off
+        </button>
+        <button className='layout-button' onClick={() => updateItem(page)}>
+          Save layout
+        </button>
+        <FuturePages />
+      </div>
     </div>
   );
 }

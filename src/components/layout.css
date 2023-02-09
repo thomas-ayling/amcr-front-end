@@ -49,8 +49,7 @@
   margin-right: 0%;
 }
 
-/* CSS */
-.Grid-button {
+.layout-button {
   align-items: center;
   background-clip: padding-box;
   background-color: var(--gl-orange);
@@ -79,18 +78,50 @@
   width: auto;
 }
 
-.Grid-button:hover,
-.Grid-button:focus {
+.layout-button:hover,
+.layout-button:focus {
   background-color: var(--gl-orange);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-.Grid-button:hover {
+.layout-button:hover {
   transform: translateY(-1px);
 }
 
-.Grid-button:active {
+.layout-button:active {
   background-color: var(--gl-orange);
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
+}
+.layout-link {
+  color: #e6e7e8;
+}
+.layout-link:hover {
+  color: #414042;
+}
+
+.link-div {
+  background-color: #fff;
+  padding: 2%;
+  margin: 2%;
+  border-radius: 8px;
+}
+
+.link-title {
+  display: flex;
+  justify-content: center;
+}
+
+.link-div-container {
+  background-color: #e6e7e8;
+  width: 15%;
+  height: fit-content;
+  margin: auto;
+  padding: 0.2rem;
+  border-radius: 20px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
 }
