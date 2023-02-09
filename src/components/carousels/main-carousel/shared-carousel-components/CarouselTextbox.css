@@ -114,6 +114,21 @@
 }
 
 @media screen and (max-width: 321px) {
+  .carousel-textbox {
+    padding: 0.5rem;
+  }
+  .card-text > div > h1 {
+    font-size: 0.3rem;
+  }
+  .card-text > div > h3 {
+    font-size: 0.8rem;
+  }
+  .card-text > div > ul > li {
+    font-size: 0.5rem;
+  }
+  .card-text > div > p > a {
+    font-size: 0.6rem;
+  }
   .card-text > div > p {
     margin-bottom: 0;
   }
