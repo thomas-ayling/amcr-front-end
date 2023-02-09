@@ -94,11 +94,10 @@
     font-size: 20px;
   }
   .textintro-description {
-    font-size: 10px;
+    font-size: 13px;
   }
   .textintro-wrapper {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 2rem;
   }
 }
 
