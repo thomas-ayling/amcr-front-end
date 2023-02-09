@@ -16,7 +16,7 @@ const FeedbackInputs = ({ firstName, setFirstName, lastName, setLastName, emailA
           emailAddress={emailAddress}
           mandatory={false}
         />
-        <FeedbackBodyTextarea id='feedback-textarea' placeholder={`Leave us some feedback*`} setFeedbackBody={setFeedbackBody} value={feedbackBody} />
+        <FeedbackBodyTextarea id='feedback-textarea' placeholder={`Leave us some feedback* (2000 character max)`} setFeedbackBody={setFeedbackBody} value={feedbackBody} />
         <SubmitButton awaiting={awaitingResponse} status={submitStatus} />
       </form>
     </div>

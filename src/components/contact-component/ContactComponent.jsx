@@ -28,6 +28,11 @@ const ContactComponent = ({ feedbackType }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (feedbackBody.length > 500) {
+      runToastNotification("Your feedback exceeds the character limit of 2000", "error");
+      return;
+    }
+
     const feedback = {
       feedbackType: feedbackType,
       firstName: firstName,
