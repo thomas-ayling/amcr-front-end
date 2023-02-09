@@ -16,42 +16,24 @@ import ContactsMainCarousel from './carousels/contacts-team-carousel/ContactsMai
 import DropFileInput from './attachment-component/DropFileInput';
 import LibrarySearch from './library/LibrarySearch';
 import LibraryHeader from './carousels/LibraryHeader';
+import { get, put } from '../service/GridLayoutService';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-//loc is the page the grid is on eg "homepage", "contacts", "case-study" it should match the name in the backend for the desired page
-
+//loc is the page the grid is on eg "homepage", "contacts", "case-study". It should match the name of the page in the backend.
 function Grid(loc) {
   const [layout, setLayout] = useState([]);
   const [page, setPage] = useState([]);
-
   //Used to turn resizeable and draggable functions on and off false =!resizeable and !Draggable
   const [isChangeable, setIsChangeable] = useState(false);
-
   const [isLoading, setIsLoading] = useState(true);
 
-  const baseURL = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/page-layout';
-
   useEffect(() => {
-    axios.get(`${baseURL}?name=${loc.loc}`).then((res) => {
-      if (res) {
-        setIsLoading(false);
-        setPage(res.data);
-        setLayout(res.data.components);
-      }
-    });
+    get(setPage, setLayout, setIsLoading, loc);
   }, []);
 
-  const headers = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': '*', 'Access-Control-Allow-Credentials': 'true' };
   const updateItem = (item) => {
-    axios.put(
-      `${baseURL}/${item.id}`,
-
-      {
-        components: layout,
-      },
-      { headers: headers }
-    );
+    put(item, layout, page);
   };
   // This is where the component knows what to render new components need to be added to the switch case so that they can be inside the grid
   const handleComponent = (item) => {
@@ -101,7 +83,7 @@ function Grid(loc) {
   };
 
   if (isLoading) return <Loader />;
-  // A list of more props is available @ https://github.com/react-grid-layout/react-grid-layout
+  //More props is available @ https://github.com/react-grid-layout/react-grid-layout
   return (
     <div>
       <ResponsiveGridLayout
