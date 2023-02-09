@@ -34,7 +34,7 @@
   width: 100%;
 }
 
-@media (max-width: 1100px) {
+/* @media (max-width: 1100px) {
   .textintro-container {
     width: 80%;
   }
@@ -48,7 +48,7 @@
   .textintro-container {
     width: 80%;
   }
-}
+} */
 
 @media screen and (max-width: 800px) {
   .textintro-title {
@@ -94,11 +94,10 @@
     font-size: 20px;
   }
   .textintro-description {
-    font-size: 10px;
+    font-size: 13px;
   }
   .textintro-wrapper {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 2rem;
   }
 }
 
