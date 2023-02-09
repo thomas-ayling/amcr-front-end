@@ -14,6 +14,7 @@
     user-select: none;
     text-shadow: 1px 1px black;
     font-weight: bold;
+    -webkit-text-stroke: 1px var(--gl-dark-gray);
   }
 
   .carousel-title-link:hover {

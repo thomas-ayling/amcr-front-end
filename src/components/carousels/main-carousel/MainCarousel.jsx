@@ -18,16 +18,20 @@ const MainCarousel = ({ slideData, type, isLink }) => {
       autoPlay &&
       setTimeout(() => {
         slideRight();
-      }, 5000);
+      }, 1000);
     return () => clearTimeout(timeOut.current);
   }, []);
 
   const slideLeft = () => {
-    setCurrent(current === 0 ? slideData.length - 1 : current - 1);
+    if (type.includes("header-single")) {
+      console.log("single pringle")
+    } else {setCurrent(current === 0 ? slideData.length - 1 : current - 1);}
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
   const slideRight = () => {
-    setCurrent(current === slideData.length - 1 ? 0 : current + 1);
+    if (type.includes("header-single")) {
+      console.log("single pringle")
+  } else {setCurrent(current === slideData.length - 1 ? 0 : current + 1);}
   };
 
   const onTouchStart = (e) => {
@@ -73,6 +77,9 @@ const MainCarousel = ({ slideData, type, isLink }) => {
               isLink && handleClickLink(carousel.id);
             }}
           >
+            {type.includes("textbox") && <div className="single-linear-gradient-overlay"></div>}
+            {type.includes("header-single") && <div className="single-linear-gradient-overlay"></div>}
+            {type.includes("header-multi") && <div className="multi-linear-gradient-overlay"></div>}
             <img className='card-image' src={carousel.imageLinks} alt='' />
             <div className='card-overlay'></div>
             {type.includes("textbox") && <SlideDots slideData={slideData} current={current} setCurrent={setCurrent} />}
