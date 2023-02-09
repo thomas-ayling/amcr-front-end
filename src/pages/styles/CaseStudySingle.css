@@ -83,7 +83,7 @@
 .cssp-download-button {
   margin: 1rem;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  font-size: 0.620rem;
+  font-size: 0.62rem;
   border-radius: 5px;
   background-color: var(--gl-orange);
   color: var(--gl-light-gray);
@@ -108,6 +108,11 @@
 
   .cssp-undo-redo-buttons-container {
     display: none;
+  }
+
+  .cssp-submit-edit {
+width: 50% !important;
+    font-size: small !important;
   }
 }
 

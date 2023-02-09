@@ -75,10 +75,10 @@
     width: 95vw;
   }
 
-.feedback-panel-table th,
-.feedback-panel-table td,
-.feedback-panel-table a {
-  max-width: 97px;
-  font-size: small;
-}
+  .feedback-panel-table th,
+  .feedback-panel-table td,
+  .feedback-panel-table a {
+    max-width: 97px;
+    font-size: small;
+  }
 }
