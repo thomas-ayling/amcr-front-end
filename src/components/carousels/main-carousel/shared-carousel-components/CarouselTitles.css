@@ -12,7 +12,7 @@
     border-radius: 17.5px;
     bottom: 0px;
     user-select: none;
-    -webkit-text-stroke: 1pt var(--gl-dark-gray);
+    -webkit-text-stroke: 1pt var(--gl-medium-gray);
     font-weight: bold;
   }
 
