@@ -112,3 +112,9 @@
     font-size: 0.8rem;
   }
 }
+
+@media screen and (max-width: 321px) {
+  .card-text > div > p {
+    margin-bottom: 0;
+  }
+}
