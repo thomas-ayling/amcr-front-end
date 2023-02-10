@@ -84,7 +84,7 @@ function Grid(loc) {
   };
 
   if (isLoading) return <Loader />;
-  //More props is available @ https://github.com/react-grid-layout/react-grid-layout
+  //More props are available @ https://github.com/react-grid-layout/react-grid-layout
   return (
     <div>
       <ResponsiveGridLayout
