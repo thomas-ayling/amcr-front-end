@@ -4,6 +4,7 @@
   padding: 1rem;
   width: 285px;
   margin: auto;
+  /*margin-top: 10px;*/
   border-radius: 17.5px;
 }
 
@@ -78,7 +79,7 @@
 
 /* ContactsMainCarousel.jsx */
 .contacts-carousel {
-  margin-top: 1.5rem;
+  margin-top: 30px;
 }
 .contacts-carousel-arrows {
   display: flex;

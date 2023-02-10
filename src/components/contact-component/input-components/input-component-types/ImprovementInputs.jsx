@@ -9,7 +9,7 @@ const ImprovementInputs = ({ firstName, setFirstName, lastName, setLastName, ema
     <div className='contact-form-container'>
       <form onSubmit={handleSubmit} className='improvements-form contact-form'>
         <UserInfoInputs setFirstName={setFirstName} setLastName={setLastName} setEmailAddress={setEmailAddress} firstName={firstName} lastName={lastName} emailAddress={emailAddress} />
-        <FeedbackBodyTextarea id='improvements-textarea' placeholder='Enter details about your proposed improvements to the engineering center*' setFeedbackBody={setFeedbackBody} value={feedbackBody} />
+        <FeedbackBodyTextarea id='improvements-textarea' placeholder='Enter details about your proposed improvements to the engineering center* (2000 character max)' setFeedbackBody={setFeedbackBody} value={feedbackBody} />
         <AttachmentInput attachment={attachment} setAttachment={setAttachment} />
         <SubmitButton awaiting={awaitingResponse} status={submitStatus} />
       </form>

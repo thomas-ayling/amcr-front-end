@@ -81,13 +81,17 @@
 /*}*/
 
 .cssp-download-button {
-  margin: 5px 5px 10px 5px;
+  margin: 1rem;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  font-size: 0.620rem;
+  font-size: 0.62rem;
   border-radius: 5px;
   background-color: var(--gl-orange);
   color: var(--gl-light-gray);
   border: 1px solid var(--gl-dark-orange);
+  width: 180px;
+  height: 45px;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
 
 .cssp-download-button:hover {
@@ -98,19 +102,39 @@
   .cssp-body-wrapper {
     width: 550px;
   }
-  .cssp-body-row {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* grid-template-columns: 100% !important;
-    grid-template-rows: 50% 50% !important;
-    grid-template-areas: 'image text' !important; */
+
+  .cssp-body-row,
+  .cssp-body-row-edit {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .cssp-undo-redo-buttons-container {
+    display: none;
+  }
+
+  .cssp-submit-edit {
+width: 50% !important;
+    font-size: small !important;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 551px) {
   .cssp-body-wrapper {
-    width: 95vw;
+    width: 90% !important;
+  }
+
+  .cssp-download-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 37px;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 12px;
   }
 
   .cssp-title {
@@ -120,6 +144,13 @@
   .cssp-body-row {
     width: 100%;
     display: flex;
+    flex-direction: column;
+  }
+  .cssp-download-link-container {
+    flex-direction: column;
+  }
+  .edit-carousel-container {
+    display: flex !important;
     flex-direction: column;
   }
 }

@@ -10,7 +10,7 @@
   width: 1100px;
   background-color: var(--gl-light-gray);
   margin: auto;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   border-radius: 17.5px;
   padding: 1rem;
 }
@@ -53,10 +53,12 @@
 .feedback-panel-table td {
   border: 1px solid;
   padding: 0 10px 0 10px;
+  max-width: 230px;
 }
 
-.admin-panel-cross {
-  background-color: red;
+.feedback-panel-table td {
+  vertical-align: top;
+  overflow-wrap: break-word;
 }
 
 .feedback-panel-link-col {
@@ -66,4 +68,17 @@
 .feedback-panel-link {
   width: 50rem;
   font-size: 1rem;
+}
+
+@media (max-width: 1101px) {
+  .admin-panel-container {
+    width: 95vw;
+  }
+
+  .feedback-panel-table th,
+  .feedback-panel-table td,
+  .feedback-panel-table a {
+    max-width: 97px;
+    font-size: small;
+  }
 }

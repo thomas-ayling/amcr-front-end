@@ -9,7 +9,7 @@ const CaseStudyInputs = ({ firstName, setFirstName, lastName, setLastName, email
     <div className='contact-form-container'>
       <form onSubmit={handleSubmit} className='casestudy-form contact-form'>
         <UserInfoInputs setFirstName={setFirstName} setLastName={setLastName} setEmailAddress={setEmailAddress} firstName={firstName} lastName={lastName} emailAddress={emailAddress} mandatory={true} />
-        <FeedbackBodyTextarea id='casestudy-textarea' placeholder='Leave an overview of your proposed case study*' setFeedbackBody={setFeedbackBody} value={feedbackBody} />
+        <FeedbackBodyTextarea id='casestudy-textarea' placeholder='Leave an overview of your proposed case study* (2000 character max)' setFeedbackBody={setFeedbackBody} value={feedbackBody} />
         <AttachmentInput attachment={attachment} setAttachment={setAttachment} />
         <SubmitButton awaiting={awaitingResponse} status={submitStatus} />
       </form>
