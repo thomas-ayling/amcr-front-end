@@ -73,6 +73,9 @@ const MainCarousel = ({ slideData, type, isLink }) => {
               isLink && handleClickLink(carousel.id);
             }}
           >
+            {type.includes("textbox") && <div className="single-linear-gradient-overlay"></div>}
+            {type.includes("header-single") && <div className="single-linear-gradient-overlay"></div>}
+            {type.includes("header-multi") && <div className="multi-linear-gradient-overlay"></div>}
             <img className='card-image' src={carousel.imageLinks} alt='' />
             <div className='card-overlay'></div>
             {type.includes("textbox") && <SlideDots slideData={slideData} current={current} setCurrent={setCurrent} />}
