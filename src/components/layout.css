@@ -50,6 +50,7 @@
 }
 
 .layout-button {
+  object-fit: contain;
   align-items: center;
   background-clip: padding-box;
   background-color: var(--gl-orange);
@@ -114,14 +115,19 @@
 
 .link-div-container {
   background-color: #e6e7e8;
-  width: 22%;
+  width: fit-content;
   height: fit-content;
   margin: auto;
   padding: 0.2rem;
+
   border-radius: 20px;
+  margin-bottom: 5rem;
+  object-fit: contain;
 }
 
 .button-div {
   display: flex;
   justify-content: center;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
