@@ -1,6 +1,6 @@
 import { React } from 'react';
 import WikiHeader from '../components/carousels/WikiHeader';
-import WikiTextIntro from '../components/WikiTextIntro';
+import TextIntro from '../components/shared-components/text-intro/TextIntro';
 import ContactComponent from '../components/contact-component/ContactComponent';
 
 import ContentSection from '../components/wiki/ContentSection';
@@ -9,7 +9,7 @@ const Wiki = () => {
   return (
     <>
       <WikiHeader />
-      <WikiTextIntro />
+      <TextIntro location='wiki' />
       <ContentSection />
       <ContactComponent feedbackType={'improvement'} />
     </>

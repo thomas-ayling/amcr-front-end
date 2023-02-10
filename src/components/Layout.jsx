@@ -6,9 +6,9 @@ import ContactComponent from './contact-component/ContactComponent';
 import Loader from './contact-component/input-components/shared-input-components/Loader';
 import HomepageHeaderCarousel from './carousels/HomepageHeaderCarousel';
 import HomepageBodyCarousel from './carousels/HomepageBodyCarousel';
-import HomepageIntro from './HomepageTextIntro';
+import TextIntro from './shared-components/text-intro/TextIntro';
 import WikiHeader from './carousels/WikiHeader';
-import WikiTextIntro from './WikiTextIntro';
+
 import ContentSection from './wiki/ContentSection';
 import ContactHeader from './carousels/ContactHeader';
 import ContactsMainCarousel from './carousels/contacts-team-carousel/ContactsMainCarousel';
@@ -17,6 +17,7 @@ import LibrarySearch from './library/LibrarySearch';
 import LibraryHeader from './carousels/LibraryHeader';
 import { get, put } from '../service/GridLayoutService';
 import FuturePages from './FuturePages';
+import Diagram from './diagram-component/Diagram';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -45,17 +46,17 @@ function Grid(loc) {
       case 'homepage-behaviour-carousel':
         return <BehaviourCarousel />;
       case 'homepage-text-intro':
-        return <HomepageIntro />;
+        return <TextIntro location='homepage' />;
       case 'homepage-feedback-component':
         return <ContactComponent feedbackType='feedback' />;
       case 'wiki-header':
         return <WikiHeader />;
       case 'wiki-intro':
-        return <WikiTextIntro />;
+        return <TextIntro location='wiki' />;
       case 'wiki-content':
         return <ContentSection />;
       case 'wiki-diagram':
-        return <p>Diagram goes here</p>;
+        return <Diagram />;
       case 'wiki-feedback-component':
         return <ContactComponent feedbackType='improvement' />;
       case 'contact-carousel':
