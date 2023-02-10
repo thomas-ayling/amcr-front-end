@@ -26,7 +26,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--gl-gray);
-
+  padding: 4vh 0 9.5vh 0;
 }
 
 .contact-component {
@@ -282,7 +282,7 @@ textarea::-webkit-scrollbar {
   .contact-component {
     width: 80% !important;
   }
-  
+
   .contact-form-input {
     padding-top: 0;
     padding-left: 3px;
@@ -326,7 +326,6 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width: 281px) {
-
   .contact-form-input::placeholder {
     font-size: 0.41rem;
   }
