@@ -26,8 +26,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--gl-gray);
-  padding: 10vh 0 10vh 0;
-  object-fit: contain;
+  padding: 4vh 0 9.5vh 0;
 }
 
 .contact-component {
@@ -257,7 +256,7 @@ textarea::-webkit-scrollbar {
     padding: 1 0.75rem 1 0.75rem !important;
     align-items: center;
     width: 550px !important;
-    margin-top: 3rem !important;
+    /*margin-top: 3rem !important;*/
   }
 
   .description-container {
@@ -283,7 +282,7 @@ textarea::-webkit-scrollbar {
   .contact-component {
     width: 80% !important;
   }
-  
+
   .contact-form-input {
     padding-top: 0;
     padding-left: 3px;
@@ -327,7 +326,6 @@ textarea::-webkit-scrollbar {
 }
 
 @media (max-width: 281px) {
-
   .contact-form-input::placeholder {
     font-size: 0.41rem;
   }
