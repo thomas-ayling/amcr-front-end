@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import ToggleVisibility from './ToggleVisibility';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { Modal, Button } from 'react-bootstrap';
 import { runToastNotification } from '../toast-notification/ToastNotification';
+import { get, post, put } from '../../service/LibraryService';
+import ToggleVisibility from './ToggleVisibility';
 
 import './LibrarySearch.css';
-import { get, post, put } from '../../service/LibraryService';
 
 // Component for the engineering centre library
 const LibrarySearch = () => {
@@ -18,8 +18,6 @@ const LibrarySearch = () => {
   const [bookAuthorInput, setBookAuthorInput] = useState('');
   const [bookCoverInput, setBookCoverInput] = useState('');
   const [bookGenreInput, setBookGenreInput] = useState('');
-  const [readerNameInput, setReaderNameInput] = useState('');
-  const [readerEmailInput, setReaderEmailInput] = useState('');
 
   const [showModal, setShow] = useState(false);
   const [responseStatus, setResponseStatus] = useState();
@@ -69,17 +67,21 @@ const LibrarySearch = () => {
   };
 
   // Function for reserving specific book with axios request
-  function reserveBook(e, book) {
-    e.preventDefault();
-    const reserveBook = {
-      reader: readerNameInput,
-      email: readerEmailInput,
-    };
-    put(book.id, reserveBook, setResponseStatus);
-  }
 
   // Function that is created within the book mapping to create a reservation area
   function ReserveWrapper({ book }) {
+    const [readerNameInput, setReaderNameInput] = useState('');
+    const [readerEmailInput, setReaderEmailInput] = useState('');
+
+    function reserveBook(e, book) {
+      e.preventDefault();
+      const reserveBook = {
+        reader: readerNameInput,
+        email: readerEmailInput,
+      };
+      put(book.id, reserveBook, setResponseStatus);
+    }
+
     if (book.available === true) {
       return (
         <ToggleVisibility>
@@ -200,7 +202,14 @@ const LibrarySearch = () => {
         </div>
         <div className='Library-SearchBar-Wrapper'>
           <label htmlFor='search-bar'>
-            <input type='search' name='search-bar' className='Library-Search-Input' placeholder='Search Library Here...' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
+            <input
+              type='search'
+              name='search-bar'
+              className='Library-Search-Input'
+              placeholder='Search Library Here...'
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
           </label>
           {/* Genre Book selector dropdown that only appears on mobiles < 425px in screen width */}
           <div className='Library-Genre-Select-Dropdown'>
