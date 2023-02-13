@@ -191,7 +191,7 @@ const LibrarySearch = () => {
               Business
             </button>
             <button
-              className='Library-Genre-Selector-Button'
+              className='Library-Genre-Selector-Button library-reset-button'
               onClick={(e) => {
                 setFitlerParam('');
               }}
