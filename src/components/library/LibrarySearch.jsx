@@ -17,7 +17,7 @@ const LibrarySearch = () => {
   const [bookTitleInput, setBookTitleInput] = useState('');
   const [bookAuthorInput, setBookAuthorInput] = useState('');
   const [bookCoverInput, setBookCoverInput] = useState('');
-  const [bookGenreInput, setBookGenreInput] = useState('');
+  const [bookGenreInput, setBookGenreInput] = useState('none');
 
   const [showModal, setShow] = useState(false);
   const [responseStatus, setResponseStatus] = useState();
@@ -57,8 +57,7 @@ const LibrarySearch = () => {
   const uploadBook = (e) => {
     e.preventDefault();
 
-    console.log('bookGenreInput', bookGenreInput);
-    if (!bookGenreInput) {
+    if (bookGenreInput === 'none') {
       runToastNotification('Please select a genre for your book.', 'error');
       return;
     }
@@ -197,8 +196,8 @@ const LibrarySearch = () => {
                 <input className='Library-Reservation-Input' type='text' name='book-title-input' placeholder='Book title...' value={bookTitleInput} onChange={(e) => setBookTitleInput(e.target.value)} required />
                 <input className='Library-Reservation-Input' type='text' name='book-author-input' placeholder='Book author...' value={bookAuthorInput} onChange={(e) => setBookAuthorInput(e.target.value)} required />
                 <input className='Library-Reservation-Input' type='text' name='book-cover-input' placeholder='Cover image link...' value={bookCoverInput} onChange={(e) => setBookCoverInput(e.target.value)} required />
-                <select value={bookGenreInput} onChange={(e) => setBookGenreInput(e.target.value)} className='genre-select' aria-label='Filter Books by Genre' required>
-                  <option value='none' selected hidden>
+                <select value={bookGenreInput} onChange={(e) => setBookGenreInput(e.target.value)} className='genre-select' aria-label='Filter Books by Genre'>
+                  <option value='none' disabled>
                     Select Genre
                   </option>
                   <option value='Java'>Java</option>
