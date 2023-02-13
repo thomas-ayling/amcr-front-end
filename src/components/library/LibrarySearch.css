@@ -53,6 +53,11 @@
   gap: 1%;
 }
 
+.library-reset-button {
+  background-color: var(--gl-orange) !important;
+  color: white !important;
+}
+
 @media (min-width: 660px) {
   .Library-Genre-Selector-Button {
     width: 15% !important;
