@@ -185,10 +185,10 @@ const LibrarySearch = () => {
             <button
               className='Library-Genre-Selector-Button'
               onClick={(e) => {
-                setFitlerParam('Buisness');
+                setFitlerParam('Business');
               }}
             >
-              Buisness
+              Business
             </button>
             <button
               className='Library-Genre-Selector-Button'
@@ -226,7 +226,7 @@ const LibrarySearch = () => {
               <option value='Devops'>DevOps</option>
               <option value='Management'>Mangement</option>
               <option value='Python'>Python</option>
-              <option value='Buisness'>Buisness</option>
+              <option value='Business'>Business</option>
             </select>
             <span className='focus'></span>
           </div>
@@ -281,7 +281,7 @@ const LibrarySearch = () => {
                   <option value='Devops'>DevOps</option>
                   <option value='Management'>Mangement</option>
                   <option value='Python'>Python</option>
-                  <option value='Buisness'>Buisness</option>
+                  <option value='Business'>Business</option>
                 </select>
                 <button className='Library-Reservation-Button' onClick={(e) => uploadBook(e)}>
                   Add
