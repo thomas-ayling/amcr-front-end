@@ -9,8 +9,8 @@ import { StyledHr } from '../styles/styles';
 import { runToastNotification } from '../components/toast-notification/ToastNotification';
 
 const AdminPanel = () => {
-  const [last, setLast] = useState();
-  const [submitStatus, setSubmitStatus] = useState(0);
+  const [last, setLast] = useState(0);
+  const [submitStatus, setSubmitStatus] = useState();
   const [response, setResponse] = useState(0);
   const [count, setCount] = useState(0);
 
