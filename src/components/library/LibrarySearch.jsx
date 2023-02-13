@@ -61,6 +61,18 @@ const LibrarySearch = () => {
       runToastNotification('Please select a genre for your book.', 'error');
       return;
     }
+    if (bookTitleInput.trim() === '') {
+      runToastNotification('Book title input is invalid.', 'error');
+      return;
+    }
+    if (bookAuthorInput.trim() === '') {
+      runToastNotification('Book author input is invalid.', 'error');
+      return;
+    }
+    if (bookCoverInput.trim() === '') {
+      runToastNotification('Book cover input is invalid.', 'error');
+      return;
+    }
 
     const newBook = {
       title: bookTitleInput,
@@ -81,6 +93,16 @@ const LibrarySearch = () => {
 
     const reserveBook = (e, book) => {
       e.preventDefault();
+
+      if (readerNameInput.trim() == '') {
+        runToastNotification("Please enter a valid name.", "error");
+        return;
+      }
+      if (readerEmailInput.trim() == '') {
+        runToastNotification("Please enter a valid email address.", "error");
+        return;
+      }
+
       const reserveBook = {
         reader: readerNameInput,
         email: readerEmailInput,
@@ -91,26 +113,8 @@ const LibrarySearch = () => {
     return book.available === true ? (
       <ToggleVisibility>
         <form className='Library-Reservation-Input-Container' onSubmit={(e) => reserveBook(e, book)}>
-          <input
-            type='search'
-            className='Library-Reservation-Input'
-            name='reader-name-input'
-            placeholder='Name'
-            value={readerNameInput}
-            onChange={(e) => {
-              setReaderNameInput(e.target.value);
-            }}
-          />
-          <input
-            type='email'
-            className='Library-Reservation-Input'
-            name='reader-firstname-input'
-            placeholder='Email'
-            value={readerEmailInput}
-            onChange={(e) => {
-              setReaderEmailInput(e.target.value);
-            }}
-          />
+          <input type='search' className='Library-Reservation-Input' name='reader-name-input' placeholder='Name' value={readerNameInput} onChange={(e) => setReaderNameInput(e.target.value)} required />
+          <input type='email' className='Library-Reservation-Input' name='reader-firstname-input' placeholder='Email' value={readerEmailInput} onChange={(e) => setReaderEmailInput(e.target.value)} required />
           <input type='submit' value='Reserve' className='Library-Reservation-Button' />
         </form>
       </ToggleVisibility>
@@ -165,7 +169,7 @@ const LibrarySearch = () => {
               Business
             </button>
             <button className='Library-Genre-Selector-Button Library-Genre-Selector-Reset-Button' onClick={(e) => setFitlerParam('')}>
-              Reset Filters
+              Reset
             </button>
           </nav>
         </div>
@@ -240,9 +244,7 @@ const LibrarySearch = () => {
                         {book.genre}
                       </p>
                     </div>
-                    <div className='Library-Reservation-Wrapper'>
-                      <ReserveWrapper book={book} />
-                    </div>
+                    <div className='Library-Reservation-Wrapper'>{book.available ? <ReserveWrapper book={book} /> : <p style={{ margin: '15px 0 0 0' }}>This book has already been reserved by {book.reader}.</p>}</div>
                   </div>
                 </article>
                 <hr className='Library-Book-Divider' />
