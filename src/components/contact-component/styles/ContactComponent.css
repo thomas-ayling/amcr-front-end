@@ -282,7 +282,7 @@ textarea::-webkit-scrollbar {
   .contact-component {
     width: 80% !important;
   }
-  
+
   .contact-form-input {
     padding-top: 0;
     padding-left: 3px;
@@ -325,8 +325,18 @@ textarea::-webkit-scrollbar {
   }
 }
 
-@media (max-width: 281px) {
+@media (max-width: 321px) {
 
+  .contact-form-input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  .submit-button {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 281px) {
   .contact-form-input::placeholder {
     font-size: 0.41rem;
   }
@@ -348,8 +358,7 @@ textarea::-webkit-scrollbar {
   }
 
   .submit-button {
-    font-size: 0.41rem;
-    padding-top: 0px !important;
+    padding-top: 1px !important;
     padding-left: 3px;
   }
 
