@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Body from '../components/case-study-single/Body';
 import EditBody from '../components/case-study-single/EditBody';
