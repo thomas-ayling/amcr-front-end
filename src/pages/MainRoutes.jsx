@@ -8,10 +8,11 @@ import Library from './Library';
 import Configuration from './ConfigurationPage';
 import AdminPanel from './AdminPanel';
 import CaseStudySingle from './CaseStudySingle';
+import WikiSingle from './WikiSingle';
 
 import ToastNotification from '../components/toast-notification/ToastNotification';
 
-import './styles/MainRoutes.css'
+import './styles/MainRoutes.css';
 
 const MainRoutes = () => {
   return (
@@ -26,6 +27,10 @@ const MainRoutes = () => {
         <Route exact path='/admin-panel' element={<AdminPanel />} />
         <Route exact path='/case-study/:id' element={<CaseStudySingle />} />
         <Route exact path='/case-study/edit/:id' element={<CaseStudySingle editMode={true} />} />
+        <Route exact path='/engineering-excellence' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
+        <Route exact path='/employee-journey' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
+        <Route exact path='/charter-and-okrs' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
+        <Route exact path='/lab-science-decks' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
       </Routes>
       <ToastNotification />
     </div>
