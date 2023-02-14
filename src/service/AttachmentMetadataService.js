@@ -19,15 +19,16 @@ const getMetadata = (attachmentLinks, setAttachmentMetadata) => {
   });
   Promise.all(promises)
     .then((res) => {
-      console.log('res[0].data.type', res[0].data.type);
       setAttachmentMetadata(
-        res.map((item, index) => ({
-          name: item.data.name,
-          size: bytesToReadable(item.data.size),
-          type:
-            item.data.type.split('/')[1].toUpperCase() === 'VND.OPENXMLFORMATS-OFFICEDOCUMENT.PRESENTATIONML.PRESENTATION' ? 'PPTX' : item.data.type.split('/')[1].toUpperCase(),
-          link: attachmentLinks[index],
-        }))
+        res.map((item, index) => {
+          const splitName = item.data.name.split('.');
+          return {
+            name: item.data.name,
+            size: bytesToReadable(item.data.size),
+            type: splitName[splitName.length - 1].toUpperCase(),
+            link: attachmentLinks[index],
+          };
+        })
       );
     })
     .catch((err) => console.error(err));

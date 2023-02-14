@@ -47,7 +47,7 @@ const getCount = (setCount, setLast, setSubmitStatus) => {
   axios
     .get(`${baseUrl}/count`, headers)
     .then((res) => {
-      setSubmitStatus("success")
+      setSubmitStatus('success');
       setCount(res.data);
       setLast(res.data);
     })

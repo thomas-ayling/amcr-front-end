@@ -83,7 +83,6 @@ const ContactsMainCarousel = () => {
             <HiOutlineArrowNarrowRight size={90} onClick={() => slider.current.slickNext()} />
           </div>
         </div>
-        <StyledHr />
       </div>
     );
   if (responseStatus.includes('success')) {

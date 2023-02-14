@@ -11,6 +11,9 @@ import CaseStudySingle from './CaseStudySingle';
 import FutureWiki from './FutureWiki';
 import FutureContacts from './FutureContacts';
 import FutureLibrary from './FutureLibrary';
+import WikiSingle from './WikiSingle';
+
+
 import ToastNotification from '../components/toast-notification/ToastNotification';
 
 import './styles/MainRoutes.css';
@@ -31,6 +34,10 @@ const MainRoutes = () => {
         <Route exact path='/admin-panel' element={<AdminPanel />} />
         <Route exact path='/case-study/:id' element={<CaseStudySingle />} />
         <Route exact path='/case-study/edit/:id' element={<CaseStudySingle editMode={true} />} />
+        <Route exact path='/engineering-excellence' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
+        <Route exact path='/employee-journey' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
+        <Route exact path='/charter-and-okrs' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
+        <Route exact path='/lab-science-decks' element={<WikiSingle id={'027fc5e1-543c-423c-b586-7e095993d10c'} />} />
       </Routes>
       <ToastNotification />
     </div>
