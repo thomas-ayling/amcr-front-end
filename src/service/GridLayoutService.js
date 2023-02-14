@@ -6,14 +6,8 @@ const headers = {
 const baseURL = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/page-layout';
 // const baseURL = 'http://localhost:3001/page-layout';
 
-const get = (setPage, setLayout, setIsLoading, location) => {
-  axios.get(`${baseURL}?name=${location.loc}`, headers).then((res) => {
-    if (res) {
-      setIsLoading(false);
-      setPage(res.data);
-      setLayout(res.data.components);
-    }
-  });
+const get = (location) => {
+  axios.get(`${baseURL}?name=${location.loc}`, headers)
 };
 
 const put = (component, layout, page, changeable) => {
