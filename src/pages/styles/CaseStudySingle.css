@@ -13,6 +13,7 @@
   padding: 1rem;
   border-radius: 17.5px;
   background-color: var(--gl-light-gray);
+  margin-bottom: 66px;
 }
 
 .cssp-body-wrapper-edit {
@@ -79,6 +80,36 @@
 /*  color: var(--gl-light-gray);*/
 /*  border: 1px solid var(--gl-dark-orange);*/
 /*}*/
+
+.case-study-edit-button {
+  /*position: fixed;*/
+  background-color: var(--gl-orange);
+  border: 1px solid var(--gl-dark-orange);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-top: -50px;
+  margin-bottom: 60px;
+}
+
+.case-study-edit-button:hover {
+  background-color: var(--gl-dark-orange);
+}
 
 .cssp-download-button {
   margin: 1rem;
@@ -268,6 +299,10 @@ width: 50% !important;
   color: var(--gl-light-gray);
 }
 
+.cssp-delete-row-button:hover {
+  background-color: var(--gl-dark-error);
+}
+
 .cssp-add-row-button {
   right: 0px;
   background-color: var(--gl-lime);
@@ -282,8 +317,8 @@ width: 50% !important;
   height: fit-content;
   position: fixed;
   align-self: flex-end;
-  margin-top: 20px;
-  margin-right: 10px;
+  margin-top: 10px;
+  margin-right: 0;
   background-color: var(--gl-light-gray);
   text-align: center;
 }

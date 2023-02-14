@@ -188,7 +188,7 @@ const EditBody = ({ pageData, setPageData, setAttachmentMetadata, attachmentMeta
                     <h3 className='cssp-row-num'>Row no. {index + 1}</h3>
                     <div className='cssp-edit-buttons-contaier'>
                       <button className='cssp-delete-row-button cssp-edit-button' onClick={() => removeRow(index)} type='button'>
-                        Delete row
+                        - Delete row
                       </button>
                     </div>
                     <div className='cssp-body-img-container'>
