@@ -30,7 +30,8 @@ function Grid(loc) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    get(setPage, setLayout, setIsLoading, loc);
+    get(setPage, setLayout, loc);
+    setIsLoading(false)
   }, []);
 
   const updateItem = (item) => {
