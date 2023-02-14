@@ -23,24 +23,33 @@ const MainCarousel = ({ slideData, type, isLink }) => {
   }, []);
 
   const slideLeft = () => {
-    setCurrent(current === 0 ? slideData.length - 1 : current - 1);
+    if (type.includes("header-single")) {
+    } else {setCurrent(current === 0 ? slideData.length - 1 : current - 1);}
   }; //slide left and right functions - right is used for both the timer and touch events while left is only for touch events
 
   const slideRight = () => {
-    setCurrent(current === slideData.length - 1 ? 0 : current + 1);
+    if (type.includes("header-single")) {
+    } else {setCurrent(current === slideData.length - 1 ? 0 : current + 1);}
   };
 
   const onTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-    setAutoPlay(false); //clears timer/autoplay when user touches the carousel
+    if (type.includes("header-single")) {
+    } else {
+      setTouchEnd(null);
+      setTouchStart(e.targetTouches[0].clientX);
+      setAutoPlay(false); //clears timer/autoplay when user touches the carousel
+    }
   };
 
   const onTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
+    if (type.includes("header-single")) {
+    } else {
+    setTouchEnd(e.targetTouches[0].clientX);}
   };
 
   const onTouchEnd = () => {
+    if (type.includes("header-single")) {
+    } else {
     //makes sure only swipes are registered
     if (!touchStart || !touchEnd) return;
 
@@ -53,12 +62,14 @@ const MainCarousel = ({ slideData, type, isLink }) => {
     if (distance < -minSwipeDistance) {
       slideRight();
     }
-  };
+  }};
 
   const handleMouseEnter = () => {
+    if (type.includes("header-single")) {
+    } else {
     setAutoPlay(false);
     clearTimeout(timeOut.current);
-  };
+  }};
 
   // Internal Components
   const CarouselCards = ({ slideData, current, setCurrent, isLink, handleClickLink }) => {
