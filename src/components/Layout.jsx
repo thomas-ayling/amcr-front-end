@@ -18,6 +18,7 @@ import LibraryHeader from './carousels/LibraryHeader';
 import { get, put } from '../service/GridLayoutService';
 import FuturePages from './FuturePages';
 import Diagram from './diagram-component/Diagram';
+import { runToastNotification } from './toast-notification/ToastNotification';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -32,17 +33,18 @@ function Grid(loc) {
   useEffect(() => {
     try {
       get(setPage, setLayout, loc);
+      setIsLoading(false);
     } catch (err) {
-      console.log('Cannot set layout' + err);
+      runToastNotification('Layout not found', 'error');
     }
-    setIsLoading(false);
   }, []);
 
   const updateItem = (item) => {
     try {
       put(item, layout, page);
+      runToastNotification('Update successful !', 'success');
     } catch (err) {
-      console.log(' Cannot save layout' + err);
+      runToastNotification('Update unsuccessful !', 'error');
     }
     setIsChangeable(false);
   };
