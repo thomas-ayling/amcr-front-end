@@ -30,12 +30,21 @@ function Grid(loc) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    get(setPage, setLayout, loc);
-    setIsLoading(false)
+    try {
+      get(setPage, setLayout, loc);
+    } catch (err) {
+      console.log('Cannot set layout' + err);
+    }
+    setIsLoading(false);
   }, []);
 
   const updateItem = (item) => {
-    put(item, layout, page, setIsChangeable);
+    try {
+      put(item, layout, page);
+    } catch (err) {
+      console.log(' Cannot save layout' + err);
+    }
+    setIsChangeable(false);
   };
   // This is where the component knows what to render new components need to be added to the switch case so that they can be inside the grid
   const handleComponent = (item) => {

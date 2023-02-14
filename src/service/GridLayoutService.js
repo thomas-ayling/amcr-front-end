@@ -15,14 +15,13 @@ const get = (setPage, setLayout, location) => {
   });
 };
 
-const put = (component, layout, page, changeable) => {
+const put = (component, layout, page) => {
   axios.put(
     `${baseURL}/${component.id}`,
 
     { id: page.id, name: page.name, components: layout },
     { headers: headers }
   );
-  changeable(false);
 };
 
 export { get, put };
