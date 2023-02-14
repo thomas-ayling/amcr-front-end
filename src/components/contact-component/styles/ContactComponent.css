@@ -276,6 +276,7 @@ textarea::-webkit-scrollbar {
 @media (max-width: 550px) {
   .contact-component {
     width: 80% !important;
+  }
 
   .contact-component {
     padding: 0.5rem;
@@ -331,7 +332,6 @@ textarea::-webkit-scrollbar {
   }
 }
 
-
 @media (max-width: 321px) {
   .contact-form-input::placeholder {
     font-size: 0.6rem;
@@ -349,7 +349,6 @@ textarea::-webkit-scrollbar {
     width: 12px;
   }
 }
-
 
 @media (max-width: 281px) {
   .contact-form-input::placeholder {
