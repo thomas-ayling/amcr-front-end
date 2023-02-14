@@ -11,8 +11,8 @@ import '../components/layout.css';
 import FuturePages from '../components/FuturePages';
 
 const AdminPanel = () => {
-  const [last, setLast] = useState();
-  const [submitStatus, setSubmitStatus] = useState(0);
+  const [last, setLast] = useState(0);
+  const [submitStatus, setSubmitStatus] = useState();
   const [response, setResponse] = useState(0);
   const [count, setCount] = useState(0);
 

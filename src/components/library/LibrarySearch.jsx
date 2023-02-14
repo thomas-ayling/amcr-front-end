@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import ToggleVisibility from './ToggleVisibility';
 import { BsPlusCircleFill } from 'react-icons/bs';
 import { Modal, Button } from 'react-bootstrap';
 import { runToastNotification } from '../toast-notification/ToastNotification';
+import { get, post, put } from '../../service/LibraryService';
+import ToggleVisibility from './ToggleVisibility';
 
 import './LibrarySearch.css';
-import { get, post, put } from '../../service/LibraryService';
 
 // Component for the engineering centre library
 const LibrarySearch = () => {
@@ -17,9 +17,7 @@ const LibrarySearch = () => {
   const [bookTitleInput, setBookTitleInput] = useState('');
   const [bookAuthorInput, setBookAuthorInput] = useState('');
   const [bookCoverInput, setBookCoverInput] = useState('');
-  const [bookGenreInput, setBookGenreInput] = useState('');
-  const [readerNameInput, setReaderNameInput] = useState('');
-  const [readerEmailInput, setReaderEmailInput] = useState('');
+  const [bookGenreInput, setBookGenreInput] = useState('none');
 
   const [showModal, setShow] = useState(false);
   const [responseStatus, setResponseStatus] = useState();
@@ -58,6 +56,24 @@ const LibrarySearch = () => {
   // ADMIN ONLY - Axios request for adding new book to library
   const uploadBook = (e) => {
     e.preventDefault();
+
+    if (bookGenreInput === 'none') {
+      runToastNotification('Please select a genre for your book.', 'error');
+      return;
+    }
+    if (bookTitleInput.trim() === '') {
+      runToastNotification('Book title input is invalid.', 'error');
+      return;
+    }
+    if (bookAuthorInput.trim() === '') {
+      runToastNotification('Book author input is invalid.', 'error');
+      return;
+    }
+    if (bookCoverInput.trim() === '') {
+      runToastNotification('Book cover input is invalid.', 'error');
+      return;
+    }
+
     const newBook = {
       title: bookTitleInput,
       genre: bookGenreInput,
@@ -69,65 +85,54 @@ const LibrarySearch = () => {
   };
 
   // Function for reserving specific book with axios request
-  function reserveBook(e, book) {
-    e.preventDefault();
-    const reserveBook = {
-      reader: readerNameInput,
-      email: readerEmailInput,
-    };
-    put(book.id, reserveBook, setResponseStatus);
-  }
 
   // Function that is created within the book mapping to create a reservation area
-  function ReserveWrapper({ book }) {
-    if (book.available === true) {
-      return (
-        <ToggleVisibility>
-          <form className='Library-Reservation-Input-Container' onSubmit={(e) => reserveBook(e, book)}>
-            <input
-              type='search'
-              className='Library-Reservation-Input'
-              name='reader-name-input'
-              placeholder='Name'
-              value={readerNameInput}
-              onChange={(e) => {
-                setReaderNameInput(e.target.value);
-              }}
-            />
-            <input
-              type='email'
-              className='Library-Reservation-Input'
-              name='reader-firstname-input'
-              placeholder='Email'
-              value={readerEmailInput}
-              onChange={(e) => {
-                setReaderEmailInput(e.target.value);
-              }}
-            />
-            <input type='submit' value='Reserve' className='Library-Reservation-Button' />
-          </form>
-        </ToggleVisibility>
-      );
-    } else
-      return (
-        <ToggleVisibility>
-          <p>Unavailable. {book.reader} Is currently reading it.</p>
-        </ToggleVisibility>
-      );
-  }
+  const ReserveWrapper = ({ book }) => {
+    const [readerNameInput, setReaderNameInput] = useState('');
+    const [readerEmailInput, setReaderEmailInput] = useState('');
+
+    const reserveBook = (e, book) => {
+      e.preventDefault();
+
+      if (readerNameInput.trim() == '') {
+        runToastNotification("Please enter a valid name.", "error");
+        return;
+      }
+      if (readerEmailInput.trim() == '') {
+        runToastNotification("Please enter a valid email address.", "error");
+        return;
+      }
+
+      const reserveBook = {
+        reader: readerNameInput,
+        email: readerEmailInput,
+      };
+      put(book.id, reserveBook, setResponseStatus);
+    };
+
+    return book.available === true ? (
+      <ToggleVisibility>
+        <form className='Library-Reservation-Input-Container' onSubmit={(e) => reserveBook(e, book)}>
+          <input type='search' className='Library-Reservation-Input' name='reader-name-input' placeholder='Name' value={readerNameInput} onChange={(e) => setReaderNameInput(e.target.value)} required />
+          <input type='email' className='Library-Reservation-Input' name='reader-firstname-input' placeholder='Email' value={readerEmailInput} onChange={(e) => setReaderEmailInput(e.target.value)} required />
+          <input type='submit' value='Reserve' className='Library-Reservation-Button' />
+        </form>
+      </ToggleVisibility>
+    ) : (
+      <ToggleVisibility>
+        <p>Unavailable. {book.reader} Is currently reading it.</p>
+      </ToggleVisibility>
+    );
+  };
 
   // Search function that allows the user to filter and search through the books dependant on genre/search input
   function search(items) {
     // eslint-disable-next-line
     return items.filter((item) => {
       if (item.genre === filterParam) {
-        return searchParam.some((newItem) => {
-          return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
-        });
+        return searchParam.some((newItem) => item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1);
       } else if (filterParam === '') {
-        return searchParam.some((newItem) => {
-          return item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1;
-        });
+        return searchParam.some((newItem) => item[newItem].toString().toLowerCase().indexOf(searchInput.toLowerCase()) > -1);
       }
     });
   }
@@ -148,52 +153,22 @@ const LibrarySearch = () => {
       <div className='Library-Wrapper'>
         <div className='Library-Genre-Select-Wrapper'>
           <nav className='Library-Genre-Select-Options'>
-            <button
-              className='Library-Genre-Selector-Button'
-              onClick={(e) => {
-                setFitlerParam('Java');
-              }}
-            >
+            <button className='Library-Genre-Selector-Button' onClick={() => setFitlerParam('Java')}>
               Java
             </button>
-            <button
-              className='Library-Genre-Selector-Button'
-              onClick={(e) => {
-                setFitlerParam('Python');
-              }}
-            >
+            <button className='Library-Genre-Selector-Button' onClick={() => setFitlerParam('Python')}>
               Python
             </button>
-            <button
-              className='Library-Genre-Selector-Button'
-              onClick={(e) => {
-                setFitlerParam('Devops');
-              }}
-            >
+            <button className='Library-Genre-Selector-Button' onClick={() => setFitlerParam('Devops')}>
               DevOps
             </button>
-            <button
-              className='Library-Genre-Selector-Button'
-              onClick={(e) => {
-                setFitlerParam('Management');
-              }}
-            >
+            <button className='Library-Genre-Selector-Button' onClick={() => setFitlerParam('Management')}>
               Management
             </button>
-            <button
-              className='Library-Genre-Selector-Button'
-              onClick={(e) => {
-                setFitlerParam('Buisness');
-              }}
-            >
-              Buisness
+            <button className='Library-Genre-Selector-Button' onClick={() => setFitlerParam('Business')}>
+              Business
             </button>
-            <button
-              className='Library-Genre-Selector-Button'
-              onClick={(e) => {
-                setFitlerParam('');
-              }}
-            >
+            <button className='Library-Genre-Selector-Button Library-Genre-Selector-Reset-Button' onClick={(e) => setFitlerParam('')}>
               Reset
             </button>
           </nav>
@@ -211,20 +186,13 @@ const LibrarySearch = () => {
           </label>
           {/* Genre Book selector dropdown that only appears on mobiles < 425px in screen width */}
           <div className='Library-Genre-Select-Dropdown'>
-            <select
-              value={filterParam}
-              onChange={(e) => {
-                setFitlerParam(e.target.value);
-              }}
-              className='genre-select'
-              aria-label='Filter Books by Genre'
-            >
+            <select value={filterParam} onChange={(e) => setFitlerParam(e.target.value)} className='genre-select' aria-label='Filter Books by Genre'>
               <option value=''>Filter By Genre</option>
               <option value='Java'>Java</option>
               <option value='Devops'>DevOps</option>
               <option value='Management'>Mangement</option>
               <option value='Python'>Python</option>
-              <option value='Buisness'>Buisness</option>
+              <option value='Business'>Business</option>
             </select>
             <span className='focus'></span>
           </div>
@@ -235,55 +203,21 @@ const LibrarySearch = () => {
               <Modal.Title>Add a new book</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <form className='Library-Reservation-Input-Container'>
-                <input
-                  className='Library-Reservation-Input'
-                  type='text'
-                  name='book-title-input'
-                  placeholder='Enter book title...'
-                  value={bookTitleInput}
-                  onChange={(e) => {
-                    setBookTitleInput(e.target.value);
-                  }}
-                />
-                <input
-                  className='Library-Reservation-Input'
-                  type='text'
-                  name='book-author-input'
-                  placeholder='Enter book author...'
-                  value={bookAuthorInput}
-                  onChange={(e) => {
-                    setBookAuthorInput(e.target.value);
-                  }}
-                />
-                <input
-                  className='Library-Reservation-Input'
-                  type='text'
-                  name='book-cover-input'
-                  placeholder='link to cover...'
-                  value={bookCoverInput}
-                  onChange={(e) => {
-                    setBookCoverInput(e.target.value);
-                  }}
-                />
-                <select
-                  value={bookGenreInput}
-                  onChange={(e) => {
-                    setBookGenreInput(e.target.value);
-                  }}
-                  className='genre-select'
-                  aria-label='Filter Books by Genre'
-                >
-                  <option value=''>Filter By Genre</option>
+              <form className='Library-Reservation-Input-Container' onSubmit={(e) => uploadBook(e)}>
+                <input className='Library-Reservation-Input' type='text' name='book-title-input' placeholder='Book title...' value={bookTitleInput} onChange={(e) => setBookTitleInput(e.target.value)} required />
+                <input className='Library-Reservation-Input' type='text' name='book-author-input' placeholder='Book author...' value={bookAuthorInput} onChange={(e) => setBookAuthorInput(e.target.value)} required />
+                <input className='Library-Reservation-Input' type='text' name='book-cover-input' placeholder='Cover image link...' value={bookCoverInput} onChange={(e) => setBookCoverInput(e.target.value)} required />
+                <select value={bookGenreInput} onChange={(e) => setBookGenreInput(e.target.value)} className='genre-select' aria-label='Filter Books by Genre'>
+                  <option value='none' disabled>
+                    Select Genre
+                  </option>
                   <option value='Java'>Java</option>
                   <option value='Devops'>DevOps</option>
                   <option value='Management'>Mangement</option>
                   <option value='Python'>Python</option>
-                  <option value='Buisness'>Buisness</option>
+                  <option value='Business'>Business</option>
                 </select>
-                <button className='Library-Reservation-Button' onClick={(e) => uploadBook(e)}>
-                  Add
-                </button>
+                <button className='Library-Reservation-Button'>Add</button>
               </form>
             </Modal.Body>
             <Modal.Footer>
@@ -296,8 +230,8 @@ const LibrarySearch = () => {
 
         <div className='Library-SearchResults-Wrapper'>
           <ul className='Library-BookList'>
-            {search(books).map((book) => (
-              <li className='Library-Item' key={book.title}>
+            {search(books).map((book, index) => (
+              <li className='Library-Item' key={index}>
                 <article className='Library-Book'>
                   <div className='Library-Book-Cover'>
                     <img className='Library-Book-Cover-Image' src={book.cover} alt={book.title} />
@@ -317,9 +251,7 @@ const LibrarySearch = () => {
                         {book.genre}
                       </p>
                     </div>
-                    <div className='Library-Reservation-Wrapper'>
-                      <ReserveWrapper book={book} />
-                    </div>
+                    <div className='Library-Reservation-Wrapper'>{book.available ? <ReserveWrapper book={book} /> : <p style={{ margin: '15px 0 0 0' }}>This book has already been reserved by {book.reader}.</p>}</div>
                   </div>
                 </article>
                 <hr className='Library-Book-Divider' />

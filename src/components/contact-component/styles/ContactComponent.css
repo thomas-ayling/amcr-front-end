@@ -250,17 +250,12 @@ textarea::-webkit-scrollbar {
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1101px) {
   .contact-component {
     flex-direction: column;
     padding: 1 0.75rem 1 0.75rem !important;
     align-items: center;
     width: 550px !important;
-    /*margin-top: 3rem !important;*/
-  }
-
-  .description-container {
-    margin-bottom: 0.5rem !important;
   }
 
   .description-container,
@@ -270,7 +265,7 @@ textarea::-webkit-scrollbar {
   }
 
   .description-container {
-    margin: 0 0 0.5rem 0 !important;
+    margin-bottom: 0 0 0.5rem 0 !important;
   }
 
   .contact-form-container {
@@ -281,6 +276,17 @@ textarea::-webkit-scrollbar {
 @media (max-width: 550px) {
   .contact-component {
     width: 80% !important;
+
+  .contact-component {
+    padding: 0.5rem;
+  }
+
+  .description-container {
+    margin: 0 0 0.25rem 0 !important;
+  }
+
+  .contact-form-container {
+    margin: 0.25rem 0 0 0 !important;
   }
 
   .contact-form-input {
@@ -325,6 +331,26 @@ textarea::-webkit-scrollbar {
   }
 }
 
+
+@media (max-width: 321px) {
+  .contact-form-input::placeholder {
+    font-size: 0.6rem;
+  }
+
+  .submit-button {
+    font-size: 0.6rem;
+  }
+
+  .chosen-file {
+    font-size: 0.6rem;
+  }
+
+  #file-icon {
+    width: 12px;
+  }
+}
+
+
 @media (max-width: 281px) {
   .contact-form-input::placeholder {
     font-size: 0.41rem;
@@ -347,9 +373,9 @@ textarea::-webkit-scrollbar {
   }
 
   .submit-button {
-    font-size: 0.41rem;
-    padding-top: 0px !important;
+    padding-top: 1px !important;
     padding-left: 3px;
+    font-size: 0.41rem;
   }
 
   #file-icon {
