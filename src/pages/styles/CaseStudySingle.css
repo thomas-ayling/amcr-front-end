@@ -82,7 +82,7 @@
 /*}*/
 
 .case-study-edit-button {
-  position: fixed;
+  /*position: fixed;*/
   background-color: var(--gl-orange);
   border: 1px solid var(--gl-dark-orange);
   border-radius: 6px;
@@ -103,8 +103,8 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
-  top: 80px;
-  right: 15px;
+  margin-top: -50px;
+  margin-bottom: 60px;
 }
 
 .case-study-edit-button:hover {
