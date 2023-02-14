@@ -154,13 +154,13 @@
   content: '•';
   text-align: center;
 
-  opacity: 0.25;
-  color: var(--gl-dark-orange);
+  opacity: 0.5;
+  color: var(--gl-orange);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .slick-dots li.slick-active button:before {
-  opacity: 0.75;
-  color: var(--gl-dark-orange);
+  opacity: 1;
+  color: var(--gl-orange);
 }

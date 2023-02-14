@@ -79,7 +79,7 @@
 
 /* ContactsMainCarousel.jsx */
 .contacts-carousel {
-  margin-top: 30px;
+  margin-top: 5rem;
 }
 .contacts-carousel-arrows {
   display: flex;
@@ -90,14 +90,13 @@
 .contacts-carousel-arrow-left,
 .contacts-carousel-arrow-right {
   cursor: pointer;
-  color: black;
-  opacity: 50%;
+  color: var(--gl-orange);
   transition: 0.2s;
 }
 
 .contacts-carousel-arrow-left:hover,
 .contacts-carousel-arrow-right:hover {
-  opacity: 100%;
+  color: var(--gl-dark-orange);
   transition: 0.4s;
 }
 

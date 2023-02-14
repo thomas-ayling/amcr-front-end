@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Body from '../components/case-study-single/Body';
 import EditBody from '../components/case-study-single/EditBody';
 import ContactComponent from '../components/contact-component/ContactComponent';
@@ -14,6 +14,7 @@ const CaseStudySingle = ({ editMode }) => {
   const [attachmentMetadata, setAttachmentMetadata] = useState();
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     get(id, setPageData, setRequestStatus, setPageLoaded, setAttachmentMetadata);
@@ -30,12 +31,13 @@ const CaseStudySingle = ({ editMode }) => {
       </div>
     );
   }
+
   if (pageLoaded && !editMode) {
     return (
       <div className='cssp-container'>
         <Body body={pageData.body} title={pageData.title} attachmentMetadata={attachmentMetadata} />
         <ContactComponent feedbackType='case-study' />
-        <Link to={`/case-study/edit/${id}`}>Edit this page</Link>
+        <button className="case-study-edit-button" onClick={() => navigate(`/case-study/edit/${id}`)}>Edit this page</button>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 /* Top tier parent wrapper for whole component */
 .Library-Container {
-  width: 100%;
+  margin: 2rem auto auto auto;
+  width: 1100px;
   height: auto;
   padding: 1rem;
   display: flex;
@@ -8,6 +9,7 @@
   justify-items: center;
   align-items: flex-start;
   background-color: var(--gl-light-gray);
+  border-radius: 17.5px;
 }
 
 .Library-Wrapper {
@@ -58,75 +60,6 @@
   color: white !important;
 }
 
-@media (min-width: 660px) {
-  .Library-Genre-Selector-Button {
-    width: 15% !important;
-    height: auto !important;
-    /* border-top-right-radius: 30%;
-        border-top-left-radius: 30%; */
-    border-radius: 25px;
-    border-color: var(--gl-light-gray);
-    border-width: 1px;
-
-    font-size: 0.75rem;
-  }
-
-  .Library-Genre-Selector-Button:focus {
-    background-color: var(--gl-orange);
-    color: white;
-  }
-}
-
-@media (max-width: 660px) {
-  .Library-Genre-Selector-Button {
-    display: none;
-  }
-}
-
-@media (min-width: 660px) {
-  .Library-Genre-Select-Dropdown {
-    display: none;
-  }
-}
-
-@media (max-width: 660px) {
-  .Library-Genre-Select-Dropdown {
-    display: flex;
-  }
-}
-
-.genre-select {
-  margin-bottom: 4%;
-  margin-top: 4%;
-}
-
-@media (min-width: 660px) {
-  .Library-SearchBar-Wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 0% 1% 0% 1%;
-  }
-}
-
-@media (max-width: 660px) {
-  .Library-SearchBar-Wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 0% 1% 0% 1%;
-  }
-}
-
 .Library-NewBook-Dropdown-Button {
   width: 2.5rem;
   height: auto;
@@ -162,35 +95,6 @@
 
 .Library-Item {
   width: 100%;
-  height: auto;
-}
-
-/* Overall CSS for each Book entry from the DB */
-@media (min-width: 660px) {
-  .Library-Book {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-@media (max-width: 660px) {
-  .Library-Book {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-  }
-
-  .Library-Book-Data {
-    border-top: 1px solid var(--gl-orange);
-    border-bottom: 0px solid white;
-    padding-top: 5%;
-  }
 }
 
 .Library-Book-Cover {
@@ -202,8 +106,8 @@
 
 .Library-Book-Cover-Image {
   width: auto;
-
-  height: 10vmax;
+  height: 175px;
+  /* height: 10vmax; */
 }
 
 .Library-Book-Content {
@@ -211,7 +115,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 90%;
+  height: fit-content;
 }
 
 /* CSS for row of book author, title and genre information */
@@ -226,43 +131,7 @@
   border-bottom: 1px solid var(--gl-orange);
 }
 
-@media (min-width: 1440px) {
-  .Library-Book-Data {
-    font-size: 17px;
-  }
-
-  .Library-Genre-Selector-Button {
-    font-size: 17px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1439px) {
-  .Library-Book-Data {
-    font-size: 15px;
-  }
-
-  .Library-Genre-Selector-Button {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .Library-Book-Data {
-    font-size: 13px;
-  }
-
-  .Library-Genre-Selector-Button {
-    font-size: 13px;
-  }
-}
-
-/* .Library-vl {
-    border-left: 6px var(--gl-dark-orange);
-    height: 100%;
-} */
-
 .Library-Reservation-Wrapper {
-  /* margin-top:2%; */
   width: 100%;
   height: auto;
   display: flex;
@@ -365,4 +234,148 @@
 .button-toggler {
   padding: 5px 10px;
   font-size: 16px;
+}
+
+.genre-select {
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+
+@media (max-width: 320px) {
+}
+
+@media (max-width: 1101px) {
+  .Library-Container {
+    width: 90%;
+    padding: 0.51rem;
+  }
+}
+
+@media (min-width: 750px) {
+  .Library-SearchBar-Wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0% 1% 0% 1%;
+  }
+
+  .Library-Genre-Select-Dropdown {
+    display: none;
+  }
+
+  .Library-Genre-Selector-Button {
+    width: 15% !important;
+    height: auto !important;
+    /* border-top-right-radius: 30%;
+        border-top-left-radius: 30%; */
+    border-radius: 25px;
+    border-color: var(--gl-light-gray);
+    border-width: 1px;
+
+    font-size: 0.75rem;
+  }
+
+  .Library-Genre-Selector-Button:focus {
+    background-color: var(--gl-orange);
+    color: white;
+  }
+
+  .Library-Book {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 750px) {
+  .Library-Book {
+    height: fit-content;
+  }
+
+  .Library-Book-Content {
+    border-top: 1px solid var(--gl-orange);
+  }
+
+  .Library-SearchBar-Wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0% 1% 0% 1%;
+  }
+
+  .Library-Genre-Select-Dropdown {
+    display: flex;
+  }
+
+  .Library-Genre-Selector-Button {
+    display: none;
+  }
+
+  .Library-Book {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* gap: 25px; */
+  }
+
+  .Library-Book-Cover {
+    height: 50%;
+    margin: 10px 0 10px 0;
+  }
+
+  .Library-Book-Cover-Image {
+    height: 175px;
+  }
+
+  .Library-Book-Data {
+    border-bottom: 0px solid white;
+    padding-top: 5%;
+  }
+  
+  .Library-Book-Detail {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .Library-Book-Data {
+    font-size: 13px;
+  }
+
+  .Library-Genre-Selector-Button {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1439px) {
+  .Library-Book-Data {
+    font-size: 15px;
+  }
+
+  .Library-Genre-Selector-Button {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .Library-Book-Data {
+    font-size: 17px;
+  }
+
+  .Library-Genre-Selector-Button {
+    font-size: 17px;
+  }
 }

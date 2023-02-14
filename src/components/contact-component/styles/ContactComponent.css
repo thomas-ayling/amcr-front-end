@@ -21,12 +21,11 @@
 }
 
 .contact-component-container {
-  /* width: 98vw; */
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--gl-gray);
-  padding: 4vh 0 9.5vh 0;
+  margin: 2rem 0 2rem 0;
 }
 
 .contact-component {
@@ -273,9 +272,9 @@ textarea::-webkit-scrollbar {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 551px) {
   .contact-component {
-    width: 80% !important;
+    width: 90% !important;
   }
 
   .contact-component {
