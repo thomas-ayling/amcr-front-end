@@ -30,6 +30,7 @@ const CaseStudySingle = ({ editMode }) => {
       </div>
     );
   }
+
   if (pageLoaded && !editMode) {
     return (
       <div className='cssp-container'>

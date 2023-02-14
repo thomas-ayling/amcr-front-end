@@ -46,9 +46,7 @@ const LibrarySearch = () => {
     }
     if (responseStatus === 'put-success') {
       runToastNotification('Book successfully reserved!', 'success');
-      setTimeout(() => {
-        window.location.reload();
-      }, 5000);
+      setTimeout(() => window.location.reload(), 5000);
       return;
     }
   }, [responseStatus]);
@@ -95,11 +93,11 @@ const LibrarySearch = () => {
       e.preventDefault();
 
       if (readerNameInput.trim() == '') {
-        runToastNotification("Please enter a valid name.", "error");
+        runToastNotification('Please enter a valid name.', 'error');
         return;
       }
       if (readerEmailInput.trim() == '') {
-        runToastNotification("Please enter a valid email address.", "error");
+        runToastNotification('Please enter a valid email address.', 'error');
         return;
       }
 
@@ -224,31 +222,33 @@ const LibrarySearch = () => {
         <div className='Library-SearchResults-Wrapper'>
           <ul className='Library-BookList'>
             {search(books).map((book, index) => (
-              <li className='Library-Item' key={index}>
-                <article className='Library-Book'>
-                  <div className='Library-Book-Cover'>
-                    <img className='Library-Book-Cover-Image' src={book.cover} alt={book.title} />
-                  </div>
-                  <div className='Library-Book-Content'>
-                    <div className='Library-Book-Data'>
-                      <p className='Library-Book-Detail'>
-                        <em className='Library-Orange'>Title: </em>
-                        {book.title}
-                      </p>
-                      <p className='Library-Book-Detail'>
-                        <em className='Library-Orange'>Author: </em>
-                        {book.author}
-                      </p>
-                      <p className='Library-Book-Detail'>
-                        <em className='Library-Orange'>Genre: </em>
-                        {book.genre}
-                      </p>
+              <>
+                <li className='Library-Item' key={index}>
+                  <article className='Library-Book'>
+                    <div className='Library-Book-Cover'>
+                      <img className='Library-Book-Cover-Image' src={book.cover} alt={book.title} />
                     </div>
-                    <div className='Library-Reservation-Wrapper'>{book.available ? <ReserveWrapper book={book} /> : <p style={{ margin: '15px 0 0 0' }}>This book has already been reserved by {book.reader}.</p>}</div>
-                  </div>
-                </article>
+                    <div className='Library-Book-Content'>
+                      <div className='Library-Book-Data'>
+                        <p className='Library-Book-Detail'>
+                          <em className='Library-Orange'>Title: </em>
+                          {book.title}
+                        </p>
+                        <p className='Library-Book-Detail'>
+                          <em className='Library-Orange'>Author: </em>
+                          {book.author}
+                        </p>
+                        <p className='Library-Book-Detail'>
+                          <em className='Library-Orange'>Genre: </em>
+                          {book.genre}
+                        </p>
+                      </div>
+                      <div className='Library-Reservation-Wrapper'>{book.available ? <ReserveWrapper book={book} /> : <p style={{ margin: '15px 0 0 0' }}>This book has already been reserved by {book.reader}.</p>}</div>
+                    </div>
+                  </article>
+                </li>
                 <hr className='Library-Book-Divider' />
-              </li>
+              </>
             ))}
           </ul>
         </div>
