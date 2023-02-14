@@ -52,8 +52,8 @@
 .multi-linear-gradient-overlay:after {
   content: '';
   position: absolute;
-  left: 50;
-  top: 50;
+  left: 50px;
+  top: 50px;
   width: 100%;
   height: 100%;
   background-color: rgba(58, 58, 58, 0.012);
