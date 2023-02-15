@@ -173,7 +173,14 @@ const LibrarySearch = () => {
         </div>
         <div className='Library-SearchBar-Wrapper'>
           <label htmlFor='search-bar'>
-            <input type='search' name='search-bar' className='Library-Search-Input' placeholder='Search Library Here...' value={searchInput} onChange={(e) => setSearchInput(e.target.value)} />
+            <input
+              type='search'
+              name='search-bar'
+              className='Library-Search-Input'
+              placeholder='Search Library Here...'
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
           </label>
           {/* Genre Book selector dropdown that only appears on mobiles < 425px in screen width */}
           <div className='Library-Genre-Select-Dropdown'>

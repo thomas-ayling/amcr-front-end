@@ -7,6 +7,8 @@ import './styles/AdminPanel.css';
 import DropFileInput from '../../src/components/attachment-component/DropFileInput';
 import { StyledHr } from '../styles/styles';
 import { runToastNotification } from '../components/toast-notification/ToastNotification';
+import '../components/layout.css';
+import FuturePages from '../components/FuturePages';
 
 const AdminPanel = () => {
   const [last, setLast] = useState(0);
@@ -45,76 +47,77 @@ const AdminPanel = () => {
   if (response)
     return (
       <>
-      <div className='admin-panel-container'>
-        <div className='admin-panel-wrapper'>
-          <h1 className='admin-panel-title'>All feedback</h1>
-          <StyledHr />
-          <div className='admin-feedback-panel'>
-            <table className='feedback-panel-table'>
-              <thead>
-                <tr>
-                  <th>Feedback type</th>
-                  <th>First name</th>
-                  <th>Last name</th>
-                  <th>Email address</th>
-                  <th>Message</th>
-                  <th>Book title</th>
-                  <th>Book link</th>
-                  <th>Attachment link</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {response.map((row, i) => (
-                  <tr key={i}>
-                    <td>{row.feedbackType}</td>
-                    <td>{row.firstName ? row.firstName : <ImCross fill='red' />}</td>
-                    <td>{row.lastName ? row.lastName : <ImCross fill='red' />}</td>
-                    <td>{row.emailAddress ? row.emailAddress : <ImCross fill='red' />}</td>
-                    <td>{row.feedbackBody ? row.feedbackBody : <ImCross fill='red' />}</td>
-                    <td>{row.bookName ? row.bookName : <ImCross fill='red' />}</td>
-                    <td className='feedback-panel-link-col'>
-                      {row.bookLink ? (
-                        <a href={row.bookLink} target='_blank' className='feedback-panel-link'>
-                          Book link
-                        </a>
-                      ) : (
-                        <ImCross fill='red' />
-                      )}
-                    </td>
-                    <td className='feedback-panel-link-col'>
-                      {row.downloadUri ? (
-                        <a href={row.downloadUri} target='_blank' className='feedback-panel-link'>
-                          Download attachment
-                        </a>
-                      ) : (
-                        <ImCross fill='red' />
-                      )}
-                    </td>
+        <div className='admin-panel-container'>
+          <div className='admin-panel-wrapper'>
+            <h1 className='admin-panel-title'>All feedback</h1>
+            <StyledHr />
+            <div className='admin-feedback-panel'>
+              <table className='feedback-panel-table'>
+                <thead>
+                  <tr>
+                    <th>Feedback type</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email address</th>
+                    <th>Message</th>
+                    <th>Book title</th>
+                    <th>Book link</th>
+                    <th>Attachment link</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
 
-          <div className='admin-buttom-button-container'>
-            <div>
-              <button type='button' onClick={handleLeftClick} className='admin-bottom-button'>
-                <img src={ArrowIcon} alt='arrow icon' className='arrow-icon left-arrow' />
-              </button>
-              <button type='button' onClick={handleRightClick} className='admin-bottom-button'>
-                <img src={ArrowIcon} alt='arrow icon' className='arrow-icon right-arrow' />
-              </button>
+                <tbody>
+                  {response.map((row, i) => (
+                    <tr key={i}>
+                      <td>{row.feedbackType}</td>
+                      <td>{row.firstName ? row.firstName : <ImCross fill='red' />}</td>
+                      <td>{row.lastName ? row.lastName : <ImCross fill='red' />}</td>
+                      <td>{row.emailAddress ? row.emailAddress : <ImCross fill='red' />}</td>
+                      <td>{row.feedbackBody ? row.feedbackBody : <ImCross fill='red' />}</td>
+                      <td>{row.bookName ? row.bookName : <ImCross fill='red' />}</td>
+                      <td className='feedback-panel-link-col'>
+                        {row.bookLink ? (
+                          <a href={row.bookLink} target='_blank' className='feedback-panel-link'>
+                            Book link
+                          </a>
+                        ) : (
+                          <ImCross fill='red' />
+                        )}
+                      </td>
+                      <td className='feedback-panel-link-col'>
+                        {row.downloadUri ? (
+                          <a href={row.downloadUri} target='_blank' className='feedback-panel-link'>
+                            Download attachment
+                          </a>
+                        ) : (
+                          <ImCross fill='red' />
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-            <span>
-              {last}-{last - 10 < 0 ? 0 : last - 10}/{count}
-            </span>
+
+            <div className='admin-buttom-button-container'>
+              <div>
+                <button type='button' onClick={handleLeftClick} className='admin-bottom-button'>
+                  <img src={ArrowIcon} alt='arrow icon' className='arrow-icon left-arrow' />
+                </button>
+                <button type='button' onClick={handleRightClick} className='admin-bottom-button'>
+                  <img src={ArrowIcon} alt='arrow icon' className='arrow-icon right-arrow' />
+                </button>
+              </div>
+              <span>
+                {last}-{last - 10 < 0 ? 0 : last - 10}/{count}
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div className='drag-and-drop-box'>
-        <DropFileInput />
-      </div>
+        <div className='drag-and-drop-box'>
+          <DropFileInput />
+        </div>
+        <FuturePages />
       </>
     );
 };
