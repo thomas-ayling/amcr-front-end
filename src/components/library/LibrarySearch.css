@@ -127,6 +127,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  text-align: center;
   gap: 5%;
   border-bottom: 1px solid var(--gl-orange);
 }
