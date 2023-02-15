@@ -1,5 +1,4 @@
 import React from 'react';
-
 import MainCarousel from './main-carousel/MainCarousel';
 import { get } from '../../service/MainCarouselService';
 import { useEffect, useState } from 'react';
