@@ -16,6 +16,7 @@ const WikiSingle = () => {
       <Link to='/wiki'>
         <button className='wiki-single-button'>Go back</button>
       </Link>
+      <div className='wiki-single-filler'></div>
     </div>
   );
 };

@@ -23,3 +23,7 @@
   color: var(--gl-light-gray);
   margin-bottom: 50px;
 }
+
+.wiki-single-filler {
+  height: 100px;
+}
