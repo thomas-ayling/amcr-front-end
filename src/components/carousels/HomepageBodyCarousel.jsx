@@ -8,7 +8,7 @@ const HomepageBodyCarousel = () => {
   const [slideMainData, setSlideMainData] = useState([]);
   useEffect(() => {
     try {
-      get('homepage-body', setSlideMainData);
+      get('homepage-main', setSlideMainData);
     } catch (err) {
       runToastNotification('Unable to retrieve body carousel slide data', 'error');
     }
