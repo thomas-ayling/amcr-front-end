@@ -5,7 +5,7 @@ import './TextIntro.css';
 import { StyledHr } from '../../../styles/styles';
 import MarkdownComponent from '../../markdown-component/MarkdownComponent';
 
-const TextIntro = (location) => {
+const TextIntro = ({location}) => {
   const [textIntroData, setTextIntroData] = useState([]);
   const baseUrl = 'http://ec-acad-elb-a07a79316f54cbbf.elb.eu-west-2.amazonaws.com:3001/text-intro/location';
   const headers = { 
@@ -17,7 +17,7 @@ const TextIntro = (location) => {
   
   useEffect(() => {
     axios
-      .get(`${baseUrl}/${location.location}`, { headers: headers })
+      .get(`${baseUrl}/${location}`, { headers: headers })
       .then((result) => {
         setTextIntroData(result.data);
       })
