@@ -27,13 +27,13 @@ const FuturePages = () => {
             </Link>
           </button>
           <button className='layout-button'>
-            <Link className='layout-link' to={'/future-library'} onClick={pageReload}>
-              Library
+            <Link className='layout-link' to={'/future-contacts'} onClick={pageReload}>
+              Contacts
             </Link>
           </button>
           <button className='layout-button'>
-            <Link className='layout-link' to={'/future-contacts'} onClick={pageReload}>
-              Contacts
+            <Link className='layout-link' to={'/future-library'} onClick={pageReload}>
+              Library
             </Link>
           </button>
         </div>
