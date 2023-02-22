@@ -11,7 +11,6 @@ const get = (setPage, setLayout, location) => {
     if (res) {
       setPage(res.data);
       setLayout(res.data.components);
-      console.log('res.data.components', res.data.components);
     }
   });
 };

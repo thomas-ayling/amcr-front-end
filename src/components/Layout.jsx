@@ -30,6 +30,9 @@ function Grid(loc) {
   const [isChangeable, setIsChangeable] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const cancel = () => {
+    window.location.reload(false);
+  };
   useEffect(() => {
     try {
       get(setPage, setLayout, loc);
@@ -48,6 +51,7 @@ function Grid(loc) {
     }
     setIsChangeable(false);
   };
+
   // This is where the component knows what to render new components need to be added to the switch case so that they can be inside the grid
   const handleComponent = (item) => {
     switch (item.i) {
@@ -102,13 +106,13 @@ function Grid(loc) {
       <ResponsiveGridLayout
         className='layout'
         layout={layout}
-        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-        cols={{ lg: 5, md: 4, sm: 3, xs: 2, xxs: 1 }}
+        breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480 }}
+        cols={{ lg: 12, md: 10, sm: 8, xs: 5 }}
         rowHeight={30}
         width={1200}
         onLayoutChange={(movingItem) => setLayout(movingItem)}
         isBounded={true}
-        isResizable={isChangeable}
+        isResizable={false}
         isDraggable={isChangeable}
       >
         {layout?.map((component) => (
@@ -123,6 +127,9 @@ function Grid(loc) {
         </button>
         <button className='layout-button' onClick={() => updateItem(page)}>
           Save layout
+        </button>
+        <button className='layout-button' onClick={() => cancel()}>
+          Cancel
         </button>
         <FuturePages />
       </div>
