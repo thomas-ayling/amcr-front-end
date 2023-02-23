@@ -1,0 +1,265 @@
+body {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+.footer {
+  position: relative !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: fit-content;
+  background: rgba(109, 110, 113);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-top: -50px;
+}
+
+.footer-container {
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: 100px;
+}
+
+.footer-divider {
+  width: 100%;
+  border: 1px solid #e6e7e8;
+  border-radius: 5px;
+  margin-top: 2%;
+}
+
+.top-area {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1%;
+  font-size: 19px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1%;
+  margin-top: 1%;
+}
+
+@media (max-width: 1440px) {
+  .top-area {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .top-area {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .top-area {
+    font-size: 12.5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-area {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 350px) {
+  .top-area {
+    font-size: 6px;
+  }
+}
+
+.footer-logo {
+  order: 1;
+  flex-grow: 1;
+  min-width: 10%;
+  max-width: 20%;
+  height: auto;
+  padding-top: 1%;
+  margin-top: 5px;
+}
+
+.gl-logo {
+  display: block;
+  max-width: calc(230px * 0.75);
+  max-height: calc(95px * 0.75);
+  width: auto;
+  height: auto;
+}
+
+.footer-link:link {
+  color: rgb(230, 231, 232);
+  text-shadow: #121212 1px 0 5px;
+  text-decoration: none;
+}
+
+.footer-link:visited {
+  color: #e6e7e8;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #f37a37;
+  transition: 0.3s;
+}
+
+.footer-pages {
+  order: 2;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-grow: 2;
+  min-width: 25%;
+  max-width: 50%;
+  height: auto;
+}
+
+.internal-pages {
+  padding: 3%;
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 750px) {
+  .internal-pages {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .internal-pages {
+    gap: 0.5rem;
+  }
+}
+
+.footer-link {
+  min-width: 10%;
+  height: auto;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+.admin-panel {
+  order: 3;
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1%;
+  align-items: center;
+  width: 20%;
+  height: auto;
+}
+
+.admin-link {
+  height: fit-content;
+  width: fit-content;
+}
+
+.admin-link:link {
+  color: rgb(230, 231, 232);
+  text-shadow: #121212 1px 0 5px;
+  text-decoration: none;
+}
+
+.admin-link:visited {
+  color: rgb(230, 231, 232);
+  text-decoration: none;
+}
+
+.admin-link:hover {
+  color: #f37a37;
+  transition: 0.3s;
+}
+
+.bottom-area {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  padding-top: 1%;
+  margin-bottom: 0;
+}
+
+.footer-trademark {
+  margin-top: 1%;
+  color: rgb(230, 231, 232);
+  text-shadow: #121212 1px 0 1px;
+  text-decoration: none;
+  font-size: 2vmin;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+.footer-social {
+  width: 100%;
+}
+
+.social-icons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-icon {
+  border-radius: 50%;
+  background-color: #e6e7e8;
+  width: 4vmin;
+  height: 4vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon:hover {
+  background-color: #f37a37 !important;
+  transition: 0.3s;
+}
+
+.social-icon:hover .social-icon-individual:hover {
+  filter: invert(1);
+  color: #f37a37 !important;
+  transition: 0.3s;
+}
+
+.social-icon-individual {
+  display: block;
+  max-width: 60%;
+  max-height: 60%;
+}
+
+.last-item {
+  position: relative;
+  display: flex;
+  z-index: 1;
+  width: auto;
+  height: auto;
+}
+
+.footer-top-scroll {
+  cursor: pointer;
+  color: white;
+  width: 6vmin;
+  height: auto;
+}
+
+.footer-top-scroll:hover {
+  color: #f37a37;
+}
+
+.pointer-container {
+  position: absolute;
+  bottom: 1.6rem;
+  right: 1.7rem;
+}

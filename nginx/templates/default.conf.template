@@ -1,0 +1,67 @@
+server {
+    listen       ${NGINX_LP} default_server;
+    listen  [::]:${NGINX_LP} default_server;
+
+    server_name  localhost ${NGINX_HN};
+
+    root  /usr/share/nginx/html;
+    index index.html;
+
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    # config to not allow the browser to render the page inside an frame or iframe
+    # and avoid clickjacking http://en.wikipedia.org/wiki/Clickjacking
+    # if you need to allow [i]frames, you can use SAMEORIGIN or even set an uri with ALLOW-FROM uri
+    # https://developer.mozilla.org/en-US/docs/HTTP/X-Frame-Options
+    add_header X-Frame-Options SAMEORIGIN;
+
+    # when serving user-supplied content, include a X-Content-Type-Options: nosniff header along with the Content-Type: header,
+    # to disable content-type sniffing on some browsers.
+    # https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+    # currently supported in IE > 8 http://blogs.msdn.com/b/ie/archive/2008/09/02/ie8-security-part-vi-beta-2-update.aspx
+    # http://msdn.microsoft.com/en-us/library/ie/gg622941(v=vs.85).aspx
+    # 'soon' on Firefox https://bugzilla.mozilla.org/show_bug.cgi?id=471020
+    add_header X-Content-Type-Options nosniff;
+
+    # This header enables the Cross-site scripting (XSS) filter built into most recent web browsers.
+    # It's usually enabled by default anyway, so the role of this header is to re-enable the filter for
+    # this particular website if it was disabled by the user.
+    # https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+    add_header X-XSS-Protection "1; mode=block";
+
+    # with Content Security Policy (CSP) enabled(and a browser that supports it(http://caniuse.com/#feat=contentsecuritypolicy),
+    # you can tell the browser that it can only download content from the domains you explicitly allow
+    # http://www.html5rocks.com/en/tutorials/security/content-security-policy/
+    # https://www.owasp.org/index.php/Content_Security_Policy
+    # The application code needs to change so we can increase security by disabling 'unsafe-inline' 'unsafe-eval'
+    # directives for css and js (if you have inline css or js, you will need to keep it too).
+    # more: http://www.html5rocks.com/en/tutorials/security/content-security-policy/#inline-code-considered-harmful
+    #add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'self'; img-src 'self' data:; style-src 'self'";
+
+    location /static/ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=604800, immutable";
+    }
+
+    location / {
+        client_max_body_size 20M;
+
+        try_files $uri /index.html =404;
+
+        # Disable FLoC.
+        add_header Permissions-Policy interest-cohort=();
+
+        #add_header Content-Security-Policy "default-src http://*.${NGINX_HN}:${NGINX_LP} 'self'; script-src 'self' 'unsafe-inline' https://*.googleapis.com; connect-src {{ item["sources_domain"] }} blob: https://*.googleapis.com; object-src 'self'; font-src 'self' data: https://use.fontawesome.com; img-src * blob: data:; style-src 'self' https://use.fontawesome.com https://fonts.googleapis.com 'unsafe-inline'; media-src blob:; worker-src http://*.${NGINX_HN}:${NGINX_LP} blob:;";
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+

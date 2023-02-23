@@ -1,0 +1,29 @@
+.wiki-single-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000000 !important;
+}
+
+.wiki-single-admin-toggle {
+  margin-top: 10px;
+  color: blue;
+  text-decoration: underline;
+  background: none;
+  border: none;
+}
+
+.wiki-single-diagram-container {
+  margin-top: 50px;
+}
+
+.wiki-single-button {
+  background-color: var(--gl-orange);
+  border: 1px solid var(--gl-dark-orange);
+  color: var(--gl-light-gray);
+  margin-bottom: 50px;
+}
+
+.wiki-single-filler {
+  height: 100px;
+}

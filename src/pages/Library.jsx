@@ -1,11 +1,15 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import ContactComponent from '../components/contact-component/ContactComponent';
+import LibrarySearch from '../components/library/LibrarySearch';
+import LibraryHeader from '../components/carousels/LibraryHeader';
 
 const Library = () => {
   return (
-    <Container fluid className='page-section'>
-      <div>Library</div>
-    </Container>
+    <>
+      <LibraryHeader />
+      <LibrarySearch />
+      <ContactComponent feedbackType='library' />
+    </>
   );
 };
 

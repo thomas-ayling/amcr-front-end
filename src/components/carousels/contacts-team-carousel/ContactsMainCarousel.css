@@ -1,0 +1,147 @@
+/* ContactsCarouselCard.jsx */
+.contacts-carousel-card-border {
+  background-color: var(--gl-light-gray);
+  padding: 1rem;
+  width: 285px;
+  margin: auto;
+  /*margin-top: 10px;*/
+  border-radius: 17.5px;
+}
+
+.contacts-carousel-card-container {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacts-carousel-card-image-container {
+  width: 85%;
+  background-color: var(--gl-light-gray);
+  margin-top: 20px;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.contacts-carousel-card-image {
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+}
+
+.contacts-carousel-card-information-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contacts-carousel-card-name,
+.contacts-carousel-card-title,
+.contacts-carousel-card-email {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin-top: 5px;
+}
+
+.contacts-carousel-card-name {
+  font-size: 20px;
+}
+
+.contacts-carousel-card-title {
+  font-size: 15px;
+}
+
+.contacts-carousel-card-email {
+  font-size: 12.5px;
+  color: var(--gl-dark-orange);
+}
+
+.contacts-carousel-card-email:hover {
+  color: var(--gl-orange);
+}
+
+.contacts-carousel-card-description {
+  font-size: 15px;
+  width: 92%;
+  height: 120px;
+  margin-bottom: 20px;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-color: var(--gl-medium-gray) white;
+}
+
+.contacts-carousel-card-description::-webkit-scrollbar {
+  background-color: white;
+}
+
+/* ContactsMainCarousel.jsx */
+.contacts-carousel {
+  margin-top: 5rem;
+}
+.contacts-carousel-arrows {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.contacts-carousel-arrow-left,
+.contacts-carousel-arrow-right {
+  cursor: pointer;
+  color: var(--gl-orange);
+  transition: 0.2s;
+}
+
+.contacts-carousel-arrow-left:hover,
+.contacts-carousel-arrow-right:hover {
+  color: var(--gl-dark-orange);
+  transition: 0.4s;
+}
+
+.contacts-carousel-arrow-left {
+  margin-right: 40px;
+}
+
+.contacts-carousel-arrow-right {
+  margin-left: 40px;
+}
+
+@media (max-height: 700px) {
+  .contacts-carousel-card-image-container {
+    width: 60%;
+    margin-top: 15px;
+  }
+
+  .contacts-carousel-card-name,
+  .contacts-carousel-card-title {
+    font-size: 15px;
+  }
+
+  .contacts-carousel-card-description {
+    width: 92%;
+    height: 105px;
+    font-size: 13.5px;
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 750px) {
+  .contacts-carousel-arrow-left,
+  .contacts-carousel-arrow-right {
+    display: none;
+  }
+  .contacts-carousel-arrows {
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (max-width: 325px) {
+  .contacts-carousel-card-border {
+    padding: 1rem;
+    width: 270px;
+    margin: auto;
+    border-radius: 17.5px;
+  }
+}

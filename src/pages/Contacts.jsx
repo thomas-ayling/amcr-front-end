@@ -1,11 +1,15 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import ContactHeader from '../components/carousels/ContactHeader';
+import ContactsMainCarousel from '../components/carousels/contacts-team-carousel/ContactsMainCarousel';
+import ContactComponent from '../components/contact-component/ContactComponent';
 
 const Contacts = () => {
   return (
-    <Container fluid className='page-section'>
-      <div>Contacts</div>
-    </Container>
+    <div>
+      <ContactHeader />
+      <ContactsMainCarousel />
+      <ContactComponent feedbackType={'improvement'} />
+    </div>
   );
 };
 
